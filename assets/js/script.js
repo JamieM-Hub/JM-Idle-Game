@@ -5,6 +5,9 @@ $(document).ready(function () {
         this.color = color;
         this.count = count;
         this.upgradeLevels = upgradeLevels;
+        this.Upgrade = () => {
+            clickerUpgrade(this)
+        }
     }
 
     var clickerOne = new Clicker("One", "red", 0, [3, 6, 10]);
@@ -17,8 +20,6 @@ $(document).ready(function () {
     var clickerEight = new Clicker("Eight", "green", 0, [3, 6, 10]);
 
     let clickers = [clickerOne, clickerTwo, clickerThree, clickerFour, clickerFive, clickerSix, clickerSeven, clickerEight]
-    console.log(clickers);
-
 
     // initialise = (buttons, upgrades) => {
     //     for (let i = 0; i < buttons; i++) {
@@ -40,12 +41,25 @@ $(document).ready(function () {
         return counter + i;
     }
 
+    upgradeCheck = (clicker) => {
+        clicker.Upgrade()
+    }
+
+    clickerUpgrade = (clicker) => {
+        if (clicker.count > 22) {
+            $(clicker.id).text("upgrade!")
+            console.log(clicker.id + " upgrade!")
+        }
+    }
+
     $("button").click(function () {
         var clickedButton = $(this).attr("id");
         for (let i = 0; i < 8; i++) {
             if (clickers[i].id === clickedButton) {
                 clickers[i].count = incrementCounter(clickers[i].count, 5);
                 $(this).text(clickers[i].count.toString())
+                upgradeCheck(clickers[i])
+
             }
         }
     })
