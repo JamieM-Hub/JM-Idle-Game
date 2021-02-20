@@ -1,13 +1,13 @@
 $(document).ready(function () {
 
+    // VARIABLES
+
     function Clicker(id, color, count, upgradeLevels) {
         this.id = id;
         this.color = color;
         this.count = count;
         this.upgradeLevels = upgradeLevels;
-        this.Upgrade = () => {
-            clickerUpgrade(this)
-        }
+        this.Upgrade = () => {clickerUpgrade(this)}
     }
 
     var clickerOne = new Clicker("One", "red", 0, [3, 6, 10]);
@@ -21,43 +21,33 @@ $(document).ready(function () {
 
     let clickers = [clickerOne, clickerTwo, clickerThree, clickerFour, clickerFive, clickerSix, clickerSeven, clickerEight]
 
-    // initialise = (buttons, upgrades) => {
-    //     for (let i = 0; i < buttons; i++) {
-    //         counter[i] = 0;
-    //         console.log(counter[i]);
-    //         for (let j = 0; j < upgrades; j++) {
-    //             upgradeUnlocked[i, j] = false;
-    //             console.log(upgradeUnlocked[i, j]);
-    //         }
-    //     }
-    // }
-    // initialise(8, 3);
-    // unlockUpgrade = (btn, unlock) => {
-    //     console.log("Upgrade " + unlock + " unlocked for Button " + btn + "!");
-    //     upgradeUnlocked[btn, unlock] = true;
-    // }
+    // FUNCTIONS
 
-    incrementCounter = (counter, i) => {
-        return counter + i;
+    incrementCounter = (count, i, btn) => {
+        count = count + i;
+        $(btn).text(count.toString())
+        return count;
     }
 
     upgradeCheck = (clicker) => {
         clicker.Upgrade()
     }
 
-    clickerUpgrade = (clicker) => {
+    clickerUpgrade = (clicker, btn) => {
         if (clicker.count > 22) {
-            $(clicker.id).text("upgrade!")
-            console.log(clicker.id + " upgrade!")
+            $(btn).text("upgrade!")
+            console.log(btn + " upgrade!")
         }
     }
 
+    // EVENTS
+    
     $("button").click(function () {
         var clickedButton = $(this).attr("id");
+
         for (let i = 0; i < 8; i++) {
             if (clickers[i].id === clickedButton) {
-                clickers[i].count = incrementCounter(clickers[i].count, 5);
-                $(this).text(clickers[i].count.toString())
+                clickers[i].count = incrementCounter(clickers[i].count, 5, this);
                 upgradeCheck(clickers[i])
 
             }
