@@ -7,7 +7,9 @@ $(document).ready(function () {
         this.color = color;
         this.count = count;
         this.upgradeLevels = upgradeLevels;
-        this.Upgrade = () => {clickerUpgrade(this)}
+        this.Upgrade = () => {
+            clickerUpgrade(this)
+        }
     }
 
     var clickerOne = new Clicker("One", "red", 0, [3, 6, 10]);
@@ -40,18 +42,39 @@ $(document).ready(function () {
         }
     }
 
+    animateButton = (btn, id) => {
+        // $(btn).animate({
+        //     width: '+=10%',
+        //     height: '-=10%'
+        // })
+    //     $(btn).animate({
+    //         width: '-=20%',
+    //         height: '+=20%'
+    //     })
+    //     $(btn).animate({
+    //         width: '+=10%',
+    //         height: '-=10%'
+    //     })
+
+
+
+    }
+
     // EVENTS
-    
+
     $("button").click(function () {
-        var clickedButton = $(this).attr("id");
+
+        animateButton(this, this.id)
 
         for (let i = 0; i < 8; i++) {
-            if (clickers[i].id === clickedButton) {
-                clickers[i].count = incrementCounter(clickers[i].count, 5, this);
+            if (clickers[i].id === this.id) {
+                clickers[i].count = incrementCounter(clickers[i].count, 3, this);
                 upgradeCheck(clickers[i])
-
             }
         }
+
+
+        
     })
 
 });
