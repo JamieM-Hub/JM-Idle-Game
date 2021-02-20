@@ -8,32 +8,50 @@ $(document).ready(function () {
         n6 = 0,
         n7 = 0,
         n8 = 0,
-        upgradeOneUnlocked = false,
-        upgradeTwoUnlocked = false,
-        upgradeThreeUnlocked = false;
+        b1_upgradeOneUnlocked = false,
+        b1_upgradeTwoUnlocked = false,
+        b1_upgradeThreeUnlocked = false;
+        b2_upgradeOneUnlocked = false,
+        b2_upgradeTwoUnlocked = false,
+        b2_upgradeThreeUnlocked = false;
 
-    unlockUpgradeOne = () => {
-        console.log("Upgrade 1 unlocked!");
+    unlockUpgrade = (btn, unlock) => {
+        console.log("Upgrade " + unlock + " unlocked for Button " + btn + "!");
     }
-
-
 
     $("button").click(function () {
         var btn = $(this).attr("id");
-        var bText;
         switch (btn) {
             case "b1":
                 n1++;
-                console.log(n1, "clicks on button 1");
-                if ((n1 == 3) && !upgradeOneUnlocked) {
-                    unlockUpgradeOne();
-                    upgradeOneUnlocked = true;
+                console.log(n1 + " clicks on button 1");
+
+                if ((n1 == 3) && !b1_upgradeOneUnlocked) {
+                    unlockUpgrade(1, 1);
+                    b1_upgradeOneUnlocked = true;
+                }
+
+                if ((n1 == 6) && !b1_upgradeTwoUnlocked) {
+                    unlockUpgrade(1, 2);
+                    b1_upgradeTwoUnlocked = true;
                 }
                 break;
+
             case "b2":
                 n2++;
-                console.log(n2, "clicks on button 2");
+                console.log(n1 + " clicks on button 2");
+
+                if ((n2 == 3) && !b2_upgradeOneUnlocked) {
+                    unlockUpgrade(2, 1);
+                    b2_upgradeOneUnlocked = true;
+                }
+
+                if ((n2 == 6) && !b2_upgradeTwoUnlocked) {
+                    unlockUpgrade(2, 2);
+                    b2_upgradeTwoUnlocked = true;
+                }
                 break;
+
             case "b3":
                 n3++;
                 console.log(n3, "clicks on button 3");
