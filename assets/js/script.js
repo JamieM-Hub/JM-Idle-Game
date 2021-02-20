@@ -1,20 +1,34 @@
-var n1 = 0,
-    n2 = 0,
-    n3 = 0,
-    n4 = 0,
-    n5 = 0,
-    n6 = 0,
-    n7 = 0,
-    n8 = 0;
-
 $(document).ready(function () {
+
+    var n1 = 0,
+        n2 = 0,
+        n3 = 0,
+        n4 = 0,
+        n5 = 0,
+        n6 = 0,
+        n7 = 0,
+        n8 = 0,
+        upgradeOneUnlocked = false,
+        upgradeTwoUnlocked = false,
+        upgradeThreeUnlocked = false;
+
+    unlockUpgradeOne = () => {
+        console.log("Upgrade 1 unlocked!");
+    }
+
+
 
     $("button").click(function () {
         var btn = $(this).attr("id");
+        var bText;
         switch (btn) {
             case "b1":
                 n1++;
                 console.log(n1, "clicks on button 1");
+                if ((n1 == 3) && !upgradeOneUnlocked) {
+                    unlockUpgradeOne();
+                    upgradeOneUnlocked = true;
+                }
                 break;
             case "b2":
                 n2++;
@@ -45,5 +59,8 @@ $(document).ready(function () {
                 console.log(n8, "clicks on button 8");
                 break;
         }
+
+
     });
+
 });
