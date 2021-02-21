@@ -13,6 +13,7 @@ $(document).ready(function () {
         this.iLevel = iLevel
         this.i = this.iLevel[this.currentLevel]
         this.levelUp = () => {
+            unlockUpgrade(this.currentLevel)
             this.currentLevel++;
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
@@ -56,7 +57,7 @@ $(document).ready(function () {
     }
 
     unlockClicker = (id, tName) => {
-        $(".clicker." + id).removeClass("d-none")
+        $(".clicker." + id).parent().removeClass("d-none")
         $(":contains(" + tName + ")").parent().parent().removeClass("d-none") 
         $(".row > ." + id).text("UNLOCK!")
         $("." + id + " > .clickerCount").text("UNLOCK!")
@@ -95,7 +96,10 @@ $(document).ready(function () {
             unlocked[7] = true;
             unlockClicker("eight", "TRACKER H")
         }
-    
+    }
+
+    unlockUpgrade = (clicker) => {
+        
     }
 
     animateButton = (btn, id) => {
