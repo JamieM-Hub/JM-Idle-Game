@@ -2,24 +2,26 @@ $(document).ready(function () {
 
     // VARIABLES
 
-    function Clicker(id, color, count, upgradeLevels) {
+    function Clicker(id, color, count, T_count, currentLevel, upgradeLevels) {
         this.id = id;
         this.color = color;
         this.count = count;
+        this.T_count = T_count;
+        this.currentLevel = currentLevel;
         this.upgradeLevels = upgradeLevels;
         this.Upgrade = () => {
             clickerUpgrade(this)
         }
     }
 
-    var clickerOne = new Clicker("One", "red", 0, [3, 6, 10]);
-    var clickerTwo = new Clicker("Two", "green", 0, [3, 6, 10]);
-    var clickerThree = new Clicker("Three", "green", 0, [3, 6, 10]);
-    var clickerFour = new Clicker("Four", "green", 0, [3, 6, 10]);
-    var clickerFive = new Clicker("Five", "green", 0, [3, 6, 10]);
-    var clickerSix = new Clicker("Six", "green", 0, [3, 6, 10]);
-    var clickerSeven = new Clicker("Seven", "green", 0, [3, 6, 10]);
-    var clickerEight = new Clicker("Eight", "green", 0, [3, 6, 10]);
+    var clickerOne = new Clicker("One", "red", 0, 0, 1, [3, 6, 10]);
+    var clickerTwo = new Clicker("Two", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerThree = new Clicker("Three", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerFour = new Clicker("Four", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerFive = new Clicker("Five", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerSix = new Clicker("Six", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerSeven = new Clicker("Seven", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerEight = new Clicker("Eight", "green", 0, 0, 1, [3, 6, 10]);
 
     let clickers = [clickerOne, clickerTwo, clickerThree, clickerFour, clickerFive, clickerSix, clickerSeven, clickerEight]
 
