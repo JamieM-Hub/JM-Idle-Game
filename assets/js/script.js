@@ -2,23 +2,22 @@ $(document).ready(function () {
 
     // VARIABLES
 
-    function Clicker(id, color, upgradeLevels, iLevels) {
+    function Clicker(id, color, upgradeLevel, iLevel) {
         this.id = id
         this.color = color
         this.count = 0
         this.count_T = 0
         this.currentLevel = 1
-        this.upgradeLevels = upgradeLevels
-        this.nextLevel = this.upgradeLevels[this.currentLevel]
-        this.iLevels = iLevels
-        this.i = this.iLevels[this.currentLevel]
+        this.upgradeLevel = upgradeLevel
+        this.nextLevel = this.upgradeLevel[this.currentLevel]
+        this.iLevel = iLevel
+        this.i = this.iLevel[this.currentLevel]
         this.levelUp = () => {
-            this.count -= this.nextLevel
-            $("." + this.id + " > .clickerCount").text("LEVEL UP!")
             this.currentLevel++;
-            this.nextLevel = this.upgradeLevels[this.currentLevel]
-            this.i = this.iLevels[this.currentLevel]
-            console.log("level up")
+            this.count -= this.nextLevel
+            this.nextLevel = this.upgradeLevel[this.currentLevel]
+            this.i = this.iLevel[this.currentLevel]
+            $("." + this.id + " > .clickerCount").text("LEVEL UP!")
         }
     }
     let unlockLevel = [1, 20, 50, 80, 100, 125, 150, 200]
@@ -29,10 +28,10 @@ $(document).ready(function () {
     var clickerTwo = new Clicker("two", "green", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
     var clickerThree = new Clicker("three", "blue", [0, 100, 500, 1500], [0, 2, 3, 4])
     var clickerFour = new Clicker("four", "orange", [0, 300, 1000, 2000], [0, 3, 5, 7])
-    var clickerFive = new Clicker("five", "green", [3, 6, 10], [0, 3, 5, 7])
-    var clickerSix = new Clicker("six", "green", [3, 6, 10], [0, 3, 5, 7])
-    var clickerSeven = new Clicker("seven", "green", [3, 6, 10], [0, 3, 5, 7])
-    var clickerEight = new Clicker("eight", "green", [3, 6, 10], [0, 3, 5, 7])
+    var clickerFive = new Clicker("five", "green", [0, 500, 1250, 2500], [0, 5, 7, 10])
+    var clickerSix = new Clicker("six", "green", [0, 750, 1500, 3000], [0, 7, 10, 12])
+    var clickerSeven = new Clicker("seven", "green", [0, 1000, 2000, 3500], [0, 10, 12, 15])
+    var clickerEight = new Clicker("eight", "green", [0, 1250, 2500, 5000], [0, 15, 17, 20])
 
     let clickers = [clickerOne, clickerTwo, clickerThree, clickerFour, clickerFive, clickerSix, clickerSeven, clickerEight]
 
