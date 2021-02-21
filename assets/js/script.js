@@ -56,9 +56,9 @@ $(document).ready(function () {
         return totalScore
     }
 
-    unlockClicker = (id, tName) => {
+    unlockClicker = (id) => {
         $(".clicker." + id).parent().removeClass("d-none")
-        $(":contains(" + tName + ")").parent().parent().removeClass("d-none") 
+        $(":contains(" + id + ")").parent().parent().removeClass("d-none") 
         $(".row > ." + id).text("UNLOCK!")
         $("." + id + " > .clickerCount").text("UNLOCK!")
     }
@@ -70,15 +70,15 @@ $(document).ready(function () {
     checkUnlock = (totalScore) => {
         if (totalScore >= unlockLevel[1] && !unlocked[1]) { 
             unlocked[1] = true;
-            unlockClicker("two", "TRACKER B")
+            unlockClicker("two")
         }
         if (totalScore >= unlockLevel[2] && !unlocked[2]) { 
             unlocked[2] = true;
-            unlockClicker("three", "TRACKER C")
+            unlockClicker("three")
         }
         if (totalScore >= unlockLevel[3] && !unlocked[3]) { 
             unlocked[3] = true;
-            unlockClicker("four", "TRACKER D")
+            unlockClicker("four")
         }
         if (totalScore >= unlockLevel[4] && !unlocked[4]) { 
             unlocked[4] = true;
@@ -99,7 +99,7 @@ $(document).ready(function () {
     }
 
     unlockUpgrade = (clicker) => {
-        
+
     }
 
     animateButton = (btn, id) => {
