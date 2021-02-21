@@ -93,8 +93,8 @@ $(document).ready(function () {
 
     // EVENTS
 
-    // listen to clicks on any button
-    $("button").click(function () {
+    // listen for clicks on any clicker button
+    $(".clickerButton").click(function () {
         animateButton(this, this.id)
 
         // store selected clicker and process
