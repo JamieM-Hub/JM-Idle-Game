@@ -21,7 +21,8 @@ $(document).ready(function () {
             console.log("level up")
         }
     }
-
+    let unlockLevel = [1, 20, 50, 80, 100, 125, 150, 200]
+    let unlocked = [false]
     var totalScore = 0
 
     var clickerOne = new Clicker("one", "red", [0, 20, 100, 300], [0, 1, 1.5, 2])
@@ -55,8 +56,47 @@ $(document).ready(function () {
         return totalScore
     }
 
+    unlockClicker = (id, tName) => {
+        $(".clicker." + id).removeClass("d-none")
+        $(":contains(" + tName + ")").parent().parent().removeClass("d-none") 
+        $(".row > ." + id).text("UNLOCK!")
+        $("." + id + " > .clickerCount").text("UNLOCK!")
+    }
+
     checkLevel = (clicker) => {
         if (clicker.count >= clicker.nextLevel) { clicker.levelUp() }
+    }
+
+    checkUnlock = (totalScore) => {
+        if (totalScore >= unlockLevel[1] && !unlocked[1]) { 
+            unlocked[1] = true;
+            unlockClicker("two", "TRACKER B")
+        }
+        if (totalScore >= unlockLevel[2] && !unlocked[2]) { 
+            unlocked[2] = true;
+            unlockClicker("three", "TRACKER C")
+        }
+        if (totalScore >= unlockLevel[3] && !unlocked[3]) { 
+            unlocked[3] = true;
+            unlockClicker("four", "TRACKER D")
+        }
+        if (totalScore >= unlockLevel[4] && !unlocked[4]) { 
+            unlocked[4] = true;
+            unlockClicker("five", "TRACKER E") 
+        }
+        if (totalScore >= unlockLevel[5] && !unlocked[5]) { 
+            unlocked[5] = true;
+            unlockClicker("six", "TRACKER F")
+        }
+        if (totalScore >= unlockLevel[6] && !unlocked[6]) { 
+            unlocked[6] = true;
+            unlockClicker("seven", "TRACKER G")
+        }
+        if (totalScore >= unlockLevel[7] && !unlocked[7]) { 
+            unlocked[7] = true;
+            unlockClicker("eight", "TRACKER H")
+        }
+    
     }
 
     animateButton = (btn, id) => {
@@ -90,19 +130,27 @@ $(document).ready(function () {
         clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
         totalScore = incrementTotalScore(totalScore, clicker.i)
         checkLevel(clicker)
-
     }
 
     // EVENTS
 
     // listen for clicks on any clicker button
-    $(".clickerButton").click(function () {
+    $(".clicker").click(function () {
         animateButton(this, this.id)
 
         // store selected clicker and process
         var clickedClicker = detectClicker(this, clickers)
         processClick(clickedClicker)
+        checkUnlock(totalScore)
 
     })
+
+    // ADDING CLICKERS + TRACKERS
+
+    $(".clicker").addClass("d-none")
+    $(".tracker").addClass("d-none")
+    $(".clicker.one").removeClass("d-none")
+    $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
+
 
 });
