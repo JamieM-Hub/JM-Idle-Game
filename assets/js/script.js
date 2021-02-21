@@ -13,7 +13,7 @@ $(document).ready(function () {
         this.iLevel = iLevel
         this.i = this.iLevel[this.currentLevel]
         this.levelUp = () => {
-            unlockUpgrade(this.currentLevel)
+            unlockUpgrade(this.id, this.currentLevel)
             this.currentLevel++;
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
@@ -25,7 +25,7 @@ $(document).ready(function () {
     let unlocked = [false]
     var totalScore = 0
 
-    var clickerOne = new Clicker("one", "red", [0, 20, 100, 300], [0, 1, 1.5, 2])
+    var clickerOne = new Clicker("one", "red", [0, 20, 100, 300], [0, 10, 1.5, 2])
     var clickerTwo = new Clicker("two", "green", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
     var clickerThree = new Clicker("three", "blue", [0, 100, 500, 1500], [0, 2, 3, 4])
     var clickerFour = new Clicker("four", "orange", [0, 300, 1000, 2000], [0, 3, 5, 7])
@@ -56,6 +56,11 @@ $(document).ready(function () {
         return totalScore
     }
 
+    unlockUpgrade = (id, level) => {
+        $(".row > ." + id).next(".upgrade-" + level).removeClass("d-none")
+        console.log(id, level)
+    }
+
     unlockClicker = (id) => {
         $(".clicker." + id).parent().removeClass("d-none")
         $(":contains(" + id + ")").parent().parent().removeClass("d-none") 
@@ -82,25 +87,23 @@ $(document).ready(function () {
         }
         if (totalScore >= unlockLevel[4] && !unlocked[4]) { 
             unlocked[4] = true;
-            unlockClicker("five", "TRACKER E") 
+            unlockClicker("five") 
         }
         if (totalScore >= unlockLevel[5] && !unlocked[5]) { 
             unlocked[5] = true;
-            unlockClicker("six", "TRACKER F")
+            unlockClicker("six")
         }
         if (totalScore >= unlockLevel[6] && !unlocked[6]) { 
             unlocked[6] = true;
-            unlockClicker("seven", "TRACKER G")
+            unlockClicker("seven")
         }
         if (totalScore >= unlockLevel[7] && !unlocked[7]) { 
             unlocked[7] = true;
-            unlockClicker("eight", "TRACKER H")
+            unlockClicker("eight")
         }
     }
 
-    unlockUpgrade = (clicker) => {
 
-    }
 
     animateButton = (btn, id) => {
         // $(btn).animate({
