@@ -14,22 +14,22 @@ $(document).ready(function () {
         }
     }
 
-    var clickerOne = new Clicker("One", "red", 0, 0, 1, [3, 6, 10]);
-    var clickerTwo = new Clicker("Two", "green", 0, 0, 1, [3, 6, 10]);
-    var clickerThree = new Clicker("Three", "green", 0, 0, 1, [3, 6, 10]);
-    var clickerFour = new Clicker("Four", "green", 0, 0, 1, [3, 6, 10]);
-    var clickerFive = new Clicker("Five", "green", 0, 0, 1, [3, 6, 10]);
-    var clickerSix = new Clicker("Six", "green", 0, 0, 1, [3, 6, 10]);
-    var clickerSeven = new Clicker("Seven", "green", 0, 0, 1, [3, 6, 10]);
-    var clickerEight = new Clicker("Eight", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerOne = new Clicker("one", "red", 0, 0, 1, [3, 6, 10]);
+    var clickerTwo = new Clicker("two", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerThree = new Clicker("three", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerFour = new Clicker("four", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerFive = new Clicker("five", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerSix = new Clicker("six", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerSeven = new Clicker("seven", "green", 0, 0, 1, [3, 6, 10]);
+    var clickerEight = new Clicker("eight", "green", 0, 0, 1, [3, 6, 10]);
 
     let clickers = [clickerOne, clickerTwo, clickerThree, clickerFour, clickerFive, clickerSix, clickerSeven, clickerEight]
 
     // FUNCTIONS
 
-    incrementCount = (count, i, btn) => {
+    incrementCount = (count, i, id) => {
         count += i;
-        $(btn).text(count.toString())
+        $("." + id).text(count.toString())
         return count
     }
 
@@ -71,7 +71,7 @@ $(document).ready(function () {
     }
 
     processClick = (btn, clicker) => {
-       clicker.count = incrementCount(clicker.count, 3, btn)
+       clicker.count = incrementCount(clicker.count, 3, clicker.id)
     }
 
     // EVENTS
