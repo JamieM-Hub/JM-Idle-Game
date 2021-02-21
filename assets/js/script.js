@@ -14,6 +14,8 @@ $(document).ready(function () {
         }
     }
 
+    var nextLevel = 100
+
     var clickerOne = new Clicker("one", "red", 0, 0, 1, [3, 6, 10]);
     var clickerTwo = new Clicker("two", "green", 0, 0, 1, [3, 6, 10]);
     var clickerThree = new Clicker("three", "green", 0, 0, 1, [3, 6, 10]);
@@ -29,7 +31,8 @@ $(document).ready(function () {
 
     incrementCount = (count, i, id) => {
         count += i;
-        $("." + id).text(count.toString())
+        $("." + id + " > .clickerCount").text(count.toString() + " / " + nextLevel)
+        $(".row > ." + id).text(count.toString())
         return count
     }
 
