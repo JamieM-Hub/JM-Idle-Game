@@ -9,7 +9,7 @@ $(document).ready(function () {
         this.count_T = count_T
         this.currentLevel = currentLevel
         this.upgradeLevels = upgradeLevels
-        this.nextLevel = this.upgradeLevels[0]
+        this.nextLevel = this.upgradeLevels[currentLevel]
         this.Upgrade = () => {
             clickerUpgrade(this)
         }
@@ -17,10 +17,10 @@ $(document).ready(function () {
 
     var totalScore = 0
 
-    var clickerOne = new Clicker("one", "red", 0, 0, 1, [20, 100, 300])
-    var clickerTwo = new Clicker("two", "green", 0, 0, 1, [50, 250, 1000])
-    var clickerThree = new Clicker("three", "blue", 0, 0, 1, [100, 500, 1500])
-    var clickerFour = new Clicker("four", "orange", 0, 0, 1, [300, 1000, 2000])
+    var clickerOne = new Clicker("one", "red", 0, 0, 1, [0, 20, 100, 300])
+    var clickerTwo = new Clicker("two", "green", 0, 0, 1, [0, 50, 250, 1000])
+    var clickerThree = new Clicker("three", "blue", 0, 0, 1, [0, 100, 500, 1500])
+    var clickerFour = new Clicker("four", "orange", 0, 0, 1, [0, 300, 1000, 2000])
     var clickerFive = new Clicker("five", "green", 0, 0, 1, [3, 6, 10])
     var clickerSix = new Clicker("six", "green", 0, 0, 1, [3, 6, 10])
     var clickerSeven = new Clicker("seven", "green", 0, 0, 1, [3, 6, 10])
@@ -48,14 +48,12 @@ $(document).ready(function () {
         return totalScore
     }
 
-    upgradeCheck = (clicker) => {
-        clicker.Upgrade()
-    }
-
-    clickerUpgrade = (clicker, btn) => {
-        if (clicker.count > 22) {
-            $(btn).text("upgrade!")
-            console.log(btn + " upgrade!")
+    checkLevel = (clicker) => {
+        if (clicker.count >= clicker.nextLevel) {
+            clicker.count -= clicker.nextLevel
+            $("." + clicker.id + " > .clickerCount").text("LEVEL UP!")
+            clicker.currentLevel++;
+            clicker.nextLevel = clicker.upgradeLevels[clicker.currentLevel]
         }
     }
 
@@ -85,10 +83,12 @@ $(document).ready(function () {
         return clickedClicker
     }
 
-    processClick = (btn, clicker) => {
+    processClick = (clicker) => {
        clicker.count = incrementCount(clicker.count, 1, clicker.nextLevel, clicker.id)
        clicker.count_T = incrementCount_T(clicker.count_T, 1, clicker.id)
        totalScore = incrementTotalScore(totalScore, 1)
+       checkLevel(clicker)
+
     }
 
     // EVENTS
@@ -99,7 +99,7 @@ $(document).ready(function () {
 
         // store selected clicker and process
         var clickedClicker = detectClicker(this, clickers)
-        processClick(this, clickedClicker)
+        processClick(clickedClicker)
 
     })
 
