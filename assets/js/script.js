@@ -25,10 +25,10 @@ $(document).ready(function () {
 
     // FUNCTIONS
 
-    incrementCounter = (count, i, btn) => {
-        count = count + i;
+    incrementCount = (count, i, btn) => {
+        count += i;
         $(btn).text(count.toString())
-        return count;
+        return count
     }
 
     upgradeCheck = (clicker) => {
@@ -47,34 +47,41 @@ $(document).ready(function () {
         //     width: '+=10%',
         //     height: '-=10%'
         // })
-    //     $(btn).animate({
-    //         width: '-=20%',
-    //         height: '+=20%'
-    //     })
-    //     $(btn).animate({
-    //         width: '+=10%',
-    //         height: '-=10%'
-    //     })
+        //     $(btn).animate({
+        //         width: '-=20%',
+        //         height: '+=20%'
+        //     })
+        //     $(btn).animate({
+        //         width: '+=10%',
+        //         height: '-=10%'
+        //     })
 
+    }
 
+    detectClicker = (btn, clickers) => {
+        var clickedClicker
+        for (let i = 0; i < 8; i++) {
+            if (clickers[i].id === btn.id) {
+                clickedClicker = clickers[i]
+            }
+        }
+        return clickedClicker
+    }
 
+    processClick = (btn, clicker) => {
+       clicker.count = incrementCount(clicker.count, 3, btn)
     }
 
     // EVENTS
 
+    // listen to clicks on any button
     $("button").click(function () {
-
         animateButton(this, this.id)
 
-        for (let i = 0; i < 8; i++) {
-            if (clickers[i].id === this.id) {
-                clickers[i].count = incrementCounter(clickers[i].count, 3, this);
-                upgradeCheck(clickers[i])
-            }
-        }
+        // store selected clicker and process
+        var clickedClicker = detectClicker(this, clickers)
+        processClick(this, clickedClicker)
 
-
-        
     })
 
 });
