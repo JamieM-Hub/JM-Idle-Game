@@ -74,7 +74,7 @@ $(document).ready(function () {
     }
 
     processClick = (btn, clicker) => {
-       clicker.count = incrementCount(clicker.count, 3, clicker.id)
+       clicker.count = incrementCount(clicker.count, 1, clicker.id)
     }
 
     // EVENTS
