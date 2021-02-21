@@ -146,9 +146,7 @@ $(document).ready(function () {
 
     // ADDING CLICKERS + TRACKERS
 
-    $(".clicker").addClass("d-none")
-    $(".tracker").addClass("d-none")
-    $(".clicker.one").removeClass("d-none")
+    $(".clicker.one").parent().removeClass("d-none")
     $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
 
 
