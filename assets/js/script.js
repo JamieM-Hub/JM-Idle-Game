@@ -2,29 +2,36 @@ $(document).ready(function () {
 
     // VARIABLES
 
-    function Clicker(id, color, count, count_T, currentLevel, upgradeLevels) {
+    function Clicker(id, color, upgradeLevels, iLevels) {
         this.id = id
         this.color = color
-        this.count = count
-        this.count_T = count_T
-        this.currentLevel = currentLevel
+        this.count = 0
+        this.count_T = 0
+        this.currentLevel = 1
         this.upgradeLevels = upgradeLevels
-        this.nextLevel = this.upgradeLevels[currentLevel]
-        this.Upgrade = () => {
-            clickerUpgrade(this)
+        this.nextLevel = this.upgradeLevels[this.currentLevel]
+        this.iLevels = iLevels
+        this.i = this.iLevels[this.currentLevel]
+        this.levelUp = () => {
+            this.count -= this.nextLevel
+            $("." + this.id + " > .clickerCount").text("LEVEL UP!")
+            this.currentLevel++;
+            this.nextLevel = this.upgradeLevels[this.currentLevel]
+            this.i = this.iLevels[this.currentLevel]
+            console.log("level up")
         }
     }
 
     var totalScore = 0
 
-    var clickerOne = new Clicker("one", "red", 0, 0, 1, [0, 20, 100, 300])
-    var clickerTwo = new Clicker("two", "green", 0, 0, 1, [0, 50, 250, 1000])
-    var clickerThree = new Clicker("three", "blue", 0, 0, 1, [0, 100, 500, 1500])
-    var clickerFour = new Clicker("four", "orange", 0, 0, 1, [0, 300, 1000, 2000])
-    var clickerFive = new Clicker("five", "green", 0, 0, 1, [3, 6, 10])
-    var clickerSix = new Clicker("six", "green", 0, 0, 1, [3, 6, 10])
-    var clickerSeven = new Clicker("seven", "green", 0, 0, 1, [3, 6, 10])
-    var clickerEight = new Clicker("eight", "green", 0, 0, 1, [3, 6, 10])
+    var clickerOne = new Clicker("one", "red", [0, 20, 100, 300], [0, 1, 1.5, 2])
+    var clickerTwo = new Clicker("two", "green", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
+    var clickerThree = new Clicker("three", "blue", [0, 100, 500, 1500], [0, 2, 3, 4])
+    var clickerFour = new Clicker("four", "orange", [0, 300, 1000, 2000], [0, 3, 5, 7])
+    var clickerFive = new Clicker("five", "green", [3, 6, 10], [0, 3, 5, 7])
+    var clickerSix = new Clicker("six", "green", [3, 6, 10], [0, 3, 5, 7])
+    var clickerSeven = new Clicker("seven", "green", [3, 6, 10], [0, 3, 5, 7])
+    var clickerEight = new Clicker("eight", "green", [3, 6, 10], [0, 3, 5, 7])
 
     let clickers = [clickerOne, clickerTwo, clickerThree, clickerFour, clickerFive, clickerSix, clickerSeven, clickerEight]
 
@@ -49,12 +56,7 @@ $(document).ready(function () {
     }
 
     checkLevel = (clicker) => {
-        if (clicker.count >= clicker.nextLevel) {
-            clicker.count -= clicker.nextLevel
-            $("." + clicker.id + " > .clickerCount").text("LEVEL UP!")
-            clicker.currentLevel++;
-            clicker.nextLevel = clicker.upgradeLevels[clicker.currentLevel]
-        }
+        if (clicker.count >= clicker.nextLevel) { clicker.levelUp() }
     }
 
     animateButton = (btn, id) => {
@@ -84,10 +86,10 @@ $(document).ready(function () {
     }
 
     processClick = (clicker) => {
-       clicker.count = incrementCount(clicker.count, 1, clicker.nextLevel, clicker.id)
-       clicker.count_T = incrementCount_T(clicker.count_T, 1, clicker.id)
-       totalScore = incrementTotalScore(totalScore, 1)
-       checkLevel(clicker)
+        clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
+        clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
+        totalScore = incrementTotalScore(totalScore, clicker.i)
+        checkLevel(clicker)
 
     }
 
