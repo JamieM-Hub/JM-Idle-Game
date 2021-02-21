@@ -2,11 +2,11 @@ $(document).ready(function () {
 
     // VARIABLES
 
-    function Clicker(id, color, count, T_count, currentLevel, upgradeLevels) {
+    function Clicker(id, color, count, count_T, currentLevel, upgradeLevels) {
         this.id = id;
         this.color = color;
         this.count = count;
-        this.T_count = T_count;
+        this.count_T = count_T;
         this.currentLevel = currentLevel;
         this.upgradeLevels = upgradeLevels;
         this.Upgrade = () => {
@@ -33,10 +33,19 @@ $(document).ready(function () {
     incrementCount = (count, i, id) => {
         count += i
         $("." + id + " > .clickerCount").text(count.toString() + " / " + nextLevel)
-        $(".row > ." + id).text(count.toString())
+        return count
+    }
+
+    incrementCount_T = (count_T, i, id) => {
+        count_T += i
+        $(".row > ." + id).text(count_T.toString())
+        return count_T
+    }
+
+    incrementTotalScore = (totalScore, i) => {
         totalScore += i
         $(".totalScore").text(totalScore.toString())
-        return count
+        return totalScore
     }
 
     upgradeCheck = (clicker) => {
@@ -78,6 +87,8 @@ $(document).ready(function () {
 
     processClick = (btn, clicker) => {
        clicker.count = incrementCount(clicker.count, 1, clicker.id)
+       clicker.count_T = incrementCount_T(clicker.count_T, 1, clicker.id)
+       totalScore = incrementTotalScore(totalScore, 1)
     }
 
     // EVENTS
