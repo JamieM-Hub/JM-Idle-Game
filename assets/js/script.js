@@ -25,16 +25,16 @@ $(document).ready(function () {
     let unlocked = [false]
     var totalScore = 0
 
-    var clickerOne = new Clicker("one", "red", [0, 20, 50, 100], [0, 10, 1.5, 2])
-    var clickerTwo = new Clicker("two", "green", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
-    var clickerThree = new Clicker("three", "blue", [0, 100, 500, 1500], [0, 2, 3, 4])
-    var clickerFour = new Clicker("four", "orange", [0, 300, 1000, 2000], [0, 3, 5, 7])
-    var clickerFive = new Clicker("five", "green", [0, 500, 1250, 2500], [0, 5, 7, 10])
-    var clickerSix = new Clicker("six", "green", [0, 750, 1500, 3000], [0, 7, 10, 12])
-    var clickerSeven = new Clicker("seven", "green", [0, 1000, 2000, 3500], [0, 10, 12, 15])
-    var clickerEight = new Clicker("eight", "green", [0, 1250, 2500, 5000], [0, 15, 17, 20])
+    var fire = new Clicker("fire", "red", [0, 20, 50, 100], [0, 10, 1.5, 2])
+    var water = new Clicker("water", "aqua", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
+    var wind = new Clicker("wind", "lightgray", [0, 100, 500, 1500], [0, 2, 3, 4])
+    var earth = new Clicker("earth", "brown", [0, 300, 1000, 2000], [0, 3, 5, 7])
+    var electron = new Clicker("electron", "yellow", [0, 500, 1250, 2500], [0, 5, 7, 10])
+    var nucleus = new Clicker("nucleus", "green", [0, 750, 1500, 3000], [0, 7, 10, 12])
+    var gravity = new Clicker("gravity", "black", [0, 1000, 2000, 3500], [0, 10, 12, 15])
+    var darkMatter = new Clicker("darkMatter", "purple", [0, 1250, 2500, 5000], [0, 15, 17, 20])
 
-    let clickers = [clickerOne, clickerTwo, clickerThree, clickerFour, clickerFive, clickerSix, clickerSeven, clickerEight]
+    let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
     // FUNCTIONS
 
@@ -63,7 +63,7 @@ $(document).ready(function () {
 
     unlockClicker = (id) => {
         $(".clicker." + id).parent().removeClass("d-none")
-        $(":contains(" + id + ")").parent().parent().removeClass("d-none") 
+        $(".row > ." + id).parent().parent().removeClass("d-none") 
         $(".row > ." + id).text("UNLOCK!")
         $("." + id + " > .clickerCount").text("UNLOCK!")
     }
@@ -75,31 +75,31 @@ $(document).ready(function () {
     checkUnlock = (totalScore) => {
         if (totalScore >= unlockLevel[1] && !unlocked[1]) { 
             unlocked[1] = true;
-            unlockClicker("two")
+            unlockClicker("water")
         }
         if (totalScore >= unlockLevel[2] && !unlocked[2]) { 
             unlocked[2] = true;
-            unlockClicker("three")
+            unlockClicker("wind")
         }
         if (totalScore >= unlockLevel[3] && !unlocked[3]) { 
             unlocked[3] = true;
-            unlockClicker("four")
+            unlockClicker("earth")
         }
         if (totalScore >= unlockLevel[4] && !unlocked[4]) { 
             unlocked[4] = true;
-            unlockClicker("five") 
+            unlockClicker("electron") 
         }
         if (totalScore >= unlockLevel[5] && !unlocked[5]) { 
             unlocked[5] = true;
-            unlockClicker("six")
+            unlockClicker("nucleus")
         }
         if (totalScore >= unlockLevel[6] && !unlocked[6]) { 
             unlocked[6] = true;
-            unlockClicker("seven")
+            unlockClicker("gravity")
         }
         if (totalScore >= unlockLevel[7] && !unlocked[7]) { 
             unlocked[7] = true;
-            unlockClicker("eight")
+            unlockClicker("darkMatter")
         }
     }
 
