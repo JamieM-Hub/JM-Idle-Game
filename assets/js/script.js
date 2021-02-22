@@ -25,7 +25,7 @@ $(document).ready(function () {
     let unlocked = [false]
     var totalScore = 0
 
-    var clickerOne = new Clicker("one", "red", [0, 20, 100, 300], [0, 10, 1.5, 2])
+    var clickerOne = new Clicker("one", "red", [0, 20, 50, 100], [0, 10, 1.5, 2])
     var clickerTwo = new Clicker("two", "green", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
     var clickerThree = new Clicker("three", "blue", [0, 100, 500, 1500], [0, 2, 3, 4])
     var clickerFour = new Clicker("four", "orange", [0, 300, 1000, 2000], [0, 3, 5, 7])
@@ -57,7 +57,7 @@ $(document).ready(function () {
     }
 
     unlockUpgrade = (id, level) => {
-        $(".row > ." + id).next(".upgrade-" + level).removeClass("d-none")
+        $(".row > ." + id).siblings(".upgrade-" + level).removeClass("d-none")
         console.log(id, level)
     }
 
