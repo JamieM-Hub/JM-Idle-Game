@@ -62,6 +62,12 @@ $(document).ready(function () {
         return totalScore
     }
 
+    incrementTotalClicks = (totalClicks) => {
+        totalClicks++
+        $(".totalClicks").text(totalClicks.toString())
+        return totalClicks
+    }
+
     changeIncrement = (id, i, n) => {
         i *= n
         $(".row > ." + id).prev().text("+" + i)
@@ -202,7 +208,7 @@ $(document).ready(function () {
     // listen for clicks on any clicker button
     $(".clicker").click(function () {
         animateButton(this, this.id)
-        totalClicks++;
+        totalClicks = incrementTotalClicks(totalClicks);
         // store selected clicker and process
         var clickedClicker = detectClicker(this, clickers)
         processClick(clickedClicker)
