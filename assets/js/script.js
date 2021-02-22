@@ -26,8 +26,16 @@ $(document).ready(function () {
             //this.i *= this.multiplier
             changeIncrement(this.id, this.i, 1)
 
-            $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
-            $("." + this.id + " > .clickerCount").text("LEVEL UP!")
+            if (this.currentLevel == MAX_LEVEL) {
+                $("." + this.id + " > .clickerLevel").text("Level MAX")
+                $("." + this.id + " > .clickerCount").text("COMPLETE!")
+            } 
+            else {
+                $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
+                $("." + this.id + " > .clickerCount").text("LEVEL UP!")
+            }
+
+
         }
         this.unlockTheme = () => {
 
@@ -42,13 +50,13 @@ $(document).ready(function () {
 
 
     var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1)
-    var water = new Clicker("water", "aqua", [1, 30, 50, 80], 2)
-    var wind = new Clicker("wind", "lightgray", [0, 50, 80, 120], 4)
-    var earth = new Clicker("earth", "brown", [0, 75, 1000, 2000], 8)
-    var electron = new Clicker("electron", "yellow", [0, 500, 1250, 2500], 16)
-    var nucleus = new Clicker("nucleus", "green", [0, 750, 1500, 3000], 32)
-    var gravity = new Clicker("gravity", "black", [0, 1000, 2000, 3500], 64)
-    var darkMatter = new Clicker("darkMatter", "purple", [0, 1250, 2500, 5000], 128)
+    var water = new Clicker("water", "aqua", [1, 30, 50, 80, 1, 1, 1, 1, 1, 1], 2)
+    var wind = new Clicker("wind", "lightgray", [0, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4)
+    var earth = new Clicker("earth", "brown", [0, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8)
+    var electron = new Clicker("electron", "yellow", [0, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16)
+    var nucleus = new Clicker("nucleus", "green", [0, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32)
+    var gravity = new Clicker("gravity", "black", [0, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64)
+    var darkMatter = new Clicker("darkMatter", "purple", [0, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128)
 
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
