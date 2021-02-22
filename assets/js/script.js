@@ -7,7 +7,7 @@ $(document).ready(function () {
         this.color = color
         this.count = 0
         this.count_T = 0
-        this.currentLevel = 1
+        this.currentLevel = 0
         this.upgradeLevel = upgradeLevel
         this.nextLevel = this.upgradeLevel[this.currentLevel]
         this.iLevel = iLevel
@@ -18,6 +18,7 @@ $(document).ready(function () {
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
             this.i = this.iLevel[this.currentLevel]
+            $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
             $("." + this.id + " > .clickerCount").text("LEVEL UP!")
         }
     }
