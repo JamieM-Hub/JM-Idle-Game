@@ -18,6 +18,7 @@ $(document).ready(function () {
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
             this.i = this.iLevel[this.currentLevel]
+            changeIncrement(this.id, this.i, 1)
             $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
             $("." + this.id + " > .clickerCount").text("LEVEL UP!")
         }
@@ -30,7 +31,7 @@ $(document).ready(function () {
     // var firstUpgradeUnlocked = false
 
 
-    var fire = new Clicker("fire", "red", [0, 20, 50, 100], [0, 10, 1.5, 2])
+    var fire = new Clicker("fire", "red", [0, 20, 50, 100], [0, 1, 1.5, 2])
     var water = new Clicker("water", "aqua", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
     var wind = new Clicker("wind", "lightgray", [0, 100, 500, 1500], [0, 2, 3, 4])
     var earth = new Clicker("earth", "brown", [0, 300, 1000, 2000], [0, 3, 5, 7])
@@ -61,8 +62,14 @@ $(document).ready(function () {
         return totalScore
     }
 
+    changeIncrement = (id, i, n) => {
+        i *= n
+        $(".row > ." + id).prev().text("+" + i)
+        return i
+    }
+
     unlockUpgrade = (id, level) => {
-        if (!firstUpgradeUnlocked && (level = 1)) firstUpgradeUnlocked = true
+        // if (!firstUpgradeUnlocked && (level = 1)) firstUpgradeUnlocked = true
         $(".row > ." + id).siblings(".upgrade-" + level).removeClass("d-none")
     }
 
