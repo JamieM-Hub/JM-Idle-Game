@@ -158,4 +158,6 @@ $(document).ready(function () {
     $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
 
 
+    $(".achievement").parent().removeClass("d-none")
+
 });
