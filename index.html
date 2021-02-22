@@ -16,15 +16,25 @@
 
 <body class="container-fluid">
 
+    <!-- header -->
     <header>
         <h1>IDLE Game</h1>
     </header>
 
+    <!-- game board -->
     <main class="container-fluid">
         <!-- buttons -->
         <div class="row" id="buttons">
-            <div class="col-6"><a href="index.html"><button>NEW GAME</button></a></div>
-            <div class="col-6"><button>THEMES</button></div>
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newGame">
+                    New Game
+                </button>
+            </div>
+            <div class="col-6">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#themes">
+                    Themes
+                </button>
+            </div>
         </div>
         <!-- total -->
         <div class="row" id="total">
@@ -251,9 +261,90 @@
         </div>
     </main>
 
+    <!-- footer -->
     <footer class="container-fluid">
         some footer text
     </footer>
+
+    <!-- modals -->
+    <!-- new game modal-->
+    <div class="modal fade" id="newGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Are you sure?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                    <a href="index.html"><button type="button" class="btn btn-primary">Yes</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- themes modal-->
+    <div class="modal fade" id="themes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Choose a theme</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="theme">
+                        <span>Default</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Fire</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Water</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Wind</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Earth</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Electron</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Nucleus</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Gravity</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Dark Matter</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                    <div class="theme">
+                        <span>Ultima</span>
+                        <button class="themeButton">Select</button>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js">
