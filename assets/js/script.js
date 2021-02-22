@@ -2,7 +2,7 @@ $(document).ready(function () {
 
     // VARIABLES
 
-    function Clicker(id, color, upgradeLevel, iLevel) {
+    function Clicker(id, color, upgradeLevel, iStart) {
         this.id = id
         this.color = color
         this.count = 0
@@ -10,14 +10,12 @@ $(document).ready(function () {
         this.currentLevel = 0
         this.upgradeLevel = upgradeLevel
         this.nextLevel = this.upgradeLevel[this.currentLevel]
-        this.iLevel = iLevel
-        this.i = this.iLevel[this.currentLevel]
+        this.i = iStart
         this.levelUp = () => {
-            unlockUpgrade(this.id, this.currentLevel)
             this.currentLevel++;
+            if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
-            this.i = this.iLevel[this.currentLevel]
             changeIncrement(this.id, this.i, 1)
             $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
             $("." + this.id + " > .clickerCount").text("LEVEL UP!")
@@ -31,14 +29,14 @@ $(document).ready(function () {
     // var firstUpgradeUnlocked = false
 
 
-    var fire = new Clicker("fire", "red", [0, 20, 50, 100], [0, 1, 1.5, 2])
-    var water = new Clicker("water", "aqua", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
-    var wind = new Clicker("wind", "lightgray", [0, 100, 500, 1500], [0, 2, 3, 4])
-    var earth = new Clicker("earth", "brown", [0, 300, 1000, 2000], [0, 3, 5, 7])
-    var electron = new Clicker("electron", "yellow", [0, 500, 1250, 2500], [0, 5, 7, 10])
-    var nucleus = new Clicker("nucleus", "green", [0, 750, 1500, 3000], [0, 7, 10, 12])
-    var gravity = new Clicker("gravity", "black", [0, 1000, 2000, 3500], [0, 10, 12, 15])
-    var darkMatter = new Clicker("darkMatter", "purple", [0, 1250, 2500, 5000], [0, 15, 17, 20])
+    var fire = new Clicker("fire", "red", [0, 20, 50, 100], 1)
+    var water = new Clicker("water", "aqua", [0, 50, 250, 1000], 1)
+    var wind = new Clicker("wind", "lightgray", [0, 100, 500, 1500], 1)
+    var earth = new Clicker("earth", "brown", [0, 300, 1000, 2000], 1)
+    var electron = new Clicker("electron", "yellow", [0, 500, 1250, 2500], 1)
+    var nucleus = new Clicker("nucleus", "green", [0, 750, 1500, 3000], 1)
+    var gravity = new Clicker("gravity", "black", [0, 1000, 2000, 3500], 1)
+    var darkMatter = new Clicker("darkMatter", "purple", [0, 1250, 2500, 5000], 1)
 
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
@@ -74,9 +72,12 @@ $(document).ready(function () {
         return i
     }
 
-    unlockUpgrade = (id, level) => {
+    unlockUpgrade = (n, i, id) => {
         // if (!firstUpgradeUnlocked && (level = 1)) firstUpgradeUnlocked = true
-        $(".row > ." + id).siblings(".upgrade-" + level).removeClass("d-none")
+        $(".row > ." + id).siblings(".upgrade-" + n).removeClass("d-none")
+        i *= n
+        return i
+
     }
 
     unlockClicker = (id) => {
