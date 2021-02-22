@@ -75,9 +75,10 @@ $(document).ready(function () {
     unlockUpgrade = (n, i, id) => {
         // if (!firstUpgradeUnlocked && (level = 1)) firstUpgradeUnlocked = true
         $(".row > ." + id).siblings(".upgrade-" + n).removeClass("d-none")
-        i *= n
+        if (n == 1) i*= 1.5
+        if (n == 2) i*= 2
+        if (n == 3) i*= 3
         return i
-
     }
 
     unlockClicker = (id) => {
@@ -170,7 +171,6 @@ $(document).ready(function () {
         // }
     }
 
-
     animateButton = (btn, id) => {
         // $(btn).animate({
         //     width: '+=10%',
@@ -221,7 +221,6 @@ $(document).ready(function () {
 
     $(".clicker.one").parent().removeClass("d-none")
     $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
-
 
     // $(".achievement").parent().removeClass("d-none")
 
