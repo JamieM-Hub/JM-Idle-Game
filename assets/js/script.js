@@ -23,8 +23,12 @@ $(document).ready(function () {
         }
     }
     let unlockLevel = [1, 20, 50, 80, 100, 125, 150, 200]
-    let unlocked = [false]
+    var unlocked = [false]
+    var achievementUnlocked = [false]
     var totalScore = 0
+    var totalClicks = 0
+    // var firstUpgradeUnlocked = false
+
 
     var fire = new Clicker("fire", "red", [0, 20, 50, 100], [0, 10, 1.5, 2])
     var water = new Clicker("water", "aqua", [0, 50, 250, 1000], [0, 1.5, 2, 2.5])
@@ -58,52 +62,99 @@ $(document).ready(function () {
     }
 
     unlockUpgrade = (id, level) => {
+        if (!firstUpgradeUnlocked && (level = 1)) firstUpgradeUnlocked = true
         $(".row > ." + id).siblings(".upgrade-" + level).removeClass("d-none")
-        console.log(id, level)
     }
 
     unlockClicker = (id) => {
         $(".clicker." + id).parent().removeClass("d-none")
-        $(".row > ." + id).parent().parent().removeClass("d-none") 
+        $(".row > ." + id).parent().parent().removeClass("d-none")
         $(".row > ." + id).text("UNLOCK!")
         $("." + id + " > .clickerCount").text("UNLOCK!")
     }
 
     checkLevel = (clicker) => {
-        if (clicker.count >= clicker.nextLevel) { clicker.levelUp() }
+        if (clicker.count >= clicker.nextLevel) {
+            clicker.levelUp()
+        }
     }
 
     checkUnlock = (totalScore) => {
-        if (totalScore >= unlockLevel[1] && !unlocked[1]) { 
+        if (totalScore >= unlockLevel[1] && !unlocked[1]) {
             unlocked[1] = true;
             unlockClicker("water")
         }
-        if (totalScore >= unlockLevel[2] && !unlocked[2]) { 
+        if (totalScore >= unlockLevel[2] && !unlocked[2]) {
             unlocked[2] = true;
             unlockClicker("wind")
         }
-        if (totalScore >= unlockLevel[3] && !unlocked[3]) { 
+        if (totalScore >= unlockLevel[3] && !unlocked[3]) {
             unlocked[3] = true;
             unlockClicker("earth")
         }
-        if (totalScore >= unlockLevel[4] && !unlocked[4]) { 
+        if (totalScore >= unlockLevel[4] && !unlocked[4]) {
             unlocked[4] = true;
-            unlockClicker("electron") 
+            unlockClicker("electron")
         }
-        if (totalScore >= unlockLevel[5] && !unlocked[5]) { 
+        if (totalScore >= unlockLevel[5] && !unlocked[5]) {
             unlocked[5] = true;
             unlockClicker("nucleus")
         }
-        if (totalScore >= unlockLevel[6] && !unlocked[6]) { 
+        if (totalScore >= unlockLevel[6] && !unlocked[6]) {
             unlocked[6] = true;
             unlockClicker("gravity")
         }
-        if (totalScore >= unlockLevel[7] && !unlocked[7]) { 
+        if (totalScore >= unlockLevel[7] && !unlocked[7]) {
             unlocked[7] = true;
             unlockClicker("darkMatter")
         }
     }
 
+    checkAchievement = () => {
+
+        // First Click
+        if (!achievementUnlocked[1] && (totalClicks >= 1)) {
+            achievementUnlocked[1] = true
+            $(".firstClick").parent().removeClass("d-none")
+            console.log("achievement 1 (First Click) unlocked!")
+        }
+        // 50 Clicks
+        if (!achievementUnlocked[2] && (totalClicks >= 50)) {
+            achievementUnlocked[2] = true
+            $(".clicks_50").parent().removeClass("d-none")
+            console.log("achievement 2 (50 Clicks) unlocked!")
+        }
+        // 100 Clicks
+        if (!achievementUnlocked[3] && (totalClicks >= 100)) {
+            achievementUnlocked[3] = true
+            $(".clicks_100").parent().removeClass("d-none")
+            console.log("achievement 3 (100 Clicks) unlocked!")
+        }
+        // 250 Clicks
+        if (!achievementUnlocked[4] && (totalClicks >= 250)) {
+            achievementUnlocked[4] = true
+            $(".clicks_250").parent().removeClass("d-none")
+            console.log("achievement 4 (250 Clicks) unlocked!")
+        }
+        // 500 Clicks
+        if (!achievementUnlocked[5] && (totalClicks >= 500)) {
+            achievementUnlocked[5] = true
+            $(".clicks_500").parent().removeClass("d-none")
+            console.log("achievement 5 (500 Clicks) unlocked!")
+        }
+        // 1000 Clicks
+        if (!achievementUnlocked[6] && (totalClicks >= 1000)) {
+            achievementUnlocked[6] = true
+            $(".clicks_1000").parent().removeClass("d-none")
+            console.log("achievement 6 (1000 Clicks) unlocked!")
+        }
+        // First Upgrade
+        // if (!achievementUnlocked[6] && firstUpgradeUnlocked) {
+        //     achievementUnlocked[6] = true
+        //     $(".firstUpgrade").parent().removeClass("d-none")
+        //     console.log("achievement 7 (First Upgrade) unlocked!")
+        // }
+    }
 
 
     animateButton = (btn, id) => {
@@ -144,12 +195,12 @@ $(document).ready(function () {
     // listen for clicks on any clicker button
     $(".clicker").click(function () {
         animateButton(this, this.id)
-
+        totalClicks++;
         // store selected clicker and process
         var clickedClicker = detectClicker(this, clickers)
         processClick(clickedClicker)
         checkUnlock(totalScore)
-
+        checkAchievement()
     })
 
     // ADDING CLICKERS + TRACKERS
@@ -158,6 +209,6 @@ $(document).ready(function () {
     $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
 
 
-    $(".achievement").parent().removeClass("d-none")
+    // $(".achievement").parent().removeClass("d-none")
 
 });
