@@ -9,7 +9,7 @@ $(document).ready(function () {
         this.color = color
         this.count = 0
         this.count_T = 0
-        this.currentLevel = 1
+        this.currentLevel = 0
         this.upgradeLevel = upgradeLevel
         this.nextLevel = this.upgradeLevel[this.currentLevel]
         this.i = iStart
@@ -17,22 +17,30 @@ $(document).ready(function () {
             this.currentLevel++;
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
-
+            if (this.currentLevel == 1) {
+                $(".row > ." + id).parent().parent().removeClass("d-none")
+                $("." + this.id + " > .clickerLevel").removeClass("d-none")
+                $("." + this.id + " > .clickerCount").removeClass("d-none")
+            }
             if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
             if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this.id)
             if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this.id)
             if (this.currentLevel == MAX_LEVEL) this.unlockTheme()
 
             //this.i *= this.multiplier
-            changeIncrement(this.id, this.i, 1)
+            changeIncrement(this.id, this.i)
 
             if (this.currentLevel == MAX_LEVEL) {
                 $("." + this.id + " > .clickerLevel").text("Level MAX")
                 $("." + this.id + " > .clickerCount").text("COMPLETE!")
-            } 
-            else {
+            } else if (this.currentLevel == 1) {
+                $("." + this.id + " > .clickerLevel").text("Level 1")
+                $("." + this.id + " > .clickerCount").text("UNLOCK!")
+                $(".row > ." + id).text("UNLOCK!")
+            } else {
                 $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
                 $("." + this.id + " > .clickerCount").text("LEVEL UP!")
+                $(".col-3." + this.id).text("LEVEL UP!")
             }
 
 
@@ -51,12 +59,12 @@ $(document).ready(function () {
 
     var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1)
     var water = new Clicker("water", "aqua", [1, 30, 50, 80, 1, 1, 1, 1, 1, 1], 2)
-    var wind = new Clicker("wind", "lightgray", [0, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4)
-    var earth = new Clicker("earth", "brown", [0, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8)
-    var electron = new Clicker("electron", "yellow", [0, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16)
-    var nucleus = new Clicker("nucleus", "green", [0, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32)
-    var gravity = new Clicker("gravity", "black", [0, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64)
-    var darkMatter = new Clicker("darkMatter", "purple", [0, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128)
+    var wind = new Clicker("wind", "lightgray", [1, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4)
+    var earth = new Clicker("earth", "brown", [1, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8)
+    var electron = new Clicker("electron", "yellow", [1, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16)
+    var nucleus = new Clicker("nucleus", "green", [1, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32)
+    var gravity = new Clicker("gravity", "black", [1, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64)
+    var darkMatter = new Clicker("darkMatter", "purple", [1, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128)
 
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
@@ -86,10 +94,9 @@ $(document).ready(function () {
         return totalClicks
     }
 
-    changeIncrement = (id, i, n) => {
-        i *= n
+    changeIncrement = (id, i) => {
         $(".row > ." + id).prev().text("+" + i)
-        return i
+
     }
 
     unlockUpgrade = (n, i, id) => {
@@ -117,9 +124,9 @@ $(document).ready(function () {
 
     unlockClicker = (id) => {
         $(".clicker." + id).parent().removeClass("d-none")
-        $(".row > ." + id).parent().parent().removeClass("d-none")
-        $(".row > ." + id).text("UNLOCK!")
-        $("." + id + " > .clickerCount").text("UNLOCK!")
+
+        // $(".row > ." + this.id).text("UNLOCK!")
+        $("." + this.id + " > .clickerCount").text("UNLOCK!")
     }
 
     checkLevel = (clicker) => {
@@ -236,6 +243,7 @@ $(document).ready(function () {
         clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
         totalScore = incrementTotalScore(totalScore, clicker.i)
         checkLevel(clicker)
+
     }
 
     // EVENTS
