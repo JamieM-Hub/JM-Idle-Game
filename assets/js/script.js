@@ -58,13 +58,13 @@ $(document).ready(function () {
 
 
     var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1)
-    var water = new Clicker("water", "aqua", [1, 30, 50, 80, 1, 1, 1, 1, 1, 1], 2)
-    var wind = new Clicker("wind", "lightgray", [1, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4)
-    var earth = new Clicker("earth", "brown", [1, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8)
-    var electron = new Clicker("electron", "yellow", [1, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16)
-    var nucleus = new Clicker("nucleus", "green", [1, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32)
-    var gravity = new Clicker("gravity", "black", [1, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64)
-    var darkMatter = new Clicker("darkMatter", "purple", [1, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128)
+    var water = new Clicker("water", "aqua", [2, 30, 50, 80, 1, 1, 1, 1, 1, 1], 2)
+    var wind = new Clicker("wind", "lightgray", [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4)
+    var earth = new Clicker("earth", "brown", [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8)
+    var electron = new Clicker("electron", "yellow", [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16)
+    var nucleus = new Clicker("nucleus", "green", [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32)
+    var gravity = new Clicker("gravity", "black", [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64)
+    var darkMatter = new Clicker("darkMatter", "purple", [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128)
 
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
