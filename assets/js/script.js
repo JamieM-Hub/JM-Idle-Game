@@ -29,31 +29,31 @@ $(document).ready(function () {
             if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
             if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this.id)
             if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this.id)
-            if (this.currentLevel == MAX_LEVEL) 
-            {
+            if (this.currentLevel == MAX_LEVEL) {
                 maxCount++
                 this.unlockTheme()
 
-            //this.i *= this.multiplier
-            changeIncrement(this.id, this.i)
+                //this.i *= this.multiplier
+                changeIncrement(this.id, this.i)
 
-            if (this.currentLevel == MAX_LEVEL) {
-                $("." + this.id + " > .clickerLevel").text("Level MAX")
-                $("." + this.id + " > .clickerCount").text("COMPLETE!")
-            } else if (this.currentLevel == 1) {
-                $("." + this.id + " > .clickerLevel").text("Level 1")
-                $("." + this.id + " > .clickerCount").text("UNLOCK!")
-                $(".row > ." + id).text("UNLOCK!")
-            } else {
-                $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
-                $("." + this.id + " > .clickerCount").text("LEVEL UP!")
-                $(".col-3." + this.id).text("LEVEL UP!")
+                if (this.currentLevel == MAX_LEVEL) {
+                    $("." + this.id + " > .clickerLevel").text("Level MAX")
+                    $("." + this.id + " > .clickerCount").text("COMPLETE!")
+                } else if (this.currentLevel == 1) {
+                    $("." + this.id + " > .clickerLevel").text("Level 1")
+                    $("." + this.id + " > .clickerCount").text("UNLOCK!")
+                    $(".row > ." + id).text("UNLOCK!")
+                } else {
+                    $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
+                    $("." + this.id + " > .clickerCount").text("LEVEL UP!")
+                    $(".col-3." + this.id).text("LEVEL UP!")
+                }
+
+
             }
+            this.unlockTheme = () => {
 
-
-        }
-        this.unlockTheme = () => {
-
+            }
         }
     }
     let unlockLevel = [1, 20, 50, 80, 100, 125, 150, 200]
@@ -345,9 +345,12 @@ $(document).ready(function () {
 
     }
 
-    // EVENTS
+    // THEMES
+    selectFireTheme = () => {
+        $("body").css("background-color", "red")
+    }
 
-    // listen for clicks on any clicker button
+    // EVENTS
     $(".clicker").click(function () {
         animateButton(this, this.id)
         totalClicks = incrementTotalClicks(totalClicks);
@@ -358,11 +361,13 @@ $(document).ready(function () {
         checkAchievement()
     })
 
+    $(".themeButton").click(function () {})
+
+
+
     // ADDING CLICKERS + TRACKERS
 
     $(".clicker.one").parent().removeClass("d-none")
     $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
 
-    // $(".achievement").parent().removeClass("d-none")
-
-});
+})

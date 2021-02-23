@@ -1,10 +1,6 @@
 /* || */
 
-body {
-    text-align: center;
-    padding: none;
-    margin: none;
-}
+/* fix bootstrap default padding and margin */
 
 .col,
 .col-1,
@@ -87,6 +83,12 @@ body {
     margin: 0;
 }
 
+body {
+    text-align: center;
+    padding: none;
+    margin: none;
+}
+
 footer {
     position: absolute;
     bottom: 0px;
@@ -106,3 +108,4 @@ footer {
     cursor: grab;
 }
 
+/* THEMES */
