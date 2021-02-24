@@ -47,6 +47,9 @@ $(document).ready(function () {
             console.log("Level Up!")
         }
         this.unlockTheme = (theme) => {
+            if (maxCount == 0) {
+                $("#defaultTheme").text("default")
+            }
             this.themeUnlocked = true
             maxCount++
             $("#" + this.theme).text(this.id)
@@ -356,84 +359,108 @@ $(document).ready(function () {
     // THEMES
 
     defaultTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("defaultTheme")
-        $(".modal-content").addClass("defaultTheme")
-        currentTheme = defaultTheme
+        if (currentTheme != "defaultTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("defaultTheme")
+            $(".modal-content").addClass("defaultTheme")
+            currentTheme = "defaultTheme"
+            console.log(currentTheme)
+        }
     }
     fireTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("fireTheme")
-        $(".modal-content").addClass("fireTheme")
-        currentTheme = fireTheme
+        console.log("change to fire 1")
+        if (currentTheme != "fireTheme") {
+            console.log("change to fire 2")
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("fireTheme")
+            $(".modal-content").addClass("fireTheme")
+            console.log(currentTheme)
+            currentTheme = "fireTheme"
+            console.log(currentTheme)
+        }
     }
     waterTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("waterTheme")
-        $(".modal-content").addClass("waterTheme")
-        currentTheme = waterTheme
+        if (currentTheme != "waterTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("waterTheme")
+            $(".modal-content").addClass("waterTheme")
+            currentTheme = "waterTheme"
+        }
     }
     windTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("windTheme")
-        $(".modal-content").addClass("windTheme")
-        currentTheme = windTheme
+        if (currentTheme != "windTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("windTheme")
+            $(".modal-content").addClass("windTheme")
+            currentTheme = "windTheme"
+        }
     }
     earthTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("earthTheme")
-        $(".modal-content").addClass("earthTheme")
-        currentTheme = earthTheme
+        if (currentTheme != "earthTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("earthTheme")
+            $(".modal-content").addClass("earthTheme")
+            currentTheme = "earthTheme"
+
+        }
     }
     electronTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("electronTheme")
-        $(".modal-content").addClass("electronTheme")
-        currentTheme = electronTheme
+        if (currentTheme != "electronTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("electronTheme")
+            $(".modal-content").addClass("electronTheme")
+            currentTheme = "electronTheme"
+
+        }
     }
     nucleusTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("nucleusTheme")
-        $(".modal-content").addClass("nucleusTheme")
-        currentTheme = nucleusTheme
+        if (currentTheme != "nucleusTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("nucleusTheme")
+            $(".modal-content").addClass("nucleusTheme")
+            currentTheme = "nucleusTheme"
+        }
     }
     gravityTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("gravityTheme")
-        $(".modal-content").addClass("gravityTheme")
-        currentTheme = gravityTheme
+        if (currentTheme != "gravityTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("gravityTheme")
+            $(".modal-content").addClass("gravityTheme")
+            currentTheme = "gravityTheme"
+        }
     }
     darkMatterTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("darkMatterTheme")
-        $(".modal-content").addClass("darkMatterTheme")
-        currentTheme = darkMatterTheme
+        if (currentTheme != "darkMatterTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("darkMatterTheme")
+            $(".modal-content").addClass("darkMatterTheme")
+            currentTheme = "darkMatterTheme"
+        }
     }
     ultimaTheme = () => {
-        $("body").removeClass(currentTheme)
-        $(".modal-content").removeClass(currentTheme)
-        $("body").addClass("ultimaTheme")
-        $(".modal-content").addClass("ultimaTheme")
-        currentTheme = ultimaTheme
+        if (currentTheme != "ultimaTheme") {
+            $("body").removeClass(currentTheme)
+            $(".modal-content").removeClass(currentTheme)
+            $("body").addClass("ultimaTheme")
+            $(".modal-content").addClass("ultimaTheme")
+            currentTheme = "ultimaTheme"
+        }
     }
 
     // EVENTS
     $(".clicker").click(function () {
-
-        water.unlockTheme()
-
-        animateButton(this, this.id)
+        fire.unlockTheme()
+        // animateButton(this, this.id)
         totalClicks = incrementTotalClicks(totalClicks)
-        // store selected clicker and process
         var clickedClicker = detectClicker(this, clickers)
         processClick(clickedClicker)
         checkUnlock(totalScore)
@@ -441,17 +468,20 @@ $(document).ready(function () {
     })
 
     $(".themeButton").click(function () {
-        console.log(this.id + " clicked")
+        // console.log(this.id + " clicked")
         if (this.id == "defaultTheme") {
+            console.log("current theme: " + currentTheme)
             if (maxCount > 0) {
-                var selectTheme = window["defaultTheme"]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
+                // console.log("maxCount > 0")
+                var selectTheme = window["defaultTheme"] /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                 selectTheme();
             }
-        }
-        else {
+        } else {
             var selectedTheme = this.id.substring(0, (this.id.length - 5)) /* take element name from button id" */
+            console.log("current theme: " + currentTheme)
             for (i = 0; i < NUM_ELEMENTS; i++) {
-                if ((clickers[i].id == selectedTheme) && clickers[i].themeUnlocked) {
+                if ((clickers[i].id == selectedTheme) && (this.id != currentTheme) && clickers[i].themeUnlocked) {
+                    console.log("change theme to " + selectedTheme)
                     var selectTheme = window[this.id]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                     selectTheme();
                 }
@@ -464,4 +494,5 @@ $(document).ready(function () {
     $(".clicker.one").parent().removeClass("d-none")
     $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
 
+    $("body").addClass("waterTheme")
 })
