@@ -109,3 +109,22 @@ footer {
 }
 
 /* THEMES */
+
+.themeButton {
+    text-transform: uppercase;
+}
+
+.defaultTheme {
+    background-color: white;
+    color: black;
+}
+
+.fireTheme {
+    background-color: red;
+    color: orange;
+}
+
+.waterTheme {
+    background-color: blue;
+    color: aqua;
+}

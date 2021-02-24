@@ -5,21 +5,10 @@ $(document).ready(function () {
     const MAX_LEVEL = 10
     const MAX_THEMES = 10
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
-    const THEMES = {
-        defaultTheme: 0,
-        fireTheme: 1,
-        waterTheme: 2,
-        windTheme: 3,
-        earthTheme: 4,
-        electronTheme: 5,
-        nucleusTheme: 6,
-        gravityTheme: 7,
-        darkMatterTheme: 8,
-        ultimaTheme: 9
-    }
 
-    function Clicker(id, upgradeLevel, iStart, theme) {
+    function Clicker(id, color, upgradeLevel, iStart, theme) {
         this.id = id
+        this.color = color
         this.count = 0
         this.count_T = 0
         this.currentLevel = 0
@@ -27,6 +16,7 @@ $(document).ready(function () {
         this.nextLevel = this.upgradeLevel[this.currentLevel]
         this.i = iStart
         this.theme = theme
+        this.themeUnlocked = false
         this.levelUp = () => {
             this.currentLevel++;
             this.count -= this.nextLevel
@@ -57,47 +47,11 @@ $(document).ready(function () {
             console.log("Level Up!")
         }
         this.unlockTheme = (theme) => {
+            this.themeUnlocked = true
             maxCount++
-            if (this.theme = "defaultTheme") {
-                themeUnlocked[0] = true
-                $("#defaultTheme").text("Default")
-            }
-            if (this.theme = "fireTheme") {
-                themeUnlocked[1] = true
-                $("#fireTheme").text("Fire")
-            }
-            if (this.theme = "waterTheme") {
-                themeUnlocked[2] = true
-                $("#waterTheme").text("Water")
-            }
-            if (this.theme = "windTheme") {
-                themeUnlocked[3] = true
-                $("#windTheme").text("Wind")
-            }
-            if (this.theme = "earthTheme") {
-                themeUnlocked[4] = true
-                $("#earthTheme").text("Earth")
-            }
-            if (this.theme = "electronTheme") {
-                themeUnlocked[5] = true
-                $("#electronTheme").text("Electron")
-            }
-            if (this.theme = "nucleusTheme") {
-                themeUnlocked[6] = true
-                $("#nucleusTheme").text("Nucleus")
-            }
-            if (this.theme = "gravityTheme") {
-                themeUnlocked[7] = true
-                $("#gravityTheme").text("Gravity")
-            }
-            if (this.theme = "darkMatterTheme") {
-                themeUnlocked[8] = true
-                $("#darkMatterTheme").text("Dark Matter")
-            }
-            if (this.theme = "ultimaTheme") {
-                themeUnlocked[9] = true
-                $("#ultimaTheme").text("ULTIMA")
-            }
+            $("#" + this.theme).text(this.id)
+            console.log(this.id + " theme unlocked!")
+            animateThemesButton(this.color)
         }
     }
 
@@ -105,23 +59,23 @@ $(document).ready(function () {
     let unlockLevel = [1, 20, 50, 80, 100, 125, 150, 200]
     var unlocked = [false]
     var achievementUnlocked = [false]
-    var themeUnlocked = [false]
     var totalScore = 0
     var totalClicks = 0
     var firstUpgradeUnlocked = false
     var firstThemeChange = false
     var clickDeveloper = false
     var themeCount = 0
+    var currentTheme = 'defaultTheme'
     var maxCount = 0
     var upgradeCount = 0
-    var fire = new Clicker("fire", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
-    var water = new Clicker("water", [2, 30, 50, 80, 1, 1, 1, 1, 1, 1], 2, "waterTheme")
-    var wind = new Clicker("wind", [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme")
-    var earth = new Clicker("earth", [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme")
-    var electron = new Clicker("electron", [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme")
-    var nucleus = new Clicker("nucleus", [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme")
-    var gravity = new Clicker("gravity", [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme")
-    var darkMatter = new Clicker("darkMatter", [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
+    var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
+    var water = new Clicker("water", "blue", [2, 30, 50, 80, 1, 1, 1, 1, 1, 1], 2, "waterTheme")
+    var wind = new Clicker("wind", "lightgray", [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme")
+    var earth = new Clicker("earth", "brown", [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme")
+    var electron = new Clicker("electron", "yellow", [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme")
+    var nucleus = new Clicker("nucleus", "green", [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme")
+    var gravity = new Clicker("gravity", "black", [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme")
+    var darkMatter = new Clicker("darkMatter", "purple", [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
     // FUNCTIONS
@@ -152,7 +106,6 @@ $(document).ready(function () {
 
     changeIncrement = (id, i) => {
         $(".row > ." + id).prev().text("+" + i)
-
     }
 
     unlockUpgrade = (n, i, id) => {
@@ -343,7 +296,10 @@ $(document).ready(function () {
         if (!achievementUnlocked[22] && (maxCount == NUM_ELEMENTS)) {
             achievementUnlocked[22] = true
             $(".completeAll").parent().removeClass("d-none")
+            themeUnlocked[9] = true
             console.log("achievement 22 (Complete All Elements) unlocked!")
+            $("#ultimaTheme").text("ultima")
+            console.log("ULTIMA theme unlocked!")
         }
         // if (!achievementUnlocked[23] && ()) {
         //     achievementUnlocked[23] = true
@@ -373,6 +329,13 @@ $(document).ready(function () {
 
     }
 
+    animateThemesButton = (color) => {
+        var button = $("#themesButton")
+        button.css("background-color", color)
+        // button.animate({height: '120%', width: '120%'}, "fast");
+        // button.animate({height: '100%', width: '100%'}, 1000); 
+    }
+
     detectClicker = (btn, clickers) => {
         var clickedClicker
         for (let i = 0; i < 8; i++) {
@@ -393,51 +356,83 @@ $(document).ready(function () {
     // THEMES
 
     defaultTheme = () => {
-        $("body").css("background-color", "white").css("color", "black")
-        $("modal-content").css("background-color", "white")
-        console.log("default theme")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("defaultTheme")
+        $(".modal-content").addClass("defaultTheme")
+        currentTheme = defaultTheme
     }
     fireTheme = () => {
-        $("body").css("background-color", "red").css("color", "yellow")
-        $(".modal-content").css("background-color", "red")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("fireTheme")
+        $(".modal-content").addClass("fireTheme")
+        currentTheme = fireTheme
     }
     waterTheme = () => {
-        $("body").css("background-color", "blue").css("color", "aqua")
-        $(".modal-content").css("background-color", "blue")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("waterTheme")
+        $(".modal-content").addClass("waterTheme")
+        currentTheme = waterTheme
     }
     windTheme = () => {
-        $("body").css("background-color", "lightgray").css("color", "brown")
-        $(".modal-content").css("background-color", "lightgray")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("windTheme")
+        $(".modal-content").addClass("windTheme")
+        currentTheme = windTheme
     }
     earthTheme = () => {
-        $("body").css("background-color", "brown").css("color", "orange")
-        $(".modal-content").css("background-color", "brown")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("earthTheme")
+        $(".modal-content").addClass("earthTheme")
+        currentTheme = earthTheme
     }
     electronTheme = () => {
-        $("body").css("background-color", "yellow").css("color", "blue")
-        $(".modal-content").css("background-color", "yellow")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("electronTheme")
+        $(".modal-content").addClass("electronTheme")
+        currentTheme = electronTheme
     }
     nucleusTheme = () => {
-        $("body").css("background-color", "green").css("color", "yellow")
-        $(".modal-content").css("background-color", "green")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("nucleusTheme")
+        $(".modal-content").addClass("nucleusTheme")
+        currentTheme = nucleusTheme
     }
     gravityTheme = () => {
-        $("body").css("background-color", "black").css("color", "lightgray")
-        $(".modal-content").css("background-color", "black")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("gravityTheme")
+        $(".modal-content").addClass("gravityTheme")
+        currentTheme = gravityTheme
     }
     darkMatterTheme = () => {
-        $("body").css("background-color", "purple").css("color", "lightgreen")
-        $(".modal-content").css("background-color", "purple")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("darkMatterTheme")
+        $(".modal-content").addClass("darkMatterTheme")
+        currentTheme = darkMatterTheme
     }
     ultimaTheme = () => {
-        $("body").css("background-color", "orange").css("color", "purple")
-        $(".modal-content").css("background-color", "orange")
+        $("body").removeClass(currentTheme)
+        $(".modal-content").removeClass(currentTheme)
+        $("body").addClass("ultimaTheme")
+        $(".modal-content").addClass("ultimaTheme")
+        currentTheme = ultimaTheme
     }
 
     // EVENTS
     $(".clicker").click(function () {
+
+        water.unlockTheme()
+
         animateButton(this, this.id)
-        totalClicks = incrementTotalClicks(totalClicks);
+        totalClicks = incrementTotalClicks(totalClicks)
         // store selected clicker and process
         var clickedClicker = detectClicker(this, clickers)
         processClick(clickedClicker)
@@ -446,14 +441,23 @@ $(document).ready(function () {
     })
 
     $(".themeButton").click(function () {
-        if (themeUnlocked[this.id] = true) {
-            console.log("change to " + this.id)
-            var selectTheme = window[this.id]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
-            selectTheme();
+        console.log(this.id + " clicked")
+        if (this.id == "defaultTheme") {
+            if (maxCount > 0) {
+                var selectTheme = window["defaultTheme"]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
+                selectTheme();
+            }
+        }
+        else {
+            var selectedTheme = this.id.substring(0, (this.id.length - 5)) /* take element name from button id" */
+            for (i = 0; i < NUM_ELEMENTS; i++) {
+                if ((clickers[i].id == selectedTheme) && clickers[i].themeUnlocked) {
+                    var selectTheme = window[this.id]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
+                    selectTheme();
+                }
+            }
         }
     })
-
-
 
     // ADDING CLICKERS + TRACKERS
 
