@@ -128,3 +128,31 @@ footer {
     background-color: blue;
     color: aqua;
 }
+.windTheme {
+    background-color: lightslategray;
+    color: white;
+}
+.earthTheme {
+    background-color: brown;
+    color: burlywood;
+}
+.electronTheme {
+    background-color:chartreuse;
+    color: blue;
+}
+.nucleusTheme {
+    background-color:limegreen;
+    color: black;
+}
+.gravityTheme {
+    background-color: black;
+    color: lightslategray;
+}
+.darkMatterTheme {
+    background-color: purple;
+    color: gold;
+}
+.ultimaTheme {
+    background-color:steelblue;
+    color: tomato;
+}

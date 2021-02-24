@@ -458,7 +458,7 @@ $(document).ready(function () {
 
     // EVENTS
     $(".clicker").click(function () {
-        fire.unlockTheme()
+        //fire.unlockTheme()
         // animateButton(this, this.id)
         totalClicks = incrementTotalClicks(totalClicks)
         var clickedClicker = detectClicker(this, clickers)
@@ -494,5 +494,5 @@ $(document).ready(function () {
     $(".clicker.one").parent().removeClass("d-none")
     $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
 
-    $("body").addClass("waterTheme")
+    $("body").addClass("defaultTheme")
 })
