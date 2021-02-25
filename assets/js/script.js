@@ -79,7 +79,7 @@ $(document).ready(function () {
         this.icon = icon
         this.unlocked = false
     }
-    var firstClick = new Achievement("First Click", "firstClick", "You clicked a button. Wow!", "far fa-hand-pointer")
+    var unlockFire = new Achievement("Unlock Fire", "unlockFire", "You clicked a button. Wow!", "fab fa-gripfire")
     var clicks_50 = new Achievement("50 Clicks", "clicks_50", "You clicked 50 buttons. Impressive!", "far fa-hand-pointer")
     var clicks_100 = new Achievement("100 Clicks", "clicks_100", "You clicked 100 buttons. Superb!", "far fa-hand-pointer")
     var clicks_250 = new Achievement("250 Clicks", "clicks_250", "You clicked 250 buttons. Prodigous!", "far fa-hand-pointer")
@@ -104,7 +104,7 @@ $(document).ready(function () {
     var secret1 = new Achievement("Secret 1", "secret1", "first upgrade", "fas fa-question-circle")
     var secret2 = new Achievement("Secret 2", "secret2", "first upgrade", "fas fa-question-circle")
     let achievements = [
-        firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade,
+        unlockFire, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade,
         maxUpgrade, unlockElectron, unlockDarkMatter, completeFire, completeWater, completeWind, completeEarth,
         completeElectron, completeNucleus, completeGravity, completeDarkMatter, changeTheme, clickDeveloper,
         tryAllThemes, completeAll, secret1, secret2
@@ -264,10 +264,20 @@ $(document).ready(function () {
     }
 
     checkAchievement = () => {
-        // First Click
-        if (!firstClick.unlocked && (totalClicks >= 1)) {
-            firstClick.unlocked = true
-            processAchievement(firstClick)
+        // Unlock Fire
+        if (!unlockFire.unlocked && (totalClicks >= 1)) {
+            unlockFire.unlocked = true
+            processAchievement(unlockFire)
+        }
+        // Unlock Electron
+        if (!unlockElectron.unlocked && (unlocked[4] == true)) {
+            unlockElectron.unlocked = true
+            processAchievement(unlockElectron)
+        }
+        // Unlock Dark Matter        
+        if (!unlockDarkMatter.unlocked && (unlocked[7] == true)) {
+            unlockDarkMatter.unlocked = true
+            processAchievement(unlockDarkMatter)
         }
         // 50 Clicks
         if (!clicks_50.unlocked && (totalClicks >= 50)) {
@@ -303,16 +313,6 @@ $(document).ready(function () {
         if (!maxUpgrade.unlocked && (upgradeCount == MAX_UPGRADES)) {
             maxUpgrade.unlocked = true
             processAchievement(maxUpgrade)
-        }
-        // Unlock Electron
-        if (!unlockElectron.unlocked && (unlocked[4] == true)) {
-            unlockElectron.unlocked = true
-            processAchievement(unlockElectron)
-        }
-        // Unlock Dark Matter        
-        if (!unlockDarkMatter.unlocked && (unlocked[7] == true)) {
-            unlockDarkMatter.unlocked = true
-            processAchievement(unlockDarkMatter)
         }
         // Complete Fire
         if (!completeFire.unlocked && (fire.currentLevel == MAX_LEVEL)) {
@@ -409,8 +409,8 @@ $(document).ready(function () {
     // animateThemesButton = (color) => {
     //     var button = $("#themesButton")
     //     button.css("background-color", color)
-        // button.animate({height: '120%', width: '120%'}, "fast");
-     // button.animate({height: '100%', width: '100%'}, 1000); 
+    // button.animate({height: '120%', width: '120%'}, "fast");
+    // button.animate({height: '100%', width: '100%'}, 1000); 
     // }
 
     detectClicker = (btn, clickers) => {
@@ -465,7 +465,7 @@ $(document).ready(function () {
     }
     fireTheme = () => {
         if (themesTried[0] == false) {
-            themesTried[0] = true 
+            themesTried[0] = true
             checkAchievement()
         }
         if (currentTheme != "fireTheme") {
@@ -478,7 +478,7 @@ $(document).ready(function () {
     }
     waterTheme = () => {
         if (themesTried[1] == false) {
-            themesTried[1] = true 
+            themesTried[1] = true
             checkAchievement()
         }
         if (currentTheme != "waterTheme") {
@@ -491,7 +491,7 @@ $(document).ready(function () {
     }
     windTheme = () => {
         if (themesTried[2] == false) {
-            themesTried[2] = true 
+            themesTried[2] = true
             checkAchievement()
         }
         if (currentTheme != "windTheme") {
@@ -504,7 +504,7 @@ $(document).ready(function () {
     }
     earthTheme = () => {
         if (themesTried[3] == false) {
-            themesTried[3] = true 
+            themesTried[3] = true
             checkAchievement()
         }
         if (currentTheme != "earthTheme") {
@@ -517,7 +517,7 @@ $(document).ready(function () {
     }
     electronTheme = () => {
         if (themesTried[4] == false) {
-            themesTried[4] = true 
+            themesTried[4] = true
             checkAchievement()
         }
         if (currentTheme != "electronTheme") {
@@ -530,7 +530,7 @@ $(document).ready(function () {
     }
     nucleusTheme = () => {
         if (themesTried[5] == false) {
-            themesTried[5] = true 
+            themesTried[5] = true
             checkAchievement()
         }
         if (currentTheme != "nucleusTheme") {
@@ -543,7 +543,7 @@ $(document).ready(function () {
     }
     gravityTheme = () => {
         if (themesTried[6] == false) {
-            themesTried[6] = true 
+            themesTried[6] = true
             checkAchievement()
         }
         if (currentTheme != "gravityTheme") {
@@ -556,7 +556,7 @@ $(document).ready(function () {
     }
     darkMatterTheme = () => {
         if (themesTried[7] == false) {
-            themesTried[7] = true 
+            themesTried[7] = true
             checkAchievement()
         }
         if (currentTheme != "darkMatterTheme") {
@@ -569,7 +569,7 @@ $(document).ready(function () {
     }
     ultimaTheme = () => {
         if (themesTried[8] == false) {
-            themesTried[8] = true 
+            themesTried[8] = true
             checkAchievement()
         }
         if (currentTheme != "ultimaTheme") {
@@ -610,13 +610,6 @@ $(document).ready(function () {
     })
 
     // ACHIEVEMENTS
-    $(".achievementButton").click(function () {
-        console.log("achievement button clicked")
-
-        // create div above button
-        // fill div with achievementName and achievementText
-
-    })
 
     // JQUERY STYLE + CONTENT
     $("body").addClass("defaultTheme")
