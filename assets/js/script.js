@@ -77,7 +77,7 @@ $(document).ready(function () {
     var totalScore = 0
     var totalClicks = 0
     var firstUpgradeUnlocked = false
-    var firstThemeChange = false
+    var changeTheme = false
     var clickDeveloper = false
     var themeCount = 0
     var currentTheme = 'defaultTheme'
@@ -313,7 +313,7 @@ $(document).ready(function () {
             $(".completeDarkMatter").parent().removeClass("d-none")
             console.log("achievement 18 (Complete Dark Matter) unlocked!")
         }
-        if (!achievementUnlocked[19] && (firstThemeChange == true)) {
+        if (!achievementUnlocked[19] && (changeTheme == true)) {
             achievementUnlocked[19] = true
             $(".changeTheme").parent().removeClass("d-none")
             console.log("achievement 19 (Change Theme) unlocked!")
@@ -514,17 +514,20 @@ $(document).ready(function () {
             }
         } else if (this.id == "ultimaTheme") {
             ultimaTheme()
+            if (!changeTheme) changeTheme = true
             console.log("change theme to Ultima")
         } else {
             var selectedTheme = this.id.substring(0, (this.id.length - 5)) /* take element name from button id" */
             for (i = 0; i < NUM_ELEMENTS; i++) {
                 if ((clickers[i].id == selectedTheme) && (this.id != currentTheme) && clickers[i].themeUnlocked) {
-                    console.log("change theme to " + selectedTheme)
                     var selectTheme = window[this.id]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                     selectTheme();
+                    if (!changeTheme) changeTheme = true
+                    console.log("change theme to " + selectedTheme)
                 }
             }
         }
+        checkAchievement()
     })
 
     // JQUERY STYLE + CONTENT
