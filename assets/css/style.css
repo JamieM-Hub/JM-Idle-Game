@@ -156,3 +156,17 @@ footer {
     background-color:steelblue;
     color: tomato;
 }
+
+/* DEVELOPER BUTTON */
+
+.developer {
+    text-align: justify;
+}
+
+.email {
+    font-style: italic;
+}
+
+.gameTitle {
+    font-weight: bolder;
+}

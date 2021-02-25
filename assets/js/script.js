@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
     // VARIABLES
+    const GAME_TITLE = "IDLE Game"
+    const CONTACT_EMAIL = "jamiemckenzie7231@yahoo.co.uk"
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
     const MAX_LEVEL = 10
@@ -503,5 +505,7 @@ $(document).ready(function () {
     //$(".clicker.one").parent().removeClass("d-none")
 
     $("body").addClass("defaultTheme")
+    $(".gameTitle").text(GAME_TITLE)
+    $(".email").text(CONTACT_EMAIL)
     // debug()
 })
