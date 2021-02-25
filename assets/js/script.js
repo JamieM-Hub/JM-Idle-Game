@@ -22,6 +22,7 @@ $(document).ready(function () {
         this.themeUnlocked = false
         this.levelUp = () => {
             this.currentLevel++;
+            console.log("Level Up!", this.currentLevel)
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
             if (this.currentLevel == 1) {
@@ -32,22 +33,23 @@ $(document).ready(function () {
                 $("." + this.id + " > .clickerCount").text("UNLOCK!")
                 $(".row > ." + id).text("UNLOCK!")
             }
-            if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
-            if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this.id)
-            if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this.id)
-            if (this.currentLevel == MAX_LEVEL) {
-                this.unlockTheme(this.theme)
-                $("." + this.id + " > .clickerLevel").text("Level MAX")
-                $("." + this.id + " > .clickerCount").text("COMPLETE!")
-            }
-            if (1 < this.currentLevel < MAX_LEVEL) {
-                console.log(this.currentLevel)
+            if ((this.currentLevel > 1) && (this.currentLevel < MAX_LEVEL)) {
+                console.log("current level " + this.currentLevel + " is above 1 and below 10")
+                if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
+                if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this.id)
+                if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this.id)
                 $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
                 $("." + this.id + " > .clickerCount").text("LEVEL UP!")
                 $(".col-3." + this.id).text("LEVEL UP!")
             }
+            if (this.currentLevel == MAX_LEVEL) {
+                console.log(this.id + " max level!")
+                this.unlockTheme(this.theme)
+                console.log($("#" + this.id + " > .clickerLevel"))
+                $("#" + this.id + " > .clickerLevel").text("Level MAX")
+                $("." + this.id + " > .clickerCount").text("COMPLETE!")
+            }
             changeIncrement(this.id, this.i)
-            console.log("Level Up!")
         }
         this.unlockTheme = (theme) => {
             if (maxCount == 0) {
@@ -62,7 +64,7 @@ $(document).ready(function () {
     }
 
     // VARIABLES
-    let unlockLevel = [1, 20, 50, 100, 200, 500, 1000, 2000]
+    let unlockLevel = [1, 2, 50, 100, 200, 500, 1000, 2000]
     var currentRank = 0
     var unlocked = [];
     for (i = 0; i < NUM_ELEMENTS; i++) {
@@ -82,7 +84,7 @@ $(document).ready(function () {
     var maxCount = 0
     var upgradeCount = 0
     var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
-    var water = new Clicker("water", "blue", [2, 30, 50, 80, 1, 1, 1, 1, 1, 1], 2, "waterTheme")
+    var water = new Clicker("water", "blue", [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme")
     var wind = new Clicker("wind", "lightgray", [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme")
     var earth = new Clicker("earth", "brown", [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme")
     var electron = new Clicker("electron", "yellow", [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme")
@@ -168,6 +170,7 @@ $(document).ready(function () {
         if (clicker.count >= clicker.nextLevel) {
             clicker.levelUp()
         }
+
     }
 
     checkRank = (totalScore) => {
