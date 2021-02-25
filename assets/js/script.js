@@ -75,7 +75,7 @@ $(document).ready(function () {
     function Achievement(name, id, text, img) {
         this.name = name
         this.id = id
-        this.text = text
+        this.text = id
         this.img = img
         this.unlocked = false
     }
@@ -83,9 +83,29 @@ $(document).ready(function () {
     var clicks_50 = new Achievement("50 Clicks", "clicks_50", "You clicked 50 buttons. Impressive!", "2")
     var clicks_100 = new Achievement("100 Clicks", "clicks_100", "You clicked 100 buttons. Superb!", "3")
     var clicks_250 = new Achievement("250 Clicks", "clicks_250", "You clicked 250 buttons. Prodigous!", "4")
-    var clicks_500 = new Achievement("500 Clicks", "clicks_500", "You clicked 500 buttons. Godlike!", "")
-    var clicks_1000 = new Achievement("1000 Clicks", "clicks_1000", "You clicked 1000 buttons. Really?!", "5")
-    let achievements = [firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000]
+    var clicks_500 = new Achievement("500 Clicks", "clicks_500", "You clicked 500 buttons. Godlike!", "5")
+    var clicks_1000 = new Achievement("1000 Clicks", "clicks_1000", "You clicked 1000 buttons. Really?!", "6")
+    var firstUpgrade = new Achievement("Unlock An Upgrade", "firstUpgrade", "firstUpgrade", "7")
+    var maxUpgrade = new Achievement("Unlock All Upgrades", "maxUpgrade", "maxUpgrade", "8")
+    var unlockElectron = new Achievement("Unlock Electron", "unlockElectron", "unlockElectron", "9")
+    var unlockDarkMatter = new Achievement("Unlock Dark Matter", "unlockDarkMatter", "unlockDarkMatter", "10")
+    var completeFire = new Achievement("Complete Fire", "completeFire", "first upgrade", "11")
+    var completeWater = new Achievement("Complete Water", "completeWater", "first upgrade", "12")
+    var completeWind = new Achievement("Complete Wind", "completeWind", "first upgrade", "13")
+    var completeEarth = new Achievement("Complete Earth", "completeEarth", "first upgrade", "14")
+    var completeElectron = new Achievement("Complete Electron", "completeElectron", "first upgrade", "15")
+    var completeNucleus = new Achievement("Complete Nucleus", "completeNucleus", "first upgrade", "16")
+    var completeGravity = new Achievement("Complete Gravity", "completeGravity", "first upgrade", "17")
+    var completeDarkMatter = new Achievement("Complete Dark Matter", "completeDarkMatter", "first upgrade", "18")
+    var completeAll = new Achievement("Complete All Elements", "completeAll", "first upgrade", "19")
+    var changeTheme = new Achievement("Change Theme", "changeTheme", "first upgrade", "20")
+    var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "first upgrade", "21")
+    var clickDeveloper = new Achievement("Check Out Developer", "clickDeveloper", "first upgrade", "22")
+    var secret1 = new Achievement("First Upgrade", "secret1", "first upgrade", "23")
+    var secret2 = new Achievement("First Upgrade", "secret2", "first upgrade", "24")
+
+
+    // let achievements = [firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000]
 
     let unlockLevel = [1, 2, 50, 100, 200, 500, 1000, 2000]
     var currentRank = 0
@@ -245,128 +265,119 @@ $(document).ready(function () {
             processAchievement(firstClick)
         }
         // 50 Clicks
-        if (!achievementUnlocked[2] && (totalClicks >= 50)) {
-            achievementUnlocked[2] = true
-            $(".clicks_50").parent().removeClass("d-none")
-            console.log("achievement 2 (50 Clicks) unlocked!")
+        if (!clicks_50.unlocked && (totalClicks >= 50)) {
+            clicks_50.unlocked = true
+            processAchievement(clicks_50)
         }
         // 100 Clicks
-        if (!achievementUnlocked[3] && (totalClicks >= 100)) {
-            achievementUnlocked[3] = true
-            $(".clicks_100").parent().removeClass("d-none")
-            console.log("achievement 3 (100 Clicks) unlocked!")
+        if (!clicks_100.unlocked && (totalClicks >= 100)) {
+            clicks_100.unlocked = true
+            processAchievement(clicks_100)
         }
         // 250 Clicks
-        if (!achievementUnlocked[4] && (totalClicks >= 250)) {
-            achievementUnlocked[4] = true
-            $(".clicks_250").parent().removeClass("d-none")
-            console.log("achievement 4 (250 Clicks) unlocked!")
+        if (!clicks_250.unlocked && (totalClicks >= 250)) {
+            clicks_250.unlocked = true
+            processAchievement(clicks_250)
         }
         // 500 Clicks
-        if (!achievementUnlocked[5] && (totalClicks >= 500)) {
-            achievementUnlocked[5] = true
-            $(".clicks_500").parent().removeClass("d-none")
-            console.log("achievement 5 (500 Clicks) unlocked!")
+        if (!clicks_500.unlocked && (totalClicks >= 500)) {
+            clicks_500.unlocked = true
+            processAchievement(clicks_500)
         }
         // 1000 Clicks
-        if (!achievementUnlocked[6] && (totalClicks >= 1000)) {
-            achievementUnlocked[6] = true
-            $(".clicks_1000").parent().removeClass("d-none")
-            console.log("achievement 6 (1000 Clicks) unlocked!")
+        if (!clicks_1000.unlocked && (totalClicks >= 1000)) {
+            clicks_1000.unlocked = true
+            processAchievement(clicks_1000)
         }
-        // First Upgrade
-        if (!achievementUnlocked[7] && firstUpgradeUnlocked) {
-            achievementUnlocked[7] = true
-            $(".firstUpgrade").parent().removeClass("d-none")
-            console.log("achievement 7 (First Upgrade) unlocked!")
+        // Unlock An Upgrade
+        if (!firstUpgrade.unlocked && firstUpgradeUnlocked) {
+            firstUpgrade.unlocked = true
+            processAchievement(firstUpgrade)
         }
         // Unlock All Upgrades
-        if (!achievementUnlocked[8] && (upgradeCount == MAX_UPGRADES)) {
-            achievementUnlocked[8] = true
-            $(".maxUpgrade").parent().removeClass("d-none")
-            console.log("achievement 8 (Unlock All Upgrades) unlocked!")
+        if (!maxUpgrade.unlocked && (upgradeCount == MAX_UPGRADES)) {
+            maxUpgrade.unlocked = true
+            processAchievement(maxUpgrade)
         }
-        if (!achievementUnlocked[9] && (unlocked[4] == true)) {
-            achievementUnlocked[9] = true
-            $(".unlockElectron").parent().removeClass("d-none")
-            console.log("achievement 9 (Unlock Electron) unlocked!")
+        // Unlock Electron
+        if (!unlockElectron.unlocked && (unlocked[4] == true)) {
+            unlockElectron.unlocked = true
+            processAchievement(unlockElectron)
         }
-        if (!achievementUnlocked[10] && (unlocked[7] == true)) {
-            achievementUnlocked[10] = true
-            $(".unlockDarkMatter").parent().removeClass("d-none")
-            console.log("achievement 10 (Unlock Dark Matter) unlocked!")
+        // Unlock Dark Matter        
+        if (!unlockDarkMatter.unlocked && (unlocked[7] == true)) {
+            unlockDarkMatter.unlocked = true
+            processAchievement(unlockDarkMatter)
         }
-        if (!achievementUnlocked[11] && (fire.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[11] = true
-            $(".completeFire").parent().removeClass("d-none")
-            console.log("achievement 11 (Complete Fire) unlocked!")
+        // Complete Fire
+        if (!completeFire.unlocked && (fire.currentLevel == MAX_LEVEL)) {
+            completeFire.unlocked = true
+            processAchievement(completeFire)
         }
-        if (!achievementUnlocked[12] && (water.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[12] = true
-            $(".completeWater").parent().removeClass("d-none")
-            console.log("achievement 12 (Complete Water) unlocked!")
+        // Complete Water
+        if (!completeWater.unlocked && (water.currentLevel == MAX_LEVEL)) {
+            completeWater.unlocked = true
+            processAchievement(completeWater)
         }
-        if (!achievementUnlocked[13] && (wind.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[13] = true
-            $(".completeWind").parent().removeClass("d-none")
-            console.log("achievement 13 (Complete Wind) unlocked!")
+        // Complete Wind
+        if (!completeWind.unlocked && (wind.currentLevel == MAX_LEVEL)) {
+            completeWind.unlocked = true
+            processAchievement(completeWind)
         }
-        if (!achievementUnlocked[14] && (earth.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[14] = true
-            $(".completeEarth").parent().removeClass("d-none")
-            console.log("achievement 14 (Complete Earth) unlocked!")
+        // Complete Earth
+        if (!completeEarth.unlocked && (earth.currentLevel == MAX_LEVEL)) {
+            completeEarth.unlocked = true
+            processAchievement(completeEarth)
         }
-        if (!achievementUnlocked[15] && (electron.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[15] = true
-            $(".completeElectron").parent().removeClass("d-none")
-            console.log("achievement 15 (Complete Electron) unlocked!")
+        // Complete Electron
+        if (!completeElectron.unlocked && (electron.currentLevel == MAX_LEVEL)) {
+            completeElectron.unlocked = true
+            processAchievement(completeElectron)
         }
-        if (!achievementUnlocked[16] && (nucleus.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[16] = true
-            $(".completeNucleus").parent().removeClass("d-none")
-            console.log("achievement 16 (Complete Nucleus) unlocked!")
+        // Complete Nucleus
+        if (!completeNucleus.unlocked && (nucleus.currentLevel == MAX_LEVEL)) {
+            completeNucleus.unlocked = true
+            processAchievement(completeNucleus)
         }
-        if (!achievementUnlocked[17] && (gravity.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[17] = true
-            $(".completeGravity").parent().removeClass("d-none")
-            console.log("achievement 17 (Complete Gravity) unlocked!")
+        // Complete Gravity
+        if (!completeGravity.unlocked && (gravity.currentLevel == MAX_LEVEL)) {
+            completeGravity.unlocked = true
+            processAchievement(completeGravity)
         }
-        if (!achievementUnlocked[18] && (darkMatter.currentLevel == MAX_LEVEL)) {
-            achievementUnlocked[18] = true
-            $(".completeDarkMatter").parent().removeClass("d-none")
-            console.log("achievement 18 (Complete Dark Matter) unlocked!")
+        // Complete Dark Matter
+        if (!completeDarkMatter.unlocked && (darkMatter.currentLevel == MAX_LEVEL)) {
+            completeDarkMatter.unlocked = true
+            processAchievement(completeDarkMatter)
         }
-        if (!achievementUnlocked[19] && (changeTheme == true)) {
-            achievementUnlocked[19] = true
-            $(".changeTheme").parent().removeClass("d-none")
-            console.log("achievement 19 (Change Theme) unlocked!")
-        }
-        if (!achievementUnlocked[20] && (clickDeveloper == true)) {
-            achievementUnlocked[20] = true
-            $(".clickDeveloper").parent().removeClass("d-none")
-            console.log("achievement 20 (Click Developer) unlocked!")
-        }
-        if (!achievementUnlocked[21] && (themeCount == MAX_THEMES)) {
-            achievementUnlocked[21] = true
-            $(".tryAllThemes").parent().removeClass("d-none")
-            console.log("achievement 21 (Try All Themes) unlocked!")
-        }
-        if (!achievementUnlocked[22] && (maxCount == NUM_ELEMENTS)) {
-            achievementUnlocked[22] = true
-            $(".completeAll").parent().removeClass("d-none")
-            console.log("achievement 22 (Complete All Elements) unlocked!")
+        // Complete All Elements (unlocks Ultima theme)
+        if (!completeAll.unlocked && (maxCount == NUM_ELEMENTS)) {
+            completeAll.unlocked = true
+            processAchievement(completeAll)
             $("#ultimaTheme").text("ultima")
             console.log("ULTIMA theme unlocked!")
         }
-        // if (!achievementUnlocked[23] && ()) {
-        //     achievementUnlocked[23] = true
-        //     $(".secret1").parent().removeClass("d-none")
-        //     console.log("achievement 23 (Secret 1) unlocked!")
+        // Change Theme
+        if (!changeTheme.unlocked && (changeTheme == true)) {
+            changeTheme.unlocked = true
+            processAchievement(changeTheme)
+        }
+        // Try All Themes
+        if (!tryAllThemes.unlocked && (themeCount == MAX_THEMES)) {
+            tryAllThemes.unlocked = true
+            processAchievement(tryAllThemes)
+        }
+        // Check Out Developer
+        if (!clickDeveloper.unlocked && (clickDeveloper == true)) {
+            clickDeveloper.unlocked = true
+            processAchievement(clickDeveloper)
+        }
+        // if (!secret1.unlocked && ()) {
+        //     secret1.unlocked = true
+        // processAchievement(secret1)
         // }
-        // if (!achievementUnlocked[24] && ()) {
-        //     achievementUnlocked[24] = true
-        //     $(".secret2").parent().removeClass("d-none")
-        //     console.log("achievement 24 (Secret 2) unlocked!")
+        // if (!secret2.unlocked && ()) {
+        //     secret2.unlocked = true
+        // processAchievement(secret2)
         // }
     }
 
@@ -563,9 +574,7 @@ $(document).ready(function () {
     })
 
     // JQUERY STYLE + CONTENT
-    $("body").addClass("defaultTheme")
-    $(".gameTitle").text(GAME_TITLE)
-    $(".email").text(CONTACT_EMAIL)
+    $("body").addClass("defaultTheme") $(".gameTitle").text(GAME_TITLE) $(".email").text(CONTACT_EMAIL)
 
-    // debug()
+    debug()
 })
