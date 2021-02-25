@@ -6,7 +6,7 @@ $(document).ready(function () {
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
     const MAX_LEVEL = 10
-    const MAX_THEMES = 10
+    const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
 
     function Clicker(id, color, upgradeLevel, iStart, theme) {
@@ -59,7 +59,7 @@ $(document).ready(function () {
             maxCount++
             $("#" + this.theme).text(this.id)
             console.log(this.id + " theme unlocked!")
-            animateThemesButton(this.color)
+            // animateThemesButton(this.color)
         }
     }
     var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
@@ -117,30 +117,32 @@ $(document).ready(function () {
     var totalScore = 0
     var totalClicks = 0
     var firstUpgradeUnlocked = false
-    var changeTheme = false
-    var clickDeveloper = false
+    var themeChanged = false
+    var themesTried = []
+    var developerClicked = false
     var themeCount = 0
     var currentTheme = 'defaultTheme'
     var maxCount = 0
     var upgradeCount = 0
 
     for (i = 0; i < NUM_ELEMENTS; i++) unlocked[i] = false
-    for (i = 0; i < NUM_ACHIEVEMENTS; i++) achievementUnlocked[i] = false
+    for (i = 0; i < NUM_ACHIEVEMENTS; i++) achievements[i].unlocked = false
+    for (i = 0; i < MAX_THEMES; i++) themesTried[i] = false
 
     // FUNCTIONS
 
     debug = () => {
-        // for (i = 0; i < NUM_ELEMENTS; i++) {
-        //     unlocked[i] = true
-        //     clickers[i].unlockTheme()
-        // }
-        // maxCount = 8
-        // checkAchievement()
-
-        for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
-            achievements[i].unlocked = true
-            processAchievement(achievements[i])
+        for (i = 0; i < NUM_ELEMENTS; i++) {
+            unlocked[i] = true
+            clickers[i].unlockTheme()
         }
+        maxCount = 8
+        checkAchievement()
+
+        // for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
+        //     achievements[i].unlocked = true
+        //     processAchievement(achievements[i])
+        // }
 
     }
 
@@ -258,9 +260,6 @@ $(document).ready(function () {
         $(ach).find(".achievementImage").html("<i class=\"" + achievement.icon + "\"></i>")
         $(ach).find(".achievementName").text(achievement.name)
         $(ach).find(".achievementText").text(achievement.text)
-
-
-
         console.log("Achievement unlocked! " + achievement.name + ": " + achievement.text)
     }
 
@@ -363,17 +362,21 @@ $(document).ready(function () {
             console.log("ULTIMA theme unlocked!")
         }
         // Change Theme
-        if (!changeTheme.unlocked && (changeTheme == true)) {
+        if (!changeTheme.unlocked && (themeChanged == true)) {
             changeTheme.unlocked = true
             processAchievement(changeTheme)
         }
         // Try All Themes
-        if (!tryAllThemes.unlocked && (themeCount == MAX_THEMES)) {
+        var _themesTried = 0
+        for (i = 0; i < MAX_THEMES; i++) {
+            if (themesTried[i] == true) _themesTried++
+        }
+        if (!tryAllThemes.unlocked && (_themesTried == MAX_THEMES)) {
             tryAllThemes.unlocked = true
             processAchievement(tryAllThemes)
         }
         // Check Out Developer
-        if (!clickDeveloper.unlocked && (clickDeveloper == true)) {
+        if (!clickDeveloper.unlocked && (developerClicked == true)) {
             clickDeveloper.unlocked = true
             processAchievement(clickDeveloper)
         }
@@ -403,12 +406,12 @@ $(document).ready(function () {
 
     }
 
-    animateThemesButton = (color) => {
-        var button = $("#themesButton")
-        button.css("background-color", color)
+    // animateThemesButton = (color) => {
+    //     var button = $("#themesButton")
+    //     button.css("background-color", color)
         // button.animate({height: '120%', width: '120%'}, "fast");
-        // button.animate({height: '100%', width: '100%'}, 1000); 
-    }
+     // button.animate({height: '100%', width: '100%'}, 1000); 
+    // }
 
     detectClicker = (btn, clickers) => {
         var clickedClicker
@@ -440,14 +443,14 @@ $(document).ready(function () {
         if (clickedClicker.currentLevel < MAX_LEVEL) {
             processClick(clickedClicker)
         }
-
-
     })
 
     // DEVELOPER BUTTON
     $("#developerButton").click(function () {
-        clickDeveloper = true
-        checkAchievement()
+        if (!developerClicked) {
+            developerClicked = true
+            checkAchievement()
+        }
     })
 
     // THEMES
@@ -461,6 +464,10 @@ $(document).ready(function () {
         }
     }
     fireTheme = () => {
+        if (themesTried[0] == false) {
+            themesTried[0] = true 
+            checkAchievement()
+        }
         if (currentTheme != "fireTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -470,6 +477,10 @@ $(document).ready(function () {
         }
     }
     waterTheme = () => {
+        if (themesTried[1] == false) {
+            themesTried[1] = true 
+            checkAchievement()
+        }
         if (currentTheme != "waterTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -479,6 +490,10 @@ $(document).ready(function () {
         }
     }
     windTheme = () => {
+        if (themesTried[2] == false) {
+            themesTried[2] = true 
+            checkAchievement()
+        }
         if (currentTheme != "windTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -488,6 +503,10 @@ $(document).ready(function () {
         }
     }
     earthTheme = () => {
+        if (themesTried[3] == false) {
+            themesTried[3] = true 
+            checkAchievement()
+        }
         if (currentTheme != "earthTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -497,16 +516,23 @@ $(document).ready(function () {
         }
     }
     electronTheme = () => {
+        if (themesTried[4] == false) {
+            themesTried[4] = true 
+            checkAchievement()
+        }
         if (currentTheme != "electronTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
             $("body").addClass("electronTheme")
             $(".modal-content").addClass("electronTheme")
             currentTheme = "electronTheme"
-
         }
     }
     nucleusTheme = () => {
+        if (themesTried[5] == false) {
+            themesTried[5] = true 
+            checkAchievement()
+        }
         if (currentTheme != "nucleusTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -516,6 +542,10 @@ $(document).ready(function () {
         }
     }
     gravityTheme = () => {
+        if (themesTried[6] == false) {
+            themesTried[6] = true 
+            checkAchievement()
+        }
         if (currentTheme != "gravityTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -525,6 +555,10 @@ $(document).ready(function () {
         }
     }
     darkMatterTheme = () => {
+        if (themesTried[7] == false) {
+            themesTried[7] = true 
+            checkAchievement()
+        }
         if (currentTheme != "darkMatterTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -534,6 +568,10 @@ $(document).ready(function () {
         }
     }
     ultimaTheme = () => {
+        if (themesTried[8] == false) {
+            themesTried[8] = true 
+            checkAchievement()
+        }
         if (currentTheme != "ultimaTheme") {
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
@@ -551,10 +589,11 @@ $(document).ready(function () {
                 var selectTheme = window["defaultTheme"] /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                 selectTheme();
                 console.log("change theme to default")
+                if (!themeChanged) themeChanged = true
             }
         } else if (this.id == "ultimaTheme") {
             ultimaTheme()
-            if (!changeTheme) changeTheme = true
+            if (!themeChanged) themeChanged = true
             console.log("change theme to Ultima")
         } else {
             var selectedTheme = this.id.substring(0, (this.id.length - 5)) /* take element name from button id" */
@@ -562,7 +601,7 @@ $(document).ready(function () {
                 if ((clickers[i].id == selectedTheme) && (this.id != currentTheme) && clickers[i].themeUnlocked) {
                     var selectTheme = window[this.id]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                     selectTheme();
-                    if (!changeTheme) changeTheme = true
+                    if (!themeChanged) themeChanged = true
                     console.log("change theme to " + selectedTheme)
                 }
             }
@@ -584,5 +623,5 @@ $(document).ready(function () {
     $(".gameTitle").text(GAME_TITLE)
     $(".email").text(CONTACT_EMAIL)
 
-    debug()
+    // debug()
 })
