@@ -63,6 +63,7 @@ $(document).ready(function () {
 
     // VARIABLES
     let unlockLevel = [1, 20, 50, 100, 200, 500, 1000, 2000]
+    var currentRank = 0
     var unlocked = []; for (i = 0; i < NUM_ELEMENTS; i++) {unlocked[i] = false}
     var achievementUnlocked = []; for (i = 0; i < NUM_ACHIEVEMENTS; i++) {achievementUnlocked[i] = false}
     var totalScore = 0
@@ -160,6 +161,13 @@ $(document).ready(function () {
     checkLevel = (clicker) => {
         if (clicker.count >= clicker.nextLevel) {
             clicker.levelUp()
+        }
+    }
+
+    checkRank = (totalScore) => {
+        if (totalScore >= unlockLevel[currentRank]) {
+            currentRank++
+            $(".rankRank").text("Rank " + currentRank)
         }
     }
 
@@ -368,6 +376,7 @@ $(document).ready(function () {
         clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
         totalScore = incrementTotalScore(totalScore, clicker.i)
         checkLevel(clicker)
+        checkRank(totalScore)
     }
 
     // THEMES
