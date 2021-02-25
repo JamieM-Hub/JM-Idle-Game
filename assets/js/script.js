@@ -101,8 +101,8 @@ $(document).ready(function () {
     var changeTheme = new Achievement("Change Theme", "changeTheme", "first upgrade", "20")
     var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "first upgrade", "21")
     var clickDeveloper = new Achievement("Check Out Developer", "clickDeveloper", "first upgrade", "22")
-    var secret1 = new Achievement("First Upgrade", "secret1", "first upgrade", "23")
-    var secret2 = new Achievement("First Upgrade", "secret2", "first upgrade", "24")
+    var secret1 = new Achievement("Secret 1", "secret1", "first upgrade", "23")
+    var secret2 = new Achievement("Secret 2", "secret2", "first upgrade", "24")
 
 
     let achievements = [firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade, 
