@@ -476,6 +476,11 @@ $(document).ready(function () {
         checkAchievement()
     })
 
+    $("#developerButton").click(function() {
+        clickDeveloper = true
+        checkAchievement()
+    })
+
     $(".themeButton").click(function () {
         // console.log(this.id + " clicked")
         if (this.id == "defaultTheme") {
