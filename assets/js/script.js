@@ -378,26 +378,27 @@ $(document).ready(function () {
     }
 
     processClick = (clicker) => {
-        if (clicker.currentLevel > 10) {
-            clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
-            clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
-            totalScore = incrementTotalScore(totalScore, clicker.i)
-            checkLevel(clicker)
-            checkRank(totalScore)
-        }
+        // animateButton(this, this.id)
+        totalClicks = incrementTotalClicks(totalClicks)
+        clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
+        clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
+        totalScore = incrementTotalScore(totalScore, clicker.i)
+        checkLevel(clicker)
+        checkRank(totalScore)
+        checkUnlock(totalScore)
+        checkAchievement()
     }
 
     // CLICKERS
     $(".clicker").click(function () {
-        //fire.unlockTheme()
-        // animateButton(this, this.id)
-        totalClicks = incrementTotalClicks(totalClicks)
         var clickedClicker = detectClicker(this, clickers)
-        console.log(clickedClicker.currentLevel)
-        // if (clickedClicker.currentLevel < MAX_LEVEL) 
-        processClick(clickedClicker)
-        checkUnlock(totalScore)
-        checkAchievement()
+        // console.log(clickedClicker.currentLevel)
+
+        if (clickedClicker.currentLevel < MAX_LEVEL) {
+            processClick(clickedClicker)
+        }
+
+
     })
 
     // DEVELOPER BUTTON
