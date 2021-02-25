@@ -96,12 +96,17 @@ $(document).ready(function () {
     // FUNCTIONS
 
     debug = () => {
-        for (i = 0; i < NUM_ELEMENTS; i++) {
-            unlocked[i] = true
-            clickers[i].unlockTheme()
+        // for (i = 0; i < NUM_ELEMENTS; i++) {
+        //     unlocked[i] = true
+        //     clickers[i].unlockTheme()
+        // }
+        // maxCount = 8
+        // checkAchievement()
+
+        for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
+            achievementUnlocked[i] = true
+            $(".achievementButton").parent().parent().removeClass("d-none")
         }
-        maxCount = 8
-        checkAchievement()
 
     }
 
@@ -528,6 +533,15 @@ $(document).ready(function () {
             }
         }
         checkAchievement()
+    })
+
+    // ACHIEVEMENTS
+    $(".achievementButton").click(function() {
+        console.log("achievement button clicked")
+
+        // create div above button
+        // fill div with achievementName and achievementText
+
     })
 
     // JQUERY STYLE + CONTENT
