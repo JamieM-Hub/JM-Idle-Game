@@ -84,6 +84,16 @@ $(document).ready(function () {
 
     // FUNCTIONS
 
+    debug = () => {
+        for (i = 0; i < NUM_ELEMENTS; i++) {
+            unlocked[i] = true
+            clickers[i].unlockTheme()
+        }
+        maxCount = 8
+        checkAchievement()
+
+    }
+
     incrementCount = (count, i, nextLevel, id) => {
         count += i
         $("." + id + " > .clickerCount").text(count.toString() + " / " + nextLevel)
@@ -302,7 +312,6 @@ $(document).ready(function () {
         if (!achievementUnlocked[22] && (maxCount == NUM_ELEMENTS)) {
             achievementUnlocked[22] = true
             $(".completeAll").parent().removeClass("d-none")
-            themeUnlocked[9] = true
             console.log("achievement 22 (Complete All Elements) unlocked!")
             $("#ultimaTheme").text("ultima")
             console.log("ULTIMA theme unlocked!")
@@ -368,20 +377,15 @@ $(document).ready(function () {
             $("body").addClass("defaultTheme")
             $(".modal-content").addClass("defaultTheme")
             currentTheme = "defaultTheme"
-            console.log(currentTheme)
         }
     }
     fireTheme = () => {
-        console.log("change to fire 1")
         if (currentTheme != "fireTheme") {
-            console.log("change to fire 2")
             $("body").removeClass(currentTheme)
             $(".modal-content").removeClass(currentTheme)
             $("body").addClass("fireTheme")
             $(".modal-content").addClass("fireTheme")
-            console.log(currentTheme)
             currentTheme = "fireTheme"
-            console.log(currentTheme)
         }
     }
     waterTheme = () => {
@@ -473,15 +477,17 @@ $(document).ready(function () {
     $(".themeButton").click(function () {
         // console.log(this.id + " clicked")
         if (this.id == "defaultTheme") {
-            console.log("current theme: " + currentTheme)
             if (maxCount > 0) {
                 // console.log("maxCount > 0")
                 var selectTheme = window["defaultTheme"] /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                 selectTheme();
+                console.log("change theme to default")
             }
+        } else if (this.id == "ultimaTheme") {
+            ultimaTheme()
+            console.log("change theme to Ultima")
         } else {
             var selectedTheme = this.id.substring(0, (this.id.length - 5)) /* take element name from button id" */
-            console.log("current theme: " + currentTheme)
             for (i = 0; i < NUM_ELEMENTS; i++) {
                 if ((clickers[i].id == selectedTheme) && (this.id != currentTheme) && clickers[i].themeUnlocked) {
                     console.log("change theme to " + selectedTheme)
@@ -497,4 +503,5 @@ $(document).ready(function () {
     //$(".clicker.one").parent().removeClass("d-none")
 
     $("body").addClass("defaultTheme")
+    debug()
 })
