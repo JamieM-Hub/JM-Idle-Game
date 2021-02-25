@@ -218,13 +218,21 @@ $(document).ready(function () {
         }
     }
 
+    processAchievement = (achievement) => {
+        $("." + firstClick).parent().removeClass("d-none")
+        var ach = "#" + achievement
+        $(ach).find(".achievementImage").text("1")
+        $(ach).find(".achievementName").text("First Click!")
+        $(ach).find(".achievementText").text("You clicked a button! Wow!")
+        console.log("achievement 1 (First Click) unlocked!")
+    }
+
     checkAchievement = () => {
 
         // First Click
         if (!achievementUnlocked[1] && (totalClicks >= 1)) {
             achievementUnlocked[1] = true
-            $(".firstClick").parent().removeClass("d-none")
-            console.log("achievement 1 (First Click) unlocked!")
+            processAchievement("firstClick")
         }
         // 50 Clicks
         if (!achievementUnlocked[2] && (totalClicks >= 50)) {

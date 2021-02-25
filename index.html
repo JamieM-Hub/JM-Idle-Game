@@ -245,7 +245,7 @@
             </div>
             <div class="col-2 d-none">
                 <a title="achievement 10" class="unlockDarkMatter"><button
-                        class="achievementButton">9</button>0</button></a>
+                        class="achievementButton">9</button></a>
             </div>
             <div class="col-2 d-none">
                 <a title="achievement 11" class="completeFire"><button class="achievementButton">10</button></a>
@@ -406,15 +406,125 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-2 achievementImage">0</div>
-                        <div class="col-4 achievementName">Achievement Name</div>
-                        <div class="col-6 achievementText">Achievement Text</div>
-                    </div>
-                    <div class="row">
+                    <div class="row achievement" id="firstClick">
                         <div class="col-2 achievementImage">?</div>
-                        <div class="col-4 achievementName">????</div>
-                        <div class="col-6 achievementText">????????????</div>
+                        <div class="col-4 achievementName">????? ?????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="clicks_50">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">?? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="clicks_100">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">??? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="clicks_250">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">??? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="clicks_500">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">??? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="clicks_1000">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="firstUpgrade">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">????? ???????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="maxUpgrade">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">??? ???????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="unlockElectron">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">?????? ????????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="unlockDarkMatter">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">??????? ???? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeFire">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeWater">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ?????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeWind">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeEarth">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ?????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeElectron">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ????????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeNucleus">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ???????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeGravity">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ???????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeDarkMatter">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ???? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="completeAll">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">???????? ???</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="changeTheme">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">?????? ?????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="tryAllThemes">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">??? ??? ??????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="clickDeveloper">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">????? ?????????</div>
+                        <div class="col-6 achievementText">???</div>
+                    </div>
+                    <div class="row achievement" id="secret1">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">?</div>
+                        <div class="col-6 achievementText">?</div>
+                    </div>
+                    <div class="row achievement" id="secret2">
+                        <div class="col-2 achievementImage">?</div>
+                        <div class="col-4 achievementName">?</div>
+                        <div class="col-6 achievementText">?</div>
                     </div>
                 </div>
             </div>
