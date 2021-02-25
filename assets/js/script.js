@@ -80,6 +80,8 @@ $(document).ready(function () {
         this.unlocked = false
     }
     var unlockFire = new Achievement("Unlock Fire", "unlockFire", "You clicked a button. Wow!", "fab fa-gripfire")
+    var unlockElectron = new Achievement("Unlock Electron", "unlockElectron", "unlockElectron", "fas fa-bolt")
+    var unlockDarkMatter = new Achievement("Unlock Dark Matter", "unlockDarkMatter", "unlockDarkMatter", "fas fa-cubes")
     var clicks_50 = new Achievement("50 Clicks", "clicks_50", "You clicked 50 buttons. Impressive!", "far fa-hand-pointer")
     var clicks_100 = new Achievement("100 Clicks", "clicks_100", "You clicked 100 buttons. Superb!", "far fa-hand-pointer")
     var clicks_250 = new Achievement("250 Clicks", "clicks_250", "You clicked 250 buttons. Prodigous!", "far fa-hand-pointer")
@@ -87,8 +89,6 @@ $(document).ready(function () {
     var clicks_1000 = new Achievement("1000 Clicks", "clicks_1000", "You clicked 1000 buttons. Really?!", "far fa-hand-pointer")
     var firstUpgrade = new Achievement("Unlock An Upgrade", "firstUpgrade", "firstUpgrade", "fas fa-angle-double-up")
     var maxUpgrade = new Achievement("Unlock All Upgrades", "maxUpgrade", "maxUpgrade", "fas fa-angle-double-up")
-    var unlockElectron = new Achievement("Unlock Electron", "unlockElectron", "unlockElectron", "fas fa-bolt")
-    var unlockDarkMatter = new Achievement("Unlock Dark Matter", "unlockDarkMatter", "unlockDarkMatter", "fas fa-cubes")
     var completeFire = new Achievement("Complete Fire", "completeFire", "first upgrade", "fab fa-gripfire")
     var completeWater = new Achievement("Complete Water", "completeWater", "first upgrade", "fas fa-tint")
     var completeWind = new Achievement("Complete Wind", "completeWind", "first upgrade", "fas fa-wind")
@@ -96,7 +96,7 @@ $(document).ready(function () {
     var completeElectron = new Achievement("Complete Electron", "completeElectron", "first upgrade", "fas fa-bolt")
     var completeNucleus = new Achievement("Complete Nucleus", "completeNucleus", "first upgrade", "fas fa-atom")
     var completeGravity = new Achievement("Complete Gravity", "completeGravity", "first upgrade", "fas fa-meteor")
-    var completeDarkMatter = new Achievement("Complete Dark Matter", "completeDarkMatter", "first upgrade", "fas fa-cubes")
+    var completeDarkMatter = new Achievement("Complete Dark Matter", "completeDarkMatter", "first upgrade", "`fas fa-cubes`")
     var completeAll = new Achievement("Complete All Elements", "completeAll", "first upgrade", "fas fa-crown")
     var changeTheme = new Achievement("Change Theme", "changeTheme", "first upgrade", "fas fa-paint-brush")
     var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "first upgrade", "fas fa-palette")
