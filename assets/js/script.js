@@ -105,7 +105,10 @@ $(document).ready(function () {
     var secret2 = new Achievement("First Upgrade", "secret2", "first upgrade", "24")
 
 
-    // let achievements = [firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000]
+    let achievements = [firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade, 
+        maxUpgrade, unlockElectron, unlockDarkMatter, completeFire, completeWater, completeWind, completeEarth, 
+        completeElectron, completeNucleus, completeGravity, completeDarkMatter, changeTheme, clickDeveloper, 
+        tryAllThemes, completeAll, secret1, secret2]
 
     let unlockLevel = [1, 2, 50, 100, 200, 500, 1000, 2000]
     var currentRank = 0
@@ -135,8 +138,8 @@ $(document).ready(function () {
         // checkAchievement()
 
         for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
-            achievementUnlocked[i] = true
-            $(".achievementButton").parent().parent().removeClass("d-none")
+            achievements[i].unlocked = true
+            processAchievement(achievements[i])
         }
 
     }
@@ -574,7 +577,9 @@ $(document).ready(function () {
     })
 
     // JQUERY STYLE + CONTENT
-    $("body").addClass("defaultTheme") $(".gameTitle").text(GAME_TITLE) $(".email").text(CONTACT_EMAIL)
+    $("body").addClass("defaultTheme")
+    $(".gameTitle").text(GAME_TITLE)
+    $(".email").text(CONTACT_EMAIL)
 
     debug()
 })
