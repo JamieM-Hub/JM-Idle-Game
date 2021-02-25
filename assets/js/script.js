@@ -72,37 +72,37 @@ $(document).ready(function () {
     var darkMatter = new Clicker("darkMatter", "purple", [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
-    function Achievement(name, id, text, img) {
+    function Achievement(name, id, text, icon) {
         this.name = name
         this.id = id
         this.text = id
-        this.img = img
+        this.icon = icon
         this.unlocked = false
     }
-    var firstClick = new Achievement("First Click", "firstClick", "You clicked a button. Wow!", "1")
-    var clicks_50 = new Achievement("50 Clicks", "clicks_50", "You clicked 50 buttons. Impressive!", "2")
-    var clicks_100 = new Achievement("100 Clicks", "clicks_100", "You clicked 100 buttons. Superb!", "3")
-    var clicks_250 = new Achievement("250 Clicks", "clicks_250", "You clicked 250 buttons. Prodigous!", "4")
-    var clicks_500 = new Achievement("500 Clicks", "clicks_500", "You clicked 500 buttons. Godlike!", "5")
-    var clicks_1000 = new Achievement("1000 Clicks", "clicks_1000", "You clicked 1000 buttons. Really?!", "6")
-    var firstUpgrade = new Achievement("Unlock An Upgrade", "firstUpgrade", "firstUpgrade", "7")
-    var maxUpgrade = new Achievement("Unlock All Upgrades", "maxUpgrade", "maxUpgrade", "8")
-    var unlockElectron = new Achievement("Unlock Electron", "unlockElectron", "unlockElectron", "9")
-    var unlockDarkMatter = new Achievement("Unlock Dark Matter", "unlockDarkMatter", "unlockDarkMatter", "10")
-    var completeFire = new Achievement("Complete Fire", "completeFire", "first upgrade", "11")
-    var completeWater = new Achievement("Complete Water", "completeWater", "first upgrade", "12")
-    var completeWind = new Achievement("Complete Wind", "completeWind", "first upgrade", "13")
-    var completeEarth = new Achievement("Complete Earth", "completeEarth", "first upgrade", "14")
-    var completeElectron = new Achievement("Complete Electron", "completeElectron", "first upgrade", "15")
-    var completeNucleus = new Achievement("Complete Nucleus", "completeNucleus", "first upgrade", "16")
-    var completeGravity = new Achievement("Complete Gravity", "completeGravity", "first upgrade", "17")
-    var completeDarkMatter = new Achievement("Complete Dark Matter", "completeDarkMatter", "first upgrade", "18")
-    var completeAll = new Achievement("Complete All Elements", "completeAll", "first upgrade", "19")
-    var changeTheme = new Achievement("Change Theme", "changeTheme", "first upgrade", "20")
-    var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "first upgrade", "21")
-    var clickDeveloper = new Achievement("Check Out Developer", "clickDeveloper", "first upgrade", "22")
-    var secret1 = new Achievement("Secret 1", "secret1", "first upgrade", "23")
-    var secret2 = new Achievement("Secret 2", "secret2", "first upgrade", "24")
+    var firstClick = new Achievement("First Click", "firstClick", "You clicked a button. Wow!", "far fa-hand-pointer")
+    var clicks_50 = new Achievement("50 Clicks", "clicks_50", "You clicked 50 buttons. Impressive!", "far fa-hand-pointer")
+    var clicks_100 = new Achievement("100 Clicks", "clicks_100", "You clicked 100 buttons. Superb!", "far fa-hand-pointer")
+    var clicks_250 = new Achievement("250 Clicks", "clicks_250", "You clicked 250 buttons. Prodigous!", "far fa-hand-pointer")
+    var clicks_500 = new Achievement("500 Clicks", "clicks_500", "You clicked 500 buttons. Godlike!", "far fa-hand-pointer")
+    var clicks_1000 = new Achievement("1000 Clicks", "clicks_1000", "You clicked 1000 buttons. Really?!", "far fa-hand-pointer")
+    var firstUpgrade = new Achievement("Unlock An Upgrade", "firstUpgrade", "firstUpgrade", "fas fa-angle-double-up")
+    var maxUpgrade = new Achievement("Unlock All Upgrades", "maxUpgrade", "maxUpgrade", "fas fa-angle-double-up")
+    var unlockElectron = new Achievement("Unlock Electron", "unlockElectron", "unlockElectron", "fas fa-bolt")
+    var unlockDarkMatter = new Achievement("Unlock Dark Matter", "unlockDarkMatter", "unlockDarkMatter", "fas fa-cubes")
+    var completeFire = new Achievement("Complete Fire", "completeFire", "first upgrade", "fab fa-gripfire")
+    var completeWater = new Achievement("Complete Water", "completeWater", "first upgrade", "fas fa-tint")
+    var completeWind = new Achievement("Complete Wind", "completeWind", "first upgrade", "fas fa-wind")
+    var completeEarth = new Achievement("Complete Earth", "completeEarth", "first upgrade", "fas fa-globe-americas")
+    var completeElectron = new Achievement("Complete Electron", "completeElectron", "first upgrade", "fas fa-bolt")
+    var completeNucleus = new Achievement("Complete Nucleus", "completeNucleus", "first upgrade", "fas fa-atom")
+    var completeGravity = new Achievement("Complete Gravity", "completeGravity", "first upgrade", "fas fa-meteor")
+    var completeDarkMatter = new Achievement("Complete Dark Matter", "completeDarkMatter", "first upgrade", "fas fa-cubes")
+    var completeAll = new Achievement("Complete All Elements", "completeAll", "first upgrade", "fas fa-crown")
+    var changeTheme = new Achievement("Change Theme", "changeTheme", "first upgrade", "fas fa-paint-brush")
+    var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "first upgrade", "fas fa-palette")
+    var clickDeveloper = new Achievement("Check Out Developer", "clickDeveloper", "first upgrade", "fas fa-layer-group")
+    var secret1 = new Achievement("Secret 1", "secret1", "first upgrade", "fas fa-question-circle")
+    var secret2 = new Achievement("Secret 2", "secret2", "first upgrade", "fas fa-question-circle")
     let achievements = [
         firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade,
         maxUpgrade, unlockElectron, unlockDarkMatter, completeFire, completeWater, completeWind, completeEarth,
@@ -255,9 +255,12 @@ $(document).ready(function () {
     processAchievement = (achievement) => {
         $("." + achievement.id).parent().removeClass("d-none")
         var ach = "#" + achievement.id
-        $(ach).find(".achievementImage").html(achievement.img)
+        $(ach).find(".achievementImage").html("<i class=\"" + achievement.icon + "\"></i>")
         $(ach).find(".achievementName").text(achievement.name)
         $(ach).find(".achievementText").text(achievement.text)
+
+
+
         console.log("Achievement unlocked! " + achievement.name + ": " + achievement.text)
     }
 
