@@ -62,27 +62,6 @@ $(document).ready(function () {
             animateThemesButton(this.color)
         }
     }
-
-    // VARIABLES
-    let unlockLevel = [1, 2, 50, 100, 200, 500, 1000, 2000]
-    var currentRank = 0
-    var unlocked = [];
-    for (i = 0; i < NUM_ELEMENTS; i++) {
-        unlocked[i] = false
-    }
-    var achievementUnlocked = [];
-    for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
-        achievementUnlocked[i] = false
-    }
-    var totalScore = 0
-    var totalClicks = 0
-    var firstUpgradeUnlocked = false
-    var changeTheme = false
-    var clickDeveloper = false
-    var themeCount = 0
-    var currentTheme = 'defaultTheme'
-    var maxCount = 0
-    var upgradeCount = 0
     var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
     var water = new Clicker("water", "blue", [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme")
     var wind = new Clicker("wind", "lightgray", [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme")
@@ -92,6 +71,38 @@ $(document).ready(function () {
     var gravity = new Clicker("gravity", "black", [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme")
     var darkMatter = new Clicker("darkMatter", "purple", [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
+
+    function Achievement(name, id, text, img) {
+        this.name = name
+        this.id = id
+        this.text = text
+        this.img = img
+        this.unlocked = false
+    }
+    var firstClick = new Achievement("First Click", "firstClick", "You clicked a button. Wow!", "1")
+    var clicks_50 = new Achievement("50 Clicks", "clicks_50", "You clicked 50 buttons. Impressive!", "2")
+    var clicks_100 = new Achievement("100 Clicks", "clicks_100", "You clicked 100 buttons. Superb!", "3")
+    var clicks_250 = new Achievement("250 Clicks", "clicks_250", "You clicked 250 buttons. Prodigous!", "4")
+    var clicks_500 = new Achievement("500 Clicks", "clicks_500", "You clicked 500 buttons. Godlike!", "")
+    var clicks_1000 = new Achievement("1000 Clicks", "clicks_1000", "You clicked 1000 buttons. Really?!", "5")
+    let achievements = [firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000]
+
+    let unlockLevel = [1, 2, 50, 100, 200, 500, 1000, 2000]
+    var currentRank = 0
+    var unlocked = []
+    var achievementUnlocked = []
+    var totalScore = 0
+    var totalClicks = 0
+    var firstUpgradeUnlocked = false
+    var changeTheme = false
+    var clickDeveloper = false
+    var themeCount = 0
+    var currentTheme = 'defaultTheme'
+    var maxCount = 0
+    var upgradeCount = 0
+
+    for (i = 0; i < NUM_ELEMENTS; i++) unlocked[i] = false
+    for (i = 0; i < NUM_ACHIEVEMENTS; i++) achievementUnlocked[i] = false
 
     // FUNCTIONS
 
@@ -219,20 +230,19 @@ $(document).ready(function () {
     }
 
     processAchievement = (achievement) => {
-        $("." + firstClick).parent().removeClass("d-none")
-        var ach = "#" + achievement
-        $(ach).find(".achievementImage").text("1")
-        $(ach).find(".achievementName").text("First Click!")
-        $(ach).find(".achievementText").text("You clicked a button! Wow!")
-        console.log("achievement 1 (First Click) unlocked!")
+        $("." + achievement.id).parent().removeClass("d-none")
+        var ach = "#" + achievement.id
+        $(ach).find(".achievementImage").text(achievement.img)
+        $(ach).find(".achievementName").text(achievement.name)
+        $(ach).find(".achievementText").text(achievement.text)
+        console.log("Achievement unlocked! " + achievement.name + ": " + achievement.text)
     }
 
     checkAchievement = () => {
-
         // First Click
-        if (!achievementUnlocked[1] && (totalClicks >= 1)) {
-            achievementUnlocked[1] = true
-            processAchievement("firstClick")
+        if (!firstClick.unlocked && (totalClicks >= 1)) {
+            firstClick.unlocked = true
+            processAchievement(firstClick)
         }
         // 50 Clicks
         if (!achievementUnlocked[2] && (totalClicks >= 50)) {
@@ -544,7 +554,7 @@ $(document).ready(function () {
     })
 
     // ACHIEVEMENTS
-    $(".achievementButton").click(function() {
+    $(".achievementButton").click(function () {
         console.log("achievement button clicked")
 
         // create div above button
