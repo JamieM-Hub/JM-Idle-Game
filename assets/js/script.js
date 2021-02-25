@@ -64,8 +64,14 @@ $(document).ready(function () {
     // VARIABLES
     let unlockLevel = [1, 20, 50, 100, 200, 500, 1000, 2000]
     var currentRank = 0
-    var unlocked = []; for (i = 0; i < NUM_ELEMENTS; i++) {unlocked[i] = false}
-    var achievementUnlocked = []; for (i = 0; i < NUM_ACHIEVEMENTS; i++) {achievementUnlocked[i] = false}
+    var unlocked = [];
+    for (i = 0; i < NUM_ELEMENTS; i++) {
+        unlocked[i] = false
+    }
+    var achievementUnlocked = [];
+    for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
+        achievementUnlocked[i] = false
+    }
     var totalScore = 0
     var totalClicks = 0
     var firstUpgradeUnlocked = false
@@ -372,15 +378,35 @@ $(document).ready(function () {
     }
 
     processClick = (clicker) => {
-        clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
-        clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
-        totalScore = incrementTotalScore(totalScore, clicker.i)
-        checkLevel(clicker)
-        checkRank(totalScore)
+        if (clicker.currentLevel > 10) {
+            clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
+            clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
+            totalScore = incrementTotalScore(totalScore, clicker.i)
+            checkLevel(clicker)
+            checkRank(totalScore)
+        }
     }
 
-    // THEMES
+    // CLICKERS
+    $(".clicker").click(function () {
+        //fire.unlockTheme()
+        // animateButton(this, this.id)
+        totalClicks = incrementTotalClicks(totalClicks)
+        var clickedClicker = detectClicker(this, clickers)
+        console.log(clickedClicker.currentLevel)
+        // if (clickedClicker.currentLevel < MAX_LEVEL) 
+        processClick(clickedClicker)
+        checkUnlock(totalScore)
+        checkAchievement()
+    })
 
+    // DEVELOPER BUTTON
+    $("#developerButton").click(function () {
+        clickDeveloper = true
+        checkAchievement()
+    })
+
+    // THEMES
     defaultTheme = () => {
         if (currentTheme != "defaultTheme") {
             $("body").removeClass(currentTheme)
@@ -424,7 +450,6 @@ $(document).ready(function () {
             $("body").addClass("earthTheme")
             $(".modal-content").addClass("earthTheme")
             currentTheme = "earthTheme"
-
         }
     }
     electronTheme = () => {
@@ -474,22 +499,6 @@ $(document).ready(function () {
         }
     }
 
-    // EVENTS
-    $(".clicker").click(function () {
-        //fire.unlockTheme()
-        // animateButton(this, this.id)
-        totalClicks = incrementTotalClicks(totalClicks)
-        var clickedClicker = detectClicker(this, clickers)
-        processClick(clickedClicker)
-        checkUnlock(totalScore)
-        checkAchievement()
-    })
-
-    $("#developerButton").click(function() {
-        clickDeveloper = true
-        checkAchievement()
-    })
-
     $(".themeButton").click(function () {
         // console.log(this.id + " clicked")
         if (this.id == "defaultTheme") {
@@ -514,12 +523,10 @@ $(document).ready(function () {
         }
     })
 
-    // ADDING CLICKERS + TRACKERS
-
-    //$(".clicker.one").parent().removeClass("d-none")
-
+    // JQUERY STYLE + CONTENT
     $("body").addClass("defaultTheme")
     $(".gameTitle").text(GAME_TITLE)
     $(".email").text(CONTACT_EMAIL)
+
     // debug()
 })
