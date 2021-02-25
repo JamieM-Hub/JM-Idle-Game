@@ -103,12 +103,12 @@ $(document).ready(function () {
     var clickDeveloper = new Achievement("Check Out Developer", "clickDeveloper", "first upgrade", "22")
     var secret1 = new Achievement("Secret 1", "secret1", "first upgrade", "23")
     var secret2 = new Achievement("Secret 2", "secret2", "first upgrade", "24")
-
-
-    let achievements = [firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade, 
-        maxUpgrade, unlockElectron, unlockDarkMatter, completeFire, completeWater, completeWind, completeEarth, 
-        completeElectron, completeNucleus, completeGravity, completeDarkMatter, changeTheme, clickDeveloper, 
-        tryAllThemes, completeAll, secret1, secret2]
+    let achievements = [
+        firstClick, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade,
+        maxUpgrade, unlockElectron, unlockDarkMatter, completeFire, completeWater, completeWind, completeEarth,
+        completeElectron, completeNucleus, completeGravity, completeDarkMatter, changeTheme, clickDeveloper,
+        tryAllThemes, completeAll, secret1, secret2
+    ]
 
     let unlockLevel = [1, 2, 50, 100, 200, 500, 1000, 2000]
     var currentRank = 0
@@ -255,7 +255,7 @@ $(document).ready(function () {
     processAchievement = (achievement) => {
         $("." + achievement.id).parent().removeClass("d-none")
         var ach = "#" + achievement.id
-        $(ach).find(".achievementImage").text(achievement.img)
+        $(ach).find(".achievementImage").html(achievement.img)
         $(ach).find(".achievementName").text(achievement.name)
         $(ach).find(".achievementText").text(achievement.text)
         console.log("Achievement unlocked! " + achievement.name + ": " + achievement.text)
