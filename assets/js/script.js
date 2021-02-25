@@ -503,5 +503,5 @@ $(document).ready(function () {
     //$(".clicker.one").parent().removeClass("d-none")
 
     $("body").addClass("defaultTheme")
-    debug()
+    // debug()
 })
