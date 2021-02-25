@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     // VARIABLES
     const NUM_ELEMENTS = 8
+    const NUM_ACHIEVEMENTS = 24
     const MAX_LEVEL = 10
     const MAX_THEMES = 10
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
@@ -59,9 +60,9 @@ $(document).ready(function () {
     }
 
     // VARIABLES
-    let unlockLevel = [1, 20, 50, 80, 100, 125, 150, 200]
-    var unlocked = [false]
-    var achievementUnlocked = [false]
+    let unlockLevel = [1, 20, 50, 100, 200, 500, 1000, 2000]
+    var unlocked = []; for (i = 0; i < NUM_ELEMENTS; i++) {unlocked[i] = false}
+    var achievementUnlocked = []; for (i = 0; i < NUM_ACHIEVEMENTS; i++) {achievementUnlocked[i] = false}
     var totalScore = 0
     var totalClicks = 0
     var firstUpgradeUnlocked = false
@@ -151,31 +152,33 @@ $(document).ready(function () {
     }
 
     checkUnlock = (totalScore) => {
-        if (totalScore >= unlockLevel[1] && !unlocked[1]) {
+        console.log("check unlock")
+        if ((totalScore >= unlockLevel[1]) && !unlocked[1]) {
             unlocked[1] = true;
             unlockClicker("water")
         }
-        if (totalScore >= unlockLevel[2] && !unlocked[2]) {
+        if ((totalScore >= unlockLevel[2]) && !unlocked[2]) {
             unlocked[2] = true;
             unlockClicker("wind")
         }
-        if (totalScore >= unlockLevel[3] && !unlocked[3]) {
+        if ((totalScore >= unlockLevel[3]) && !unlocked[3]) {
             unlocked[3] = true;
             unlockClicker("earth")
         }
-        if (totalScore >= unlockLevel[4] && !unlocked[4]) {
+        if ((totalScore >= unlockLevel[4]) && !unlocked[4]) {
+            console.log("unlock electron")
             unlocked[4] = true;
             unlockClicker("electron")
         }
-        if (totalScore >= unlockLevel[5] && !unlocked[5]) {
+        if ((totalScore >= unlockLevel[5]) && !unlocked[5]) {
             unlocked[5] = true;
             unlockClicker("nucleus")
         }
-        if (totalScore >= unlockLevel[6] && !unlocked[6]) {
+        if ((totalScore >= unlockLevel[6]) && !unlocked[6]) {
             unlocked[6] = true;
             unlockClicker("gravity")
         }
-        if (totalScore >= unlockLevel[7] && !unlocked[7]) {
+        if ((totalScore >= unlockLevel[7]) && !unlocked[7]) {
             unlocked[7] = true;
             unlockClicker("darkMatter")
         }
@@ -231,12 +234,12 @@ $(document).ready(function () {
             $(".maxUpgrade").parent().removeClass("d-none")
             console.log("achievement 8 (Unlock All Upgrades) unlocked!")
         }
-        if (!achievementUnlocked[9] && (unlocked[4] = true)) {
+        if (!achievementUnlocked[9] && (unlocked[4] == true)) {
             achievementUnlocked[9] = true
             $(".unlockElectron").parent().removeClass("d-none")
             console.log("achievement 9 (Unlock Electron) unlocked!")
         }
-        if (!achievementUnlocked[10] && (unlocked[7] = true)) {
+        if (!achievementUnlocked[10] && (unlocked[7] == true)) {
             achievementUnlocked[10] = true
             $(".unlockDarkMatter").parent().removeClass("d-none")
             console.log("achievement 10 (Unlock Dark Matter) unlocked!")
@@ -491,8 +494,7 @@ $(document).ready(function () {
 
     // ADDING CLICKERS + TRACKERS
 
-    $(".clicker.one").parent().removeClass("d-none")
-    $(":contains('TRACKER A')").parent().parent().removeClass("d-none")
+    //$(".clicker.one").parent().removeClass("d-none")
 
     $("body").addClass("defaultTheme")
 })
