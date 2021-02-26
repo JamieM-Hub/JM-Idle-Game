@@ -96,7 +96,7 @@ $(document).ready(function () {
     var completeElectron = new Achievement("Complete Electron", "completeElectron", "first upgrade", "fas fa-bolt")
     var completeNucleus = new Achievement("Complete Nucleus", "completeNucleus", "first upgrade", "fas fa-atom")
     var completeGravity = new Achievement("Complete Gravity", "completeGravity", "first upgrade", "fas fa-meteor")
-    var completeDarkMatter = new Achievement("Complete Dark Matter", "completeDarkMatter", "first upgrade", "`fas fa-cubes`")
+    var completeDarkMatter = new Achievement("Complete Dark Matter", "completeDarkMatter", "first upgrade", "fas fa-cubes")
     var completeAll = new Achievement("Complete All Elements", "completeAll", "first upgrade", "fas fa-crown")
     var changeTheme = new Achievement("Change Theme", "changeTheme", "first upgrade", "fas fa-paint-brush")
     var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "first upgrade", "fas fa-palette")
