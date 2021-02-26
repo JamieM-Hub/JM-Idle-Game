@@ -83,6 +83,10 @@
     margin: 0;
 }
 
+.container {
+    margin: 0
+}
+
 body {
     text-align: center;
     padding: none;
@@ -113,23 +117,24 @@ footer {
 .themeButton {
     text-transform: uppercase;
 }
-
 .defaultTheme {
     background-color: white;
     color: black;
 }
-
 .fireTheme {
-    background-image: url("../img/fireBG.jpg");
+    background-image: url("../img/fireTheme.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     /* background-color: red; */
     color: orange;
 }
-
 .waterTheme {
-    background-color: blue;
+    background-image: url("../img/waterTheme.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
     color: aqua;
 }
 .windTheme {
@@ -149,7 +154,7 @@ footer {
     color: lightyellow;
 }
 .gravityTheme {
-    background-image: url("../img/gravityBG.jpg");
+    background-image: url("../img/gravityTheme.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: lightskyblue;
@@ -166,8 +171,24 @@ footer {
 /* CLICKERS */
 
 #clickers {
-    margin: 0 10%
+    margin: 0
 }
+
+#clickers .col-12 {
+    box-sizing: content-box;
+}
+
+.clicker {
+    height: 10vh;
+    width: 10vh;
+    margin: 0
+}
+
+.clicker .clickerIcon {
+    font-size: x-large;
+}
+}
+
 
 /* DEVELOPER BUTTON */
 
@@ -182,3 +203,7 @@ footer {
 .gameTitle {
     font-weight: bolder;
 }
+
+/* button {
+    margin:10px 0
+} */
