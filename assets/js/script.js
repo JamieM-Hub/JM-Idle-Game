@@ -38,6 +38,8 @@ $(document).ready(function () {
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
             $("." + this.id + " > .clickerCount").text(this.count + " / " + this.nextLevel)
+            $(".row > ." + this.id).prev().prev().prev().prev().text(this.currentLevel)
+
             if (this.currentLevel == 1) {
                 $(".row > ." + id).parent().parent().removeClass("d-none")
                 $("." + this.id + " > .clickerLevel").removeClass("d-none")
@@ -61,7 +63,7 @@ $(document).ready(function () {
                 $(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
             }
             //change increment displayed in tracker
-            $(".row > ." + this.id).prev().text("+" + this.i)
+            $(".row > ." + this.id).prev().prev().text("+" + this.i)
         }
         this.unlockTheme = (theme) => {
             if (player.maxCount == 0) {
@@ -510,7 +512,7 @@ $(document).ready(function () {
 
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
-
+    $(".tracker").find("button").css("font-size", "small")
 
     // if (player.newGame == true) newGame(player.name)
     //debug()

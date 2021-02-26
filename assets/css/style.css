@@ -187,6 +187,26 @@ footer {
     font-size: x-small;
 }
 
+/* TRACKERS */
+#trackers {
+    border: 1px solid gray;
+    margin: 0 -5vw
+}
+.tracker {
+    justify-content: center;
+    vertical-align: middle;
+    font-size: x-small;
+    height: 2.5vh;
+}
+.trackerIcon {
+    text-align: left;
+}
+.trackerName {
+    text-align: center;
+}
+.increment {
+    text-align: right;
+}
 
 /* DEVELOPER BUTTON */
 
