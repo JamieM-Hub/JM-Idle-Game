@@ -9,6 +9,8 @@ $(document).ready(function () {
     const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
 
+    const BTN_FONT_SIZE = "10px"
+
     function Clicker(id, color, unlockedAtLevel, upgradeLevel, iStart, theme) {
         this.id = id
         this.color = color
@@ -495,6 +497,9 @@ $(document).ready(function () {
     $(".gameTitle").text(GAME_TITLE)
     $(".email").text(CONTACT_EMAIL)
     $(".playerName").text(player.name)
+
+    $(".btn-primary").css({"background-color": "gray", "font-size": BTN_FONT_SIZE})
+
 
     // if (player.newGame == true) newGame(player.name)
     // debug()
