@@ -48,6 +48,8 @@ $(document).ready(function () {
                 console.log($("#" + this.id + " > .clickerLevel"))
                 $("#" + this.id + " > .clickerLevel").text("Level MAX")
                 $("." + this.id + " > .clickerCount").text("COMPLETE!")
+                $(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
+
             }
             changeIncrement(this.id, this.i)
         }
@@ -138,12 +140,6 @@ $(document).ready(function () {
         }
         maxCount = 8
         checkAchievement()
-
-        // for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
-        //     achievements[i].unlocked = true
-        //     processAchievement(achievements[i])
-        // }
-
     }
 
     incrementCount = (count, i, nextLevel, id) => {
@@ -174,19 +170,6 @@ $(document).ready(function () {
         $(".row > ." + id).prev().text("+" + i)
     }
 
-    unlockUpgrade = (n, i, id) => {
-        if (!firstUpgradeUnlocked && (level = 1)) {
-            firstUpgradeUnlocked = true
-        }
-        $(".row > ." + id).siblings(".upgrade-" + n).removeClass("d-none")
-        upgradeCount++;
-        if (n == 1) i *= 2
-        if (n == 2) i *= 3
-        if (n == 3) i *= 5
-        //i = roundtoDecimalPlace(i, 2)
-        return i
-    }
-
     roundtoDecimalPlace = (number, places) => {
         if (places >= 1) {
             var whole = number
@@ -207,11 +190,21 @@ $(document).ready(function () {
         $("." + this.id + " > .clickerCount").text("UNLOCK!")
     }
 
+    unlockUpgrade = (n, i, id) => {
+        if (!firstUpgradeUnlocked && (level = 1)) firstUpgradeUnlocked = true
+        $(".row > ." + id).next().find(".upgrade-" + n).removeClass("d-none")
+        upgradeCount++;
+        if (n == 1) i *= 2
+        if (n == 2) i *= 3
+        if (n == 3) i *= 5
+        //i = roundtoDecimalPlace(i, 2)
+        return i
+    }
+
     checkLevel = (clicker) => {
         if (clicker.count >= clicker.nextLevel) {
             clicker.levelUp()
         }
-
     }
 
     checkRank = (totalScore) => {
