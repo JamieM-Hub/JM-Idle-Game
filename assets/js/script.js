@@ -150,6 +150,7 @@ $(document).ready(function () {
         for (i = 0; i < NUM_ELEMENTS; i++) {
             clickers[i].unlocked = true
             clickers[i].unlockTheme()
+            $(".clicker." + clickers[i].id).parent().removeClass("d-none")
         }
         for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
             processAchievement(achievements[i])
@@ -515,5 +516,5 @@ $(document).ready(function () {
     $(".tracker").find("button").css("font-size", "small")
 
     // if (player.newGame == true) newGame(player.name)
-    //debug()
+    debug()
 })
