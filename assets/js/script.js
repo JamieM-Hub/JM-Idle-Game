@@ -446,155 +446,42 @@ $(document).ready(function () {
     })
 
     // THEMES
-    defaultTheme = () => {
-        if (player.currentTheme != "defaultTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("defaultTheme")
-            $(".modal-content").addClass("defaultTheme")
-            player.currentTheme = "defaultTheme"
+
+    changeToSelectedTheme = (selectedTheme) => {
+        var selected
+        /* check & update themesTried */
+        if (selectedTheme == "defaultTheme") {
+            if (player.themesTried[0] == false) player.themesTried[0] = true
+        } else if (selectedTheme == "ultimaTheme") {
+            if (player.themesTried[NUM_ELEMENTS + 1] == false) player.themesTried[NUM_ELEMENTS + 1] = true
+        } else {
+            for (i = 0; i < NUM_ELEMENTS; i++) {
+                if (clickers[i].theme == selectedTheme) selected = i
+            }
+            if (player.themesTried[selected] == false) player.themesTried[selected] = true
         }
-    }
-    fireTheme = () => {
-        if (player.themesTried[0] == false) {
-            player.themesTried[0] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "fireTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("fireTheme")
-            $(".modal-content").addClass("fireTheme")
-            player.currentTheme = "fireTheme"
-        }
-    }
-    waterTheme = () => {
-        if (player.themesTried[1] == false) {
-            player.themesTried[1] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "waterTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("waterTheme")
-            $(".modal-content").addClass("waterTheme")
-            player.currentTheme = "waterTheme"
-        }
-    }
-    windTheme = () => {
-        if (player.themesTried[2] == false) {
-            player.themesTried[2] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "windTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("windTheme")
-            $(".modal-content").addClass("windTheme")
-            player.currentTheme = "windTheme"
-        }
-    }
-    earthTheme = () => {
-        if (player.themesTried[3] == false) {
-            player.themesTried[3] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "earthTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("earthTheme")
-            $(".modal-content").addClass("earthTheme")
-            player.currentTheme = "earthTheme"
-        }
-    }
-    electronTheme = () => {
-        if (player.themesTried[4] == false) {
-            player.themesTried[4] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "electronTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("electronTheme")
-            $(".modal-content").addClass("electronTheme")
-            player.currentTheme = "electronTheme"
-        }
-    }
-    nucleusTheme = () => {
-        if (player.themesTried[5] == false) {
-            player.themesTried[5] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "nucleusTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("nucleusTheme")
-            $(".modal-content").addClass("nucleusTheme")
-            player.currentTheme = "nucleusTheme"
-        }
-    }
-    gravityTheme = () => {
-        if (player.themesTried[6] == false) {
-            player.themesTried[6] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "gravityTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("gravityTheme")
-            $(".modal-content").addClass("gravityTheme")
-            player.currentTheme = "gravityTheme"
-        }
-    }
-    darkMatterTheme = () => {
-        if (player.themesTried[7] == false) {
-            player.themesTried[7] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "darkMatterTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("darkMatterTheme")
-            $(".modal-content").addClass("darkMatterTheme")
-            player.currentTheme = "darkMatterTheme"
-        }
-    }
-    ultimaTheme = () => {
-        if (player.themesTried[8] == false) {
-            player.themesTried[8] = true
-            checkAchievement()
-        }
-        if (player.currentTheme != "ultimaTheme") {
-            $("body").removeClass(player.currentTheme)
-            $(".modal-content").removeClass(player.currentTheme)
-            $("body").addClass("ultimaTheme")
-            $(".modal-content").addClass("ultimaTheme")
-            player.currentTheme = "ultimaTheme"
-        }
+        /* update display */
+        $("body").removeClass(player.currentTheme)
+        $("#clickers").addClass(player.currentTheme)
+        $(".modal-content").removeClass(player.currentTheme)
+        $("body").addClass(selectedTheme)
+        $(".modal-content").addClass(selectedTheme)
+        $("#clickers").addClass(selectedTheme)
+        /* update system */
+        player.currentTheme = selectedTheme
+        if (!player.themeChanged) player.themeChanged = true
+        checkAchievement()
     }
 
     $(".themeButton").click(function () {
-        // console.log(this.id + " clicked")
-        if (this.id == "defaultTheme") {
-            if (player.maxCount > 0) {
-                // console.log("player.maxCount > 0")
-                var selectTheme = window["defaultTheme"] /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
-                selectTheme();
-                console.log("change theme to default")
-                if (!player.themeChanged) player.themeChanged = true
-            }
-        } else if (this.id == "ultimaTheme") {
-            ultimaTheme()
-            if (!player.themeChanged) player.themeChanged = true
-            console.log("change theme to Ultima")
+        if ((this.id == "defaultTheme") && (player.maxCount > 0)) {
+            changeToSelectedTheme(this.id)
+        } else if ((this.id == "ultimaTheme") && (completeAll.unlocked == true)) {
+            changeToSelectedTheme(this.id)
         } else {
-            var selectedTheme = this.id.substring(0, (this.id.length - 5)) /* take element name from button id" */
             for (i = 0; i < NUM_ELEMENTS; i++) {
-                if ((clickers[i].id == selectedTheme) && (this.id != player.currentTheme) && clickers[i].themeUnlocked) {
-                    var selectTheme = window[this.id]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
-                    selectTheme();
-                    if (!player.themeChanged) player.themeChanged = true
-                    console.log("change theme to " + selectedTheme)
+                if ((clickers[i].theme == this.id) && (clickers[i].themeUnlocked)) {
+                    changeToSelectedTheme(this.id)
                 }
             }
         }
@@ -607,6 +494,6 @@ $(document).ready(function () {
     $(".email").text(CONTACT_EMAIL)
     $(".playerName").text(player.name)
 
-    if (player.newGame == true) newGame(player.name)
-    // debug()
+    // if (player.newGame == true) newGame(player.name)
+    debug()
 })
