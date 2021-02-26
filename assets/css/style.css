@@ -84,8 +84,8 @@
 }
 
 .gameBoard {
-    margin: 0
-    padding: 5vh 5vw
+    margin: 0;
+    padding: 5vh 5vw;
 }
 
 body {
@@ -187,7 +187,6 @@ footer {
 
 .clicker .clickerIcon {
     font-size: x-large;
-}
 }
 
 
