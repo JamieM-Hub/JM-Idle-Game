@@ -235,9 +235,32 @@ footer {
 /* FONT AWESOME ICONS */
 
 /* Dark Matter */
-/* .fa-cubes {
-    color: purple
-} */
+
+.fa-gripfire {
+    color:orangered;
+}
+.fa-tint {
+    color:cornflowerblue;
+}
+.fa-wind {
+    color: lightseagreen;
+}
+.fa-globe-americas {
+    color: brown
+}
+.fa-bolt {
+    color: gold;
+}
+.fa-atom {
+    color:green;
+}
+.fa-meteor {
+    color:darkslategrey;
+}
+.fa-cubes {
+    color: purple;
+}
+
 
 /* MISC */
 .opacity-50 {
