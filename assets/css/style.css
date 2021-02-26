@@ -84,8 +84,9 @@
 }
 
 .gameBoard {
-    margin: 0;
+    margin: 5vh 0;
     padding: 5vh 5vw;
+    border: 1px solid gray;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -130,6 +131,7 @@ footer {
     color: orange;
 }
 .waterTheme {
+    background-color: cornflowerblue;
     color: aqua;
 }
 .windTheme {
@@ -149,6 +151,7 @@ footer {
     color: lightyellow;
 }
 .gravityTheme {
+    background-color: black;
     color: lightskyblue;
 }
 .darkMatterTheme {
