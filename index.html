@@ -51,6 +51,9 @@
             </div>
         </div>
         <!-- totals -->
+        <div class="row" id="player">
+            <div class="col-12 playerName">-</div>
+        </div>
         <div class="row" id="rank">
             <div class="col-6 rankText">Rank</div>
             <div class="col-6 rankRank">-</div>
@@ -559,14 +562,21 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Are you sure?</h5>
+                    <h5 class="modal-title">Start New Game</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
+                <div class="modal-body">
+                    <p>To start a new game, type in your name and hit confirm.</p>
+                    <form action="">
+                        <input type="text" id="playerName" label="Player Name">
+                        <input type="submit" value="Confirm">
+                    </form>
+                    <p class="d-none">Please note this will delete all current progress.</p>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                    <a href="index.html"><button type="button" class="btn btn-primary">Yes</button></a>
+                    <button type="button" id="confirmNewGame" class="btn btn-primary"  data-dismiss="modal">Yes</button>
                 </div>
             </div>
         </div>

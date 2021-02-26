@@ -9,7 +9,7 @@ $(document).ready(function () {
     const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
 
-    function Clicker (id, color, unlockedAtLevel, upgradeLevel, iStart, theme) {
+    function Clicker(id, color, unlockedAtLevel, upgradeLevel, iStart, theme) {
         this.id = id
         this.color = color
         this.unlockedAtLevel = unlockedAtLevel
@@ -77,7 +77,7 @@ $(document).ready(function () {
     var darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
-    function Achievement (name, id, text, icon) {
+    function Achievement(name, id, text, icon) {
         this.name = name
         this.id = id
         this.text = id
@@ -115,11 +115,12 @@ $(document).ready(function () {
         tryAllThemes, completeAll, secret1, secret2
     ]
 
-    function Player () {
+    function Player() {
         this.name = "Mr Click"
         this.rank = 0
         this.score = 0
         this.clicks = 0
+        this.newGame = false
         this.firstUpgradeUnlocked = false
         this.themeChanged = false
         this.themesTried = [false]
@@ -128,12 +129,10 @@ $(document).ready(function () {
         this.currentTheme = 'defaultTheme'
         this.upgradeCount = 0
         this.maxCount = 0
+        this.gameStarted = false
     }
     var player = new Player()
-    
-    for (i = 0; i < NUM_ELEMENTS; i++) clickers[i].unlocked = false
-    for (i = 0; i < NUM_ACHIEVEMENTS; i++) achievements[i].unlocked = false
-    for (i = 0; i < MAX_THEMES; i++) player.themesTried[i] = false
+    // var playerName = "Mr Click"
 
     // FUNCTIONS
 
@@ -146,15 +145,26 @@ $(document).ready(function () {
         checkAchievement()
     }
 
-    // newGame = () => {
-    //     for (i = 0; i = NUM_ELEMENTS; i++) {
-    //         clickers[i].count = 0
-    //         clickers[i].count_T = 0
-    //         clickers[i].unlocked = false
-    //         clickers[i].currentLevel = 0
-    //     }
+    newGame = (name) => {
 
-    // }
+        player.gameStarted = true
+        // player.name = name
+        console.log(clickers)
+        console.log(player)
+
+        for (i = 0; i = NUM_ELEMENTS; i++) {
+            clickers[i].count = 0
+            clickers[i].count_T = 0
+            clickers[i].unlocked = false
+            clickers[i].currentLevel = 0
+        }
+        for (i = 0; i < NUM_ACHIEVEMENTS; i++) achievements[i].unlocked = false
+        for (i = 0; i < MAX_THEMES; i++) player.themesTried[i] = false
+
+        console.log(clickers)
+        console.log(player)
+
+    }
 
     incrementCount = (count, i, nextLevel, id) => {
         count += i
@@ -430,6 +440,11 @@ $(document).ready(function () {
         }
     })
 
+    // NEW GAME BUTTON
+    $("#newGameConfirmed").click(function () {
+        newGame(playerName)
+    })
+
     // THEMES
     defaultTheme = () => {
         if (player.currentTheme != "defaultTheme") {
@@ -586,12 +601,12 @@ $(document).ready(function () {
         checkAchievement()
     })
 
-    // ACHIEVEMENTS
-
     // JQUERY STYLE + CONTENT
     $("body").addClass("defaultTheme")
     $(".gameTitle").text(GAME_TITLE)
     $(".email").text(CONTACT_EMAIL)
+    $(".playerName").text(player.name)
 
+    if (player.newGame == true) newGame(player.name)
     // debug()
 })
