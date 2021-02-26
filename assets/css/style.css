@@ -123,7 +123,6 @@ footer {
     color: black;
 }
 .fireTheme {
-    background-image: url("../img/fireTheme.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -131,11 +130,9 @@ footer {
     color: orange;
 }
 .waterTheme {
-    background-image: url("../img/waterTheme.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
     color: aqua;
 }
 .windTheme {
@@ -155,7 +152,6 @@ footer {
     color: lightyellow;
 }
 .gravityTheme {
-    background-image: url("../img/gravityTheme.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: lightskyblue;

@@ -2,7 +2,8 @@
 
 $(document).ready(function () {
 
-    // VARIABLES
+    // CONSTANTS
+    const PROJECT_NAME = "JM-Idle-Game"
     const GAME_TITLE = "IDLE Game"
     const CONTACT_EMAIL = "jamiemckenzie7231@yahoo.co.uk"
     const NUM_ELEMENTS = 8
@@ -11,11 +12,14 @@ $(document).ready(function () {
     const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
 
+    // STYLES
     const BTN_PRIMARY = {
         "font-size": "10px",
-        "background-color": "gray"
+        "background-color": "gray",
+        "border": "none"
     }
 
+    // CLICKER OBJECTS
     function Clicker(id, color, unlockedAtLevel, upgradeLevel, iStart, theme) {
         this.id = id
         this.color = color
@@ -84,6 +88,7 @@ $(document).ready(function () {
     var darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
+    // ACHIEVEMENT OBJECTS
     function Achievement(name, id, text, icon) {
         this.name = name
         this.id = id
@@ -122,6 +127,7 @@ $(document).ready(function () {
         tryAllThemes, completeAll, secret1, secret2
     ]
 
+    // PLAYER OBJECT
     function Player() {
         this.name = "Mr Click"
         this.rank = 0
@@ -142,11 +148,13 @@ $(document).ready(function () {
     // var playerName = "Mr Click"
 
     // FUNCTIONS
-
     debug = () => {
         for (i = 0; i < NUM_ELEMENTS; i++) {
             clickers[i].unlocked = true
             clickers[i].unlockTheme()
+        }
+        for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
+            processAchievement(achievements[i])
         }
         player.maxCount = 8
         checkAchievement()
@@ -456,7 +464,7 @@ $(document).ready(function () {
 
     changeToSelectedTheme = (selectedTheme) => {
         var selected
-
+        var imgSource = "url(\"../" + PROJECT_NAME + "/assets/img/" + selectedTheme + ".jpg\")"
         /* check & update themesTried */
         if (selectedTheme == "defaultTheme") {
             if (player.themesTried[0] == false) player.themesTried[0] = true
@@ -468,15 +476,15 @@ $(document).ready(function () {
             }
             if (player.themesTried[selected] == false) player.themesTried[selected] = true
         }
-
         /* update display */
+        $(".gameBoard").css("background-image", imgSource)
         $("body").css("background-color", clickers[selected].color)
+        $(".btn-primary").removeClass(player.currentTheme)
+        $(".btn-primary").addClass(selectedTheme)
         $("main").removeClass(player.currentTheme)
         $("main").addClass(selectedTheme)
         $(".modal-content").removeClass(player.currentTheme)
         $(".modal-content").addClass(selectedTheme)
-        // $("#clickers").addClass(selectedTheme)
-
         /* update system */
         player.currentTheme = selectedTheme
         if (!player.themeChanged) player.themeChanged = true
@@ -508,5 +516,5 @@ $(document).ready(function () {
 
 
     // if (player.newGame == true) newGame(player.name)
-    // debug()
+    debug()
 })
