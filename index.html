@@ -21,30 +21,32 @@
         <h1><span class="gameTitle header"></span></h1>
         <!-- buttons -->
         <div class="row" id="buttons">
-            <div class="col-3">
+            <div class="col-2"></div>
+            <div class="col-2">
                 <button type="button" id="newGameButton" class="btn btn-primary" data-toggle="modal"
                     data-target="#newGame">
                     New Game
                 </button>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <button type="button" id="themesButton" class="btn btn-primary" data-toggle="modal"
                     data-target="#themes">
                     Themes
                 </button>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <button type="button" id="achievementsButton" class="btn btn-primary" data-toggle="modal"
                     data-target="#achievements">
                     Achievements
                 </button>
             </div>
-            <div class="col-3">
+            <div class="col-2">
                 <button type="button" id="developerButton" class="btn btn-primary" data-toggle="modal"
                     data-target="#developer">
                     Developer
                 </button>
             </div>
+            <div class="col-2"></div>
         </div>
     </header>
 
@@ -52,20 +54,19 @@
     <main class="container-fluid gameBoard defaultTheme">
 
         <!-- totals -->
-        <div class="row" id="player">
-            <div class="col-12 playerName">-</div>
-        </div>
-        <div class="row" id="rank">
-            <div class="col-6 rankText">Rank</div>
-            <div class="col-6 rankRank">-</div>
-        </div>
-        <div class="row" id="total">
-            <div class="col-6 totalText">Score</div>
-            <div class="col-6 totalScore">-</div>
-        </div>
-        <div class="row" id="clicks">
-            <div class="col-6 clicksText">Clicks</div>
-            <div class="col-6 totalClicks">-</div>
+        <div id="totals">
+            <div class="row" id="player">
+                <div class="col-3 playerText">Player</div>
+                <div class="col-3 playerName">-</div>
+                <div class="col-3 rankText">Rank</div>
+                <div class="col-3 rankRank">-</div>
+            </div>
+            <div class="row" id="total">
+                <div class="col-3 clicksText">Clicks</div>
+                <div class="col-3 totalClicks">-</div>
+                <div class="col-3 totalText">Score</div>
+                <div class="col-3 totalScore">-</div>
+            </div>
         </div>
         <!-- clickers -->
         <div class="row" id="clickers">

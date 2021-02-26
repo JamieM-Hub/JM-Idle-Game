@@ -83,15 +83,6 @@
     margin: 0;
 }
 
-.gameBoard {
-    margin: 5vh 0;
-    padding: 5vh 5vw;
-    border: 1px solid gray;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
 body {
     text-align: center;
     padding: none;
@@ -107,15 +98,93 @@ footer {
     padding: 0 auto;
 }
 
-.clickerButton {
-    border: none;
-    color: white;
-    margin: 20px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 26px;
-    cursor: grab;
+/* HEADER */
+.header {
+    padding: 0;
+    margin: 0;
 }
+
+/* GAMEBOARD */
+
+.gameBoard {
+    margin: 0;
+    padding: 2vh 2.5vw;
+    border: 1px solid gray;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.developer {
+    text-align: justify;
+}
+
+.email {
+    font-style: italic;
+}
+
+.gameTitle {
+    font-weight: bolder;
+}
+
+/* TOTALS */
+#totals {
+    padding: 0;
+    margin: 0 2.5vw;
+    font-size: small;
+    border: 1px solid gray
+}
+
+/* CLICKERS */
+
+#clickers {
+    margin: 0;
+    padding: 2vh 2.5vw;
+}
+#clickers .col-12 {
+    box-sizing: content-box;
+}
+#clickers .col-12 .row {
+    padding: 2vw 2vw
+}
+.clicker {
+    height: 10vh;
+    width: 10vh;
+    margin: 0;
+
+}
+.clickerIcon {
+    font-size: x-large;
+}
+.clickerLevel {
+    font-size: x-small;
+}
+.clickerCount {
+    font-size: x-small;
+}
+
+/* TRACKERS */
+#trackers {
+    border: 1px solid gray;
+    margin: 0 -5vw
+}
+.tracker {
+    justify-content: center;
+    vertical-align: middle;
+    font-size: x-small;
+    height: 2.5vh;
+}
+.trackerIcon {
+    text-align: left;
+}
+.trackerName {
+    text-align: center;
+}
+.increment {
+    text-align: right;
+}
+
+/* ACHIEVEMENTS */
 
 /* THEMES */
 
@@ -162,66 +231,3 @@ footer {
     background-color:steelblue;
     color: tomato;
 }
-
-/* CLICKERS */
-
-#clickers {
-    margin: 5vh 5vw
-}
-#clickers .col-12 {
-    box-sizing: content-box;
-}
-.clicker {
-    height: 10vh;
-    width: 10vh;
-    margin: 0;
-
-}
-.clickerIcon {
-    font-size: x-large;
-}
-.clickerLevel {
-    font-size: x-small;
-}
-.clickerCount {
-    font-size: x-small;
-}
-
-/* TRACKERS */
-#trackers {
-    border: 1px solid gray;
-    margin: 0 -5vw
-}
-.tracker {
-    justify-content: center;
-    vertical-align: middle;
-    font-size: x-small;
-    height: 2.5vh;
-}
-.trackerIcon {
-    text-align: left;
-}
-.trackerName {
-    text-align: center;
-}
-.increment {
-    text-align: right;
-}
-
-/* DEVELOPER BUTTON */
-
-.developer {
-    text-align: justify;
-}
-
-.email {
-    font-style: italic;
-}
-
-.gameTitle {
-    font-weight: bolder;
-}
-
-/* button {
-    margin:10px 0
-} */
