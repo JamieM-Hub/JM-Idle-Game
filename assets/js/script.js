@@ -9,11 +9,13 @@ $(document).ready(function () {
     const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
 
-    function Clicker(id, color, upgradeLevel, iStart, theme) {
+    function Clicker (id, color, unlockedAtLevel, upgradeLevel, iStart, theme) {
         this.id = id
         this.color = color
+        this.unlockedAtLevel = unlockedAtLevel
         this.count = 0
         this.count_T = 0
+        this.unlocked = false
         this.currentLevel = 0
         this.upgradeLevel = upgradeLevel
         this.nextLevel = this.upgradeLevel[this.currentLevel]
@@ -51,30 +53,31 @@ $(document).ready(function () {
                 $(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
 
             }
-            changeIncrement(this.id, this.i)
+            //change increment displayed in tracker
+            $(".row > ." + this.id).prev().text("+" + this.i)
         }
         this.unlockTheme = (theme) => {
-            if (maxCount == 0) {
+            if (player.maxCount == 0) {
                 $("#defaultTheme").text("default")
             }
             this.themeUnlocked = true
-            maxCount++
+            player.maxCount++
             $("#" + this.theme).text(this.id)
             console.log(this.id + " theme unlocked!")
             // animateThemesButton(this.color)
         }
     }
-    var fire = new Clicker("fire", "red", [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
-    var water = new Clicker("water", "blue", [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme")
-    var wind = new Clicker("wind", "lightgray", [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme")
-    var earth = new Clicker("earth", "brown", [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme")
-    var electron = new Clicker("electron", "yellow", [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme")
-    var nucleus = new Clicker("nucleus", "green", [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme")
-    var gravity = new Clicker("gravity", "black", [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme")
-    var darkMatter = new Clicker("darkMatter", "purple", [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
+    var fire = new Clicker("fire", "red", 1, [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
+    var water = new Clicker("water", "blue", 2, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme")
+    var wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme")
+    var earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme")
+    var electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme")
+    var nucleus = new Clicker("nucleus", "green", 500, [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme")
+    var gravity = new Clicker("gravity", "black", 1000, [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme")
+    var darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
-    function Achievement(name, id, text, icon) {
+    function Achievement (name, id, text, icon) {
         this.name = name
         this.id = id
         this.text = id
@@ -112,40 +115,46 @@ $(document).ready(function () {
         tryAllThemes, completeAll, secret1, secret2
     ]
 
-    let unlockLevel = [1, 2, 50, 100, 200, 500, 1000, 2000]
-    var currentRank = 0
-    var clickerUnlocked = []
-    var achievementUnlocked = []
-    var totalScore = 0
-    var totalClicks = 0
-    var firstUpgradeUnlocked = false
-    var themeChanged = false
-    var themesTried = []
-    var developerClicked = false
-    var themeCount = 0
-    var currentTheme = 'defaultTheme'
-    var maxCount = 0
-    var upgradeCount = 0
-
-    for (i = 0; i < NUM_ELEMENTS; i++) clickerUnlocked[i] = false
+    function Player () {
+        this.name = "Mr Click"
+        this.rank = 0
+        this.score = 0
+        this.clicks = 0
+        this.firstUpgradeUnlocked = false
+        this.themeChanged = false
+        this.themesTried = [false]
+        this.developerClicked = false
+        this.themeCount = 0
+        this.currentTheme = 'defaultTheme'
+        this.upgradeCount = 0
+        this.maxCount = 0
+    }
+    var player = new Player()
+    
+    for (i = 0; i < NUM_ELEMENTS; i++) clickers[i].unlocked = false
     for (i = 0; i < NUM_ACHIEVEMENTS; i++) achievements[i].unlocked = false
-    for (i = 0; i < MAX_THEMES; i++) themesTried[i] = false
+    for (i = 0; i < MAX_THEMES; i++) player.themesTried[i] = false
 
     // FUNCTIONS
 
     debug = () => {
         for (i = 0; i < NUM_ELEMENTS; i++) {
-            clickerUnlocked[i] = true
+            clickers[i].unlocked = true
             clickers[i].unlockTheme()
         }
-        maxCount = 8
+        player.maxCount = 8
         checkAchievement()
     }
 
-    newGame = () => {
+    // newGame = () => {
+    //     for (i = 0; i = NUM_ELEMENTS; i++) {
+    //         clickers[i].count = 0
+    //         clickers[i].count_T = 0
+    //         clickers[i].unlocked = false
+    //         clickers[i].currentLevel = 0
+    //     }
 
-
-    }
+    // }
 
     incrementCount = (count, i, nextLevel, id) => {
         count += i
@@ -159,50 +168,42 @@ $(document).ready(function () {
         return count_T
     }
 
-    incrementTotalScore = (totalScore, i) => {
-        totalScore += i
-        $(".totalScore").text(totalScore.toString())
-        return totalScore
+    incrementScore = (score, i) => {
+        score += i
+        $(".totalScore").text(score.toString())
+        return score
     }
 
-    incrementTotalClicks = (totalClicks) => {
-        totalClicks++
-        $(".totalClicks").text(totalClicks.toString())
-        return totalClicks
+    incrementClicks = (clicks) => {
+        clicks++
+        $(".totalClicks").text(clicks.toString())
+        return clicks
     }
 
     changeIncrement = (id, i) => {
         $(".row > ." + id).prev().text("+" + i)
     }
 
-    roundtoDecimalPlace = (number, places) => {
-        if (places >= 1) {
-            var whole = number
-            var int = Math.floor(whole)
-            whole = whole - int /* leaves a decimal between 0-1 */
-            whole = Math.round((whole) * (10 ^ (places))) / (10 ^ (places))
-            console.log(whole, int)
-            number = int + whole
-            console.log(number)
-        }
-        return number
-    }
-
-    unlockClicker = (id) => {
-        $(".clicker." + id).parent().removeClass("d-none")
-
-        // $(".row > ." + this.id).text("UNLOCK!")
-        $("." + this.id + " > .clickerCount").text("UNLOCK!")
-    }
+    // roundtoDecimalPlace = (number, places) => {
+    //     if (places >= 1) {
+    //         var whole = number
+    //         var int = Math.floor(whole)
+    //         whole = whole - int /* leaves a decimal between 0-1 */
+    //         whole = Math.round((whole) * (10 ^ (places))) / (10 ^ (places))
+    //         console.log(whole, int)
+    //         number = int + whole
+    //         console.log(number)
+    //     }
+    //     return number
+    // }
 
     unlockUpgrade = (n, i, id) => {
-        if (!firstUpgradeUnlocked && (level = 1)) firstUpgradeUnlocked = true
+        if (!player.firstUpgradeUnlocked && (level = 1)) player.firstUpgradeUnlocked = true
         $(".row > ." + id).next().find(".upgrade-" + n).removeClass("d-none")
-        upgradeCount++;
+        player.upgradeCount++;
         if (n == 1) i *= 2
         if (n == 2) i *= 3
         if (n == 3) i *= 5
-        //i = roundtoDecimalPlace(i, 2)
         return i
     }
 
@@ -212,45 +213,23 @@ $(document).ready(function () {
         }
     }
 
-    checkRank = (totalScore) => {
-        if (totalScore >= unlockLevel[currentRank]) {
-            currentRank++
-            $(".rankRank").text("Rank " + currentRank)
+    checkUnlock = (score) => {
+        for (i = 0; i < NUM_ELEMENTS; i++) {
+            if ((score >= clickers[i].unlockedAtLevel) && !clickers[i].unlocked) {
+                clickers[i].unlocked = true;
+                $(".clicker." + clickers[i].id).parent().removeClass("d-none")
+                player.rank++
+                $(".rankRank").text("Rank " + player.rank)
+            }
         }
     }
 
-    checkUnlock = (totalScore) => {
-        console.log("check unlock")
-        if ((totalScore >= unlockLevel[1]) && !clickerUnlocked[1]) {
-            clickerUnlocked[1] = true;
-            unlockClicker("water")
-        }
-        if ((totalScore >= unlockLevel[2]) && !clickerUnlocked[2]) {
-            clickerUnlocked[2] = true;
-            unlockClicker("wind")
-        }
-        if ((totalScore >= unlockLevel[3]) && !clickerUnlocked[3]) {
-            clickerUnlocked[3] = true;
-            unlockClicker("earth")
-        }
-        if ((totalScore >= unlockLevel[4]) && !clickerUnlocked[4]) {
-            console.log("unlock electron")
-            clickerUnlocked[4] = true;
-            unlockClicker("electron")
-        }
-        if ((totalScore >= unlockLevel[5]) && !clickerUnlocked[5]) {
-            clickerUnlocked[5] = true;
-            unlockClicker("nucleus")
-        }
-        if ((totalScore >= unlockLevel[6]) && !clickerUnlocked[6]) {
-            clickerUnlocked[6] = true;
-            unlockClicker("gravity")
-        }
-        if ((totalScore >= unlockLevel[7]) && !clickerUnlocked[7]) {
-            clickerUnlocked[7] = true;
-            unlockClicker("darkMatter")
-        }
-    }
+    // checkRank = (player.score) => {
+    //     if (player.score >= unlockLevel[player.rank]) {
+    //         player.rank++
+    //         $(".rankRank").text("Rank " + player.rank)
+    //     }
+    // }
 
     processAchievement = (achievement) => {
         $("." + achievement.id).parent().removeClass("d-none")
@@ -263,52 +242,52 @@ $(document).ready(function () {
 
     checkAchievement = () => {
         // Unlock Fire
-        if (!unlockFire.unlocked && (totalClicks >= 1)) {
+        if (!unlockFire.unlocked && (player.clicks >= 1)) {
             unlockFire.unlocked = true
             processAchievement(unlockFire)
         }
         // Unlock Electron
-        if (!unlockElectron.unlocked && (clickerUnlocked[4] == true)) {
+        if (!unlockElectron.unlocked && (clickers[4].unlocked == true)) {
             unlockElectron.unlocked = true
             processAchievement(unlockElectron)
         }
         // Unlock Dark Matter        
-        if (!unlockDarkMatter.unlocked && (clickerUnlocked[7] == true)) {
+        if (!unlockDarkMatter.unlocked && (clickers[7].unlocked == true)) {
             unlockDarkMatter.unlocked = true
             processAchievement(unlockDarkMatter)
         }
         // 50 Clicks
-        if (!clicks_50.unlocked && (totalClicks >= 50)) {
+        if (!clicks_50.unlocked && (player.clicks >= 50)) {
             clicks_50.unlocked = true
             processAchievement(clicks_50)
         }
         // 100 Clicks
-        if (!clicks_100.unlocked && (totalClicks >= 100)) {
+        if (!clicks_100.unlocked && (player.clicks >= 100)) {
             clicks_100.unlocked = true
             processAchievement(clicks_100)
         }
         // 250 Clicks
-        if (!clicks_250.unlocked && (totalClicks >= 250)) {
+        if (!clicks_250.unlocked && (player.clicks >= 250)) {
             clicks_250.unlocked = true
             processAchievement(clicks_250)
         }
         // 500 Clicks
-        if (!clicks_500.unlocked && (totalClicks >= 500)) {
+        if (!clicks_500.unlocked && (player.clicks >= 500)) {
             clicks_500.unlocked = true
             processAchievement(clicks_500)
         }
         // 1000 Clicks
-        if (!clicks_1000.unlocked && (totalClicks >= 1000)) {
+        if (!clicks_1000.unlocked && (player.clicks >= 1000)) {
             clicks_1000.unlocked = true
             processAchievement(clicks_1000)
         }
         // Unlock An Upgrade
-        if (!firstUpgrade.unlocked && firstUpgradeUnlocked) {
+        if (!firstUpgrade.unlocked && player.firstUpgradeUnlocked) {
             firstUpgrade.unlocked = true
             processAchievement(firstUpgrade)
         }
         // Unlock All Upgrades
-        if (!maxUpgrade.unlocked && (upgradeCount == MAX_UPGRADES)) {
+        if (!maxUpgrade.unlocked && (player.upgradeCount == MAX_UPGRADES)) {
             maxUpgrade.unlocked = true
             processAchievement(maxUpgrade)
         }
@@ -353,28 +332,28 @@ $(document).ready(function () {
             processAchievement(completeDarkMatter)
         }
         // Complete All Elements (unlocks Ultima theme)
-        if (!completeAll.unlocked && (maxCount == NUM_ELEMENTS)) {
+        if (!completeAll.unlocked && (player.maxCount == NUM_ELEMENTS)) {
             completeAll.unlocked = true
             processAchievement(completeAll)
             $("#ultimaTheme").text("ultima")
             console.log("ULTIMA theme unlocked!")
         }
         // Change Theme
-        if (!changeTheme.unlocked && (themeChanged == true)) {
+        if (!changeTheme.unlocked && (player.themeChanged == true)) {
             changeTheme.unlocked = true
             processAchievement(changeTheme)
         }
         // Try All Themes
         var _themesTried = 0
         for (i = 0; i < MAX_THEMES; i++) {
-            if (themesTried[i] == true) _themesTried++
+            if (player.themesTried[i] == true) _themesTried++
         }
         if (!tryAllThemes.unlocked && (_themesTried == MAX_THEMES)) {
             tryAllThemes.unlocked = true
             processAchievement(tryAllThemes)
         }
         // Check Out Developer
-        if (!clickDeveloper.unlocked && (developerClicked == true)) {
+        if (!clickDeveloper.unlocked && (player.developerClicked == true)) {
             clickDeveloper.unlocked = true
             processAchievement(clickDeveloper)
         }
@@ -423,13 +402,13 @@ $(document).ready(function () {
 
     processClick = (clicker) => {
         // animateButton(this, this.id)
-        totalClicks = incrementTotalClicks(totalClicks)
+        player.clicks = incrementClicks(player.clicks)
         clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
         clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
-        totalScore = incrementTotalScore(totalScore, clicker.i)
+        player.score = incrementScore(player.score, clicker.i)
         checkLevel(clicker)
-        checkRank(totalScore)
-        checkUnlock(totalScore)
+        //checkRank(player.score)
+        checkUnlock(player.score, clicker)
         checkAchievement()
     }
 
@@ -445,161 +424,161 @@ $(document).ready(function () {
 
     // DEVELOPER BUTTON
     $("#developerButton").click(function () {
-        if (!developerClicked) {
-            developerClicked = true
+        if (!player.developerClicked) {
+            player.developerClicked = true
             checkAchievement()
         }
     })
 
     // THEMES
     defaultTheme = () => {
-        if (currentTheme != "defaultTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "defaultTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("defaultTheme")
             $(".modal-content").addClass("defaultTheme")
-            currentTheme = "defaultTheme"
+            player.currentTheme = "defaultTheme"
         }
     }
     fireTheme = () => {
-        if (themesTried[0] == false) {
-            themesTried[0] = true
+        if (player.themesTried[0] == false) {
+            player.themesTried[0] = true
             checkAchievement()
         }
-        if (currentTheme != "fireTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "fireTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("fireTheme")
             $(".modal-content").addClass("fireTheme")
-            currentTheme = "fireTheme"
+            player.currentTheme = "fireTheme"
         }
     }
     waterTheme = () => {
-        if (themesTried[1] == false) {
-            themesTried[1] = true
+        if (player.themesTried[1] == false) {
+            player.themesTried[1] = true
             checkAchievement()
         }
-        if (currentTheme != "waterTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "waterTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("waterTheme")
             $(".modal-content").addClass("waterTheme")
-            currentTheme = "waterTheme"
+            player.currentTheme = "waterTheme"
         }
     }
     windTheme = () => {
-        if (themesTried[2] == false) {
-            themesTried[2] = true
+        if (player.themesTried[2] == false) {
+            player.themesTried[2] = true
             checkAchievement()
         }
-        if (currentTheme != "windTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "windTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("windTheme")
             $(".modal-content").addClass("windTheme")
-            currentTheme = "windTheme"
+            player.currentTheme = "windTheme"
         }
     }
     earthTheme = () => {
-        if (themesTried[3] == false) {
-            themesTried[3] = true
+        if (player.themesTried[3] == false) {
+            player.themesTried[3] = true
             checkAchievement()
         }
-        if (currentTheme != "earthTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "earthTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("earthTheme")
             $(".modal-content").addClass("earthTheme")
-            currentTheme = "earthTheme"
+            player.currentTheme = "earthTheme"
         }
     }
     electronTheme = () => {
-        if (themesTried[4] == false) {
-            themesTried[4] = true
+        if (player.themesTried[4] == false) {
+            player.themesTried[4] = true
             checkAchievement()
         }
-        if (currentTheme != "electronTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "electronTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("electronTheme")
             $(".modal-content").addClass("electronTheme")
-            currentTheme = "electronTheme"
+            player.currentTheme = "electronTheme"
         }
     }
     nucleusTheme = () => {
-        if (themesTried[5] == false) {
-            themesTried[5] = true
+        if (player.themesTried[5] == false) {
+            player.themesTried[5] = true
             checkAchievement()
         }
-        if (currentTheme != "nucleusTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "nucleusTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("nucleusTheme")
             $(".modal-content").addClass("nucleusTheme")
-            currentTheme = "nucleusTheme"
+            player.currentTheme = "nucleusTheme"
         }
     }
     gravityTheme = () => {
-        if (themesTried[6] == false) {
-            themesTried[6] = true
+        if (player.themesTried[6] == false) {
+            player.themesTried[6] = true
             checkAchievement()
         }
-        if (currentTheme != "gravityTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "gravityTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("gravityTheme")
             $(".modal-content").addClass("gravityTheme")
-            currentTheme = "gravityTheme"
+            player.currentTheme = "gravityTheme"
         }
     }
     darkMatterTheme = () => {
-        if (themesTried[7] == false) {
-            themesTried[7] = true
+        if (player.themesTried[7] == false) {
+            player.themesTried[7] = true
             checkAchievement()
         }
-        if (currentTheme != "darkMatterTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "darkMatterTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("darkMatterTheme")
             $(".modal-content").addClass("darkMatterTheme")
-            currentTheme = "darkMatterTheme"
+            player.currentTheme = "darkMatterTheme"
         }
     }
     ultimaTheme = () => {
-        if (themesTried[8] == false) {
-            themesTried[8] = true
+        if (player.themesTried[8] == false) {
+            player.themesTried[8] = true
             checkAchievement()
         }
-        if (currentTheme != "ultimaTheme") {
-            $("body").removeClass(currentTheme)
-            $(".modal-content").removeClass(currentTheme)
+        if (player.currentTheme != "ultimaTheme") {
+            $("body").removeClass(player.currentTheme)
+            $(".modal-content").removeClass(player.currentTheme)
             $("body").addClass("ultimaTheme")
             $(".modal-content").addClass("ultimaTheme")
-            currentTheme = "ultimaTheme"
+            player.currentTheme = "ultimaTheme"
         }
     }
 
     $(".themeButton").click(function () {
         // console.log(this.id + " clicked")
         if (this.id == "defaultTheme") {
-            if (maxCount > 0) {
-                // console.log("maxCount > 0")
+            if (player.maxCount > 0) {
+                // console.log("player.maxCount > 0")
                 var selectTheme = window["defaultTheme"] /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                 selectTheme();
                 console.log("change theme to default")
-                if (!themeChanged) themeChanged = true
+                if (!player.themeChanged) player.themeChanged = true
             }
         } else if (this.id == "ultimaTheme") {
             ultimaTheme()
-            if (!themeChanged) themeChanged = true
+            if (!player.themeChanged) player.themeChanged = true
             console.log("change theme to Ultima")
         } else {
             var selectedTheme = this.id.substring(0, (this.id.length - 5)) /* take element name from button id" */
             for (i = 0; i < NUM_ELEMENTS; i++) {
-                if ((clickers[i].id == selectedTheme) && (this.id != currentTheme) && clickers[i].themeUnlocked) {
+                if ((clickers[i].id == selectedTheme) && (this.id != player.currentTheme) && clickers[i].themeUnlocked) {
                     var selectTheme = window[this.id]; /* adapted from code @ "https://www.viralpatel.net/calling-javascript-function-from-string/" */
                     selectTheme();
-                    if (!themeChanged) themeChanged = true
+                    if (!player.themeChanged) player.themeChanged = true
                     console.log("change theme to " + selectedTheme)
                 }
             }
