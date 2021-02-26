@@ -477,12 +477,13 @@ $(document).ready(function () {
             if (player.themesTried[selected] == false) player.themesTried[selected] = true
         }
         /* update display */
-        $(".gameBoard").css("background-image", imgSource)
-        $("body").css("background-color", clickers[selected].color)
+        $("body").removeClass(player.currentTheme)
+        $("body").addClass(selectedTheme)
         $(".btn-primary").removeClass(player.currentTheme)
         $(".btn-primary").addClass(selectedTheme)
         $("main").removeClass(player.currentTheme)
         $("main").addClass(selectedTheme)
+        $(".gameBoard").css("background-image", imgSource)
         $(".modal-content").removeClass(player.currentTheme)
         $(".modal-content").addClass(selectedTheme)
         /* update system */
