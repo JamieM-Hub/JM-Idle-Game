@@ -166,7 +166,7 @@ footer {
 /* TRACKERS */
 #trackers {
     border: 1px solid gray;
-    margin: 0 -5vw
+    margin: 0 2.5vw;
 }
 .tracker {
     justify-content: center;
@@ -178,7 +178,7 @@ footer {
     text-align: left;
 }
 .trackerName {
-    text-align: center;
+    text-align: left;
 }
 .increment {
     text-align: right;
@@ -230,4 +230,16 @@ footer {
 .ultimaTheme {
     background-color:steelblue;
     color: tomato;
+}
+
+/* FONT AWESOME ICONS */
+
+/* Dark Matter */
+/* .fa-cubes {
+    color: purple
+} */
+
+/* MISC */
+.opacity-50 {
+    opacity: 0.5;
 }

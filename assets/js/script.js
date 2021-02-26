@@ -38,7 +38,7 @@ $(document).ready(function () {
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
             $("." + this.id + " > .clickerCount").text(this.count + " / " + this.nextLevel)
-            $(".row > ." + this.id).prev().prev().prev().prev().text(this.currentLevel)
+            $(".row > ." + this.id).prev().text(this.currentLevel)
 
             if (this.currentLevel == 1) {
                 $(".row > ." + id).parent().parent().removeClass("d-none")
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 $(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
             }
             //change increment displayed in tracker
-            $(".row > ." + this.id).prev().prev().text("+" + this.i)
+            $(".row > ." + this.id).next().text("+" + this.i)
         }
         this.unlockTheme = (theme) => {
             if (player.maxCount == 0) {
@@ -183,6 +183,7 @@ $(document).ready(function () {
     incrementCount = (count, i, nextLevel, id) => {
         count += i
         $("." + id + " > .clickerCount").text(count.toString() + " / " + nextLevel)
+        $("." + id + ".clickerCount").text(count.toString() + " / " + nextLevel)
         return count
     }
 
@@ -223,7 +224,7 @@ $(document).ready(function () {
 
     unlockUpgrade = (n, i, id) => {
         if (!player.firstUpgradeUnlocked && (level = 1)) player.firstUpgradeUnlocked = true
-        $(".row > ." + id).next().find(".upgrade-" + n).removeClass("d-none")
+        $(".row > ." + id).next().next().next().find(".upgrade-" + n).removeClass("d-none")
         player.upgradeCount++;
         if (n == 1) i *= 2
         if (n == 2) i *= 3
@@ -428,7 +429,7 @@ $(document).ready(function () {
         // animateButton(this, this.id)
         player.clicks = incrementClicks(player.clicks)
         clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
-        clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
+        // clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
         player.score = incrementScore(player.score, clicker.i)
         checkLevel(clicker)
         //checkRank(player.score)
