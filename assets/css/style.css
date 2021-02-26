@@ -83,8 +83,9 @@
     margin: 0;
 }
 
-.container {
+.gameBoard {
     margin: 0
+    padding: 5vh 5vw
 }
 
 body {
@@ -171,7 +172,7 @@ footer {
 /* CLICKERS */
 
 #clickers {
-    margin: 0
+    margin: 5vh 5vw
 }
 
 #clickers .col-12 {
