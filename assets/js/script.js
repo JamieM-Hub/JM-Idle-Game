@@ -35,9 +35,9 @@ $(document).ready(function () {
         this.themeUnlocked = false
         this.levelUp = () => {
             this.currentLevel++;
-            console.log("Level Up!", this.currentLevel)
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
+            $("." + this.id + " > .clickerCount").text(this.count + " / " + this.nextLevel)
             if (this.currentLevel == 1) {
                 $(".row > ." + id).parent().parent().removeClass("d-none")
                 $("." + this.id + " > .clickerLevel").removeClass("d-none")
@@ -47,22 +47,18 @@ $(document).ready(function () {
                 $(".row > ." + id).text("UNLOCK!")
             }
             if ((this.currentLevel > 1) && (this.currentLevel < MAX_LEVEL)) {
-                console.log("current level " + this.currentLevel + " is above 1 and below 10")
                 if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
                 if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this.id)
                 if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this.id)
                 $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
-                $("." + this.id + " > .clickerCount").text("LEVEL UP!")
-                $(".col-3." + this.id).text("LEVEL UP!")
+                // $("." + this.id + " > .clickerCount").text("LEVEL UP!")
+                $(".col-2." + this.id).text("LEVEL UP!")
             }
             if (this.currentLevel == MAX_LEVEL) {
-                console.log(this.id + " max level!")
                 this.unlockTheme(this.theme)
-                console.log($("#" + this.id + " > .clickerLevel"))
                 $("#" + this.id + " > .clickerLevel").text("Level MAX")
                 $("." + this.id + " > .clickerCount").text("COMPLETE!")
                 $(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
-
             }
             //change increment displayed in tracker
             $(".row > ." + this.id).prev().text("+" + this.i)
