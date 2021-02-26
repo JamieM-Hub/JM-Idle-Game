@@ -449,6 +449,7 @@ $(document).ready(function () {
 
     changeToSelectedTheme = (selectedTheme) => {
         var selected
+
         /* check & update themesTried */
         if (selectedTheme == "defaultTheme") {
             if (player.themesTried[0] == false) player.themesTried[0] = true
@@ -460,13 +461,15 @@ $(document).ready(function () {
             }
             if (player.themesTried[selected] == false) player.themesTried[selected] = true
         }
+
         /* update display */
-        $("body").removeClass(player.currentTheme)
-        $("#clickers").addClass(player.currentTheme)
+        $("body").css("background-color", clickers[selected].color)
+        $("main").removeClass(player.currentTheme)
+        $("main").addClass(selectedTheme)
         $(".modal-content").removeClass(player.currentTheme)
-        $("body").addClass(selectedTheme)
         $(".modal-content").addClass(selectedTheme)
-        $("#clickers").addClass(selectedTheme)
+        // $("#clickers").addClass(selectedTheme)
+
         /* update system */
         player.currentTheme = selectedTheme
         if (!player.themeChanged) player.themeChanged = true
@@ -489,11 +492,10 @@ $(document).ready(function () {
     })
 
     // JQUERY STYLE + CONTENT
-    $("body").addClass("defaultTheme")
     $(".gameTitle").text(GAME_TITLE)
     $(".email").text(CONTACT_EMAIL)
     $(".playerName").text(player.name)
 
     // if (player.newGame == true) newGame(player.name)
-    debug()
+    // debug()
 })
