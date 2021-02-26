@@ -120,7 +120,11 @@ footer {
 }
 
 .fireTheme {
-    background-color: red;
+    background-image: url("../img/fireBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* background-color: red; */
     color: orange;
 }
 
@@ -145,7 +149,9 @@ footer {
     color: lightyellow;
 }
 .gravityTheme {
-    background-color: black;
+    background-image: url("../img/gravityBG.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     color: lightskyblue;
 }
 .darkMatterTheme {
@@ -155,6 +161,12 @@ footer {
 .ultimaTheme {
     background-color:steelblue;
     color: tomato;
+}
+
+/* CLICKERS */
+
+#clickers {
+    margin: 0 10%
 }
 
 /* DEVELOPER BUTTON */
