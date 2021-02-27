@@ -15,7 +15,6 @@ $(document).ready(function () {
     // STYLES
     const BTN_PRIMARY = {
         "font-size": "10px",
-        "background-color": "gray",
         "border": "none"
     }
 
@@ -466,7 +465,6 @@ $(document).ready(function () {
         $(target).toggleClass(class2)
     }
 
-
     changeToSelectedTheme = (selectedTheme) => {
         var selected
         var imgSource = "url(\"../" + PROJECT_NAME + "/assets/img/" + selectedTheme + ".jpg\")"
@@ -483,13 +481,15 @@ $(document).ready(function () {
         }
         /* update display */
         $("body").css("background-image", imgSource)
+        $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
-        // addRemoveClass("main", player.currentTheme, selectedTheme)
+        addRemoveClass(".gameTitle", player.currentTheme, selectedTheme)
+        $(".gameTitle").css("background-color", "rgba(0,0,0,0)")
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
-        addRemoveClass(".btn-primary", player.currentTheme, selectedTheme)
+        addRemoveClass(".achievements", player.currentTheme, selectedTheme)
+        addRemoveClass("button", player.currentTheme, selectedTheme)
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
-        addRemoveClass("footer", player.currentTheme, selectedTheme)
         /* update system */
         player.currentTheme = selectedTheme
         if (!player.themeChanged) player.themeChanged = true

@@ -18,7 +18,7 @@
 
     <!-- header -->
     <header>
-        <h1><span class="gameTitle header"></span></h1>
+        <h1><span class="gameTitle header defaultTheme"></span></h1>
         <!-- buttons -->
         <div class="row" id="buttons">
             <div class="col-2"></div>
@@ -51,10 +51,10 @@
     </header>
 
     <!-- game board -->
-    <main class="container-fluid gameBoard defaultTheme" style="background-color: rgb(0, 0, 0, 0);">
+    <main class="container-fluid gameBoard">
 
         <!-- totals -->
-        <div id="totals">
+        <div id="totals" class="defaultTheme">
             <div class="row" id="player">
                 <div class="col-3 playerText">Player</div>
                 <div class="col-3 playerName">-</div>
@@ -137,7 +137,7 @@
             </div>
         </div>
         <!-- trackers -->
-        <div class="row" id="trackers">
+        <div class="row defaultTheme" id="trackers">
             <div class="col-12 tracker d-none">
                 <div class="row">
                     <span class="col-1"><i class="fab fa-gripfire"></i></span>
@@ -413,7 +413,7 @@
         </div>
     </main>
     <!-- achievements -->
-    <div class="row achievements">
+    <div class="row achievements defaultTheme">
 
         <div class="col-2 d-none">
             <a title="Unlock Fire" class="unlockFire"><button class="achievementButton"><i

@@ -111,8 +111,6 @@ footer {
 .gameBoard {
     margin: 0;
     padding: 2vh 2.5vw;
-    border: 1px solid gray;
-
 }
 
 .developer {
@@ -132,8 +130,6 @@ footer {
     padding: 0;
     margin: 0 2.5vw;
     font-size: small;
-    border: 1px solid gray;
-    /* background-color: rgba(255, 69, 0, 0.8); */
 }
 
 /* CLICKERS */
@@ -165,7 +161,6 @@ footer {
 
 /* TRACKERS */
 #trackers {
-    border: 1px solid gray;
     margin: 0 2.5vw;
     padding: 0.75vh 0;
 }
@@ -193,7 +188,7 @@ footer {
     text-transform: uppercase;
 }
 .defaultTheme {
-    background-color: rgb(245, 245, 245, 0.8);
+    background-color: rgba(245, 245, 245, 0.8);
     color: black;
 }
 .fireTheme {
@@ -201,41 +196,42 @@ footer {
     color: orange;
 }
 .waterTheme {
-    background-color:rgb(100, 149, 237, 0.8);
+    background-color:rgba(100, 149, 237, 0.8);
     color: aqua;
 }
 .windTheme {
-    background-color: rgb(118, 135, 152, 0.8);
+    background-color: rgba(118, 135, 152, 0.8);
     color: whitesmoke;
 }
 .earthTheme {
-    background-color: rgb(165, 42, 42, 0.8);
+    background-color: rgba(165, 42, 42, 0.8);
     color: burlywood;
 }
 .electronTheme {
-    background-color:rgb(218, 165, 32, 0.8);
+    background-color:rgba(218, 165, 32, 0.8);
     color: blue;
 }
 .nucleusTheme {
-    background-color:rgb(50, 205, 50, 0.8);
+    background-color:rgba(50, 205, 50, 0.8);
     color: lightyellow;
 }
 .gravityTheme {
-    background-color: rgb(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
     color: lightskyblue;
 }
 .darkMatterTheme {
-    background-color: rgb(128, 0, 128, 0.8);
+    background-color: rgba(128, 0, 128, 0.8);
     color: gold;
 }
 .ultimaTheme {
-    background-color:rgb(70, 130, 180, 0.8);
+    background-color:rgba(70, 130, 180, 0.8);
     color: whitesmoke;
 }
 
 /* FONT AWESOME ICONS */
 /* i {
     text-shadow: darkslategrey;
+    text-shadow: 0 0 10px blue;
 } */
 
 /* Dark Matter */
