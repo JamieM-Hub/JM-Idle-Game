@@ -482,6 +482,7 @@ $(document).ready(function () {
         }
         /* update display */
         $("body").css("background-image", imgSource)
+        $("body").css("text-shadow", "0px 0px 1px rgba(0, 0, 0, 0.8);")
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
         addRemoveClass(".header", player.currentTheme, selectedTheme)

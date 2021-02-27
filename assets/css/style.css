@@ -85,17 +85,19 @@
 
 body {
     text-align: center;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
     padding: none;
     margin: none;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
 
 }
 
 .header {
     justify-content: center;
+    border:solid 2px rgba(0, 0, 0, 0.8)
 }
 
 footer {
@@ -116,7 +118,7 @@ footer {
 
 .gameBoard {
     margin: 0;
-    padding: 2vh 2.5vw;
+    padding: 2.55vh 5vw;
 }
 
 .developer {
@@ -136,6 +138,7 @@ footer {
     padding: 0;
     margin: 0 2.5vw;
     font-size: small;
+    border:solid 1.5px rgba(0, 0, 0, 0.8)
 }
 
 /* CLICKERS */
@@ -175,6 +178,7 @@ footer {
 #trackers {
     margin: 0 2.5vw;
     padding: 0.75vh 0;
+    border:solid 1.5px rgba(0, 0, 0, 0.8)
 }
 
 .tracker {
@@ -198,7 +202,7 @@ footer {
 
 /* ACHIEVEMENTS */
 .achievements {
-    margin: 0 7vh;
+    margin: 0 5vw;
 }
 
 /* .achievementDiv {
