@@ -520,5 +520,5 @@ $(document).ready(function () {
     changeToSelectedTheme("defaultTheme")
 
     // if (player.newGame == true) newGame(player.name)
-    //debug()
+    debug()
 })

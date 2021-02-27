@@ -259,41 +259,39 @@ footer {
 
 .fa-gripfire {
     color: orangered;
-    text-shadow: 1px 1px 2px black;
 }
 
 .fa-tint {
     color: cornflowerblue;
-    text-shadow: 1px 1px 2px black;
 }
 
 .fa-wind {
     color: lightseagreen;
-    text-shadow: 1px 1px 2px black;
 }
 
 .fa-globe-americas {
     color: brown;
-    text-shadow: 1px 1px 2px black;
 }
 
 .fa-bolt {
     color: gold;
-    text-shadow: 1px 1px 2px black;
 }
 
 .fa-atom {
     color: green;
-    text-shadow: 1px 1px 2px black;
 }
 
 .fa-meteor {
     color: darkslategrey;
-    text-shadow: 1px 1px 2px black;
 }
 
 .fa-cubes {
     color: purple;
+}
+
+.fab,
+.far,
+.fas {
     text-shadow: 1px 1px 2px black;
 }
 
