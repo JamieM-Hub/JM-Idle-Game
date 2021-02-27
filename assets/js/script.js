@@ -486,7 +486,6 @@ $(document).ready(function () {
         addRemoveClass(".header", player.currentTheme, selectedTheme)
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
-        addRemoveClass(".achievements", player.currentTheme, selectedTheme)
         addRemoveClass("button", player.currentTheme, selectedTheme)
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
         /* update system */
