@@ -269,6 +269,7 @@ $(document).ready(function () {
         if (!unlockFire.unlocked && (player.clicks >= 1)) {
             unlockFire.unlocked = true
             processAchievement(unlockFire)
+            $("#trackers").removeClass("d-none")
         }
         // Unlock Electron
         if (!unlockElectron.unlocked && (clickers[4].unlocked == true)) {
