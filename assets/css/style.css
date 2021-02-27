@@ -112,7 +112,7 @@ footer {
     margin: 0;
     padding: 2vh 2.5vw;
     border: 1px solid gray;
-background-color: rgb(245, 245, 245, 0);
+
 }
 
 .developer {
@@ -198,7 +198,7 @@ background-color: rgb(245, 245, 245, 0);
 }
 .fireTheme {
     background-color: rgba(255, 69, 0, 0.8);
-    color: black;
+    color: orange;
 }
 .waterTheme {
     background-color:rgb(100, 149, 237, 0.8);
