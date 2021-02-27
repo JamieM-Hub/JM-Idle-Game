@@ -91,6 +91,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
 }
 
 footer {
@@ -138,23 +139,29 @@ footer {
     margin: 0;
     padding: 2vh 2.5vw;
 }
+
 #clickers .col-12 {
     box-sizing: content-box;
 }
+
 #clickers .col-12 .row {
     padding: 2vw 2vw
 }
+
 .clicker {
     height: 10vh;
     width: 10vh;
     margin: 0;
 }
+
 .clickerIcon {
     font-size: x-large;
 }
+
 .clickerLevel {
     font-size: x-small;
 }
+
 .clickerCount {
     font-size: x-small;
 }
@@ -164,18 +171,22 @@ footer {
     margin: 0 2.5vw;
     padding: 0.75vh 0;
 }
+
 .tracker {
     justify-content: center;
     vertical-align: middle;
     font-size: x-small;
     height: 2.5vh;
 }
+
 .trackerIcon {
     text-align: left;
 }
+
 .trackerName {
     text-align: left;
 }
+
 .increment {
     text-align: right;
 }
@@ -187,79 +198,106 @@ footer {
 .themeButton {
     text-transform: uppercase;
 }
+
 .defaultTheme {
     background-color: rgba(245, 245, 245, 0.8);
     color: black;
 }
+
 .fireTheme {
     background-color: rgba(255, 69, 0, 0.8);
     color: orange;
 }
+
 .waterTheme {
-    background-color:rgba(100, 149, 237, 0.8);
+    background-color: rgba(100, 149, 237, 0.8);
     color: aqua;
 }
+
 .windTheme {
     background-color: rgba(118, 135, 152, 0.8);
     color: whitesmoke;
 }
+
 .earthTheme {
     background-color: rgba(165, 42, 42, 0.8);
     color: burlywood;
 }
+
 .electronTheme {
-    background-color:rgba(218, 165, 32, 0.8);
+    background-color: rgba(218, 165, 32, 0.8);
     color: blue;
 }
+
 .nucleusTheme {
-    background-color:rgba(50, 205, 50, 0.8);
+    background-color: rgba(50, 205, 50, 0.8);
     color: lightyellow;
 }
+
 .gravityTheme {
     background-color: rgba(0, 0, 0, 0.8);
     color: lightskyblue;
 }
+
 .darkMatterTheme {
     background-color: rgba(128, 0, 128, 0.8);
     color: gold;
 }
+
 .ultimaTheme {
-    background-color:rgba(70, 130, 180, 0.8);
+    background-color: rgba(70, 130, 180, 0.8);
     color: whitesmoke;
 }
 
-/* FONT AWESOME ICONS */
-/* i {
-    text-shadow: darkslategrey;
-    text-shadow: 0 0 10px blue;
-} */
+
 
 /* Dark Matter */
 
 .fa-gripfire {
-    color:orangered;
+    color: orangered;
+    text-shadow: 1px 1px 2px black;
 }
+
 .fa-tint {
-    color:cornflowerblue;
+    color: cornflowerblue;
+    text-shadow: 1px 1px 2px black;
 }
+
 .fa-wind {
     color: lightseagreen;
+    text-shadow: 1px 1px 2px black;
 }
+
 .fa-globe-americas {
-    color: brown
+    color: brown;
+    text-shadow: 1px 1px 2px black;
 }
+
 .fa-bolt {
     color: gold;
+    text-shadow: 1px 1px 2px black;
 }
+
 .fa-atom {
-    color:green;
+    color: green;
+    text-shadow: 1px 1px 2px black;
 }
+
 .fa-meteor {
-    color:darkslategrey;
+    color: darkslategrey;
+    text-shadow: 1px 1px 2px black;
 }
+
 .fa-cubes {
     color: purple;
+    text-shadow: 1px 1px 2px black;#
 }
+
+/* FONT AWESOME ICONS */
+/* .shadow {
+    text-shadow: 1px 1px 2px black;
+
+} */
 
 
 /* MISC */
