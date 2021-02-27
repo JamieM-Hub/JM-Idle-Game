@@ -87,14 +87,16 @@ body {
     text-align: center;
     padding: none;
     margin: none;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 footer {
     position: absolute;
     bottom: 0px;
-    background-color: lightgray;
-    color: lightsalmon;
-    height: 7.5vh;
+    height: 2.5vh;
     padding: 0 auto;
 }
 
@@ -110,9 +112,7 @@ footer {
     margin: 0;
     padding: 2vh 2.5vw;
     border: 1px solid gray;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+background-color: rgb(245, 245, 245, 0);
 }
 
 .developer {
@@ -133,7 +133,7 @@ footer {
     margin: 0 2.5vw;
     font-size: small;
     border: 1px solid gray;
-    background-color: rgba(255, 69, 0, 0.8);
+    /* background-color: rgba(255, 69, 0, 0.8); */
 }
 
 /* CLICKERS */
@@ -152,7 +152,6 @@ footer {
     height: 10vh;
     width: 10vh;
     margin: 0;
-
 }
 .clickerIcon {
     font-size: x-large;
@@ -169,8 +168,6 @@ footer {
     border: 1px solid gray;
     margin: 0 2.5vw;
     padding: 0.75vh 0;
-    background-color: rgba(255, 69, 0, 0.8);
-    opacity: 50;
 }
 .tracker {
     justify-content: center;
@@ -196,44 +193,44 @@ footer {
     text-transform: uppercase;
 }
 .defaultTheme {
-    background-color: white;
+    background-color: rgb(245, 245, 245, 0.8);
     color: black;
 }
 .fireTheme {
-    background-color: red;
+    background-color: rgba(255, 69, 0, 0.8);
     color: black;
 }
 .waterTheme {
-    background-color: cornflowerblue;
+    background-color:rgb(100, 149, 237, 0.8);
     color: aqua;
 }
 .windTheme {
-    background-color: lightslategray;
-    color: white;
+    background-color: rgb(118, 135, 152, 0.8);
+    color: whitesmoke;
 }
 .earthTheme {
-    background-color: brown;
+    background-color: rgb(165, 42, 42, 0.8);
     color: burlywood;
 }
 .electronTheme {
-    background-color:goldenrod;
+    background-color:rgb(218, 165, 32, 0.8);
     color: blue;
 }
 .nucleusTheme {
-    background-color:limegreen;
+    background-color:rgb(50, 205, 50, 0.8);
     color: lightyellow;
 }
 .gravityTheme {
-    background-color: black;
+    background-color: rgb(0, 0, 0, 0.8);
     color: lightskyblue;
 }
 .darkMatterTheme {
-    background-color: purple;
+    background-color: rgb(128, 0, 128, 0.8);
     color: gold;
 }
 .ultimaTheme {
-    background-color:steelblue;
-    color: tomato;
+    background-color:rgb(70, 130, 180, 0.8);
+    color: whitesmoke;
 }
 
 /* FONT AWESOME ICONS */

@@ -461,6 +461,11 @@ $(document).ready(function () {
     })
 
     // THEMES
+    addRemoveClass = (target, class1, class2) => {
+        $(target).toggleClass(class1)
+        $(target).toggleClass(class2)
+    }
+
 
     changeToSelectedTheme = (selectedTheme) => {
         var selected
@@ -477,15 +482,14 @@ $(document).ready(function () {
             if (player.themesTried[selected] == false) player.themesTried[selected] = true
         }
         /* update display */
-        $("body").removeClass(player.currentTheme)
-        $("body").addClass(selectedTheme)
-        $(".btn-primary").removeClass(player.currentTheme)
-        $(".btn-primary").addClass(selectedTheme)
-        $("main").removeClass(player.currentTheme)
-        $("main").addClass(selectedTheme)
-        $(".gameBoard").css("background-image", imgSource)
-        $(".modal-content").removeClass(player.currentTheme)
-        $(".modal-content").addClass(selectedTheme)
+        $("body").css("background-image", imgSource)
+        addRemoveClass("body", player.currentTheme, selectedTheme)
+        // addRemoveClass("main", player.currentTheme, selectedTheme)
+        addRemoveClass("#totals", player.currentTheme, selectedTheme)
+        addRemoveClass("#trackers", player.currentTheme, selectedTheme)
+        addRemoveClass(".btn-primary", player.currentTheme, selectedTheme)
+        addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
+        addRemoveClass("footer", player.currentTheme, selectedTheme)
         /* update system */
         player.currentTheme = selectedTheme
         if (!player.themeChanged) player.themeChanged = true
@@ -515,6 +519,7 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".tracker").find("button").css("font-size", "small")
+    changeToSelectedTheme("defaultTheme")
 
     // if (player.newGame == true) newGame(player.name)
     debug()
