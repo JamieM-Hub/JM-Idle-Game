@@ -97,7 +97,12 @@ body {
 
 .header {
     justify-content: center;
-    border:solid 2px rgba(0, 0, 0, 0.8)
+    text-shadow: rgba(0, 0, 0, 0.8);
+}
+
+.gameTitle {
+    font-family: 'RocknRoll One', sans-serif;
+    text-shadow: rgba(0, 0, 0, 0.8);
 }
 
 footer {

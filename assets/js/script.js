@@ -4,7 +4,7 @@ $(document).ready(function () {
 
     // CONSTANTS
     const PROJECT_NAME = "JM-Idle-Game"
-    const GAME_TITLE = "IDLE Game"
+    const GAME_TITLE = "click.Element()"
     const CONTACT_EMAIL = "jamiemckenzie7231@yahoo.co.uk"
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
@@ -519,8 +519,8 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".tracker").find("button").css("font-size", "small")
-    changeToSelectedTheme("defaultTheme")
+    //changeToSelectedTheme("defaultTheme")
 
     // if (player.newGame == true) newGame(player.name)
-    debug()
+    //debug()
 })
