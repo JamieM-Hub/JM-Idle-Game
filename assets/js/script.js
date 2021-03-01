@@ -485,11 +485,12 @@ $(document).ready(function () {
         $("body").css("text-shadow", "0px 0px 1px rgba(0, 0, 0, 0.8);")
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
-        addRemoveClass(".header", player.currentTheme, selectedTheme)
+        //addRemoveClass(".header", player.currentTheme, selectedTheme)
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
         addRemoveClass("button", player.currentTheme, selectedTheme)
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
+        // addRemoveClass(".achievements > col-2 >")
         /* update system */
         player.currentTheme = selectedTheme
         if (!player.themeChanged) player.themeChanged = true
@@ -522,5 +523,5 @@ $(document).ready(function () {
     //changeToSelectedTheme("defaultTheme")
 
     // if (player.newGame == true) newGame(player.name)
-    //debug()
+    debug()
 })

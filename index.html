@@ -20,14 +20,14 @@
 
     <!-- header -->
     <header class="container-fluid">
-        <div class="row header defaultTheme">
-            <h1 class="gameTitle"></h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon">-</span>
-        </button>
+        <div class="row">
+            <span class="col-2"><i class="far fa-hand-pointer"></i></span>
+            <span class="col-8"><p class="gameTitle"></p></span>
+            <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
+            </button>
         </div>
-
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -38,42 +38,42 @@
                 </li>
                 <li class="nav-item">
                     <button type="button" id="themesButton" class="btn btn-primary" data-toggle="modal"
-                    data-target="#themes">
-                    Themes
-                </button>
+                        data-target="#themes">
+                        Themes
+                    </button>
                 </li>
                 <li class="nav-item">
                     <button type="button" id="achievementsButton" class="btn btn-primary" data-toggle="modal"
-                    data-target="#achievements">
-                    Achievements
-                </button>
+                        data-target="#achievements">
+                        Achievements
+                    </button>
                 </li>
                 <li class="nav-item">
                     <button type="button" id="developerButton" class="btn btn-primary" data-toggle="modal"
-                    data-target="#developer">
-                    Developer
-                </button>
+                        data-target="#developer">
+                        Developer
+                    </button>
                 </li>
-
             </ul>
         </div>
-        <!-- buttons -->
-        <div class="row d-none" id="buttons">
-            <div class="col-2"></div>
-            <div class="col-2">
-
-            </div>
-            <div class="col-2">
-
-            </div>
-            <div class="col-2">
-            </div>
-            <div class="col-2">
-
-            </div>
-            <div class="col-2"></div>
-        </div>
     </header>
+
+    <!-- buttons -->
+    <!-- <div class="row d-none" id="buttons">
+        <div class="col-2"></div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-2">
+        </div>
+        <div class="col-2">
+
+        </div>
+        <div class="col-2"></div>
+    </div> -->
 
     <!-- game board -->
     <main class="container-fluid gameBoard">

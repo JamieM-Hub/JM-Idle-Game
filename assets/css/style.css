@@ -95,16 +95,17 @@ body {
 
 }
 
-.header {
+header {
     justify-content: center;
-    text-shadow: rgba(0, 0, 0, 0.8);
+    font-size: xx-large;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgba(245, 245, 245, 1);
 }
 
 .gameTitle {
     font-family: 'RocknRoll One', sans-serif;
-    text-shadow: rgba(0, 0, 0, 0.8);
+    text-shadow: 100px, 100px;
 }
-
 footer {
     position: absolute;
     bottom: 0px;
@@ -143,7 +144,7 @@ footer {
     padding: 0;
     margin: 0 2.5vw;
     font-size: small;
-    border:solid 1.5px rgba(0, 0, 0, 0.8)
+    border: solid 1.5px rgba(0, 0, 0, 0.8)
 }
 
 /* CLICKERS */
@@ -183,7 +184,7 @@ footer {
 #trackers {
     margin: 0 2.5vw;
     padding: 0.75vh 0;
-    border:solid 1.5px rgba(0, 0, 0, 0.8)
+    border: solid 1.5px rgba(0, 0, 0, 0.8)
 }
 
 .tracker {
@@ -276,10 +277,6 @@ footer {
     background-color: rgba(70, 130, 180, 0.8);
     color: whitesmoke;
 }
-
-
-
-/* Dark Matter */
 
 .fa-gripfire {
     color: orangered;
