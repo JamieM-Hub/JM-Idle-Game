@@ -115,16 +115,30 @@ footer {
 
 /* HEADER */
 .header {
-    height: 7.5vh;
+    height: 8vh;
     padding: 0;
     margin: 0;
+}
+
+.navbar-toggler {
+    background-color:rgba(0, 0, 0, 0);
+}
+
+#toggleMenu {
+    height: 4vh;
+    border: 
+}
+
+#toggleMenu > .col-3 > button {
+    vertical-align: top;
+    background-color:transparent;
 }
 
 /* GAMEBOARD */
 
 .gameBoard {
     margin: 0;
-    padding: 2.55vh 5vw;
+    padding: 1vh 5vw;
 }
 
 .developer {
@@ -144,7 +158,6 @@ footer {
     padding: 0;
     margin: 0 2.5vw;
     font-size: small;
-    border: solid 1.5px rgba(0, 0, 0, 0.8)
 }
 
 /* CLICKERS */
@@ -184,7 +197,6 @@ footer {
 #trackers {
     margin: 0 2.5vw;
     padding: 0.75vh 0;
-    border: solid 1.5px rgba(0, 0, 0, 0.8)
 }
 
 .tracker {
@@ -326,4 +338,9 @@ footer {
 /* MISC */
 .opacity-50 {
     opacity: 0.5;
+}
+
+.my-border {
+    border: solid 1.5px rgba(0, 0, 0, 0.8)
+
 }

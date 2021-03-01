@@ -486,9 +486,11 @@ $(document).ready(function () {
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
         //addRemoveClass(".header", player.currentTheme, selectedTheme)
+        addRemoveClass("#toggleMenu", player.currentTheme, selectedTheme)
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
         addRemoveClass("button", player.currentTheme, selectedTheme)
+        $(".navbar-toggler").css("background-color", "transparent")
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
         // addRemoveClass(".achievements > col-2 >")
         /* update system */
