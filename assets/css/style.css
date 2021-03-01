@@ -105,6 +105,7 @@ body {
     font-family: 'RocknRoll One', sans-serif;
     text-shadow: 100px, 100px;
 }
+
 footer {
     position: absolute;
     bottom: 0px;
@@ -117,13 +118,22 @@ footer {
     height: 8vh;
     padding: 0;
     margin: 0;
+    align-items: center;
 }
 
 .navbar-toggler {
-    background-color:rgba(0, 0, 0, 0);
+    background-color: rgba(0, 0, 0, 0);
+    font-size: xx-large;
 }
 
 
+.fa-hand-pointer {
+    color: mintcream;
+}
+
+.fa-angle-double-up {
+    color: grey;
+}
 
 .fa-gripfire {
     color: orangered;
@@ -157,6 +167,34 @@ footer {
     color: purple;
 }
 
+.fa-crown {
+    color: darkorange;
+}
+
+.fa-palette {
+    color: maroon;
+}
+
+.fa-paint-brush {
+    color: #5bb735;
+}
+
+.fa-layer-group {
+    color: teal;
+}
+
+.fa-play {
+    color:#212529;
+}
+
+.fa-question-circle {
+    color: black;
+}
+
+.fa-trophy {
+    color: darkorange;
+}
+
 .fab,
 .far,
 .fas {
@@ -166,6 +204,7 @@ footer {
 #toggleMenu {
     padding: 0.5vh;
 }
+
 .menuButton {
     font-size: small;
 }
@@ -179,6 +218,7 @@ footer {
 #themesMenu {
     font-size: small;
 }
+
 .defaultTheme {
     background-color: rgba(245, 245, 245, 0.8);
     color: black;
@@ -346,5 +386,4 @@ footer {
 
 .my-border {
     border: solid 1.5px rgba(0, 0, 0, 0.8)
-
 }

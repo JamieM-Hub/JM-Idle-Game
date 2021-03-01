@@ -515,6 +515,7 @@ $(document).ready(function () {
         $(".navbar-toggler").css("background-color", "transparent")
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
         addRemoveClass(".achievementButton > i", player.currentTheme, selectedTheme)
+        addRemoveClass(".fa-play", player.currentTheme, selectedTheme)
 
         // addRemoveClass(".achievements > col-2 >")
         /* update system */
