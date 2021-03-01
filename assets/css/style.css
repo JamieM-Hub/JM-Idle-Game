@@ -98,34 +98,10 @@ body {
 .container-fluid {
     justify-content: center;
     font-size: xx-large;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: transparent;
 }
 
-.gameTitle {
-    font-family: 'RocknRoll One', sans-serif;
-    text-shadow: 100px, 100px;
-}
-
-footer {
-    position: absolute;
-    bottom: 0px;
-    height: 2.5vh;
-    padding: 0 auto;
-}
-
-/* HEADER */
-.header {
-    height: 8vh;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-}
-
-.navbar-toggler {
-    background-color: rgba(0, 0, 0, 0);
-    font-size: xx-large;
-}
-
+/* FONT AWESOME */
 
 .fa-hand-pointer {
     color: mintcream;
@@ -201,12 +177,41 @@ footer {
     text-shadow: 1px 1px 2px black;
 }
 
+/* footer {
+    position: absolute;
+    bottom: 0px;
+    height: 2.5vh;
+    padding: 0 auto;
+} */
+
+/* HEADER */
+
+.header {
+    height: 8vh;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+}
+
+.gameTitle {
+    font-family: 'RocknRoll One', sans-serif;
+    text-shadow: 100px, 100px;
+}
+
+.navbar-toggler {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: xx-large;
+}
+
 #toggleMenu {
     padding: 0.5vh;
+    position: absolute;
+    top:0px;
 }
 
 .menuButton {
-    font-size: small;
+    /* font-size: small; */
+    height: 6vh;
 }
 
 /* THEMES */
