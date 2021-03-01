@@ -19,7 +19,7 @@ $(document).ready(function () {
     }
 
     // CLICKER OBJECTS
-    function Clicker(id, color, unlockedAtLevel, upgradeLevel, iStart, theme) {
+    function Clicker(id, color, unlockedAtLevel, upgradeLevel, iStart, theme, icon) {
         this.id = id
         this.color = color
         this.unlockedAtLevel = unlockedAtLevel
@@ -32,6 +32,7 @@ $(document).ready(function () {
         this.i = iStart
         this.theme = theme
         this.themeUnlocked = false
+        this.icon = icon
         this.levelUp = () => {
             this.currentLevel++;
             this.count -= this.nextLevel
@@ -75,14 +76,14 @@ $(document).ready(function () {
             // animateThemesButton(this.color)
         }
     }
-    var fire = new Clicker("fire", "red", 1, [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme")
-    var water = new Clicker("water", "blue", 2, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme")
-    var wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme")
-    var earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme")
-    var electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme")
-    var nucleus = new Clicker("nucleus", "green", 500, [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme")
-    var gravity = new Clicker("gravity", "black", 1000, [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme")
-    var darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme")
+    var fire = new Clicker("fire", "red", 1, [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme", "fab fa-gripfire")
+    var water = new Clicker("water", "blue", 2, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme", "fas fa-tint")
+    var wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
+    var earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme", "fas fa-globe-americas")
+    var electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme", "fas fa-bolt")
+    var nucleus = new Clicker("nucleus", "green", 500, [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme", "fas fa-atom")
+    var gravity = new Clicker("gravity", "black", 1000, [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme", "fas fa-meteor")
+    var darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme", "fas fa-cubes")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
     // ACHIEVEMENT OBJECTS
@@ -466,6 +467,24 @@ $(document).ready(function () {
         $(target).toggleClass(class2)
     }
 
+    changeThemeIcon = (from, to) => {
+        var oldIcon, newIcon
+
+        if (from =="defaultTheme") {oldIcon = "far fa-hand-pointer"}
+        if (from =="ultimaTheme") {oldIcon = "fas fa-crown"}
+        if (to =="defaultTheme") {newIcon = "far fa-hand-pointer"}
+        if (to =="ultimaTheme") {newIcon = "fas fa-crown"}
+        
+        for (i=0; i < NUM_ELEMENTS; i++)
+        {
+            if (from == clickers[i].theme) oldIcon = clickers[i].icon
+            if (to == clickers[i].theme) newIcon = clickers[i].icon
+        }
+
+        addRemoveClass("#themeIcon", oldIcon, newIcon)
+        console.log("theme icon changed from " + oldIcon + " to " + newIcon)
+    }
+
     changeToSelectedTheme = (selectedTheme) => {
         var selected
         var imgSource = "url(\"../" + PROJECT_NAME + "/assets/img/" + selectedTheme + ".jpg\")"
@@ -485,7 +504,9 @@ $(document).ready(function () {
         $("body").css("text-shadow", "0px 0px 1px rgba(0, 0, 0, 0.8);")
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
-        //addRemoveClass(".header", player.currentTheme, selectedTheme)
+        changeThemeIcon(player.currentTheme, selectedTheme)
+        addRemoveClass(".gameTitle", player.currentTheme, selectedTheme)
+        $(".gameTitle").css("background-color", "transparent")
         addRemoveClass("#toggleMenu", player.currentTheme, selectedTheme)
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
