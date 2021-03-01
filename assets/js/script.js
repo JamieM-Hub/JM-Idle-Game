@@ -157,6 +157,7 @@ $(document).ready(function () {
         }
         player.maxCount = 8
         checkAchievement()
+        changeToSelectedTheme("waterTheme")
     }
 
     newGame = (name) => {
@@ -543,8 +544,8 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".tracker").find("button").css("font-size", "small")
-    //changeToSelectedTheme("defaultTheme")
+
 
     // if (player.newGame == true) newGame(player.name)
-    debug()
+    //debug()
 })

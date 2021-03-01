@@ -95,7 +95,7 @@ body {
 
 }
 
-header {
+.container-fluid {
     justify-content: center;
     font-size: xx-large;
     background-color: rgba(0, 0, 0, 0);
@@ -125,7 +125,6 @@ footer {
 
 #toggleMenu {
     height: 4vh;
-    border: 
 }
 
 #toggleMenu > .col-3 > button {
@@ -235,10 +234,13 @@ footer {
 
 /* THEMES */
 
+
 .themeButton {
     text-transform: uppercase;
 }
-
+#themesMenu {
+    font-size: small;
+}
 .defaultTheme {
     background-color: rgba(245, 245, 245, 0.8);
     color: black;

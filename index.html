@@ -19,42 +19,79 @@
 <body>
 
     <!-- header -->
-    <header class="container-fluid">
+    <div class="container-fluid">
         <div class="row">
-            <span class="col-2"><i class="far fa-hand-pointer" id="themeIcon"></i></span>
+            <!-- <a class="col-2 nav-link" href="#" id="themesMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="far fa-hand-pointer" id="themeIcon"></i>
+            </a> -->
+            <!-- <span class="col-2" id="themeMenu" role="button" data-toggle="collapse" aria-haspopup="true"
+                aria-expanded="false"><i class="far fa-hand-pointer" id="themeIcon"></i></span> -->
+
+            <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#themesMenu"
+                aria-controls="themesMenu" aria-expanded="false" aria-label="Themes menu">
+                <span><i class="far fa-hand-pointer" id="themeIcon"></i></span>
+            </button>
+
             <span class="col-8 gameTitle"></span>
+
             <button class="col-2 navbar-toggler" type="button" data-toggle="collapse" data-target="#toggleMenu"
                 aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle menu">
-                <span><i class="fas fa-bars"></i></span>
+                <span><i class="far fa-dot-circle"></i></span>
             </button>
+
+            <!-- <a class="col-2 nav-link" href="#" id="toggleMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </a> -->
+            <!-- <div class="dropdown-menu" aria-labelledby="themesMenu"> -->
         </div>
-        <div class="row collapse my-border defaultTheme" id="toggleMenu">
-            <div class="col-3">
-                <button type="button" id="newGameButton" class="btn btn-primary" data-toggle="modal"
-                    data-target="#newGame">
-                    New Game
-                </button>
+
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 collapse navbar-collapse" id="themesMenu">
+                <div class="row">
+                    <div class="col-1"></div>
+                    <button id="defaultTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="fireTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="waterTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="windTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="earthTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="electronTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="nucleusTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="gravityTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="darkMatterTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <button id="ultimaTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
+                    <div class="col-1"></div>
+                </div>
             </div>
-            <div class="col-3">
-                <button type="button" id="themesButton" class="btn btn-primary" data-toggle="modal"
-                    data-target="#themes">
-                    Themes
-                </button>
-            </div>
-            <div class="col-3">
-                <button type="button" id="achievementsButton" class="btn btn-primary" data-toggle="modal"
-                    data-target="#achievements">
-                    Achievements
-                </button>
-            </div>
-            <div class="col-3">
-                <button type="button" id="developerButton" class="btn btn-primary" data-toggle="modal"
-                    data-target="#developer">
-                    Developer
-                </button>
+            <!-- <div class="dropdown-menu" aria-labelledby="toggleMenu"> -->
+            <div class="col-6 collapse navbar-collapse" id="toggleMenu">
+                <div class="row">
+                    <div class="col-4">
+                        <button type="button" id="newGameButton" class="btn btn-primary" data-toggle="modal"
+                            data-target="#newGame">
+                            New Game
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" id="achievementsButton" class="btn btn-primary" data-toggle="modal"
+                            data-target="#achievements">
+                            Achievements
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" id="developerButton" class="btn btn-primary" data-toggle="modal"
+                            data-target="#developer">
+                            Developer
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
-    </header>
+    </div>
+
 
     <!-- buttons -->
     <!-- <div class="row d-none" id="buttons">
@@ -584,7 +621,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="theme">
+                    <!-- <div class="theme">
                         <button id="defaultTheme" class="themeButton">???????</button>
                     </div>
                     <div class="theme">
@@ -613,7 +650,7 @@
                     </div>
                     <div class="theme">
                         <button id="ultimaTheme" class="themeButton">??????</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
