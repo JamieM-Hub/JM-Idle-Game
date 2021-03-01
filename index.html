@@ -30,12 +30,12 @@
 
             <button class="col-2 navbar-toggler defaultTheme" type="button" data-toggle="collapse" data-target="#themesMenu"
                 aria-controls="themesMenu" aria-expanded="false" aria-label="Themes menu">
-                <span><i class="fas fa-palette"></i></span>
+                <span><i class="headerText fas fa-palette"></i></span>
             </button>
             <div class="gameTitle col-8">
-                <span>click.Element(</span>
-                <span><i class="far fa-hand-pointer" id="themeIcon"></i></span>
-                <span>)</span>
+                <span class="headerText">click.Element(</span>
+                <span class="headerText"><i class="headerText far fa-hand-pointer" id="themeIcon"></i></span>
+                <span class="headerText">)</span>
             </div>
             <button class="col-2 navbar-toggler defaultTheme" type="button" data-toggle="collapse" data-target="#toggleMenu"
                 aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle menu">
@@ -60,11 +60,11 @@
                         data-target="#newGame">
                         <i class="fas fa-play"></i>
                     </button>
-                    <button type="button" id="achievementsButton" class="col-4 menuButton" data-toggle="modal"
+                    <button type="button" id="achievementsButton" class="col-4 menuButton defaultTheme" data-toggle="modal"
                         data-target="#achievements">
                         <i class="fas fa-trophy"></i>
                     </button>
-                    <button type="button" id="developerButton" class="col-4 menuButton" data-toggle="modal"
+                    <button type="button" id="developerButton" class="col-4 menuButton defaultTheme" data-toggle="modal"
                         data-target="#developer">
                         <i class="fas fa-layer-group"></i>
                     </button>
@@ -137,7 +137,7 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-3">
-                        <button id="fire" class="clicker fire">
+                        <button id="fire" class="clicker fire defaultTheme">
                             <div class="clickerIcon"><i class="fab fa-gripfire"></i></div>
 
                             <div class="clickerLevel d-none"></div>
@@ -145,21 +145,21 @@
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="water" class="clicker water">
+                        <button id="water" class="clicker water defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-tint"></i></div>
                             <div class="clickerLevel"></div>
                             <div class="clickerCount d-none">0</div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="wind" class="clicker wind">
+                        <button id="wind" class="clicker wind defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-wind"></i></div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCount d-none">0</div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="earth" class="clicker earth">
+                        <button id="earth" class="clicker earth defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-globe-americas"></i></div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCount d-none">0</div>
@@ -170,28 +170,28 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-3 d-none">
-                        <button id="electron" class="clicker electron">
+                        <button id="electron" class="clicker electron defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-bolt"></i></div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCount d-none">0</div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="nucleus" class="clicker nucleus">
+                        <button id="nucleus" class="clicker nucleus defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-atom"></i></div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCount d-none">0</div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="gravity" class="clicker gravity">
+                        <button id="gravity" class="clicker gravity defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-meteor"></i></div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCount d-none">0</div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="darkMatter" class="clicker darkMatter">
+                        <button id="darkMatter" class="clicker darkMatter defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-cubes"></i></div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCount d-none">0</div>
@@ -475,108 +475,110 @@
                 </div>
             </div>
         </div>
+        <!-- achievements -->
+        <div class="row achievements">
+
+            <div class="col-2 achievementDiv d-none">
+                <a title="Unlock Fire" class="unlockFire"><button class="achievementButton"><i
+                            class="fab fa-gripfire"></i></button></a>
+            </div>
+            <div class="col-2 achievementDiv d-none">
+                <a title="Unlock Electron" class="unlockElectron"><button class="achievementButton"><i
+                            class="fas fa-bolt"></i></button></a>
+            </div>
+            <div class="col-2 achievementDiv d-none">
+                <a title="Unlock Dark Matter" class="unlockDarkMatter"><button class="achievementButton"><i
+                            class="fas fa-cubes"></i></button></a>
+            </div>
+            <div class="col-2 achievementDiv d-none">
+                <a title="50 Clicks" class="clicks_50"><button class="achievementButton"><i
+                            class="far fa-hand-pointer"></i></button></a>
+            </div>
+            <div class="col-2 achievementDiv d-none">
+                <a title="100 Clicks" class="clicks_100"><button class="achievementButton"><i
+                            class="far fa-hand-pointer"></i></button></a>
+            </div>
+            <div class="col-2 achievementDiv d-none">
+                <a title="250 Clicks" class="clicks_250"><button class="achievementButton"><i
+                            class="far fa-hand-pointer"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="500 Clicks" class="clicks_500"><button class="achievementButton"><i
+                            class="far fa-hand-pointer"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="1000 Clicks" class="clicks_1000"><button class="achievementButton"><i
+                            class="far fa-hand-pointer"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Unlock An Upgrade" class="firstUpgrade"><button class="achievementButton"><i
+                            class="fas fa-angle-double-up"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Unlock All Upgrades" class="maxUpgrade"><button class="achievementButton"><i
+                            class="fas fa-angle-double-up"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Fire" class="completeFire"><button class="achievementButton"><i
+                            class="fab fa-gripfire"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Water" class="completeWater"><button class="achievementButton"><i
+                            class="fas fa-tint"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Wind" class="completeWind"><button class="achievementButton"><i
+                            class="fas fa-wind"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Earth" class="completeEarth"><button class="achievementButton"><i
+                            class="fas fa-globe-americas"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Electron" class="completeElectron"><button class="achievementButton"><i
+                            class="fas fa-bolt"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Nucleus" class="completeNucleus"><button class="achievementButton"><i
+                            class="fas fa-atom"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Gravity" class="completeGravity"><button class="achievementButton"><i
+                            class="fas fa-meteor"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete Dark Matter" class="completeDarkMatter"><button class="achievementButton"><i
+                            class="fas fa-cubes"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Complete All Elements" class="completeAll"><button class="achievementButton"><i
+                            class="fas fa-crown"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Change Theme" class="changeTheme"><button class="achievementButton"><i
+                            class="fas fa-paint-brush"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Try All Themes" class="tryAllThemes"><button class="achievementButton"><i
+                            class="fas fa-palette"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Check Out Developer" class="clickDeveloper"><button class="achievementButton"><i
+                            class="fas fa-layer-group"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Secret 1" class="secret1"><button class="achievementButton"><i
+                            class="fas fa-question-circle"></i></button></a>
+            </div>
+            <div class="col-2 d-none">
+                <a title="Secret 2" class="secret2"><button class="achievementButton"><i
+                            class="fas fa-question-circle"></i></button></a>
+            </div>
+    
+        </div>
     </main>
-    <!-- achievements -->
-    <div class="row achievements">
-
-        <div class="col-2 achievementDiv d-none">
-            <a title="Unlock Fire" class="unlockFire"><button class="achievementButton"><i
-                        class="fab fa-gripfire"></i></button></a>
-        </div>
-        <div class="col-2 achievementDiv d-none">
-            <a title="Unlock Electron" class="unlockElectron"><button class="achievementButton"><i
-                        class="fas fa-bolt"></i></button></a>
-        </div>
-        <div class="col-2 achievementDiv d-none">
-            <a title="Unlock Dark Matter" class="unlockDarkMatter"><button class="achievementButton"><i
-                        class="fas fa-cubes"></i></button></a>
-        </div>
-        <div class="col-2 achievementDiv d-none">
-            <a title="50 Clicks" class="clicks_50"><button class="achievementButton"><i
-                        class="far fa-hand-pointer"></i></button></a>
-        </div>
-        <div class="col-2 achievementDiv d-none">
-            <a title="100 Clicks" class="clicks_100"><button class="achievementButton"><i
-                        class="far fa-hand-pointer"></i></button></a>
-        </div>
-        <div class="col-2 achievementDiv d-none">
-            <a title="250 Clicks" class="clicks_250"><button class="achievementButton"><i
-                        class="far fa-hand-pointer"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="500 Clicks" class="clicks_500"><button class="achievementButton"><i
-                        class="far fa-hand-pointer"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="1000 Clicks" class="clicks_1000"><button class="achievementButton"><i
-                        class="far fa-hand-pointer"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Unlock An Upgrade" class="firstUpgrade"><button class="achievementButton"><i
-                        class="fas fa-angle-double-up"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Unlock All Upgrades" class="maxUpgrade"><button class="achievementButton"><i
-                        class="fas fa-angle-double-up"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Fire" class="completeFire"><button class="achievementButton"><i
-                        class="fab fa-gripfire"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Water" class="completeWater"><button class="achievementButton"><i
-                        class="fas fa-tint"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Wind" class="completeWind"><button class="achievementButton"><i
-                        class="fas fa-wind"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Earth" class="completeEarth"><button class="achievementButton"><i
-                        class="fas fa-globe-americas"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Electron" class="completeElectron"><button class="achievementButton"><i
-                        class="fas fa-bolt"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Nucleus" class="completeNucleus"><button class="achievementButton"><i
-                        class="fas fa-atom"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Gravity" class="completeGravity"><button class="achievementButton"><i
-                        class="fas fa-meteor"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete Dark Matter" class="completeDarkMatter"><button class="achievementButton"><i
-                        class="fas fa-cubes"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Complete All Elements" class="completeAll"><button class="achievementButton"><i
-                        class="fas fa-crown"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Change Theme" class="changeTheme"><button class="achievementButton"><i
-                        class="fas fa-paint-brush"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Try All Themes" class="tryAllThemes"><button class="achievementButton"><i
-                        class="fas fa-palette"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Check Out Developer" class="clickDeveloper"><button class="achievementButton"><i
-                        class="fas fa-layer-group"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Secret 1" class="secret1"><button class="achievementButton"><i
-                        class="fas fa-question-circle"></i></button></a>
-        </div>
-        <div class="col-2 d-none">
-            <a title="Secret 2" class="secret2"><button class="achievementButton"><i
-                        class="fas fa-question-circle"></i></button></a>
-        </div>
-
-    </div>
+    
+    
 
 
     <!-- footer -->

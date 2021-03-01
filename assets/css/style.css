@@ -85,7 +85,6 @@
 
 body {
     text-align: center;
-    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.8);
     padding: none;
     margin: none;
     height: 100vh;
@@ -160,7 +159,7 @@ body {
 }
 
 .fa-play {
-    color:#212529;
+    color: #212529;
 }
 
 .fa-question-circle {
@@ -191,54 +190,55 @@ body {
 }
 
 .defaultTheme {
-    background-color: rgba(245, 245, 245, 0.8);
-    color: black;
+    background-color: rgba(141, 123, 123, 0.9);
+    color: rgb(245, 245, 245);
 }
 
 .fireTheme {
-    background-color: rgba(255, 69, 0, 0.8);
+    background-color: rgba(148, 56, 3, 0.9);
     color: orange;
 }
 
 .waterTheme {
-    background-color: rgba(100, 149, 237, 0.8);
-    color: aqua;
+    background-color: rgba(54, 117, 235, 0.9);
+    color: rgb(200, 226, 218);
 }
 
 .windTheme {
-    background-color: rgba(118, 135, 152, 0.8);
+    background-color: rgba(118, 135, 152, 0.9);
     color: whitesmoke;
 }
 
 .earthTheme {
-    background-color: rgba(165, 42, 42, 0.8);
+    background-color: rgba(165, 42, 42, 0.9);
     color: burlywood;
 }
 
 .electronTheme {
-    background-color: rgba(218, 165, 32, 0.8);
-    color: blue;
+    background-color: rgba(235, 223, 59, 0.9);
+    color: rgb(86, 29, 151);
 }
 
 .nucleusTheme {
-    background-color: rgba(50, 205, 50, 0.8);
+    background-color: rgba(50, 205, 50, 0.9);
     color: lightyellow;
 }
 
 .gravityTheme {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: lightskyblue;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: rgb(206, 206, 206);
 }
 
 .darkMatterTheme {
-    background-color: rgba(128, 0, 128, 0.8);
-    color: gold;
+    background-color: rgba(44, 0, 44, 0.9);
+    color: rgb(199, 151, 63);
 }
 
 .ultimaTheme {
-    background-color: rgba(70, 130, 180, 0.8);
-    color: whitesmoke;
+    background-color: rgba(112, 24, 53, 0.9);
+    color: rgb(99, 143, 179);
 }
+
 /* footer {
     position: absolute;
     bottom: 0px;
@@ -252,7 +252,14 @@ body {
     height: 8vh;
     margin: 2.5vh 0 0 0;
     align-items: center;
-    
+}
+
+.headerText {
+    text-shadow: -1px 1px 2px rgb(48, 16, 16),
+        1px 1px 2px rgb(32, 18, 70),
+        1px -1px 2px rgb(76, 85, 24),
+        -1px -1px 2px rgb(0, 104, 22);
+    /* text-shadow: 0 0 3px rgb(150, 150, 150); */
 }
 
 .gameTitle {
@@ -269,7 +276,7 @@ body {
 #toggleMenu {
     padding: 0.5vh;
     position: absolute;
-    top:0px;
+    top: 0px;
 }
 
 .menuButton {
@@ -291,10 +298,6 @@ body {
 
 .email {
     font-style: italic;
-}
-
-.gameTitle {
-    font-weight: bolder;
 }
 
 /* TOTALS */
@@ -371,10 +374,8 @@ body {
     width: 5vh;
     height: 5vh;
     margin: 1vh;
-}
-
-.achievementButton i {
-    /* color:  */
+    /* background-color: rgba(98, 99, 99, 0.9); */
+    font-size: large;
 }
 
 /* FONT AWESOME ICONS */

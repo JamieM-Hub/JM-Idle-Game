@@ -1,5 +1,3 @@
-
-
 $(document).ready(function () {
 
     // CONSTANTS
@@ -157,7 +155,7 @@ $(document).ready(function () {
         }
         player.maxCount = 8
         checkAchievement()
-        changeToSelectedTheme("waterTheme")
+        //changeToSelectedTheme("waterTheme")
     }
 
     newGame = (name) => {
@@ -471,13 +469,20 @@ $(document).ready(function () {
     changeThemeIcon = (from, to) => {
         var oldIcon, newIcon
 
-        if (from =="defaultTheme") {oldIcon = "far fa-hand-pointer"}
-        if (from =="ultimaTheme") {oldIcon = "fas fa-crown"}
-        if (to =="defaultTheme") {newIcon = "far fa-hand-pointer"}
-        if (to =="ultimaTheme") {newIcon = "fas fa-crown"}
-        
-        for (i=0; i < NUM_ELEMENTS; i++)
-        {
+        if (from == "defaultTheme") {
+            oldIcon = "far fa-hand-pointer"
+        }
+        if (from == "ultimaTheme") {
+            oldIcon = "fas fa-crown"
+        }
+        if (to == "defaultTheme") {
+            newIcon = "far fa-hand-pointer"
+        }
+        if (to == "ultimaTheme") {
+            newIcon = "fas fa-crown"
+        }
+
+        for (i = 0; i < NUM_ELEMENTS; i++) {
             if (from == clickers[i].theme) oldIcon = clickers[i].icon
             if (to == clickers[i].theme) newIcon = clickers[i].icon
         }
@@ -501,8 +506,8 @@ $(document).ready(function () {
             if (player.themesTried[selected] == false) player.themesTried[selected] = true
         }
         /* update display */
+        console.log(player.currentTheme, selectedTheme)
         $("body").css("background-image", imgSource)
-        $("body").css("text-shadow", "0px 0px 1px rgba(0, 0, 0, 0.8);")
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
         addRemoveClass(".navbar-toggler > span > i", player.currentTheme, selectedTheme)
@@ -510,10 +515,11 @@ $(document).ready(function () {
         changeThemeIcon(player.currentTheme, selectedTheme)
         addRemoveClass(".gameTitle", player.currentTheme, selectedTheme)
         $(".gameTitle").css("background-color", "transparent")
-        //addRemoveClass("#toggleMenu", player.currentTheme, selectedTheme)
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
+        //addRemoveClass(".achievementButton", player.currentTheme, selectedTheme)
         addRemoveClass("button", player.currentTheme, selectedTheme)
+        //addRemoveClass("button", player.currentTheme, selectedTheme)
         $(".navbar-toggler").css("background-color", "transparent")
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
         addRemoveClass(".achievementButton > i", player.currentTheme, selectedTheme)
@@ -550,7 +556,7 @@ $(document).ready(function () {
     $(".btn-primary").css(BTN_PRIMARY)
     $(".tracker").find("button").css("font-size", "small")
     $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
-
+    $(".achievementButton").addClass("defaultTheme")
     // if (player.newGame == true) newGame(player.name)
     debug()
 })
