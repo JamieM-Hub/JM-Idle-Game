@@ -104,7 +104,7 @@ body {
 /* FONT AWESOME */
 
 .fa-hand-pointer {
-    color: mintcream;
+    color: black;
 }
 
 .fa-angle-double-up {
@@ -186,6 +186,10 @@ body {
     font-size: small;
 }
 
+#themeIcon {
+    margin: -1.5vh;
+}
+
 .defaultTheme {
     background-color: rgba(245, 245, 245, 0.8);
     color: black;
@@ -248,11 +252,13 @@ body {
     height: 8vh;
     margin: 2.5vh 0 0 0;
     align-items: center;
+    
 }
 
 .gameTitle {
     font-family: 'RocknRoll One', sans-serif;
     text-shadow: 100px, 100px;
+    font-size: xx-large;
 }
 
 .navbar-toggler {

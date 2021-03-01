@@ -505,6 +505,8 @@ $(document).ready(function () {
         $("body").css("text-shadow", "0px 0px 1px rgba(0, 0, 0, 0.8);")
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
+        addRemoveClass(".navbar-toggler > span > i", player.currentTheme, selectedTheme)
+        $(".navbar-toggler > span > i").css("background-color", "transparent")
         changeThemeIcon(player.currentTheme, selectedTheme)
         addRemoveClass(".gameTitle", player.currentTheme, selectedTheme)
         $(".gameTitle").css("background-color", "transparent")
@@ -540,7 +542,7 @@ $(document).ready(function () {
     })
 
     // JQUERY ADD TEXT
-    $(".gameTitle").text(GAME_TITLE)
+    //$(".gameTitle").text(GAME_TITLE)
     $(".email").text(CONTACT_EMAIL)
     $(".playerName").text(player.name)
 
