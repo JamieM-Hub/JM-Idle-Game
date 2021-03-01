@@ -546,9 +546,8 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".tracker").find("button").css("font-size", "small")
-    $(".achievementButton").addClass("defaultTheme")
-
+    $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
 
     // if (player.newGame == true) newGame(player.name)
-    //debug()
+    debug()
 })
