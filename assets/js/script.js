@@ -508,7 +508,7 @@ $(document).ready(function () {
         changeThemeIcon(player.currentTheme, selectedTheme)
         addRemoveClass(".gameTitle", player.currentTheme, selectedTheme)
         $(".gameTitle").css("background-color", "transparent")
-        addRemoveClass("#toggleMenu", player.currentTheme, selectedTheme)
+        //addRemoveClass("#toggleMenu", player.currentTheme, selectedTheme)
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
         addRemoveClass("button", player.currentTheme, selectedTheme)
@@ -547,5 +547,5 @@ $(document).ready(function () {
 
 
     // if (player.newGame == true) newGame(player.name)
-    //debug()
+    debug()
 })

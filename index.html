@@ -49,8 +49,29 @@
 
     </div>
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 collapse navbar-collapse" id="themesMenu">
+        <div class="row">          
+            <div class="col-12 collapse navbar-collapse" id="toggleMenu">
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-8">
+                        <div class="row">
+                            <button type="button" id="newGameButton" class="col-4 menuButton defaultTheme" data-toggle="modal"
+                                data-target="#newGame">
+                                New Game
+                            </button>
+                            <button type="button" id="achievementsButton" class="col-4 menuButton" data-toggle="modal"
+                                data-target="#achievements">
+                                Achievements
+                            </button>
+                            <button type="button" id="developerButton" class="col-4 menuButton" data-toggle="modal"
+                                data-target="#developer">
+                                Developer
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+            </div>  <div class="col-12 collapse navbar-collapse" id="themesMenu">
                 <div class="row">
                     <div class="col-1"></div>
                     <button id="defaultTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
@@ -64,29 +85,6 @@
                     <button id="darkMatterTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
                     <button id="ultimaTheme" class="col-1 themeButton"><i class="fas fa-question"></i></button>
                     <div class="col-1"></div>
-                </div>
-            </div>
-            <!-- <div class="dropdown-menu" aria-labelledby="toggleMenu"> -->
-            <div class="col-6 collapse navbar-collapse" id="toggleMenu">
-                <div class="row">
-                    <div class="col-4">
-                        <button type="button" id="newGameButton" class="btn btn-primary" data-toggle="modal"
-                            data-target="#newGame">
-                            New Game
-                        </button>
-                    </div>
-                    <div class="col-4">
-                        <button type="button" id="achievementsButton" class="btn btn-primary" data-toggle="modal"
-                            data-target="#achievements">
-                            Achievements
-                        </button>
-                    </div>
-                    <div class="col-4">
-                        <button type="button" id="developerButton" class="btn btn-primary" data-toggle="modal"
-                            data-target="#developer">
-                            Developer
-                        </button>
-                    </div>
                 </div>
             </div>
         </div>

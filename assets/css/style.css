@@ -124,12 +124,10 @@ footer {
 }
 
 #toggleMenu {
-    height: 4vh;
+    padding: 0.5vh;
 }
-
-#toggleMenu > .col-3 > button {
-    vertical-align: top;
-    background-color:transparent;
+.menuButton {
+    font-size: small;
 }
 
 /* GAMEBOARD */
@@ -236,7 +234,7 @@ footer {
 
 
 .themeButton {
-    text-transform: uppercase;
+
 }
 #themesMenu {
     font-size: small;
