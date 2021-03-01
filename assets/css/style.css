@@ -177,45 +177,7 @@ body {
     text-shadow: 1px 1px 2px black;
 }
 
-/* footer {
-    position: absolute;
-    bottom: 0px;
-    height: 2.5vh;
-    padding: 0 auto;
-} */
-
-/* HEADER */
-
-.header {
-    height: 8vh;
-    padding: 0;
-    margin: 0;
-    align-items: center;
-}
-
-.gameTitle {
-    font-family: 'RocknRoll One', sans-serif;
-    text-shadow: 100px, 100px;
-}
-
-.navbar-toggler {
-    background-color: rgba(0, 0, 0, 0);
-    font-size: xx-large;
-}
-
-#toggleMenu {
-    padding: 0.5vh;
-    position: absolute;
-    top:0px;
-}
-
-.menuButton {
-    /* font-size: small; */
-    height: 6vh;
-}
-
 /* THEMES */
-
 
 /* .themeButton {
 
@@ -273,12 +235,48 @@ body {
     background-color: rgba(70, 130, 180, 0.8);
     color: whitesmoke;
 }
+/* footer {
+    position: absolute;
+    bottom: 0px;
+    height: 2.5vh;
+    padding: 0 auto;
+} */
+
+/* HEADER */
+
+.header {
+    height: 8vh;
+    margin: 2.5vh 0 0 0;
+    align-items: center;
+}
+
+.gameTitle {
+    font-family: 'RocknRoll One', sans-serif;
+    text-shadow: 100px, 100px;
+}
+
+.navbar-toggler {
+    background-color: rgba(0, 0, 0, 0);
+    font-size: xx-large;
+}
+
+#toggleMenu {
+    padding: 0.5vh;
+    position: absolute;
+    top:0px;
+}
+
+.menuButton {
+    /* font-size: small; */
+    top: 2.5vh;
+    height: 6vh;
+}
 
 /* GAMEBOARD */
 
 .gameBoard {
     margin: 0;
-    padding: 1vh 5vw;
+    padding: 2.5vh 5vw 0 5vw;
 }
 
 .developer {
@@ -304,15 +302,11 @@ body {
 
 #clickers {
     margin: 0;
-    padding: 2vh 2.5vw;
+    padding: 2.5vh 0;
 }
 
 #clickers .col-12 {
     box-sizing: content-box;
-}
-
-#clickers .col-12 .row {
-    padding: 2vw 2vw
 }
 
 .clicker {
@@ -360,7 +354,7 @@ body {
 
 /* ACHIEVEMENTS */
 .achievements {
-    margin: 0 5vw;
+    margin: 2.5vh 5vw;
 }
 
 /* .achievementDiv {
