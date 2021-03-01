@@ -123,11 +123,110 @@ footer {
     background-color:rgba(0, 0, 0, 0);
 }
 
+
+
+.fa-gripfire {
+    color: orangered;
+}
+
+.fa-tint {
+    color: cornflowerblue;
+}
+
+.fa-wind {
+    color: lightseagreen;
+}
+
+.fa-globe-americas {
+    color: brown;
+}
+
+.fa-bolt {
+    color: gold;
+}
+
+.fa-atom {
+    color: green;
+}
+
+.fa-meteor {
+    color: darkslategrey;
+}
+
+.fa-cubes {
+    color: purple;
+}
+
+.fab,
+.far,
+.fas {
+    text-shadow: 1px 1px 2px black;
+}
+
 #toggleMenu {
     padding: 0.5vh;
 }
 .menuButton {
     font-size: small;
+}
+
+/* THEMES */
+
+
+/* .themeButton {
+
+} */
+#themesMenu {
+    font-size: small;
+}
+.defaultTheme {
+    background-color: rgba(245, 245, 245, 0.8);
+    color: black;
+}
+
+.fireTheme {
+    background-color: rgba(255, 69, 0, 0.8);
+    color: orange;
+}
+
+.waterTheme {
+    background-color: rgba(100, 149, 237, 0.8);
+    color: aqua;
+}
+
+.windTheme {
+    background-color: rgba(118, 135, 152, 0.8);
+    color: whitesmoke;
+}
+
+.earthTheme {
+    background-color: rgba(165, 42, 42, 0.8);
+    color: burlywood;
+}
+
+.electronTheme {
+    background-color: rgba(218, 165, 32, 0.8);
+    color: blue;
+}
+
+.nucleusTheme {
+    background-color: rgba(50, 205, 50, 0.8);
+    color: lightyellow;
+}
+
+.gravityTheme {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: lightskyblue;
+}
+
+.darkMatterTheme {
+    background-color: rgba(128, 0, 128, 0.8);
+    color: gold;
+}
+
+.ultimaTheme {
+    background-color: rgba(70, 130, 180, 0.8);
+    color: whitesmoke;
 }
 
 /* GAMEBOARD */
@@ -227,104 +326,10 @@ footer {
     width: 5vh;
     height: 5vh;
     margin: 1vh;
-
 }
 
-/* THEMES */
-
-
-/* .themeButton {
-
-} */
-#themesMenu {
-    font-size: small;
-}
-.defaultTheme {
-    background-color: rgba(245, 245, 245, 0.8);
-    color: black;
-}
-
-.fireTheme {
-    background-color: rgba(255, 69, 0, 0.8);
-    color: orange;
-}
-
-.waterTheme {
-    background-color: rgba(100, 149, 237, 0.8);
-    color: aqua;
-}
-
-.windTheme {
-    background-color: rgba(118, 135, 152, 0.8);
-    color: whitesmoke;
-}
-
-.earthTheme {
-    background-color: rgba(165, 42, 42, 0.8);
-    color: burlywood;
-}
-
-.electronTheme {
-    background-color: rgba(218, 165, 32, 0.8);
-    color: blue;
-}
-
-.nucleusTheme {
-    background-color: rgba(50, 205, 50, 0.8);
-    color: lightyellow;
-}
-
-.gravityTheme {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: lightskyblue;
-}
-
-.darkMatterTheme {
-    background-color: rgba(128, 0, 128, 0.8);
-    color: gold;
-}
-
-.ultimaTheme {
-    background-color: rgba(70, 130, 180, 0.8);
-    color: whitesmoke;
-}
-
-.fa-gripfire {
-    color: orangered;
-}
-
-.fa-tint {
-    color: cornflowerblue;
-}
-
-.fa-wind {
-    color: lightseagreen;
-}
-
-.fa-globe-americas {
-    color: brown;
-}
-
-.fa-bolt {
-    color: gold;
-}
-
-.fa-atom {
-    color: green;
-}
-
-.fa-meteor {
-    color: darkslategrey;
-}
-
-.fa-cubes {
-    color: purple;
-}
-
-.fab,
-.far,
-.fas {
-    text-shadow: 1px 1px 2px black;
+.achievementButton i {
+    /* color:  */
 }
 
 /* FONT AWESOME ICONS */

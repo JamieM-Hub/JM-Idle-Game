@@ -514,6 +514,8 @@ $(document).ready(function () {
         addRemoveClass("button", player.currentTheme, selectedTheme)
         $(".navbar-toggler").css("background-color", "transparent")
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
+        addRemoveClass(".achievementButton > i", player.currentTheme, selectedTheme)
+
         // addRemoveClass(".achievements > col-2 >")
         /* update system */
         player.currentTheme = selectedTheme
@@ -544,6 +546,7 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".tracker").find("button").css("font-size", "small")
+    $(".achievementButton").addClass("defaultTheme")
 
 
     // if (player.newGame == true) newGame(player.name)
