@@ -66,12 +66,12 @@ $(document).ready(function () {
             $(".row > ." + this.id).next().text("+" + this.i)
         }
         this.unlockTheme = (theme) => {
-            if (player.maxCount == 0) {
-                $("#defaultTheme").text("default")
-            }
-            this.themeUnlocked = true
             player.maxCount++
-            $("#" + this.theme).text(this.id)
+            if (player.maxCount == 1) {
+                $("#defaultTheme > i").removeClass("fas fa-question").addClass("far fa-hand-pointer")
+            }
+            if (!this.themeUnlocked) this.themeUnlocked = true
+            $("#" + this.theme + " > i").removeClass("fas fa-question").addClass(this.icon)
             console.log(this.id + " theme unlocked!")
             // animateThemesButton(this.color)
         }
@@ -362,7 +362,7 @@ $(document).ready(function () {
         if (!completeAll.unlocked && (player.maxCount == NUM_ELEMENTS)) {
             completeAll.unlocked = true
             processAchievement(completeAll)
-            $("#ultimaTheme").text("ultima")
+            $("#ultimaTheme > i").removeClass("fas fa-question").addClass("fas fa-crown")
             console.log("ULTIMA theme unlocked!")
         }
         // Change Theme
@@ -547,5 +547,5 @@ $(document).ready(function () {
 
 
     // if (player.newGame == true) newGame(player.name)
-    debug()
+    //debug()
 })
