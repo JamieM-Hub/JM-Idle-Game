@@ -20,48 +20,50 @@
 
     <!-- header -->
     <div class="container collapse navbar-collapse header-height" id="toggleMenu">
-        <div class="row">
-            <div class="col-10">
-                <div class="row">
-                    <button type="button" id="newGameButton" class="col-4 menuButton defaultTheme" data-toggle="modal"
-                        data-target="#newGame">
-                        <i class="fas fa-play"></i>
-                    </button>
-                    <button type="button" id="achievementsButton" class="col-4 menuButton defaultTheme"
-                        data-toggle="modal" data-target="#achievements">
-                        <i class="fas fa-trophy"></i>
-                    </button>
-                    <button type="button" id="developerButton" class="col-4 menuButton defaultTheme" data-toggle="modal"
-                        data-target="#developer">
-                        <i class="fas fa-layer-group"></i>
-                    </button>
-                </div>
+        <button type="row button" id="newGameButton" class="menuButton defaultTheme" data-toggle="modal"
+            data-target="#newGame">
+            <div class="row">
+                <div class="col-2"><i class="col-2 fas fa-play"></i></div>
+                <div class="col-10">New Game</div>
             </div>
-            <div class="col-2" type="button" data-toggle="collapse" data-target="#toggleMenu" aria-controls="toggleMenu"
-                aria-expanded="false" aria-label="Toggle menu"></div>
-        </div>
+        </button>
+
+        <button type="row button" id="achievementsButton" class="menuButton defaultTheme" data-toggle="modal"
+            data-target="#achievements">
+            <div class="row">
+                <div class="col-2"><i class="fas fa-trophy"></i></div>
+                <div class="col-10">Achievements</div>
+            </div>
+        </button>
+
+        <button type="row button" id="developerButton" class="menuButton defaultTheme" data-toggle="modal"
+            data-target="#developer">
+            <div class="row">
+            <div class="col-2"><i class="col-4 fas fa-layer-group"></i></div>
+            <div class="col-10">Developer</div>
+        </button>
     </div>
 
     <div class="container collapse navbar-collapse header-height" id="themesMenu">
         <div class="row">
-            <button id="defaultTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="fireTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="waterTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="windTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="earthTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="electronTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="nucleusTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="gravityTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="darkMatterTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="ultimaTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="defaultTheme" class="col-6 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="ultimaTheme" class="col-6 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="fireTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="waterTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="windTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="earthTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="electronTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="nucleusTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="gravityTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="darkMatterTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
         </div>
     </div>
 
+
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <button class="col-2 navbar-toggler defaultTheme d-none" type="button"
-                data-toggle="collapse" data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false"
-                aria-label="Themes menu">
+            <button class="col-2 navbar-toggler defaultTheme d-none" type="button" data-toggle="collapse"
+                data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false" aria-label="Themes menu">
                 <span><i class="headerText fas fa-palette"></i></span>
             </button>
         </div>
@@ -111,15 +113,17 @@
                 data-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle menu">
                 {click.Element}
             </div> -->
-            <div class="col-1 navbar-toggler headerText defaultTheme" id="themesMenuButton" type="button" data-toggle="collapse"
-                data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false" aria-label="Themes menu">
+            <div class="col-1 navbar-toggler headerText defaultTheme" id="themesMenuButton" type="button"
+                data-toggle="collapse" data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false"
+                aria-label="Themes menu">
                 <i class="headerText fas fa-palette"></i>
             </div>
             <div class="col-10 gameTitle headerText defaultTheme">
                 {click.Element}
             </div>
-            <div class="col-1 navbar-toggler headerText defaultTheme" id="toggleMenuButton"  type="button" data-toggle="collapse"
-                data-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle menu">
+            <div class="col-1 navbar-toggler headerText defaultTheme" id="toggleMenuButton" type="button"
+                data-toggle="collapse" data-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false"
+                aria-label="Toggle menu">
                 <i class="headerText far fa-hand-pointer" id="themeIcon"></i>
             </div>
             <!-- <a class="col-2 nav-link" href="#" id="toggleMenu" role="button" data-toggle="dropdown" aria-haspopup="true"

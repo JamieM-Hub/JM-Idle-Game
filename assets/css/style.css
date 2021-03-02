@@ -239,8 +239,6 @@ body {
 /* HEADER */
 
 .header {
-    height: 6vh;
-    margin-bottom: 2.5vh;
     align-items: center;
 }
 
@@ -253,13 +251,13 @@ body {
 }
 
 .header-height {
-    margin-top: 2.5vh;
+    height:15vh;
 }
 
 .gameTitle {
     font-family: 'RocknRoll One', sans-serif;
     text-shadow: 100px, 100px;
-    font-size: 3.5vh;
+    font-size: 4vh;
     margin-top: -0.6vh;
 }
 
@@ -269,25 +267,27 @@ body {
 }
 .navbar-collapse {
     z-index: 1;
-}
-.menuButton {
-    height: 5.2vh;
+    position: absolute;
+    left: 20vw;
+    width:60vw;
+    top: 1.5vh;
+    font-size: large;
 }
 
-#toggleMenu {
-    /* padding: 0.5vh; */
-    font-size: x-large;
-    position: absolute;
-    /* top: 4.1vh; */
-    height: 6vh;
+.menuButton {
+    width: 100%;
+    font-size: medium;
+}
+
+/* #toggleMenu {
+
 }
 
 #themesMenu {
-    font-size: large;
-    position: absolute;
-    /* top: 4vh; */
-    left: 16.666vw;
-    height: 6vh;
+
+} */
+
+#themesMenu .row .col-6 {
 
 }
 
@@ -296,7 +296,7 @@ body {
 }
 
 .themeButton {
-    height: 5.2vh;
+    height: 32%;
     width: 100%;
 }
 
