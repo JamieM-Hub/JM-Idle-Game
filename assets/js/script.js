@@ -440,15 +440,18 @@ $(document).ready(function () {
     }
 
     // TOGGLERS
-    // $(".navbar-toggler").click(function() {
-    //     $("navbar-collapse").show()
-    //     if ((this.id) == "themesMenuButton") {
-    //         $("#toggleMenu").hide()
-    //     }
-    //     if ((this.id) == "toggleMenuButton") {
-    //         $("#themesMenu").hide()
-    //     }
-    // })
+    $(".navbar-toggler").click(function() {
+        $("navbar-collapse.show").removeClass("show")
+
+        if ((this.id) == "themesMenuButton") {
+            console.log("click themesMenuButton")
+            $("#toggleMenu.show").removeClass("show")
+        }
+        if ((this.id) == "toggleMenuButton") {
+            console.log("click toggleMenuButton")
+            $("#themesMenu.show").removeClass("show")
+        }
+    })
 
     // CLICKERS
     $(".clicker").click(function () {
