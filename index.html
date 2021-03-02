@@ -32,14 +32,14 @@
                 data-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle menu">
                 {click.Element}
             </div> -->
-            <div class="col-2 navbar-toggler defaultTheme" id="themesMenuButton" type="button" data-toggle="collapse"
+            <div class="col-2 navbar-toggler headerText defaultTheme" id="themesMenuButton" type="button" data-toggle="collapse"
                 data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false" aria-label="Themes menu">
                 <i class="headerText fas fa-palette"></i>
             </div>
             <div class="col-8 navbar-toggler gameTitle headerText defaultTheme">
                 {click.Element}
             </div>
-            <div class="col-2 navbar-toggler gameTitle headerText defaultTheme" type="button" data-toggle="collapse"
+            <div class="col-2 navbar-toggler headerText defaultTheme" id="toggleMenuButton"  type="button" data-toggle="collapse"
                 data-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle menu">
                 <i class="headerText far fa-hand-pointer" id="themeIcon"></i>
             </div>
@@ -53,9 +53,7 @@
     </div>
     <div class="container collapse navbar-collapse" id="toggleMenu">
         <div class="row">
-            <div class="col-2" type="button" data-toggle="collapse" data-target="#themesMenu" aria-controls="themesMenu"
-                aria-expanded="false" aria-label="Themes menu"></div>
-            <div class="col-8">
+            <div class="col-10">
                 <div class="row">
                     <button type="button" id="newGameButton" class="col-4 menuButton defaultTheme" data-toggle="modal"
                         data-target="#newGame">
@@ -77,7 +75,7 @@
     </div>
 
     <div class="container collapse navbar-collapse" id="themesMenu">
-        <div class="row justify-content-center">
+        <div class="row">
             <button id="defaultTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
             <button id="fireTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
             <button id="waterTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
@@ -93,7 +91,7 @@
 
     <div class="container-fluid">
         <div class="row justify-content-center">
-            <button class="col-2 navbar-toggler defaultTheme d-none" id="themesMenuButton" type="button"
+            <button class="col-2 navbar-toggler defaultTheme d-none" type="button"
                 data-toggle="collapse" data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false"
                 aria-label="Themes menu">
                 <span><i class="headerText fas fa-palette"></i></span>

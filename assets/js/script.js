@@ -439,6 +439,17 @@ $(document).ready(function () {
         checkAchievement()
     }
 
+    // TOGGLERS
+    // $(".navbar-toggler").click(function() {
+    //     $("navbar-collapse").show()
+    //     if ((this.id) == "themesMenuButton") {
+    //         $("#toggleMenu").hide()
+    //     }
+    //     if ((this.id) == "toggleMenuButton") {
+    //         $("#themesMenu").hide()
+    //     }
+    // })
+
     // CLICKERS
     $(".clicker").click(function () {
         var clickedClicker = detectClicker(this, clickers)
@@ -521,6 +532,7 @@ $(document).ready(function () {
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
         //addRemoveClass(".header", player.currentTheme, selectedTheme)
         addRemoveClass("button", player.currentTheme, selectedTheme)
+        //addRemoveClass(".themeButton", selectTheme, this.id)
         //addRemoveClass("button", player.currentTheme, selectedTheme)
         $(".navbar-toggler").css("background-color", "transparent")
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
@@ -563,5 +575,5 @@ $(document).ready(function () {
     $(".gameTitle").css("background-color", "transparent")
 
     // if (player.newGame == true) newGame(player.name)
-    //debug()
+    debug()
 })

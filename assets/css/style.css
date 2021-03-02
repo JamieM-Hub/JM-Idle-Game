@@ -239,8 +239,8 @@ body {
 /* HEADER */
 
 .header {
-    height: auto;
-    margin: 2.5vh 0 0 0;
+    height: 8vh;
+    margin: 2.5vh 0;
     align-items: center;
 }
 
@@ -256,31 +256,31 @@ body {
     font-family: 'RocknRoll One', sans-serif;
     text-shadow: 100px, 100px;
     font-size: 4vh;
+    margin-top: -0.6vh;
 }
 
 .navbar-toggler {
     background-color: rgba(0, 0, 0, 0);
     font-size: xx-large;
 }
+.menuButton {
 
-#toggleMenu {
-    padding: 0.5vh;
-    position: absolute;
-    top: 0px;
 }
 
-.menuButton {
-    /* font-size: small; */
-    top: 2.5vh;
-    height: 5.5vh;
+#toggleMenu {
+    /* padding: 0.5vh; */
+    font-size: x-large;
+    position: absolute;
+    top: 4vh;
+    height: 6vh;
 }
 
 #themesMenu {
-    font-size: medium;
-    justify-content: center;
-
+    font-size: large;
     position: absolute;
-    top: 7vh;
+    top: 4vh;
+    left: 16.666vw;
+    height: 6vh;
 }
 
 #themesMenuButton {
@@ -288,8 +288,8 @@ body {
 }
 
 .themeButton {
-padding: 1vh 3vw;
-} 
+padding: 0.75vh 0;
+}
 
 #themeIcon {
     margin: -1.5vh;
@@ -299,7 +299,7 @@ padding: 1vh 3vw;
 
 .gameBoard {
     margin: 0;
-    padding: 1.25vh 5vw 0 5vw;
+    padding: 0 5vw;
 }
 
 .developer {
