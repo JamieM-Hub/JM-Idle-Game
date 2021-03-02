@@ -101,6 +101,11 @@ body {
     background-color: transparent;
 }
 
+button {
+    padding: 0;
+    margin: 0;
+}
+
 /* FONT AWESOME */
 
 .fa-hand-pointer {
@@ -251,7 +256,7 @@ body {
 }
 
 .header-height {
-    height:15vh;
+    height: 15vh;
 }
 
 .gameTitle {
@@ -265,13 +270,20 @@ body {
     background-color: rgba(0, 0, 0, 0);
     font-size: xx-large;
 }
+
 .navbar-collapse {
     z-index: 1;
     position: absolute;
     left: 20vw;
-    width:60vw;
+    width: 60vw;
     top: 1.5vh;
     font-size: large;
+
+}
+
+#themesMenu .row,
+#toggleMenu .row .col-12{
+    background-color: black;
 }
 
 .menuButton {
@@ -287,9 +299,7 @@ body {
 
 } */
 
-#themesMenu .row .col-6 {
-
-}
+#themesMenu .row .col-6 {}
 
 #themesMenuButton {
     visibility: hidden;
