@@ -363,7 +363,7 @@ $(document).ready(function () {
             completeAll.unlocked = true
             processAchievement(completeAll)
             $("#ultimaTheme > i").removeClass("fas fa-question").addClass("fas fa-crown")
-            $("#ultimaTheme").removeClass("defaultTheme").addClass(this.theme)
+            $("#ultimaTheme").removeClass("defaultTheme").addClass("ultimaTheme")
             console.log("ULTIMA theme unlocked!")
         }
         // Change Theme
