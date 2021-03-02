@@ -264,14 +264,14 @@ body {
     font-size: xx-large;
 }
 .menuButton {
-
+    height: 5.2vh;
 }
 
 #toggleMenu {
     /* padding: 0.5vh; */
     font-size: x-large;
     position: absolute;
-    top: 4vh;
+    top: 4.1vh;
     height: 6vh;
 }
 
@@ -288,7 +288,7 @@ body {
 }
 
 .themeButton {
-padding: 0.75vh 0;
+    height: 5.2vh;
 }
 
 #themeIcon {
