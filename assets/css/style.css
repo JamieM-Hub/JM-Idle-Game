@@ -277,27 +277,27 @@ button {
     left: 20vw;
     width: 60vw;
     top: 1.5vh;
-    font-size: large;
-
+    font-family: 'RocknRoll One', sans-serif;
+    /* background-color: black; */
 }
 
-#themesMenu .row,
-#toggleMenu .row .col-12{
-    background-color: black;
+#themesMenu .row {
+    /* background-color: black; */
 }
 
 .menuButton {
     width: 100%;
+    padding: 0.5vh 0;
+    font-size: small;
+}
+
+/* .menuOption {
     font-size: medium;
-}
-
-/* #toggleMenu {
-
-}
+} */
 
 #themesMenu {
-
-} */
+    font-size: large;
+}
 
 #themesMenu .row .col-6 {}
 
