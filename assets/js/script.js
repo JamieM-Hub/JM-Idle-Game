@@ -67,10 +67,10 @@ $(document).ready(function () {
             player.maxCount++
             if (player.maxCount == 1) {
                 $("#defaultTheme > i").removeClass("fas fa-question").addClass("far fa-hand-pointer")
-                $("#themesMenuButton").css("visibility", "visible")
-
+                $("#themesMenuButton").css("visibility", "visible")               
             }
             if (!this.themeUnlocked) this.themeUnlocked = true
+            $("#" + this.theme).removeClass("defaultTheme").addClass(this.theme)
             $("#" + this.theme + " > i").removeClass("fas fa-question").addClass(this.icon)
             console.log(this.id + " theme unlocked!")
             // animateThemesButton(this.color)
@@ -363,6 +363,7 @@ $(document).ready(function () {
             completeAll.unlocked = true
             processAchievement(completeAll)
             $("#ultimaTheme > i").removeClass("fas fa-question").addClass("fas fa-crown")
+            $("#ultimaTheme").removeClass("defaultTheme").addClass(this.theme)
             console.log("ULTIMA theme unlocked!")
         }
         // Change Theme
@@ -449,7 +450,7 @@ $(document).ready(function () {
         }
         if ((this.id) == "toggleMenuButton") {
             console.log("click toggleMenuButton")
-            $("#themesMenu.show").removeClass("show")
+            $("#Menu.show").removeClass("show")
         }
     })
 
@@ -534,7 +535,9 @@ $(document).ready(function () {
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
         //addRemoveClass(".header", player.currentTheme, selectedTheme)
-        addRemoveClass("button", player.currentTheme, selectedTheme)
+        addRemoveClass(".clicker", player.currentTheme, selectedTheme)
+        addRemoveClass(".achievementButton", player.currentTheme, selectedTheme)
+        addRemoveClass(".menuButton", player.currentTheme, selectedTheme)
         //addRemoveClass(".themeButton", selectTheme, this.id)
         //addRemoveClass("button", player.currentTheme, selectedTheme)
         $(".navbar-toggler").css("background-color", "transparent")
