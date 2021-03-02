@@ -104,7 +104,7 @@ body {
 /* FONT AWESOME */
 
 .fa-hand-pointer {
-    color: black;
+    color: whitesmoke;
 }
 
 .fa-angle-double-up {
@@ -148,7 +148,7 @@ body {
 }
 
 .fa-palette {
-    color: maroon;
+    color: whitesmoke;
 }
 
 .fa-paint-brush {
@@ -178,17 +178,6 @@ body {
 }
 
 /* THEMES */
-
-/* .themeButton {
-
-} */
-#themesMenu {
-    font-size: small;
-}
-
-#themeIcon {
-    margin: -1.5vh;
-}
 
 .defaultTheme {
     background-color: rgba(141, 123, 123, 0.9);
@@ -250,7 +239,7 @@ body {
 /* HEADER */
 
 .header {
-    height: 8vh;
+    height: auto;
     margin: 2.5vh 0 0 0;
     align-items: center;
 }
@@ -266,7 +255,7 @@ body {
 .gameTitle {
     font-family: 'RocknRoll One', sans-serif;
     text-shadow: 100px, 100px;
-    font-size: xx-large;
+    font-size: 4vh;
 }
 
 .navbar-toggler {
@@ -283,14 +272,34 @@ body {
 .menuButton {
     /* font-size: small; */
     top: 2.5vh;
-    height: 6vh;
+    height: 5.5vh;
+}
+
+#themesMenu {
+    font-size: medium;
+    justify-content: center;
+
+    position: absolute;
+    top: 7vh;
+}
+
+#themesMenuButton {
+    visibility: hidden;
+}
+
+.themeButton {
+padding: 1vh 3vw;
+} 
+
+#themeIcon {
+    margin: -1.5vh;
 }
 
 /* GAMEBOARD */
 
 .gameBoard {
     margin: 0;
-    padding: 2.5vh 5vw 0 5vw;
+    padding: 1.25vh 5vw 0 5vw;
 }
 
 .developer {
@@ -392,5 +401,5 @@ body {
 }
 
 .my-border {
-    border: solid 1.5px rgba(0, 0, 0, 0.8)
+    border: solid 0.35vh rgba(0, 0, 0, 0.8)
 }

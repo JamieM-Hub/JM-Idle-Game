@@ -67,6 +67,8 @@ $(document).ready(function () {
             player.maxCount++
             if (player.maxCount == 1) {
                 $("#defaultTheme > i").removeClass("fas fa-question").addClass("far fa-hand-pointer")
+                $("#themesMenuButton").css("visibility", "visible")
+
             }
             if (!this.themeUnlocked) this.themeUnlocked = true
             $("#" + this.theme + " > i").removeClass("fas fa-question").addClass(this.icon)
@@ -517,7 +519,7 @@ $(document).ready(function () {
         $(".gameTitle").css("background-color", "transparent")
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
-        //addRemoveClass(".achievementButton", player.currentTheme, selectedTheme)
+        //addRemoveClass(".header", player.currentTheme, selectedTheme)
         addRemoveClass("button", player.currentTheme, selectedTheme)
         //addRemoveClass("button", player.currentTheme, selectedTheme)
         $(".navbar-toggler").css("background-color", "transparent")
@@ -556,7 +558,10 @@ $(document).ready(function () {
     $(".btn-primary").css(BTN_PRIMARY)
     $(".tracker").find("button").css("font-size", "small")
     $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
+    $(".gameTitle").css("background-color", "transparent")
     $(".achievementButton").addClass("defaultTheme")
+    $(".gameTitle").css("background-color", "transparent")
+
     // if (player.newGame == true) newGame(player.name)
-    debug()
+    //debug()
 })
