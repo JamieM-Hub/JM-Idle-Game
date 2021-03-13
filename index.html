@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <script type="text/javascript" src="assets/js/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="assets/js/script.js"></script>
@@ -17,8 +20,7 @@
 </head>
 
 <body>
-
-    <!-- header -->
+    <!-- menus -->
     <div class="container collapse navbar-collapse header-height" id="toggleMenu">
         <button type="row button" id="newGameButton" class="menuButton defaultTheme" data-toggle="modal"
             data-target="#newGame">
@@ -28,7 +30,6 @@
                 <div class="col-2"><i class="fas fa-play"></i></div>
             </div>
         </button>
-
         <button type="row button" id="achievementsButton" class="menuButton defaultTheme" data-toggle="modal"
             data-target="#achievements">
             <div class="row">
@@ -37,16 +38,15 @@
                 <div class="col-2"><i class="fas fa-trophy"></i></div>
             </div>
         </button>
-
         <button type="row button" id="developerButton" class="menuButton defaultTheme" data-toggle="modal"
             data-target="#developer">
             <div class="row">
                 <div class="col-2"><i class="fas fa-layer-group"></i></div>
                 <div class="col-8 menuOption">Developer</div>
                 <div class="col-2"><i class="fas fa-layer-group"></i></div>
+            </div>
         </button>
     </div>
-
 
     <div class="container collapse navbar-collapse header-height" id="themesMenu">
         <div class="row">
@@ -63,60 +63,11 @@
         </div>
     </div>
 
-
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <button class="col-2 navbar-toggler defaultTheme d-none" type="button" data-toggle="collapse"
-                data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false" aria-label="Themes menu">
-                <span><i class="headerText fas fa-palette"></i></span>
-            </button>
-        </div>
-    </div>
-
-
-    <!-- buttons -->
-    <!-- <div class="row d-none" id="buttons">
-        <div class="col-2"></div>
-        <div class="col-2">
-
-        </div>
-        <div class="col-2">
-
-        </div>
-        <div class="col-2">
-        </div>
-        <div class="col-2">
-
-        </div>
-        <div class="col-2"></div>
-    </div> -->
-    <!-- theme buttons -->
-    <!-- <div class="row collapse navbar-collapse" id="themesMenu">
-        <button id="defaultTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="fireTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="waterTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="windTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="earthTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="electronTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="nucleusTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="gravityTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="darkMatterTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        <button id="ultimaTheme" class="col-1 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-    </div> -->
     <!-- game board -->
     <main class="container gameBoard">
+
+        <!-- header -->
         <div class="row header header-height">
-            <!-- <a class="col-2 nav-link" href="#" id="themesMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                <i class="far fa-hand-pointer" id="themeIcon"></i>
-            </a> -->
-            <!-- <span class="col-2" id="themeMenu" role="button" data-toggle="collapse" aria-haspopup="true"
-                aria-expanded="false"><i class="far fa-hand-pointer" id="themeIcon"></i></span> -->
-            <!-- <div class="col-2"><i class="headerText far fa-hand-pointer" id="themeIcon"></i></div>
-            <div class="col-2 navbar-toggler gameTitle headerText defaultTheme" type="button" data-toggle="collapse"
-                data-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false" aria-label="Toggle menu">
-                {click.Element}
-            </div> -->
             <div class="col-1 navbar-toggler headerText defaultTheme" id="themesMenuButton" type="button"
                 data-toggle="collapse" data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false"
                 aria-label="Themes menu">
@@ -130,12 +81,8 @@
                 aria-label="Toggle menu">
                 <i class="headerText far fa-hand-pointer" id="themeIcon"></i>
             </div>
-            <!-- <a class="col-2 nav-link" href="#" id="toggleMenu" role="button" data-toggle="dropdown" aria-haspopup="true"
-                aria-expanded="false">
-                <i class="fas fa-bars"></i>
-            </a> -->
-            <!-- <div class="dropdown-menu" aria-labelledby="themesMenu"> -->
         </div>
+
         <!-- totals -->
         <div id="totals" class="my-border defaultTheme">
             <div class="row" id="player">
@@ -151,6 +98,7 @@
                 <div class="col-3 totalScore">-</div>
             </div>
         </div>
+
         <!-- clickers -->
         <div class="row my-border" id="clickers">
             <div class="col-12">
@@ -158,30 +106,29 @@
                     <div class="col-3">
                         <button id="fire" class="clicker fire defaultTheme">
                             <div class="clickerIcon"><i class="fab fa-gripfire"></i></div>
-
                             <div class="clickerLevel d-none"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
                         <button id="water" class="clicker water defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-tint"></i></div>
                             <div class="clickerLevel"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
                         <button id="wind" class="clicker wind defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-wind"></i></div>
                             <div class="clickerLevel d-none"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
                         <button id="earth" class="clicker earth defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-globe-americas"></i></div>
                             <div class="clickerLevel d-none"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                 </div>
@@ -192,308 +139,271 @@
                         <button id="electron" class="clicker electron defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-bolt"></i></div>
                             <div class="clickerLevel d-none"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
                         <button id="nucleus" class="clicker nucleus defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-atom"></i></div>
                             <div class="clickerLevel d-none"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
                         <button id="gravity" class="clicker gravity defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-meteor"></i></div>
                             <div class="clickerLevel d-none"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
                         <button id="darkMatter" class="clicker darkMatter defaultTheme">
                             <div class="clickerIcon"><i class="fas fa-cubes"></i></div>
                             <div class="clickerLevel d-none"></div>
-                            <div class="clickerCount d-none">0</div>
+                            <div class="clickerCountDisplay d-none">
+                                <div class="row justify-content-center">
+                                    <div class="col-5 trackerCount">X</div>
+                                    <div class="col-2"> / </div>
+                                    <div class="col-5 nextLevel">nxtLvl</div>
+                                </div>
+                            </div>
                         </button>
                     </div>
                 </div>
             </div>
         </div>
+
         <!-- trackers -->
         <div class="row my-border defaultTheme d-none" id="trackers">
-            <div class="col-12 tracker d-none">
+
+            <div class="col-12 fire tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fab fa-gripfire"></i></span>
-                    <span class="col-2 trackerName">Fire</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 clickerCount fire">-</div>
-                    <span class="col-1 trackerIncrement">+1</span>
-                    <span class="col-1 trackerIcon"><i class="fab fa-gripfire"></i></span>
-                    <div class="col-4">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-3 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-3 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-3 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-3 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fab fa-gripfire"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Fire</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row justify-content-center">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-1"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+1</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fab fa-gripfire"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 tracker d-none">
+
+            <div class="col-12 water tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fas fa-tint"></i></span>
-                    <span class="col-2 trackerName">Water</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 water">-</div>
-                    <span class="col-1 trackerIncrement">+2</span>
-                    <span class="col-1 trackerIcon"><i class="fas fa-tint"></i></span>
-                    <div class="col-3">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-2 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fas fa-tint"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Water</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-2"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+2</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fas fa-tint"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 tracker d-none">
+            <div class="col-12 wind tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fas fa-wind"></i></span>
-                    <span class="col-2 trackerName">Wind</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 wind">-</div>
-                    <span class="col-1 trackerIncrement">+4</span>
-                    <span class="col-1 trackerIcon"><i class="fas fa-wind"></i></span>
-                    <div class="col-4">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-2 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fas fa-wind"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Wind</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-2"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+4</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fas fa-wind"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 tracker d-none">
+            <div class="col-12 earth tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fas fa-globe-americas"></i></span>
-                    <span class="col-2 trackerName">Earth</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 earth">-</div>
-                    <span class="col-1 trackerIncrement">+8</span>
-                    <span class="col-1 trackerIcon"><i class="fas fa-globe-americas"></i></span>
-                    <div class="col-4">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-2 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fas fa-globe-americas"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Earth</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-2"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+8</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fas fa-globe-americas"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 tracker d-none">
+            <div class="col-12 electron tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fas fa-bolt"></i></span>
-                    <span class="col-2 trackerName">Electron</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 electron">-</div>
-                    <span class="col-1 trackerIncrement">+16</span>
-                    <span class="col-1 trackerIcon"><i class="fas fa-bolt"></i></span>
-                    <div class="col-4">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-2 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fas fa-bolt"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Electron</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-2"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+16</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fas fa-bolt"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 tracker d-none">
+            <div class="col-12 nucleus tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fas fa-atom"></i></span>
-                    <span class="col-2 trackerName">Nucleus</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 nucleus">-</div>
-                    <span class="col-1 trackerIncrement">+32</span>
-                    <span class="col-1 trackerIcon"><i class="fas fa-atom"></i></span>
-                    <div class="col-4">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-2 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fas fa-atom"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Nucleus</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-2"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+32</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fas fa-atom"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 tracker d-none">
+            <div class="col-12 gravity tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fas fa-meteor"></i></span>
-                    <span class="col-2 trackerName">Gravity</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 gravity">-</div>
-                    <span class="col-1 trackerIncrement">+64</span>
-                    <span class="col-1 trackerIcon"><i class="fas fa-meteor"></i></span>
-                    <div class="col-4">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-2 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fas fa-meteor"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Gravity</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-2"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+64</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fas fa-meteor"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-12 tracker d-none">
+            <div class="col-12 darkMatter tracker d-none">
                 <div class="row">
-                    <span class="col-1"><i class="fas fa-cubes"></i></span>
-                    <span class="col-2 trackerName">Dark Matter</span>
-                    <span class="col-1 trackerLevel">0</span>
-                    <div class="col-3 darkMatter">-</div>
-                    <span class="col-1 trackerIncrement">+128</span>
-                    <span class="col-1 trackerIcon"><i class="fas fa-cubes"></i></span>
-                    <div class="col-4">
+                    <div class="col-1 trackerLevelDisplay">
                         <div class="row">
-                            <div class="col-2 upgrade-1 d-none">
-                                <button>
-                                    <a title="Upgrade 1"><i class="fas fa-chevron-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-2 d-none">
-                                <button>
-                                    <a title="Upgrade 2"><i class="fas fa-angle-double-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-3 d-none">
-                                <button>
-                                    <a title="Upgrade 3"><i class="fas fa-caret-square-up"></i></a>
-                                </button>
-                            </div>
-                            <div class="col-2 upgrade-4 d-none">
-                                <button>
-                                    <a title="Theme"><i class="fas fa-paint-brush"></i></a>
-                                </button>
-                            </div>
+                            <div class="col-7 trackerIcon"><i class="fas fa-cubes"></i></div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerLevel">0</div>
+                        </div>
+                    </div>
+                    <div class="col-3 trackerName">Dark Matter</div>
+                    <div class="col-4 trackerCountDisplay">
+                        <div class="row">
+                            <div class="col-5 trackerCount">X</div>
+                            <div class="col-2"> / </div>
+                            <div class="col-5 nextLevel">nxtLvl</div>
+                        </div>
+                    </div>
+                    <div class="col-2 trackerTotal">-</div>
+                    <div class="col-2">
+                        <div class="row">
+                            <div class="col-7 trackerIncrement">+1</div>
+                            <div class="col-1"></div>
+                            <div class="col-4 trackerIcon"><i class="fas fa-cubes"></i></div>
+                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
+
         <!-- achievements -->
         <div class="row achievements my-border">
 
@@ -597,16 +507,7 @@
         </div>
     </main>
 
-
-
-
-    <!-- footer -->
-    <!-- <footer class="container-fluid">
-        some footer text
-    </footer> -->
-
     <!-- modals -->
-
     <!-- new game modal -->
     <div class="modal fade" id="newGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -630,52 +531,6 @@
                         <button type="button" id="confirmNewGame" class="btn btn-primary"
                             data-dismiss="modal">Yes</button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- themes modal -->
-    <div class="modal fade" id="themes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Unlock themes by levelling up your elements!</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!-- <div class="theme">
-                        <button id="defaultTheme" class="themeButton">???????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="fireTheme" class="themeButton">????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="waterTheme" class="themeButton">?????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="windTheme" class="themeButton">????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="earthTheme" class="themeButton">?????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="electronTheme" class="themeButton">????????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="nucleusTheme" class="themeButton">???????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="gravityTheme" class="themeButton">???????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="darkMatterTheme" class="themeButton">???????????</button>
-                    </div>
-                    <div class="theme">
-                        <button id="ultimaTheme" class="themeButton">??????</button>
-                    </div> -->
                 </div>
             </div>
         </div>

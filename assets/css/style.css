@@ -92,7 +92,8 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-
+    font-family: 'RocknRoll One', sans-serif;
+    text-shadow: black;
 }
 
 .container-fluid {
@@ -117,7 +118,7 @@ button {
 }
 
 .fa-gripfire {
-    color: orangered;
+    color: #d25b15;
 }
 
 .fa-tint {
@@ -129,7 +130,7 @@ button {
 }
 
 .fa-globe-americas {
-    color: brown;
+    color: #7d793f;
 }
 
 .fa-bolt {
@@ -137,19 +138,19 @@ button {
 }
 
 .fa-atom {
-    color: green;
+    color: #2fbd0b;
 }
 
 .fa-meteor {
-    color: darkslategrey;
+    color: rgb(152 33 33);
 }
 
 .fa-cubes {
-    color: purple;
+    color: #ad3cad;
 }
 
 .fa-crown {
-    color: darkorange;
+    color: #f5b603;
 }
 
 .fa-palette {
@@ -185,53 +186,51 @@ button {
 /* THEMES */
 
 .defaultTheme {
-    background-color: rgba(141, 123, 123, 0.9);
-    color: rgb(245, 245, 245);
+    background-color: rgb(112 111 116 / 85%);
+    color: rgb(239 239 239);
 }
 
 .fireTheme {
-    background-color: rgba(148, 56, 3, 0.9);
-    color: orange;
+    background-color: rgb(184 79 13 / 85%);
+    color: #eae49b;
 }
 
 .waterTheme {
-    background-color: rgba(54, 117, 235, 0.9);
-    color: rgb(200, 226, 218);
+    background-color: rgb(37 129 163 / 85%);
+    color: rgb(165 251 255);
 }
 
 .windTheme {
-    background-color: rgba(118, 135, 152, 0.9);
-    color: whitesmoke;
+    background-color: rgb(148 165 163 / 85%);
+    color: #1f2223;
 }
 
 .earthTheme {
-    background-color: rgba(165, 42, 42, 0.9);
-    color: burlywood;
+    background-color: rgb(43 39 30 / 85%);
+    color: #b2bb6a;
 }
 
 .electronTheme {
-    background-color: rgba(235, 223, 59, 0.9);
-    color: rgb(86, 29, 151);
+    background-color: rgb(34 41 70 / 85%);
+    color: rgb(247 232 151);
 }
 
 .nucleusTheme {
-    background-color: rgba(50, 205, 50, 0.9);
-    color: lightyellow;
+    background-color: rgb(62 52 53 / 85%);
+    color: #d1cdcc;
 }
 
 .gravityTheme {
-    background-color: rgba(0, 0, 0, 0.9);
-    color: rgb(206, 206, 206);
+    background-color: rgb(234 230 251 / 85%);
+    color: rgb(52 38 48);
 }
-
 .darkMatterTheme {
-    background-color: rgba(44, 0, 44, 0.9);
-    color: rgb(199, 151, 63);
+    background-color: rgb(80 29 73 / 85%);
+    color: rgb(255 218 170);
 }
-
 .ultimaTheme {
-    background-color: rgba(112, 24, 53, 0.9);
-    color: rgb(99, 143, 179);
+    background-color: rgb(169 24 56 / 85%);
+    color: rgb(197 225 255);
 }
 
 /* footer {
@@ -299,8 +298,6 @@ button {
     font-size: large;
 }
 
-#themesMenu .row .col-6 {}
-
 #themesMenuButton {
     visibility: hidden;
 }
@@ -359,9 +356,11 @@ button {
     font-size: x-small;
 }
 
-.clickerCount {
+.clickerCountDisplay {
     font-size: x-small;
+    text-align: center;
 }
+
 
 /* TRACKERS */
 #trackers {
@@ -372,19 +371,41 @@ button {
     justify-content: center;
     vertical-align: middle;
     font-size: x-small;
-    height: 2.5vh;
+    height:auto;
+    padding: 0.3vh;
 }
 
-.trackerIcon {
-    text-align: left;
+.trackerIcon i {
+    text-align: center;
+    font-size: 2vh;
 }
 
 .trackerName {
+    text-align: center;
+    font-size: xx-small;
+}
+/* .clickerTotal {
+    text-align: left;
+} */
+.trackerCount {
+    text-align: right;
+}
+.col-5.clickerCount {
+    text-align: right;
+}
+.nextLevel {
     text-align: left;
 }
-
-.increment {
+.trackerIncrement {
     text-align: right;
+    font-size: xx-small;
+}
+
+.trackerLevel {
+    /* text-align: left; */
+}
+.trackerTotal {
+    text-align: center;
 }
 
 /* ACHIEVEMENTS */
@@ -417,5 +438,6 @@ button {
 }
 
 .my-border {
-    border: 0.5vh solid black;
+    border:none;
+    /* border: 0.5vh solid black; */
 }

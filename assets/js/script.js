@@ -35,16 +35,18 @@ $(document).ready(function () {
             this.currentLevel++;
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
-            $("." + this.id + " > .clickerCount").text(this.count + " / " + this.nextLevel)
-            $(".row > ." + this.id).prev().text(this.currentLevel)
+            $("." + this.id).find(".clickerCount").text(this.count)
+            $("." + this.id).find(".nextLevel").text(this.nextLevel)
+            $("." + this.id).find(".trackerLevel").text(this.currentLevel)
 
             if (this.currentLevel == 1) {
+                $(".tracker." + id).removeClass("d-none")
                 $(".row > ." + id).parent().parent().removeClass("d-none")
                 $("." + this.id + " > .clickerLevel").removeClass("d-none")
-                $("." + this.id + " > .clickerCount").removeClass("d-none")
+                $("." + this.id + " > .clickerCountDisplay").removeClass("d-none")
                 $("." + this.id + " > .clickerLevel").text("Level 1")
-                $("." + this.id + " > .clickerCount").text("UNLOCK!")
-                $(".row > ." + id).text("UNLOCK!")
+                //$("." + this.id + " > .clickerCount").text("UNLOCK!")
+                //$(".row > ." + id).text("UNLOCK!")
             }
             if ((this.currentLevel > 1) && (this.currentLevel < MAX_LEVEL)) {
                 if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
@@ -58,10 +60,10 @@ $(document).ready(function () {
                 this.unlockTheme(this.theme)
                 $("#" + this.id + " > .clickerLevel").text("Level MAX")
                 $("." + this.id + " > .clickerCount").text("COMPLETE!")
-                $(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
+                //$(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
             }
             //change increment displayed in tracker
-            $(".row > ." + this.id).next().text("+" + this.i)
+            $("." + this.id).find(".trackerIncrement").text("+" + this.i)
         }
         this.unlockTheme = (theme) => {
             player.maxCount++
@@ -143,7 +145,6 @@ $(document).ready(function () {
         this.gameStarted = false
     }
     var player = new Player()
-    // var playerName = "Mr Click"
 
     // FUNCTIONS
     debug = () => {
@@ -161,7 +162,6 @@ $(document).ready(function () {
     }
 
     newGame = (name) => {
-
         player.gameStarted = true
         // player.name = name
         console.log(clickers)
@@ -183,14 +183,16 @@ $(document).ready(function () {
 
     incrementCount = (count, i, nextLevel, id) => {
         count += i
-        $("." + id + " > .clickerCount").text(count.toString() + " / " + nextLevel)
-        $("." + id + ".clickerCount").text(count.toString() + " / " + nextLevel)
+        console.log(count, i, nextLevel, id)
+        let countDisplay = 
+        $("." + id + " > .clickerCountDisplay").text(count.toString() + " / " + nextLevel)
+        $("." + id).find(".trackerCount").text(count.toString())
         return count
     }
 
     incrementCount_T = (count_T, i, id) => {
         count_T += i
-        $(".row > ." + id).text(count_T.toString())
+        $("." + id).find(".trackerTotal").text(count_T.toString())
         return count_T
     }
 
@@ -225,12 +227,16 @@ $(document).ready(function () {
 
     unlockUpgrade = (n, i, id) => {
         if (!player.firstUpgradeUnlocked && (level = 1)) player.firstUpgradeUnlocked = true
-        $(".row > ." + id).next().next().next().find(".upgrade-" + n).removeClass("d-none")
+        //$(".row > ." + id).next().next().next().find(".upgrade-" + n).removeClass("d-none")
         player.upgradeCount++;
         if (n == 1) i *= 2
         if (n == 2) i *= 3
         if (n == 3) i *= 5
         return i
+    }
+
+    updateTracker = () => {
+
     }
 
     checkLevel = (clicker) => {
@@ -244,6 +250,7 @@ $(document).ready(function () {
             if ((score >= clickers[i].unlockedAtLevel) && !clickers[i].unlocked) {
                 clickers[i].unlocked = true;
                 $(".clicker." + clickers[i].id).parent().removeClass("d-none")
+                //$(".tracker." + clickers[i].id).removeClass("d-none")
                 player.rank++
                 $(".rankRank").text("Rank " + player.rank)
             }
@@ -432,7 +439,7 @@ $(document).ready(function () {
         // animateButton(this, this.id)
         player.clicks = incrementClicks(player.clicks)
         clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
-        // clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
+        clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
         player.score = incrementScore(player.score, clicker.i)
         checkLevel(clicker)
         //checkRank(player.score)
@@ -580,6 +587,12 @@ $(document).ready(function () {
     $(".achievementButton").addClass("defaultTheme")
     $(".gameTitle").css("background-color", "transparent")
 
+
+    // for (i = 0; i < NUM_ELEMENTS; i++) {
+    //     $("." + clicker[i].id).find(".trackerIcon > i").addClass(clicker[i].icon)
+    // }
+
     // if (player.newGame == true) newGame(player.name)
-    debug()
+
+    //debug()
 })
