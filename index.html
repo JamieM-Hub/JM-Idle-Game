@@ -63,8 +63,22 @@
         </div>
     </div>
 
+    <div class="container startMenu">
+        <div class="row gameTitle headerText defaultTheme">
+            {click.Element}
+        </div>
+        <div class="row">
+            <p>Welcome to Elements!</p>
+            <p>To begin, type your name:</p>
+        </div>
+        <div class="row enterName">
+            <input type="text" id="inputId" name="playerName">
+            <button type="button" onclick="getInputValue();">That's me!</button>
+        </div>
+    </div>
+
     <!-- game board -->
-    <main class="container gameBoard">
+    <main class="container gameBoard d-none">
 
         <!-- header -->
         <div class="row header header-height">

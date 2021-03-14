@@ -129,7 +129,7 @@ $(document).ready(function () {
 
     // PLAYER OBJECT
     function Player() {
-        this.name = "Mr Click"
+        this.name = ""
         this.rank = 0
         this.score = 0
         this.clicks = 0
@@ -482,6 +482,15 @@ $(document).ready(function () {
             $("#themesMenu.show").removeClass("show")
         }
     })
+
+    // https://www.w3docs.com/snippets/javascript/how-to-get-the-value-of-text-input-field-using-javascript.html
+    getInputValue = () => {
+        player.name = document.getElementById("inputId").value
+        console.log(player.name)
+        $(".startMenu").addClass("d-none")
+        $(".gameBoard").removeClass("d-none")
+        $(".playerName").text(player.name)
+    }
 
     // CLICKERS
     $(".clicker").click(function () {
