@@ -96,6 +96,11 @@ body {
     text-shadow: black;
 }
 
+hr {
+    margin: 0;
+    width: 100%;
+}
+
 .container-fluid {
     justify-content: center;
     font-size: xx-large;
@@ -119,6 +124,7 @@ button {
 
 .fa-gripfire {
     color: #d25b15;
+    font-size: larger;
 }
 
 .fa-tint {
@@ -127,10 +133,12 @@ button {
 
 .fa-wind {
     color: lightseagreen;
+
 }
 
 .fa-globe-americas {
     color: #7d793f;
+
 }
 
 .fa-bolt {
@@ -147,14 +155,17 @@ button {
 
 .fa-cubes {
     color: #ad3cad;
+
 }
 
 .fa-crown {
     color: #f5b603;
+
 }
 
 .fa-palette {
     color: whitesmoke;
+
 }
 
 .fa-paint-brush {
@@ -224,10 +235,12 @@ button {
     background-color: rgb(234 230 251 / 85%);
     color: rgb(52 38 48);
 }
+
 .darkMatterTheme {
     background-color: rgb(80 29 73 / 85%);
     color: rgb(255 218 170);
 }
+
 .ultimaTheme {
     background-color: rgb(169 24 56 / 85%);
     color: rgb(197 225 255);
@@ -371,7 +384,7 @@ button {
     justify-content: center;
     vertical-align: middle;
     font-size: x-small;
-    height:auto;
+    height: auto;
     padding: 0.3vh;
 }
 
@@ -384,18 +397,22 @@ button {
     text-align: center;
     font-size: xx-small;
 }
+
 /* .clickerTotal {
     text-align: left;
 } */
 .trackerCount {
     text-align: right;
 }
+
 .col-5.clickerCount {
     text-align: right;
 }
+
 .nextLevel {
     text-align: left;
 }
+
 .trackerIncrement {
     text-align: right;
     font-size: xx-small;
@@ -404,6 +421,7 @@ button {
 .trackerLevel {
     /* text-align: left; */
 }
+
 .trackerTotal {
     text-align: center;
 }
@@ -414,9 +432,35 @@ button {
     border: 0.5vh solid black;
 }
 
+#achievementsModal {
+    padding: 0;
+}
+
+
+.achievement {
+    font-size: x-small;
+    text-align: center;
+    /* padding: 0.5vh 4vw; */
+}
+
 /* .achievementDiv {
     margin: 1vh;
 } */
+
+.achievementImage {
+    justify-content: center;
+    font-size: large;
+}
+
+.achievementText {
+    padding: 1vh 0;
+    font-size: xx-small;
+}
+
+.achievementName {
+    padding: 1vh 1vw;
+    text-align: left;
+}
 
 .achievementButton {
     width: 100%;
@@ -438,6 +482,6 @@ button {
 }
 
 .my-border {
-    border:none;
+    border: none;
     /* border: 0.5vh solid black; */
 }
