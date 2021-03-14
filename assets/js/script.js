@@ -479,7 +479,7 @@ $(document).ready(function () {
         }
         if ((this.id) == "toggleMenuButton") {
             console.log("click toggleMenuButton")
-            $("#Menu.show").removeClass("show")
+            $("#themesMenu.show").removeClass("show")
         }
     })
 
