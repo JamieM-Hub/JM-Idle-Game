@@ -69,7 +69,7 @@ $(document).ready(function () {
             player.maxCount++
             if (player.maxCount == 1) {
                 $("#defaultTheme > i").removeClass("fas fa-question").addClass("far fa-hand-pointer")
-                $("#themesMenuButton").css("visibility", "visible")               
+                $("#themesMenuButton").css("visibility", "visible")
             }
             if (!this.themeUnlocked) this.themeUnlocked = true
             $("#" + this.theme).removeClass("defaultTheme").addClass(this.theme)
@@ -470,7 +470,7 @@ $(document).ready(function () {
     }
 
     // TOGGLERS
-    $(".navbar-toggler").click(function() {
+    $(".navbar-toggler").click(function () {
         $("navbar-collapse.show").removeClass("show")
 
         if ((this.id) == "themesMenuButton") {
@@ -483,13 +483,16 @@ $(document).ready(function () {
         }
     })
 
+    // START MENU
     // https://www.w3docs.com/snippets/javascript/how-to-get-the-value-of-text-input-field-using-javascript.html
     getInputValue = () => {
-        player.name = document.getElementById("inputId").value
-        console.log(player.name)
-        $(".startMenu").addClass("d-none")
-        $(".gameBoard").removeClass("d-none")
-        $(".playerName").text(player.name)
+        if (document.getElementById("inputId").value) {
+            player.name = document.getElementById("inputId").value
+            console.log(player.name)
+            $(".startMenu").addClass("d-none")
+            $(".gameBoard").removeClass("d-none")
+            $(".playerName").text(player.name)
+        }
     }
 
     // CLICKERS
