@@ -20,6 +20,36 @@
 </head>
 
 <body>
+
+    <!-- start menu-->
+    <div class="container startMenu defaultTheme">
+        <div class="row gameTitle headerText defaultTheme">
+            ELEMENTS
+        </div>
+        <div class="row elementIcons">
+            <i class="fab fa-gripfire"></i>
+            <i class="fas fa-tint"></i>
+            <i class="fas fa-wind"></i>
+            <i class="fas fa-globe-americas"></i>
+            <i class="far fa-hand-pointer"></i>
+            <i class="fas fa-crown"></i>
+            <i class="fas fa-bolt"></i>
+            <i class="fas fa-atom"></i>
+            <i class="fas fa-meteor"></i>
+            <i class="fas fa-cubes"></i>
+        </div>
+        <div class="row startText">
+            <p>Welcome to Elements!</p>
+            <p>To begin, type your name:</p>
+        </div>
+        <div class="row enterName">
+            <input class="col-12" type="text" id="inputId" name="playerName">
+        </div>
+        <div class="row submitName">
+            <button class="col-4 btn" type="button" onclick="getInputValue();">That's me!</button>
+        </div>
+    </div>
+
     <!-- menus -->
     <div class="container collapse navbar-collapse header-height" id="toggleMenu">
         <button type="row button" id="newGameButton" class="menuButton defaultTheme" data-toggle="modal"
@@ -60,20 +90,6 @@
             <button id="nucleusTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
             <button id="gravityTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
             <button id="darkMatterTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-        </div>
-    </div>
-
-    <div class="container startMenu">
-        <div class="row gameTitle headerText defaultTheme">
-            {click.Element}
-        </div>
-        <div class="row">
-            <p>Welcome to Elements!</p>
-            <p>To begin, type your name:</p>
-        </div>
-        <div class="row enterName">
-            <input type="text" id="inputId" name="playerName">
-            <button type="button" onclick="getInputValue();">That's me!</button>
         </div>
     </div>
 

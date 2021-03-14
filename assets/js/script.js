@@ -625,5 +625,5 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    debug()
+    //debug()
 })

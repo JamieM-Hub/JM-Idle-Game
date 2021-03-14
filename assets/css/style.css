@@ -255,7 +255,40 @@ button {
 
 /* START MENU */
 
+.startMenu {
+    margin: 5vh 0;
+    padding: 5vw;
 
+}
+
+.startMenu p {
+    margin: 0;
+}
+
+/* .startMenu> {
+    padding: 1vh 0;
+} */
+
+.elementIcons {
+    justify-content: center;
+}
+
+.elementIcons i {
+    padding: 1vw;
+}
+
+.startText {
+    padding: 2.5vh;
+    justify-content: center;
+}
+
+.enterName {
+    padding-top: 1vh;
+    text-align: center;
+}
+.submitName {
+    justify-content: center;
+}
 
 /* HEADER */
 
@@ -280,6 +313,7 @@ button {
     text-shadow: 100px, 100px;
     font-size: 4vh;
     margin-top: -0.6vh;
+    justify-content: center;
 }
 
 .navbar-toggler {
