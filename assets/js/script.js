@@ -36,7 +36,7 @@ $(document).ready(function () {
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
             $("." + this.id).find(".clickerCount").text(this.count)
-            $("." + this.id).find(".nextLevel").text(this.nextLevel)
+            $("." + this.id).find(".nextLevel").text(abbreviateNumber(this.nextLevel))
             $("." + this.id).find(".trackerLevel").text(this.currentLevel)
 
             if (this.currentLevel == 1) {
@@ -63,7 +63,7 @@ $(document).ready(function () {
                 //$(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
             }
             //change increment displayed in tracker
-            $("." + this.id).find(".trackerIncrement").text("+" + this.i)
+            $("." + this.id).find(".trackerIncrement").text("+" + abbreviateNumber(this.i))
         }
         this.unlockTheme = (theme) => {
             player.maxCount++
@@ -183,28 +183,27 @@ $(document).ready(function () {
 
     incrementCount = (count, i, nextLevel, id) => {
         count += i
-        console.log(count, i, nextLevel, id)
-        let countDisplay = 
-        $("." + id + " > .clickerCountDisplay").text(count.toString() + " / " + nextLevel)
-        $("." + id).find(".trackerCount").text(count.toString())
+        let text = abbreviateNumber(count)
+        $("." + id + " > .clickerCountDisplay").text(text + " / " + abbreviateNumber(nextLevel))
+        $("." + id).find(".trackerCount").text(text)
         return count
     }
 
     incrementCount_T = (count_T, i, id) => {
         count_T += i
-        $("." + id).find(".trackerTotal").text(count_T.toString())
+        $("." + id).find(".trackerTotal").text(abbreviateNumber(count_T))
         return count_T
     }
 
     incrementScore = (score, i) => {
         score += i
-        $(".totalScore").text(score.toString())
+        $(".totalScore").text(abbreviateNumber(score))
         return score
     }
 
     incrementClicks = (clicks) => {
         clicks++
-        $(".totalClicks").text(clicks.toString())
+        $(".totalClicks").text(abbreviateNumber(clicks))
         return clicks
     }
 
@@ -224,6 +223,29 @@ $(document).ready(function () {
     //     }
     //     return number
     // }
+
+
+    // toFixed() taken from https://stackoverflow.com/questions/4187146/truncate-number-to-two-decimal-places-without-rounding
+    abbreviateNumber = (number) => {
+        let text = number.toString()
+        if (number >= 1000 && number < 1000000) {
+            number /= 1000
+            number = number.toFixed(1)
+            text = number.toString() + "K"
+        }
+        if (number >= 1000000 && number < 1000000000) {
+            number /= 1000000
+            number = number.toFixed(1)
+            text = number.toString() + "M"
+        }
+        if (number >= 1000000000 && number < 1000000000000) {
+            number /= 1000000000
+            number = number.toFixed(1)
+            text = number.toString() + "B"
+        }
+
+        return text
+    }
 
     unlockUpgrade = (n, i, id) => {
         if (!player.firstUpgradeUnlocked && (level = 1)) player.firstUpgradeUnlocked = true
@@ -594,5 +616,5 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    //debug()
+    debug()
 })
