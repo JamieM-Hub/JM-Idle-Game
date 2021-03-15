@@ -8,6 +8,7 @@ $(document).ready(function () {
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
     const MAX_LEVEL = 10
+    const LEVEL_CLICKS = [1, 15, 25, 20, 40, 25, 35, 33, 50, 66]
     const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
     const UPGRADE_MULTIPLIERS = [1, 2, 3, 5]
@@ -81,15 +82,36 @@ $(document).ready(function () {
             // animateThemesButton(this.color)
         }
     }
-    var fire = new Clicker("fire", "red", 1, [1, 15, 25, 40, 80, 150, 250, 1000, 1500, 2000], 1, "fireTheme", "fab fa-gripfire")
-    var water = new Clicker("water", "blue", 2, [2, 30, 50, 100, 160, 300, 420, 2000, 3000, 4000], 2, "waterTheme", "fas fa-tint")
-    var wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
-    var earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme", "fas fa-globe-americas")
-    var electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme", "fas fa-bolt")
-    var nucleus = new Clicker("nucleus", "green", 500, [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme", "fas fa-atom")
-    var gravity = new Clicker("gravity", "black", 1000, [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme", "fas fa-meteor")
-    var darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme", "fas fa-cubes")
+    var fire = new Clicker("fire", "red", 1, [1, 10, 20, 50, 75, 150, 250, 500, 750, 1000], 1, "fireTheme", "fab fa-gripfire")
+    var water = new Clicker("water", "blue", 100, [2, 25, 50, 100, 150, 300, 420, 1000, 1500, 2000], 2, "waterTheme", "fas fa-tint")
+    var wind = new Clicker("wind", "lightgray", 400, [4, 60, 100, 300, 600, 1000, 1500, 5000, 7500, 10000], 4, "windTheme", "fas fa-wind")
+    var earth = new Clicker("earth", "brown", 1000, [8, 120, 200, 500, 1500, 2500, 4000, 10000, 15000, 20000], 8, "earthTheme", "fas fa-globe-americas")
+    var electron = new Clicker("electron", "yellow", 2500, [16, 240, 400, 1200, 2500, 5000, 8000, 20000, 30000, 40000], 16, "electronTheme", "fas fa-bolt")
+    var nucleus = new Clicker("nucleus", "green", 8000, [32, 500, 1000, 2500, 5000, 10000, 15000, 40000, 60000, 80000], 32, "nucleusTheme", "fas fa-atom")
+    var gravity = new Clicker("gravity", "black", 25000, [64, 1000, 2000, 5000, 10000, 20000, 30000, 80000, 120000, 200000], 64, "gravityTheme", "fas fa-meteor")
+    var darkMatter = new Clicker("darkMatter", "purple", 50000, [128, 2000, 4000, 10000, 20000, 40000, 60000, 150000, 250000, 500000], 128, "darkMatterTheme", "fas fa-cubes")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
+    // for (i = 0; i < NUM_ELEMENTS; i++) {
+    //     console.log(clickers[i].upgradeLevel)
+    //     for (j = 0; j < MAX_LEVEL; j++) {
+    //         clickers[i].upgradeLevel[j] = clickers[i].i * LEVEL_CLICKS[j]
+    //         if (j > 2 && j < 5) {
+    //             clickers[i].upgradeLevel[j] *= (clickers[i].i * 2)
+    //             console.log(clickers[i].upgradeLevel[j], "upgrade")
+    //         }
+    //         if (j >= 5 && j < 7) {
+    //             clickers[i].upgradeLevel[j] *= (clickers[i].i * 2.5)
+    //             console.log(clickers[i].upgradeLevel[j], "upgrade")
+    //         }
+    //         if (j >= 7) {
+    //             clickers[i].upgradeLevel[j] *= (clickers[i].i * 3)
+    //             console.log(clickers[i].upgradeLevel[j], "upgrade")
+    //         }
+    //         console.log(clickers[i].upgradeLevel[j])
+    //     }
+    //     clickers[i].nextLevel = clickers[i].upgradeLevel[clickers[i].currentLevel]
+    //     console.log(clickers[i].upgradeLevel)
+    // }
 
     // ACHIEVEMENT OBJECTS
     function Achievement(name, id, text, icon) {
@@ -285,17 +307,23 @@ $(document).ready(function () {
         let text = number.toString()
         if (number >= 1000 && number < 1000000) {
             number /= 1000
-            number = number.toFixed(1)
-            text = number.toString() + "K"
+            if (number >= 100) number = number.toFixed(0)
+            if (number < 100 && number >= 10) number = number.toFixed(1)
+            if (number < 10) number = number.toFixed(2)
+            text = number.toString() + "k"
         }
         if (number >= 1000000 && number < 1000000000) {
             number /= 1000000
-            number = number.toFixed(1)
+            if (number >= 100) number = number.toFixed(0)
+            if (number < 100 && number >= 10) number = number.toFixed(1)
+            if (number < 10) number = number.toFixed(2)
             text = number.toString() + "M"
         }
         if (number >= 1000000000 && number < 1000000000000) {
             number /= 1000000000
-            number = number.toFixed(1)
+            if (number >= 100) number = number.toFixed(0)
+            if (number < 100 && number >= 10) number = number.toFixed(1)
+            if (number < 10) number = number.toFixed(2)
             text = number.toString() + "B"
         }
 
