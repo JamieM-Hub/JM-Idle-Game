@@ -35,17 +35,18 @@ $(document).ready(function () {
             this.currentLevel++;
             this.count -= this.nextLevel
             this.nextLevel = this.upgradeLevel[this.currentLevel]
-            $("." + this.id).find(".clickerCount").text(this.count)
-            $("." + this.id).find(".nextLevel").text(abbreviateNumber(this.nextLevel))
             $("." + this.id).find(".trackerLevel").text(this.currentLevel)
-
+            if (this.currentLevel != MAX_LEVEL) {
+                $("." + this.id).find(".clickerCount").text(this.count)
+                $("." + this.id).find(".nextLevel").text(abbreviateNumber(this.nextLevel))
+            }
             if (this.currentLevel == 1) {
                 $(".tracker." + id).removeClass("d-none")
                 $(".row > ." + id).parent().parent().removeClass("d-none")
                 $("." + this.id + " > .clickerLevel").removeClass("d-none")
                 $("." + this.id + " > .clickerCountDisplay").removeClass("d-none")
                 $("." + this.id + " > .clickerLevel").text("Level 1")
-                //$("." + this.id + " > .clickerCount").text("UNLOCK!")
+                $("." + this.id + " > .clickerCountDisplay").text("UNLOCK!")
                 //$(".row > ." + id).text("UNLOCK!")
             }
             if ((this.currentLevel > 1) && (this.currentLevel < MAX_LEVEL)) {
@@ -59,7 +60,7 @@ $(document).ready(function () {
             if (this.currentLevel == MAX_LEVEL) {
                 this.unlockTheme(this.theme)
                 $("#" + this.id + " > .clickerLevel").text("Level MAX")
-                $("." + this.id + " > .clickerCount").text("COMPLETE!")
+                $("." + this.id + " > .clickerCountDisplay").text("COMPLETE!")
                 //$(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
             }
             //change increment displayed in tracker
