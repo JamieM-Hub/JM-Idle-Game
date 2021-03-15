@@ -81,8 +81,8 @@ $(document).ready(function () {
             // animateThemesButton(this.color)
         }
     }
-    var fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
-    var water = new Clicker("water", "blue", 2, [2, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 2, "waterTheme", "fas fa-tint")
+    var fire = new Clicker("fire", "red", 1, [1, 15, 25, 40, 80, 150, 250, 1000, 1500, 2000], 1, "fireTheme", "fab fa-gripfire")
+    var water = new Clicker("water", "blue", 2, [2, 30, 50, 100, 160, 300, 420, 2000, 3000, 4000], 2, "waterTheme", "fas fa-tint")
     var wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
     var earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme", "fas fa-globe-americas")
     var electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme", "fas fa-bolt")
@@ -718,7 +718,6 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    debug()
-    
-    debug2()
+    //debug()
+    //debug2()
 })
