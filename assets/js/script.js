@@ -562,11 +562,9 @@ $(document).ready(function () {
 
     // ACHIEVEMENT BUTTONS
     $(".achievementButton").click(function () {
-        $("#achievements").addClass("show").css("display", "block")
+        $("#achievements").modal('toggle')
     })
-    $(".close").click(function () {
-        $("#achievements").removeClass("show").css("display", "none")
-    })
+
 
     // DEVELOPER BUTTON
     $("#developerButton").click(function () {
