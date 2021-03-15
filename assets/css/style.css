@@ -274,11 +274,11 @@ button {
 }
 
 .elementIcons i {
-    padding: 1vw;
+    padding: 2.5vh 1.5vw;
 }
 
 .startText {
-    padding: 2.5vh;
+    padding-bottom: 2.5vh;
     justify-content: center;
 }
 
@@ -288,6 +288,9 @@ button {
 }
 .submitName {
     justify-content: center;
+}
+.nameButton {
+    margin-top: 2vh;
 }
 
 /* HEADER */

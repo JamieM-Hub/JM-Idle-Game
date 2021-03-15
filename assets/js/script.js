@@ -2,7 +2,8 @@ $(document).ready(function () {
 
     // CONSTANTS
     const PROJECT_NAME = "JM-Idle-Game"
-    const GAME_TITLE = "click.Element()"
+    const GAME_TITLE = "ELEMENTS"
+    $(".gameTitle").text(GAME_TITLE)
     const CONTACT_EMAIL = "jamiemckenzie7231@yahoo.co.uk"
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
