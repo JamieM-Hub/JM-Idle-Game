@@ -494,6 +494,7 @@ $(document).ready(function () {
             $(".startMenu").addClass("d-none")
             $(".gameBoard").removeClass("d-none")
             $(".playerName").text(player.name)
+            $("body").css("background-image", "url(\"../" + PROJECT_NAME + "/assets/img/defaultTheme.jpg\")")
         }
     }
 
