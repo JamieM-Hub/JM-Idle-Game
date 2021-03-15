@@ -433,7 +433,8 @@ button {
 .upgradeMultiplier {
     font-size: x-small;
     visibility: hidden;
-
+    padding-right: 1.5vw;
+    margin-top: -0.5vh;
 }
 
 .clickerLevel {
