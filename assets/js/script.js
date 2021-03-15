@@ -51,10 +51,10 @@ $(document).ready(function () {
                 //$(".row > ." + id).text("UNLOCK!")
             }
             if ((this.currentLevel > 1) && (this.currentLevel < MAX_LEVEL)) {
-                if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this.id)
-                if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this.id)
-                if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this.id)
                 $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
+                if (this.currentLevel == 3) this.i = unlockUpgrade(1, this.i, this)
+                if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this)
+                if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this)
                 $("." + this.id + " > .clickerCountDisplay").text("LEVEL UP!")
                 // $(".col-2." + this.id).text("LEVEL UP!")
             }
@@ -230,11 +230,12 @@ $(document).ready(function () {
 
     // INCREMENTS
 
-    incrementCount = (count, i, nextLevel, id) => {
+    incrementCount = (count, i, nextLevel, clicker) => {
         count += i
         let text = abbreviateNumber(count)
-        $("." + id + " > .clickerCountDisplay").text(text + " / " + abbreviateNumber(nextLevel))
-        $("." + id).find(".trackerCount").text(text)
+        $("." + clicker.id + " > .clickerCountDisplay").text(text + " / " + abbreviateNumber(nextLevel))
+        $("." + clicker.id).find(".trackerCount").text(text)
+        $("." + clicker.id + " > .clickerLevel").text("Level " + clicker.currentLevel)
         return count
     }
 
@@ -300,9 +301,11 @@ $(document).ready(function () {
         return text
     }
 
-    unlockUpgrade = (n, i, id) => {
+    unlockUpgrade = (n, i, clicker) => {
         if (!player.firstUpgradeUnlocked && (level = 1)) player.firstUpgradeUnlocked = true
         //$(".row > ." + id).next().next().next().find(".upgrade-" + n).removeClass("d-none")
+        $("." + clicker.id + " > .clickerLevel").text("UPGRADE!")
+
         player.upgradeCount++;
         if (n == 1) i *= 2
         if (n == 2) i *= 3
@@ -513,7 +516,7 @@ $(document).ready(function () {
     processClick = (clicker) => {
         // animateButton(this, this.id)
         player.clicks = incrementClicks(player.clicks)
-        clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker.id)
+        clicker.count = incrementCount(clicker.count, clicker.i, clicker.nextLevel, clicker)
         clicker.count_T = incrementCount_T(clicker.count_T, clicker.i, clicker.id)
         player.score = incrementScore(player.score, clicker.i)
         checkLevel(clicker)
@@ -707,6 +710,7 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    debug()
+    //debug()
+    //
     debug2()
 })
