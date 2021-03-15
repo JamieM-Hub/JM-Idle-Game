@@ -120,13 +120,13 @@ $(document).ready(function () {
     var changeTheme = new Achievement("Change Theme", "changeTheme", "So pretty", "fas fa-paint-brush")
     var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "That's it, no more fun. Go to bed.", "fas fa-palette")
     var clickDeveloper = new Achievement("Check Out Developer", "clickDeveloper", "I'm glad somebody cares", "fas fa-layer-group")
-    var secret1 = new Achievement("Secret 1", "secret1", "You unlocked a Secret!", "fas fa-question-circle")
-    var secret2 = new Achievement("Secret 2", "secret2", "You unlocked a Secret!", "fas fa-question-circle")
+    var devil = new Achievement("Secret 1: Devil's Game", "devil", "You had a score of 666. Find Jesus.", "fas fa-question-circle")
+    var messiah = new Achievement("Secret 2: The Messiah", "messiah", "Jesus! Someone's looking for you.", "fas fa-question-circle")
     let achievements = [
         unlockFire, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade,
         maxUpgrade, unlockElectron, unlockDarkMatter, completeFire, completeWater, completeWind, completeEarth,
         completeElectron, completeNucleus, completeGravity, completeDarkMatter, changeTheme, clickDeveloper,
-        tryAllThemes, completeAll, secret1, secret2
+        tryAllThemes, completeAll, devil, messiah
     ]
 
     // PLAYER OBJECT
@@ -195,7 +195,7 @@ $(document).ready(function () {
         $("#themesMenuButton").css("visibility", "hidden")
         $(".clickerLevel").addClass("d-none")
         $(".clickerCountDisplay").addClass("d-none")
-        
+
         console.log(clickers)
 
         for (i = 0; i < MAX_THEMES; i++) player.themesTried[i] = false
@@ -228,6 +228,8 @@ $(document).ready(function () {
         console.log(achievements)
     }
 
+    // INCREMENTS
+
     incrementCount = (count, i, nextLevel, id) => {
         count += i
         let text = abbreviateNumber(count)
@@ -244,6 +246,11 @@ $(document).ready(function () {
 
     incrementScore = (score, i) => {
         score += i
+        score = 666
+        if (score == 666) {
+            devil.unlocked = true
+            processAchievement(devil)
+        }
         $(".totalScore").text(abbreviateNumber(score))
         return score
     }
@@ -461,13 +468,13 @@ $(document).ready(function () {
             clickDeveloper.unlocked = true
             processAchievement(clickDeveloper)
         }
-        // if (!secret1.unlocked && ()) {
-        //     secret1.unlocked = true
-        // processAchievement(secret1)
+        // if (!devil.unlocked && ) {
+        //     devil.unlocked = true
+        //     processAchievement(devil)
         // }
-        // if (!secret2.unlocked && ()) {
-        //     secret2.unlocked = true
-        // processAchievement(secret2)
+        // if (!messiah.unlocked && ()) {
+        //     messiah.unlocked = true
+        //     processAchievement(messiah)
         // }
     }
 
@@ -540,6 +547,10 @@ $(document).ready(function () {
             $(".playerName").text(player.name)
             $("body").css("background-image", "url(\"../" + PROJECT_NAME + "/assets/img/defaultTheme.jpg\")")
         }
+        if ((player.name == "Jesus") || (player.name == "jesus")) {
+            messiah.unlocked = true
+            processAchievement(messiah)
+        }
     }
     newGame = () => {
         if (document.getElementById("inputId2").value) {
@@ -547,6 +558,10 @@ $(document).ready(function () {
             reset(newPlayer)
             // https://stackoverflow.com/questions/16493280/close-bootstrap-modal
             $('#newGame').modal('toggle')
+        }
+        if ((player.name == "Jesus") || (player.name == "jesus")) {
+            messiah.unlocked = true
+            processAchievement(messiah)
         }
     }
 
@@ -693,6 +708,6 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    //debug()
+    debug()
     debug2()
 })
