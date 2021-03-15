@@ -680,11 +680,11 @@ $(document).ready(function () {
 
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
+    $(".gameTitle").css("background-color", "transparent")
+    $("#developer").find(".gameTitle").css("font-size", "small")
     $(".tracker").find("button").css("font-size", "small")
     $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
-    $(".gameTitle").css("background-color", "transparent")
     $(".achievementButton").addClass("defaultTheme")
-    $(".gameTitle").css("background-color", "transparent")
 
 
     // for (i = 0; i < NUM_ELEMENTS; i++) {

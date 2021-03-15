@@ -314,7 +314,7 @@ button {
 
 .gameTitle {
     font-family: 'RocknRoll One', sans-serif;
-    text-shadow: 100px, 100px;
+    font-weight: 600;
     font-size: 4vh;
     margin-top: -0.6vh;
     justify-content: center;
@@ -379,6 +379,7 @@ button {
 
 .email {
     font-style: italic;
+    text-align: center;
 }
 
 /* TOTALS */
@@ -509,6 +510,11 @@ button {
     height: 6vh;
     /* background-color: rgba(98, 99, 99, 0.9); */
     font-size: large;
+}
+
+#developer {
+    text-align: left;
+    font-size: small;
 }
 
 /* FONT AWESOME ICONS */
