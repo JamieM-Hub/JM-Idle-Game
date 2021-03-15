@@ -132,7 +132,7 @@ $(document).ready(function () {
     // PLAYER OBJECT
     function Player() {
         this.name = ""
-        this.rank = 0
+        this.level = 0
         this.score = 0
         this.clicks = 0
         this.newGame = false
@@ -174,7 +174,7 @@ $(document).ready(function () {
         $(".playerName").text(newPlayer)
         $(".totalClicks").text("-")
         $(".totalScore").text("-")
-        $(".rankRank").text("-")
+        $(".levelLevel").text("-")
         console.log(player)
         fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
         water = new Clicker("water", "blue", 2, [2, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 2, "waterTheme", "fas fa-tint")
@@ -326,8 +326,8 @@ $(document).ready(function () {
                 clickers[i].unlocked = true;
                 $(".clicker." + clickers[i].id).parent().removeClass("d-none")
                 //$(".tracker." + clickers[i].id).removeClass("d-none")
-                player.rank++
-                $(".rankRank").text("Rank " + player.rank)
+                player.level++
+                $(".levelLevel").text(player.level)
             }
         }
     }
@@ -707,6 +707,6 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    //debug()
-    //debug2()
+    debug()
+    debug2()
 })
