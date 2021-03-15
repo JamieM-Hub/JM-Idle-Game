@@ -674,7 +674,7 @@ $(document).ready(function () {
         }
         /* update display */
         console.log(player.currentTheme, selectedTheme)
-        $("body").css("background-image", imgSource)
+        $("main").css("background-image", imgSource)
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
         addRemoveClass(".navbar-toggler > span > i", player.currentTheme, selectedTheme)
@@ -733,7 +733,7 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".gameTitle").css("background-color", "transparent")
-    $("#developer").find(".gameTitle").css("font-size", "small")
+    //$("#developer").find(".gameTitle").css("font-size", "small")
     $(".tracker").find("button").css("font-size", "small")
     $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
     $(".achievementButton").addClass("defaultTheme")
@@ -746,6 +746,44 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    //debug()
+    // MEDIA QUERIES
+    // https://www.w3schools.com/jsref/met_win_matchmedia.asp
+
+    if (window.matchMedia("(max-width: 350px)").matches) {
+        $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
+    }
+    if (window.matchMedia("(min-width: 576px)").matches) {
+        $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
+    }
+    if (window.matchMedia("(min-width: 768px)").matches) {
+        $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    }
+    if (window.matchMedia("(min-width: 992px)").matches) {
+        $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    }
+    if (window.matchMedia("(min-width: 1200px)").matches) {
+        $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    }
+
+    // respondXS = () => {
+    // }
+    // respondS = () => {
+    // }
+    // respondM = () => {
+    // }
+    // respondL = () => {
+    // }
+    // respondXL = () => {
+    // }
+
+    // var mediaQueryXS = window.matchMedia("(max-width: 350px)")
+    // var mediaQueryS = window.matchMedia("(min-width: 576px)")
+    // var mediaQueryM = window.matchMedia("(min-width: 768px)")
+    // var mediaQueryL = window.matchMedia("(min-width: 992px)")
+    // var mediaQueryXL = window.matchMedia("(min-width: 1200px)")
+    // myFunction(query) // Call listener function at run time
+    // query.addEventListener(mediaChange) // Attach listener function on state changes
+
+    debug()
     //debug2()
 })
