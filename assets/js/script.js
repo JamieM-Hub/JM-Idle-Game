@@ -53,8 +53,8 @@ $(document).ready(function () {
                 if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this.id)
                 if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this.id)
                 $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
-                // $("." + this.id + " > .clickerCount").text("LEVEL UP!")
-                $(".col-2." + this.id).text("LEVEL UP!")
+                $("." + this.id + " > .clickerCountDisplay").text("LEVEL UP!")
+                // $(".col-2." + this.id).text("LEVEL UP!")
             }
             if (this.currentLevel == MAX_LEVEL) {
                 this.unlockTheme(this.theme)
