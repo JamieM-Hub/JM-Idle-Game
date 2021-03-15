@@ -78,7 +78,7 @@ $(document).ready(function () {
             // animateThemesButton(this.color)
         }
     }
-    var fire = new Clicker("fire", "red", 1, [1, 10, 30, 50, 75, 250, 400, 1000, 1500, 2500], 1, "fireTheme", "fab fa-gripfire")
+    var fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
     var water = new Clicker("water", "blue", 2, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme", "fas fa-tint")
     var wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
     var earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme", "fas fa-globe-americas")
