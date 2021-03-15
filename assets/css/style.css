@@ -411,6 +411,9 @@ button {
 #clickers .col-12 {
     box-sizing: content-box;
 }
+#clickers .col-12 .row {
+    justify-content: center;
+}
 
 .clicker {
     height: 12vh;
@@ -430,6 +433,7 @@ button {
 .upgradeMultiplier {
     font-size: x-small;
     visibility: hidden;
+
 }
 
 .clickerLevel {
@@ -501,6 +505,7 @@ button {
 .achievements {
     margin: 1.5vh 0 0 0;
     border: 0.5vh solid black;
+    justify-content: center;
 }
 
 #achievementsModal {
