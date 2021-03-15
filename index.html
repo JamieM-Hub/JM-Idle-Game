@@ -46,7 +46,7 @@
             <input class="col-12" type="text" id="inputId" name="playerName">
         </div>
         <div class="row submitName">
-            <button class="col-4 btn nameButton" type="button" onclick="getInputValue();">That's me!</button>
+            <button class="col-4 btn nameButton" type="button" onclick="startGame()">That's me!</button>
         </div>
     </div>
 
@@ -550,17 +550,22 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>To start a new game, type in your name and hit confirm.</p>
-                    <form action="">
-                        <input type="text" id="playerName" label="Player Name">
-                        <input type="submit" value="Confirm">
-                    </form>
-                    <p class="d-none">Please note this will delete all current progress.</p>
+                    <p>Are you sure? All progress will be lost.</p>
+                    <p>To start a new game, type in your name:</p>
+                    <div class="row enterName">
+                        <input class="col-12" type="text" id="inputId2" name="playerName">
+                    </div>
+                    <div class="row submitName">
+                        <button class="col-4 btn nameButton defaultTheme" type="button" onclick="newGame();">That's
+                            me!</button>
+                    </div>
+
+                    <!-- <p class="d-none">Please note this will delete all current progress.</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                         <button type="button" id="confirmNewGame" class="btn btn-primary"
                             data-dismiss="modal">Yes</button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -81,7 +81,7 @@ $(document).ready(function () {
         }
     }
     var fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
-    var water = new Clicker("water", "blue", 2, [2, 2, 2, 2, 2, 2, 2, 2, 2, 2], 2, "waterTheme", "fas fa-tint")
+    var water = new Clicker("water", "blue", 2, [2, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 2, "waterTheme", "fas fa-tint")
     var wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
     var earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme", "fas fa-globe-americas")
     var electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme", "fas fa-bolt")
@@ -141,12 +141,13 @@ $(document).ready(function () {
         this.themesTried = [false]
         this.developerClicked = false
         this.themeCount = 0
-        this.currentTheme = 'defaultTheme'
+        this.currentTheme = ""
         this.upgradeCount = 0
         this.maxCount = 0
         this.gameStarted = false
     }
     var player = new Player()
+    player.currentTheme = "defaultTheme"
 
     // FUNCTIONS
     debug = () => {
@@ -163,24 +164,68 @@ $(document).ready(function () {
         //changeToSelectedTheme("waterTheme")
     }
 
-    newGame = (name) => {
-        player.gameStarted = true
-        // player.name = name
-        console.log(clickers)
-        console.log(player)
+    debug2 = () => {
+        fire.upgradeLevel = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+    }
 
-        for (i = 0; i = NUM_ELEMENTS; i++) {
+    reset = (newPlayer) => {
+        changeToSelectedTheme("defaultTheme")
+        player = new Player()
+        $(".playerName").text(newPlayer)
+        $(".totalClicks").text("-")
+        $(".totalScore").text("-")
+        $(".rankRank").text("-")
+        console.log(player)
+        fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
+        water = new Clicker("water", "blue", 2, [2, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 2, "waterTheme", "fas fa-tint")
+        wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
+        earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme", "fas fa-globe-americas")
+        electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme", "fas fa-bolt")
+        nucleus = new Clicker("nucleus", "green", 500, [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme", "fas fa-atom")
+        gravity = new Clicker("gravity", "black", 1000, [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme", "fas fa-meteor")
+        darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme", "fas fa-cubes")
+        clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
+        $(".tracker").addClass("d-none")
+        $(".trackerLevel").text("1")
+        $(".trackerIncrement").text("1")
+        $(".trackerTotal").text("-")
+        $(".trackerCount").text("-")
+        $(".nextLevel").text("-")
+        //$(".themeButton").text("?")
+        $("#themesMenuButton").css("visibility", "hidden")
+        $(".clickerLevel").addClass("d-none")
+        $(".clickerCountDisplay").addClass("d-none")
+        
+        console.log(clickers)
+
+        for (i = 0; i < MAX_THEMES; i++) player.themesTried[i] = false
+        for (i = 0; i < NUM_ELEMENTS; i++) {
             clickers[i].count = 0
             clickers[i].count_T = 0
-            clickers[i].unlocked = false
             clickers[i].currentLevel = 0
+            clickers[i].unlocked = false
+            clickers[i].themeUnlocked = false
+            $(".themeButton." + clickers[i].theme).removeClass(clickers[i].theme).addClass("defaultTheme")
+            $(".clicker." + clickers[i].id).parent().addClass("d-none")
+            $(".tracker." + clickers[i].id).parent().addClass("d-none")
+
+            //$("." + clickers[i].id).find(".clickerCountDisplay").text(clickers[i].count + " / " + abbreviateNumber(clickers[i].nextLevel))
+            //$("." + clickers[i].id).find(".trackerCount").text(clickers[i].count)
         }
-        for (i = 0; i < NUM_ACHIEVEMENTS; i++) achievements[i].unlocked = false
-        for (i = 0; i < MAX_THEMES; i++) player.themesTried[i] = false
+        $(".clicker.fire").parent().removeClass("d-none")
+        $(".clicker.fire").find(".clickerLevel").addClass("d-none")
+        $(".clicker.fire").find(".clickerCountDisplay").addClass("d-none")
 
-        console.log(clickers)
-        console.log(player)
-
+        for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
+            achievements[i].unlocked = false
+            $("." + achievements[i].id).parent().addClass("d-none")
+            var ach = "#" + achievements[i].id
+            $(ach).find(".achievementImage").text("?")
+            $(ach).find(".achievementName").text("???")
+            $(ach).find(".achievementText").text("???")
+        }
+        debug2()
+        console.log(achievements)
     }
 
     incrementCount = (count, i, nextLevel, id) => {
@@ -487,14 +532,21 @@ $(document).ready(function () {
 
     // START MENU
     // https://www.w3docs.com/snippets/javascript/how-to-get-the-value-of-text-input-field-using-javascript.html
-    getInputValue = () => {
+    startGame = () => {
         if (document.getElementById("inputId").value) {
             player.name = document.getElementById("inputId").value
-            console.log(player.name)
             $(".startMenu").addClass("d-none")
             $(".gameBoard").removeClass("d-none")
             $(".playerName").text(player.name)
             $("body").css("background-image", "url(\"../" + PROJECT_NAME + "/assets/img/defaultTheme.jpg\")")
+        }
+    }
+    newGame = () => {
+        if (document.getElementById("inputId2").value) {
+            newPlayer = document.getElementById("inputId2").value
+            reset(newPlayer)
+            // https://stackoverflow.com/questions/16493280/close-bootstrap-modal
+            $('#newGame').modal('toggle')
         }
     }
 
@@ -525,9 +577,10 @@ $(document).ready(function () {
     })
 
     // NEW GAME BUTTON
-    $("#newGameConfirmed").click(function () {
-        newGame(playerName)
-    })
+
+    // $("#newGameConfirmed").click(function () {
+    //     newGame(playerName)
+    // })
 
     // THEMES
     addRemoveClass = (target, class1, class2) => {
@@ -582,6 +635,7 @@ $(document).ready(function () {
         addRemoveClass(".navbar-toggler > span > i", player.currentTheme, selectedTheme)
         $(".navbar-toggler > span > i").css("background-color", "transparent")
         changeThemeIcon(player.currentTheme, selectedTheme)
+        addRemoveClass(".modal-dialog", player.currentTheme, selectedTheme)
         addRemoveClass(".gameTitle", player.currentTheme, selectedTheme)
         $(".gameTitle").css("background-color", "transparent")
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
@@ -594,12 +648,14 @@ $(document).ready(function () {
         //addRemoveClass("button", player.currentTheme, selectedTheme)
         $(".navbar-toggler").css("background-color", "transparent")
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
+        addRemoveClass(".nameButton", player.currentTheme, selectedTheme)
         addRemoveClass(".achievementButton > i", player.currentTheme, selectedTheme)
         addRemoveClass(".fa-play", player.currentTheme, selectedTheme)
 
         // addRemoveClass(".achievements > col-2 >")
         /* update system */
         player.currentTheme = selectedTheme
+        console.log(player.currentTheme)
         if (!player.themeChanged) player.themeChanged = true
         checkAchievement()
     }
@@ -640,4 +696,5 @@ $(document).ready(function () {
     // if (player.newGame == true) newGame(player.name)
 
     //debug()
+    debug2()
 })
