@@ -10,6 +10,7 @@ $(document).ready(function () {
     const MAX_LEVEL = 10
     const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
+    const UPGRADE_MULTIPLIERS = [1, 2, 3, 5]
 
     // STYLES
     const BTN_PRIMARY = {
@@ -48,7 +49,6 @@ $(document).ready(function () {
                 $("." + this.id + " > .clickerCountDisplay").removeClass("d-none")
                 $("." + this.id + " > .clickerLevel").text("Level 1")
                 $("." + this.id + " > .clickerCountDisplay").text("UNLOCK!")
-                //$(".row > ." + id).text("UNLOCK!")
             }
             if ((this.currentLevel > 1) && (this.currentLevel < MAX_LEVEL)) {
                 $("." + this.id + " > .clickerLevel").text("Level " + this.currentLevel)
@@ -56,13 +56,14 @@ $(document).ready(function () {
                 if (this.currentLevel == 5) this.i = unlockUpgrade(2, this.i, this)
                 if (this.currentLevel == 7) this.i = unlockUpgrade(3, this.i, this)
                 $("." + this.id + " > .clickerCountDisplay").text("LEVEL UP!")
-                // $(".col-2." + this.id).text("LEVEL UP!")
             }
             if (this.currentLevel == MAX_LEVEL) {
                 this.unlockTheme(this.theme)
                 $("#" + this.id + " > .clickerLevel").text("Level MAX")
                 $("." + this.id + " > .clickerCountDisplay").text("COMPLETE!")
-                //$(".row > ." + id).next().find(".upgrade-4").removeClass("d-none")
+                $("." + this.id).find(".upgradeMultiplier").html("<i class=\"fas fa-crown\"></i>")
+                $("." + this.id).find(".upgradeMultiplier > i").addClass(player.currentTheme).addClass("no-shadow")
+                $("." + this.id).find(".upgradeMultiplier > i").css("background-color", "transparent")
             }
             //change increment displayed in tracker
             $("." + this.id).find(".trackerIncrement").text("+" + abbreviateNumber(this.i))
@@ -303,13 +304,14 @@ $(document).ready(function () {
 
     unlockUpgrade = (n, i, clicker) => {
         if (!player.firstUpgradeUnlocked && (level = 1)) player.firstUpgradeUnlocked = true
-        //$(".row > ." + id).next().next().next().find(".upgrade-" + n).removeClass("d-none")
-        $("." + clicker.id + " > .clickerLevel").text("UPGRADE!")
-
         player.upgradeCount++;
-        if (n == 1) i *= 2
-        if (n == 2) i *= 3
-        if (n == 3) i *= 5
+        i *= UPGRADE_MULTIPLIERS[n]
+        if (n == 1) {
+            //$(".clicker." + clicker.id).find(".upgradeIcon").css("visibility", "visible")
+            $(".clicker." + clicker.id).find(".upgradeMultiplier").css("visibility", "visible")
+        }
+        $("." + clicker.id + " > .clickerLevel").text("UPGRADE!")
+        $("." + clicker.id).find(".upgradeMultiplier").text("x" + UPGRADE_MULTIPLIERS[n])
         return i
     }
 
@@ -657,6 +659,11 @@ $(document).ready(function () {
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
         //addRemoveClass(".header", player.currentTheme, selectedTheme)
         addRemoveClass(".clicker", player.currentTheme, selectedTheme)
+        addRemoveClass(".upgradeIcon > i", player.currentTheme, selectedTheme)
+        addRemoveClass(".upgradeMultiplier", player.currentTheme, selectedTheme)
+        addRemoveClass(".upgradeMultiplier > i", player.currentTheme, selectedTheme)
+        $(".upgradeIcon > i").css("background-color", "transparent")
+        $(".upgradeMultiplier > i").css("background-color", "transparent")
         addRemoveClass(".achievementButton", player.currentTheme, selectedTheme)
         addRemoveClass(".menuButton", player.currentTheme, selectedTheme)
         //addRemoveClass(".themeButton", selectTheme, this.id)
@@ -702,7 +709,8 @@ $(document).ready(function () {
     $(".tracker").find("button").css("font-size", "small")
     $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
     $(".achievementButton").addClass("defaultTheme")
-
+    $(".upgradeIcon > i").css("background-color", "transparent")
+    $(".upgradeMultiplier").css("background-color", "transparent")
 
     // for (i = 0; i < NUM_ELEMENTS; i++) {
     //     $("." + clicker[i].id).find(".trackerIcon > i").addClass(clicker[i].icon)
@@ -710,7 +718,7 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    //debug()
-    //
+    debug()
+    
     debug2()
 })

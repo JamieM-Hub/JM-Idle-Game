@@ -287,9 +287,11 @@ button {
     padding: 1vh 10vw;
     text-align: center;
 }
+
 .submitName {
     justify-content: center;
 }
+
 .nameButton {
     margin-top: 2vh;
 }
@@ -388,9 +390,11 @@ button {
     font-size: x-small;
     margin: 1.5vh 8vw 0 8vw;
 }
-#totals > div {
+
+#totals>div {
     padding: 0.5vh;
 }
+
 .totalClicks,
 .totalScore,
 .playerName,
@@ -418,6 +422,16 @@ button {
     font-size: x-large;
 }
 
+.upgradeIcon {
+    font-size: x-small;
+    visibility: hidden;
+}
+
+.upgradeMultiplier {
+    font-size: x-small;
+    visibility: hidden;
+}
+
 .clickerLevel {
     font-size: x-small;
 }
@@ -433,7 +447,7 @@ button {
     padding: 0.75vh 0;
 }
 
-#trackers > div {
+#trackers>div {
     font-size: xx-small;
 }
 
@@ -546,4 +560,8 @@ button {
 .my-border {
     border: none;
     /* border: 0.5vh solid black; */
+}
+
+.no-shadow {
+    text-shadow: none;
 }
