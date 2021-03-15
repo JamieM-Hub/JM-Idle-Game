@@ -257,7 +257,7 @@ button {
 /* START MENU */
 
 .startMenu {
-    margin: 5vh 0;
+    margin: 15vh 0;
     padding: 5vw;
 
 }
@@ -275,7 +275,7 @@ button {
 }
 
 .elementIcons i {
-    padding: 2.5vh 1.5vw;
+    padding: 4vh 1.75vw;
 }
 
 .startText {
@@ -284,7 +284,7 @@ button {
 }
 
 .enterName {
-    padding-top: 1vh;
+    padding: 1vh 10vw;
     text-align: center;
 }
 .submitName {

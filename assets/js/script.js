@@ -246,7 +246,6 @@ $(document).ready(function () {
 
     incrementScore = (score, i) => {
         score += i
-        score = 666
         if (score == 666) {
             devil.unlocked = true
             processAchievement(devil)
@@ -708,6 +707,6 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    debug()
-    debug2()
+    //debug()
+    //debug2()
 })
