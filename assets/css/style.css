@@ -279,15 +279,13 @@ button {
 }
 
 .startText {
-    /* padding-bottom: 2.5vh; */
+    padding-bottom: 2.5vh;
     justify-content: center;
-    font-size: 2vh;
 }
 
 .enterName {
     padding: 1vh 10vw;
     text-align: center;
-    margin-top: 3vh;
 }
 
 .submitName {
@@ -320,7 +318,7 @@ button {
     font-family: 'RocknRoll One', sans-serif;
     font-weight: 600;
     font-size: 5vh;
-    /* margin-top: 0.6vh; */
+    margin-top: 0.6vh;
     justify-content: center;
 }
 
@@ -374,6 +372,7 @@ button {
 
 .gameBoard {
     margin: 0;
+    padding: 0 7.5vw;
 }
 
 .developer {
@@ -412,7 +411,6 @@ button {
 #clickers .col-12 {
     box-sizing: content-box;
 }
-
 #clickers .col-12 .row {
     justify-content: center;
 }
@@ -448,10 +446,6 @@ button {
     text-align: center;
 }
 
-.modal-title {
-    font-size: large;
-}
-
 
 /* TRACKERS */
 #trackers {
@@ -465,7 +459,7 @@ button {
 .tracker {
     justify-content: center;
     vertical-align: middle;
-    font-size: xx-small;
+    font-size: x-small;
     height: auto;
     padding: 0.3vh;
 }
@@ -477,7 +471,7 @@ button {
 
 .trackerName {
     text-align: center;
-    /* font-size: xx-small; */
+    font-size: xx-small;
 }
 
 /* .clickerTotal {
@@ -497,11 +491,11 @@ button {
 
 .trackerIncrement {
     text-align: right;
-    /* font-size: xx-small; */
+    font-size: xx-small;
 }
 
 .trackerLevel {
-    padding-left: 0.5vw;
+    /* text-align: left; */
 }
 
 .trackerTotal {
@@ -553,23 +547,9 @@ button {
 }
 
 #developer {
-    /* text-align: left; */
+    text-align: left;
     font-size: small;
 }
-
-.developerTitle {
-    font-size: inherit;
-}
-
-.upgradeMultiplier {
-    font-size: medium;
-}
-
-.modal-header {
-    justify-content: center;
-}
-
-
 
 /* FONT AWESOME ICONS */
 /* .shadow {
@@ -590,198 +570,4 @@ button {
 
 .no-shadow {
     text-shadow: none;
-}
-
-/* MEDIA QUERIES */
-
-/* Extra small devices (old phones, 350px and up) */
-@media (max-width: 350px) {
-
-    #totals>.col-4,
-    .clickerLevel,
-    .clickerCountDisplay {
-        font-size: xx-small;
-    }
-}
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-    .elementIcons i {
-        padding: 4vh 1vw;
-    }
-
-    .menuButton {
-        font-size: x-small;
-        padding: 1.35vh 0;
-    }
-
-    .gameBoard {}
-
-    body {
-        padding: 0 20vw;
-    }
-
-    .clicker {
-        height: 20vh;
-    }
-
-    .achievements {
-        display: none;
-    }
-
-    .navbar-collapse {
-        width: 36vw;
-        top: 0.3vh;
-        left: 32vw;
-    }
-
-    #themesMenu {
-        font-size: medium;
-    }
-
-    .themeButton {
-        padding: 0.15vh;
-    }
-
-    #totals>.col-4,
-    .clickerLevel,
-    .clickerCountDisplay {
-        font-size: xx-small;
-    }
-}
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    .elementIcons i {
-        padding: 4vh 1vw;
-        font-size: 3vh;
-    }
-
-    .menuButton {
-        font-size: medium;
-        padding: 0.8vh 0;
-    }
-
-    .gameBoard {}
-
-    body {
-        padding: 0;
-    }
-
-    .clicker {
-        height: 15vh;
-    }
-
-    .achievements {
-        display: flex;
-
-    }
-
-    .achievement {
-        font-size: medium;
-    }
-
-    .achievementText {
-        font-size: small;
-    }
-
-    .achievementImage {
-        font-size: xx-large;
-    }
-
-    .navbar-collapse {
-        left: 20vw;
-        width: 60vw;
-        top: 1.5vh;
-    }
-
-    #themesMenu {
-        font-size: medium;
-    }
-
-    .themeButton {
-        padding: 0.15vh;
-    }
-
-    .themeButton>i {
-        padding: 0.7vh;
-        font-size: x-large;
-    }
-
-    #trackers>div {
-        font-size: small;
-    }
-
-    .trackerIcon i {
-        font-size: 2.2vh;
-        padding-top: 0.1vh;
-        padding-bottom: 0.1vh;
-    }
-
-    .clickerIcon {
-        font-size: xx-large;
-    }
-
-    #totals>.col-4,
-    .clickerLevel,
-    .clickerCountDisplay {
-        font-size: medium;
-    }
-
-    .modal-dialog {
-        max-width: 80%;
-    }
-
-    #developer {
-        font-size: large;
-    }
-
-    #themesMenuButton i {
-        font-size: 8vw;
-        padding-top: 1vh;
-    }
-
-    #toggleMenuButton i {
-        font-size: 8vw;
-        padding-top: 1vh;
-    }
-
-    #totals>div {
-        padding: 1vh;
-    }
-
-    .modal-title {
-        font-size: x-large;
-    }
-    .nameButton {
-        font-size: large;
-    }
-}
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    body {
-        padding: 0 20vw;
-    }
-    .clicker {
-        height: 100%;
-        min-height: 10vh;
-    }
-    .achievements {
-        display: none;
-    }
-
-    .navbar-collapse {
-        width: 36vw;
-        top: 0.3vh;
-        left: 32vw;
-    }
-    #totals > .col-4 {
-        font-size: small;
-    }
-}
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-
 }
