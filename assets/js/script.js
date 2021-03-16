@@ -746,6 +746,25 @@ $(document).ready(function () {
 
     // if (player.newGame == true) newGame(player.name)
 
-    //debug()
-    //debug2()
+    // MEDIA QUERIES
+    // https://www.w3schools.com/jsref/met_win_matchmedia.asp
+
+    if (window.matchMedia("(max-width: 350px)").matches) {
+        $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
+    }
+    if (window.matchMedia("(min-width: 576px)").matches) {
+        $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    }
+    if (window.matchMedia("(min-width: 768px)").matches) {
+        $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    }
+    // if (window.matchMedia("(min-width: 992px)").matches) {
+    //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    // }
+    // if (window.matchMedia("(min-width: 1200px)").matches) {
+    //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    // }
+
+    debug()
+    debug2()
 })
