@@ -749,22 +749,24 @@ $(document).ready(function () {
     // MEDIA QUERIES
     // https://www.w3schools.com/jsref/met_win_matchmedia.asp
 
-    if (window.matchMedia("(max-width: 350px)").matches) {
-        $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
-    }
-    if (window.matchMedia("(min-width: 576px)").matches) {
-        $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
-    }
-    if (window.matchMedia("(min-width: 768px)").matches) {
-        $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
-    }
+    // if (window.matchMedia("(max-width: 350px)").matches) {
+    //     $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
+    // }
+    // if (window.matchMedia("(min-width: 576px)").matches) {
+    //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    // }
+    // if (window.matchMedia("(min-width: 768px)").matches) {
+    //     console.log("+ 768")
+    //     $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
+    // }
     // if (window.matchMedia("(min-width: 992px)").matches) {
+    //     console.log("+ 992")
     //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
     // }
-    // if (window.matchMedia("(min-width: 1200px)").matches) {
-    //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
-    // }
+    // // if (window.matchMedia("(min-width: 1200px)").matches) {
+    // //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+    // // }
 
-    //debug()
-    debug2()
+    debug()
+    //debug2()
 })

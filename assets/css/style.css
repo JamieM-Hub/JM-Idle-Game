@@ -730,7 +730,7 @@ button {
     }
 
     .trackerIcon i {
-        font-size: small;
+        font-size: medium;
     }
 
     .achievements {
@@ -748,4 +748,57 @@ button {
     }
 
 
+}
+
+@media (min-width: 992px) {
+    body {
+        padding: 0 15vw;
+        background-position: center;
+    }
+
+    .navbar-collapse {
+        top: 0.7vh;
+    }
+    #themesMenuButton i, #toggleMenuButton i {
+        font-size: 6vh;
+    }
+    .gameTitle {
+        font-size:6vh;
+    }
+    #totals {
+        margin-top: 1.5vh;
+    }
+
+    .clicker {
+        padding: 2vh;
+    }
+
+    .trackerIcon i {
+        font-size: medium;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        padding: 0 15vw;
+    }
+
+    .navbar-collapse {
+        width: 34vw;
+        left: 33vw;
+        top: 1vh;
+    }
+
+    .clickerLevel,
+    .clickerCountDisplay {
+        font-size: medium;
+    }
+
+    .trackerIcon i {
+        font-size: large;
+    }
+
+    .clickerIcon {
+        font-size: xxx-large;
+    }
 }
