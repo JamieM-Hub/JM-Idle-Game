@@ -733,40 +733,12 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".gameTitle").css("background-color", "transparent")
-    //$("#developer").find(".gameTitle").css("font-size", "small")
     $(".tracker").find("button").css("font-size", "small")
     $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
     $(".achievementButton").addClass("defaultTheme")
     $(".upgradeIcon > i").css("background-color", "transparent")
     $(".upgradeMultiplier").css("background-color", "transparent")
 
-    // for (i = 0; i < NUM_ELEMENTS; i++) {
-    //     $("." + clicker[i].id).find(".trackerIcon > i").addClass(clicker[i].icon)
-    // }
-
-    // if (player.newGame == true) newGame(player.name)
-
-    // MEDIA QUERIES
-    // https://www.w3schools.com/jsref/met_win_matchmedia.asp
-
-    // if (window.matchMedia("(max-width: 350px)").matches) {
-    //     $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
-    // }
-    // if (window.matchMedia("(min-width: 576px)").matches) {
-    //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
-    // }
-    // if (window.matchMedia("(min-width: 768px)").matches) {
-    //     console.log("+ 768")
-    //     $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
-    // }
-    // if (window.matchMedia("(min-width: 992px)").matches) {
-    //     console.log("+ 992")
-    //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
-    // }
-    // // if (window.matchMedia("(min-width: 1200px)").matches) {
-    // //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
-    // // }
-
-    debug()
+    //debug()
     //debug2()
 })

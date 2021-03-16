@@ -1,7 +1,6 @@
 /* || \ */
 
 /* fix bootstrap default padding and margin */
-
 .col,
 .col-1,
 .col-10,
@@ -247,13 +246,6 @@ button {
     color: rgb(197 225 255);
 }
 
-/* footer {
-    position: absolute;
-    bottom: 0px;
-    height: 2.5vh;
-    padding: 0 auto;
-} */
-
 /* START MENU */
 
 .startMenu {
@@ -265,10 +257,6 @@ button {
 .startMenu p {
     margin: 0;
 }
-
-/* .startMenu> {
-    padding: 1vh 0;
-} */
 
 .elementIcons {
     justify-content: center;
@@ -307,7 +295,6 @@ button {
         1px 1px 2px rgb(32, 18, 70),
         1px -1px 2px rgb(76, 85, 24),
         -1px -1px 2px rgb(0, 104, 22);
-    /* text-shadow: 0 0 3px rgb(150, 150, 150); */
 }
 
 .header-height {
@@ -333,11 +320,6 @@ button {
     width: 60vw;
     top: 1.5vh;
     font-family: 'RocknRoll One', sans-serif;
-    /* background-color: black; */
-}
-
-#themesMenu .row {
-    /* background-color: black; */
 }
 
 .menuButton {
@@ -345,10 +327,6 @@ button {
     padding: 0.5vh 0;
     font-size: small;
 }
-
-/* .menuOption {
-    font-size: medium;
-} */
 
 #themesMenu {
     font-size: large;
@@ -478,9 +456,6 @@ button {
     font-size: xx-small;
 }
 
-/* .clickerTotal {
-    text-align: left;
-} */
 .trackerCount {
     text-align: right;
 }
@@ -496,10 +471,6 @@ button {
 .trackerIncrement {
     text-align: right;
     font-size: xx-small;
-}
-
-.trackerLevel {
-    /* text-align: left; */
 }
 
 .trackerTotal {
@@ -521,12 +492,7 @@ button {
 .achievement {
     font-size: x-small;
     text-align: center;
-    /* padding: 0.5vh 4vw; */
 }
-
-/* .achievementDiv {
-    margin: 1vh;
-} */
 
 .achievementImage {
     justify-content: center;
@@ -546,7 +512,6 @@ button {
 .achievementButton {
     width: 100%;
     height: 6vh;
-    /* background-color: rgba(98, 99, 99, 0.9); */
     font-size: small;
 }
 
@@ -554,12 +519,6 @@ button {
     text-align: left;
     font-size: small;
 }
-
-/* FONT AWESOME ICONS */
-/* .shadow {
-    text-shadow: 1px 1px 2px black;
-
-} */
 
 
 /* MISC */
@@ -569,7 +528,6 @@ button {
 
 .my-border {
     border: none;
-    /* border: 0.5vh solid black; */
 }
 
 .no-shadow {
@@ -703,10 +661,6 @@ button {
         font-size: large;
     }
 
-    /* .menuButton .row .col-12 {
-        font-size: large;
-    } */
-
     .clicker {
         height: 100%;
         padding: 1vh;
@@ -746,7 +700,6 @@ button {
     .smallTitle {
         font-size: medium;
     }
-
 
 }
 

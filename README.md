@@ -1,5 +1,5 @@
 # **ELEMENTS**
-*Elements* is a simple yet alluring mobile clicker game that is best described as interactive art with a finite play time.
+*Elements* is a simple yet alluring mobile clicker game that is best described as interactive art with a finite play time... and achievements!
 
 The project was developed by [Jamie McKenzie](https://github.com/JamieM-Hub) as part of the [Full Stack Software Development](https://codeinstitute.net) diploma at Code Institute.
 
@@ -7,8 +7,10 @@ Click [here](http://https://jamiem-hub.github.io/JM-Idle-Game/) to check it out!
 
 # UX
 
-*Elements* is a very primitive clicker game with no automation, no prestige system and no player abilities.
-This was paramount when considering UX, as there are minimal game mechanics to keep players engaged. For this reason, major developmental focus was placed on the game's aesthetic and general immersion.
+*Elements* is a very primitive clicker game with no automation, prestige system or player abilities.
+In the design process, it was significant that there are minimal game mechanics to keep players engaged. For this reason, major developmental focus was placed on the game's aesthetic and general immersion.
+
+The aesthetic was designed to be bold and colourful in every corner, and to get more bold and colourful as the player interacts with the game and approaches the win condition.
 
 ## User Stories
 
@@ -17,12 +19,18 @@ This was paramount when considering UX, as there are minimal game mechanics to k
 - As a player
 
 # Features
-
+- Upgrades
+    - each Element can be upgraded three times, adding multipliers
+- Theme change
+    - 10 unlockable styling schemes, unique to each element
+- Achievements
+    - appears in real time when unlocked, each with a unique unlock message
 
 ## If I Had Time
 Given unlimited time, the following features would be in the final product:
 - Unique sound effects and background music for each theme
 - A progress bar alongside or instead of numerical counters
+- the option of automation
 
 # Technologies Used
 ## Libraries
@@ -58,12 +66,41 @@ Player B
 Player C
 > buuhhhhhh good game buuhhdeh
 
+## Known Bugs
 # Deployment
-*Elements* was deployed to GitHub Pages via [GitHub.com](https://GitHub.com).
+## Deploying to GitHub
 
-At the time of writing, the development and deployment versions of *Elements* are identical.
+You can deploy this project to GitHub by doing the following:
+
+1. Log in to your GitHub account and search for/locate this repository
+2. Click the 'Settings'button at the top of the page
+3. Find the 'GitHub Pages' section
+4. Make sure 'main' is selected on the 'Branch' dropdown
+5. Click the newly-created link with a green tick next to it.
+6. Enjoy the website!
+
+## Forking the GitHub Repository
+You can fork this GitHub Repository if you wish to make a copy of the original repository on your GitHub account without affecting the original respository:
+
+1. Log in to your GitHub account and search for/locate this repository
+2. Click the 'Fork' button at the top of the page
+3. Your GitHub account will now have an exact copy of the project that you can edit
+
+## Making a Local Clone
+1. Log in to your GitHub account and search for/locate this repository
+2. Click the 'Code' dropdown and select your cloning method
+3. If you have GitHub Desktop, click the GitHub Desktop button
+    * The application will open with this repository available for editing
+4. If you're using an alternative Git service
+    1. Open Git Bash
+    2. Make sure the current working directory is set to the location where you want to place the clone.
+    3. Type 'git clone' in your command line and paste the URL given on the GitHub repository page
+
+*Elements* was deployed via GitHub Pages at [GitHub.com](https://GitHub.com). At the time of writing, the development and deployment versions of *Elements* are identical.
 
 If you'd like to run *Elements* locally, clone the repo from the menu above and open *index.html* in your web browser.
+
+
 # Credits
 ## Code Snippets
 - (line 69) w3schools
