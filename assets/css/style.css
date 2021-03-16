@@ -318,7 +318,6 @@ button {
     font-family: 'RocknRoll One', sans-serif;
     font-weight: 600;
     font-size: 5vh;
-    margin-top: 0.6vh;
     justify-content: center;
 }
 
@@ -377,6 +376,10 @@ button {
 
 .developer {
     text-align: justify;
+}
+
+.smallTitle {
+    font-size: small;
 }
 
 .email {
@@ -588,7 +591,7 @@ button {
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
     body {
-        margin: 0 20vw;
+        padding: 0 10vw;
         background-position: center;
     }
 
@@ -605,6 +608,7 @@ button {
     .header-height {
         height: 20vh;
     }
+
     .gameTitle {
         font-size: 8vh;
     }
@@ -612,6 +616,7 @@ button {
     .themeButton i {
         font-size: medium;
     }
+
     .menuButton {
         padding: 1.1vh 0;
     }
@@ -628,7 +633,7 @@ button {
     .clickerLevel,
     .clickerCountDisplay,
     #totals {
-        font-size:xx-small;
+        font-size: xx-small;
     }
 
     #totals {
@@ -648,5 +653,99 @@ button {
     .achievements {
         display: none;
     }
+
+}
+
+@media (min-width: 768px) {
+    body {
+        margin: 0;
+        background-position: bottom;
+    }
+
+    .startText {
+        font-size: large;
+    }
+
+    .elementIcons i {
+        font-size: 3vh;
+        padding: 4vh 1.25vw;
+    }
+
+    .navbar-collapse {
+        width: 44vw;
+        left: 28vw;
+        top: 1vh;
+    }
+
+    .header-height {
+        height: 15vh;
+    }
+
+    .gameTitle {
+        font-size: 5vh;
+    }
+
+    #themesMenuButton i,
+    #toggleMenuButton i {
+        font-size: 5vh;
+    }
+
+    .themeButton {
+        padding: 0.5vh 0;
+    }
+
+    .themeButton i {
+        font-size: x-large;
+    }
+
+    .menuButton {
+        padding: 0.5vh 0;
+        font-size: large;
+    }
+
+    /* .menuButton .row .col-12 {
+        font-size: large;
+    } */
+
+    .clicker {
+        height: 100%;
+        padding: 1vh;
+    }
+
+    .clickerIcon {
+        font-size: xx-large;
+    }
+
+    .clickerLevel,
+    .clickerCountDisplay,
+    #trackers>div,
+    .trackerName,
+    .trackerIncrement {
+        font-size: small;
+    }
+
+    #totals {
+        margin: 0 4vw;
+        font-size: medium;
+    }
+
+    .trackerIcon i {
+        font-size: small;
+    }
+
+    .achievements {
+        display: flex;
+    }
+
+    .achievement,
+    .achievementText {
+        font-size: small;
+    }
+
+    #developer,
+    .smallTitle {
+        font-size: medium;
+    }
+
 
 }

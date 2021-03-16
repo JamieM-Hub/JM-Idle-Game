@@ -733,7 +733,7 @@ $(document).ready(function () {
     // JQUERY STYLE
     $(".btn-primary").css(BTN_PRIMARY)
     $(".gameTitle").css("background-color", "transparent")
-    $("#developer").find(".gameTitle").css("font-size", "small")
+    //$("#developer").find(".gameTitle").css("font-size", "small")
     $(".tracker").find("button").css("font-size", "small")
     $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
     $(".achievementButton").addClass("defaultTheme")
@@ -756,7 +756,7 @@ $(document).ready(function () {
         $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
     }
     if (window.matchMedia("(min-width: 768px)").matches) {
-        $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
+        $(".achievements > .col-1").removeClass("col-1").addClass("col-2")
     }
     // if (window.matchMedia("(min-width: 992px)").matches) {
     //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
@@ -765,6 +765,6 @@ $(document).ready(function () {
     //     $(".achievements > .col-2").removeClass("col-2").addClass("col-1")
     // }
 
-    debug()
+    //debug()
     debug2()
 })
