@@ -91,7 +91,7 @@ body {
     background-color: whitesmoke;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: top;
     font-family: 'RocknRoll One', sans-serif;
     text-shadow: black;
 }
@@ -261,6 +261,7 @@ button {
 
 .elementIcons i {
     padding: 4vh 1.75vw;
+    font-size: medium;
 }
 
 .startText {
@@ -302,7 +303,7 @@ button {
 .gameTitle {
     font-family: 'RocknRoll One', sans-serif;
     font-weight: 600;
-    font-size: 5vh;
+    font-size: x-large;
     justify-content: center;
 }
 
@@ -606,7 +607,9 @@ button {
 }
 
 /* Extra small devices (old phones, 350px and up) */
-@media (min-width: 350px) {}
+@media (min-width: 350px) {
+
+}
 
 /* correct bootstrap bug */
 @media (min-width: 576px) {
@@ -626,6 +629,7 @@ button {
 
     .elementIcons i {
         padding: 4vh 1.25vw;
+        font-size: 20px;
     }
 
     .navbar-collapse {
@@ -639,7 +643,7 @@ button {
     }
 
     .gameTitle {
-        font-size: 35px;
+        font-size: 30px;
     }
 
     .smallTitle {
@@ -692,7 +696,7 @@ button {
 @media (min-width: 720px) {
     body {
         margin: 0;
-        background-position: bottom;
+        background-position: top;
     }
 
     .startMenu {
@@ -700,7 +704,6 @@ button {
     }
 
     .elementIcons i {
-        font-size: 3vh;
         padding: 4vh 1.25vw;
     }
 
@@ -715,7 +718,7 @@ button {
     }
 
     .gameTitle {
-        font-size: 5vh;
+        font-size: 45px;
     }
 
     .smallTitle {
