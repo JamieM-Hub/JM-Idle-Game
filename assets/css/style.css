@@ -705,6 +705,7 @@ button {
 
     .elementIcons i {
         padding: 4vh 1.25vw;
+        font-size: 30px;
     }
 
     .navbar-collapse {
@@ -804,7 +805,7 @@ button {
     }
 
     .elementIcons i {
-        font-size: 4vh;
+        font-size: 35px;
         padding: 4vh 1.25vw;
     }
 
