@@ -82,6 +82,11 @@
     margin: 0;
 }
 
+.nameButton:focus {
+    box-shadow: inherit;
+    color: inherit;
+}
+
 body {
     text-align: center;
     padding: none;

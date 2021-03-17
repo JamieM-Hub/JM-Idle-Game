@@ -577,7 +577,7 @@ $(document).ready(function () {
     startGame = () => {
         playerName = document.getElementById("inputId").value
         /* only start game if player has entered name and name is 8 characters or less */
-        if ((playerName != null) && (playerName.length < 9)) {
+        if ((playerName.length > 0) && (playerName.length < 9)) {
             player.name = document.getElementById("inputId").value
             $(".startMenu").addClass("d-none")
             $(".gameBoard").removeClass("d-none")
