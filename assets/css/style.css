@@ -251,12 +251,9 @@ button {
 .startMenu {
     margin: 15vh 0;
     padding: 5vw;
-
+    font-size: x-small;
 }
 
-.startMenu p {
-    margin: 0;
-}
 
 .elementIcons {
     justify-content: center;
@@ -267,13 +264,14 @@ button {
 }
 
 .startText {
-    padding-bottom: 2.5vh;
     justify-content: center;
+    font-size: inherit;
 }
 
 .enterName {
-    padding: 1vh 10vw;
+    padding: 3vh 10vw;
     text-align: center;
+    font-size: inherit;
 }
 
 .submitName {
@@ -281,7 +279,7 @@ button {
 }
 
 .nameButton {
-    margin-top: 2vh;
+    font-size: inherit;
 }
 
 /* HEADER */
@@ -357,7 +355,7 @@ button {
 }
 
 .smallTitle {
-    font-size: small;
+    font-size: inherit;
 }
 
 .email {
@@ -536,18 +534,91 @@ button {
 
 /* MEDIA QUERIES */
 
-/* Extra small devices (old phones, 350px and up) */
+@media (orientation: landscape) {
+    .navbar-toggler {
+        top: 0vh;
+    }
+}
+
+/* Extra extra small devices (old phones, 350px and down) */
 @media (max-width: 350px) {
+    .startMenu {
+        font-size: small;
+    }
+
+    .gameTitle {
+        font-size: x-large;
+    }
+
+    .smallTitle {
+        font-size: inherit;
+    }
+
+    .menuButton {
+        padding: 1.25vh 0;
+        font-size: xx-small;
+    }
+
+    .modal-dialog {
+        font-size: x-small;
+    }
+
+    .modal-title {
+        font-size: small;
+    }
+
+    .navbar-collapse {
+        top: 0px;
+    }
+
+    .navbar-toggler {
+        font-size: 5vh;
+    }
 
     #totals>.col-4,
     .clickerLevel,
     .clickerCountDisplay {
+        font-size: 1.25vh;
+    }
+
+    #trackers>div,
+    .trackerName,
+    .trackerIncrement {
+        font-size: 1.25vh;
+    }
+
+    .clickerIcon {
+        font-size: large;
+    }
+
+    .achievementButton {
+        font-size: x-small;
+    }
+
+    .achievement {
         font-size: xx-small;
+    }
+
+    .achievementText {
+        font-size: 1.3vh;
+    }
+
+}
+
+/* Extra small devices (old phones, 350px and up) */
+@media (min-width: 350px) {}
+
+/* correct bootstrap bug */
+@media (min-width: 576px) {
+
+    .container,
+    .container-sm {
+        max-width: none;
     }
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
+@media (min-width: 550px) and (orientation: landscape) {
     body {
         padding: 0 10vw;
         background-position: center;
@@ -560,7 +631,7 @@ button {
     .navbar-collapse {
         width: 36vw;
         left: 32vw;
-        top: 2vh;
+        top: 0vh;
     }
 
     .header-height {
@@ -568,7 +639,11 @@ button {
     }
 
     .gameTitle {
-        font-size: 8vh;
+        font-size: 35px;
+    }
+
+    .smallTitle {
+        font-size: inherit;
     }
 
     .themeButton i {
@@ -601,11 +676,11 @@ button {
     #trackers>div,
     .trackerName,
     .trackerIncrement {
-        font-size: 2vh;
+        font-size: xx-small;
     }
 
     .trackerIcon i {
-        font-size: 3vh;
+        font-size: 15px;
     }
 
     .achievements {
@@ -614,13 +689,13 @@ button {
 
 }
 
-@media (min-width: 768px) {
+@media (min-width: 720px) {
     body {
         margin: 0;
         background-position: bottom;
     }
 
-    .startText {
+    .startMenu {
         font-size: large;
     }
 
@@ -641,6 +716,10 @@ button {
 
     .gameTitle {
         font-size: 5vh;
+    }
+
+    .smallTitle {
+        font-size: inherit;
     }
 
     #themesMenuButton i,
@@ -674,7 +753,8 @@ button {
     .clickerCountDisplay,
     #trackers>div,
     .trackerName,
-    .trackerIncrement {
+    .trackerIncrement,
+    .upgradeMultiplier {
         font-size: small;
     }
 
@@ -691,13 +771,16 @@ button {
         display: flex;
     }
 
+    .achievementButton {
+        font-size: large;
+    }
+
     .achievement,
     .achievementText {
         font-size: small;
     }
 
-    #developer,
-    .smallTitle {
+    #developer {
         font-size: medium;
     }
 
@@ -705,19 +788,36 @@ button {
 
 @media (min-width: 992px) {
     body {
-        padding: 0 15vw;
+        padding: 0 10vw;
         background-position: center;
+    }
+
+    .startMenu {
+        font-size: x-large;
     }
 
     .navbar-collapse {
         top: 0.7vh;
     }
-    #themesMenuButton i, #toggleMenuButton i {
+
+    .elementIcons i {
+        font-size: 4vh;
+        padding: 4vh 1.25vw;
+    }
+
+    #themesMenuButton i,
+    #toggleMenuButton i {
         font-size: 6vh;
     }
-    .gameTitle {
-        font-size:6vh;
+
+    /* .gameTitle {
+        font-size: 6vh;
     }
+
+    .smallTitle {
+        font-size: inherit;
+    } */
+
     #totals {
         margin-top: 1.5vh;
     }
@@ -727,7 +827,11 @@ button {
     }
 
     .trackerIcon i {
-        font-size: medium;
+        font-size: large;
+    }
+
+    .achievementButton {
+        font-size: large;
     }
 }
 
@@ -747,11 +851,28 @@ button {
         font-size: medium;
     }
 
+    .clickerLevel,
+    .clickerCountDisplay,
+    #trackers>div,
+    .trackerName,
+    .trackerIncrement,
+    .upgradeMultiplier {
+        font-size: medium;
+    }
+
     .trackerIcon i {
         font-size: large;
     }
 
     .clickerIcon {
-        font-size: xxx-large;
+        font-size: xx-large;
+    }
+
+    .upgradeMultiplier {
+        font-size: medium;
+    }
+
+    .achievementButton {
+        font-size: x-large;
     }
 }

@@ -103,8 +103,9 @@ If you'd like to run *Elements* locally, clone the repo from the menu above and 
 
 # Credits
 ## Code Snippets
-- startGame() *script.js line #576
+- startGame() *script.js line 576*
     - https://www.w3docs.com/snippets/javascript/how-to-get-the-value-of-text-input-field-using-javascript.html
+    - close Bootstrap modal *script.js line 600*
 - (line 69) w3schools
 - stackOverflow
 

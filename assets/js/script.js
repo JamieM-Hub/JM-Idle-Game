@@ -221,6 +221,7 @@ $(document).ready(function () {
         $("#themesMenuButton").css("visibility", "hidden")
         $(".clickerLevel").addClass("d-none")
         $(".clickerCountDisplay").addClass("d-none")
+        $(".upgradeMultiplier").text("")
 
         console.log(clickers)
 
@@ -250,7 +251,7 @@ $(document).ready(function () {
             $(ach).find(".achievementName").text("???")
             $(ach).find(".achievementText").text("???")
         }
-        debug2()
+        //debug2()
         console.log(achievements)
     }
 
@@ -560,7 +561,6 @@ $(document).ready(function () {
 
     // TOGGLERS
     $(".navbar-toggler").click(function () {
-        $("navbar-collapse.show").removeClass("show")
 
         if ((this.id) == "themesMenuButton") {
             console.log("click themesMenuButton")
@@ -588,15 +588,17 @@ $(document).ready(function () {
                 processAchievement(messiah)
             }
         }
-        else 
+        else {}
     }
 
     newGame = () => {
         if (document.getElementById("inputId2").value) {
-            newPlayer = document.getElementById("inputId2").value
+            var newPlayer = document.getElementById("inputId2").value
             reset(newPlayer)
             // https://stackoverflow.com/questions/16493280/close-bootstrap-modal
             $('#newGame').modal('toggle')
+            $("#toggleMenu.show").removeClass("show")
+
         }
         if ((player.name == "Jesus") || (player.name == "jesus")) {
             messiah.unlocked = true
@@ -745,6 +747,6 @@ $(document).ready(function () {
     $(".upgradeIcon > i").css("background-color", "transparent")
     $(".upgradeMultiplier").css("background-color", "transparent")
 
-    //debug()
-    debug2()
+    debug()
+    //debug2()
 })
