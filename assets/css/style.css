@@ -101,6 +101,10 @@ body {
     text-shadow: black;
 }
 
+input {
+    text-align: center;
+}
+
 hr {
     margin: 0;
     width: 100%;
@@ -275,8 +279,7 @@ button {
 }
 
 .enterName {
-    padding: 3vh 10vw;
-    text-align: center;
+    padding: 3vh 20vw;
     font-size: inherit;
 }
 
