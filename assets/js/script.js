@@ -192,12 +192,15 @@ $(document).ready(function () {
     }
 
     reset = (newPlayer) => {
-        changeToSelectedTheme("defaultTheme")
+        if (player.currentTheme != "defaultTheme") {
+            console.log("current theme not default so change to default")
+            changeToSelectedTheme("defaultTheme")
+        }
         player = new Player()
         $(".playerName").text(newPlayer)
-        $(".totalClicks").text("-")
-        $(".totalScore").text("-")
-        $(".levelLevel").text("-")
+        $(".totalClicks").text("")
+        $(".totalScore").text("")
+        $(".levelLevel").text("0")
         console.log(player)
         fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
         water = new Clicker("water", "blue", 2, [2, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 2, "waterTheme", "fas fa-tint")
@@ -572,18 +575,22 @@ $(document).ready(function () {
     // START MENU
     // https://www.w3docs.com/snippets/javascript/how-to-get-the-value-of-text-input-field-using-javascript.html
     startGame = () => {
-        if (document.getElementById("inputId").value) {
+        playerName = document.getElementById("inputId").value
+        /* only start game if player has entered name and name is 8 characters or less */
+        if ((playerName != null) && (playerName.length < 9)) {
             player.name = document.getElementById("inputId").value
             $(".startMenu").addClass("d-none")
             $(".gameBoard").removeClass("d-none")
             $(".playerName").text(player.name)
             $("body").css("background-image", "url(\"../" + PROJECT_NAME + "/assets/img/defaultTheme.jpg\")")
+            if ((player.name == "Jesus") || (player.name == "jesus")) {
+                messiah.unlocked = true
+                processAchievement(messiah)
+            }
         }
-        if ((player.name == "Jesus") || (player.name == "jesus")) {
-            messiah.unlocked = true
-            processAchievement(messiah)
-        }
+        else 
     }
+
     newGame = () => {
         if (document.getElementById("inputId2").value) {
             newPlayer = document.getElementById("inputId2").value
@@ -673,7 +680,6 @@ $(document).ready(function () {
             if (player.themesTried[selected] == false) player.themesTried[selected] = true
         }
         /* update display */
-        console.log(player.currentTheme, selectedTheme)
         $("body").css("background-image", imgSource)
         $(".modal-dialog").css("background-image", imgSource)
         addRemoveClass("body", player.currentTheme, selectedTheme)
@@ -704,8 +710,8 @@ $(document).ready(function () {
 
         // addRemoveClass(".achievements > col-2 >")
         /* update system */
+        console.log(player.currentTheme, " changed to ", selectedTheme)
         player.currentTheme = selectedTheme
-        console.log(player.currentTheme)
         if (!player.themeChanged) player.themeChanged = true
         checkAchievement()
     }
@@ -740,5 +746,5 @@ $(document).ready(function () {
     $(".upgradeMultiplier").css("background-color", "transparent")
 
     //debug()
-    //debug2()
+    debug2()
 })
