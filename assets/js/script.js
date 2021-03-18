@@ -3,7 +3,6 @@ $(document).ready(function () {
     // CONSTANTS
     const PROJECT_NAME = "JM-Idle-Game"
     const GAME_TITLE = "ELEMENTS"
-    $(".gameTitle").text(GAME_TITLE)
     const CONTACT_EMAIL = "jamiemckenzie7231@yahoo.co.uk"
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
@@ -594,10 +593,6 @@ $(document).ready(function () {
 
     // NEW GAME BUTTON
 
-    // $("#newGameConfirmed").click(function () {
-    //     newGame(playerName)
-    // })
-
     // THEMES
     addRemoveClass = (target, class1, class2) => {
         $(target).toggleClass(class1)
@@ -626,7 +621,6 @@ $(document).ready(function () {
         }
 
         addRemoveClass("#themeIcon", oldIcon, newIcon)
-        //console.log("theme icon changed from " + oldIcon + " to " + newIcon)
     }
 
     changeToSelectedTheme = (selectedTheme) => {
@@ -655,7 +649,6 @@ $(document).ready(function () {
         $(".gameTitle").css("background-color", "transparent")
         addRemoveClass("#totals", player.currentTheme, selectedTheme)
         addRemoveClass("#trackers", player.currentTheme, selectedTheme)
-        //addRemoveClass(".header", player.currentTheme, selectedTheme)
         addRemoveClass(".clicker", player.currentTheme, selectedTheme)
         addRemoveClass(".upgradeIcon > i", player.currentTheme, selectedTheme)
         addRemoveClass(".upgradeMultiplier", player.currentTheme, selectedTheme)
@@ -664,17 +657,14 @@ $(document).ready(function () {
         $(".upgradeMultiplier > i").css("background-color", "transparent")
         addRemoveClass(".achievementButton", player.currentTheme, selectedTheme)
         addRemoveClass(".menuButton", player.currentTheme, selectedTheme)
-        //addRemoveClass(".themeButton", selectTheme, this.id)
-        //addRemoveClass("button", player.currentTheme, selectedTheme)
         $(".navbar-toggler").css("background-color", "transparent")
         addRemoveClass(".modal-content", player.currentTheme, selectedTheme)
         addRemoveClass(".nameButton", player.currentTheme, selectedTheme)
         addRemoveClass(".achievementButton > i", player.currentTheme, selectedTheme)
         addRemoveClass(".fa-play", player.currentTheme, selectedTheme)
 
-        // addRemoveClass(".achievements > col-2 >")
         /* update system */
-        console.log(player.currentTheme, " changed to ", selectedTheme)
+        //console.log(player.currentTheme, " changed to ", selectedTheme)
         player.currentTheme = selectedTheme
         if (!player.themeChanged) player.themeChanged = true
         checkAchievement()
@@ -695,19 +685,25 @@ $(document).ready(function () {
         checkAchievement()
     })
 
-    // JQUERY ADD TEXT
-    //$(".gameTitle").text(GAME_TITLE)
+    // ADD TEXT
+    $(".gameTitle").text(GAME_TITLE)
     $(".email").text(CONTACT_EMAIL)
     $(".playerName").text(player.name)
 
-    // JQUERY STYLE
-    $(".btn-primary").css(BTN_PRIMARY)
-    $(".gameTitle").css("background-color", "transparent")
-    $(".tracker").find("button").css("font-size", "small")
-    $(".achievementButton > i").addClass("defaultTheme").css("background-color", "transparent")
+    // ADD THEMES
+    //$(".startMenu").addClass("defaultTheme")
+    $(".gameTitle").addClass("defaultTheme")
+    $(".nameButton").addClass("defaultTheme")
+    $(".menuButton").addClass("defaultTheme")
+    $(".themeButton").addClass("defaultTheme")
+    $("#totals").addClass("defaultTheme")
+    $(".clicker").addClass("defaultTheme")
+    $(".upgradeIcon > i").addClass("defaultTheme")
+    $(".upgradeMultiplier").addClass("defaultTheme")
+    $("#trackers").addClass("defaultTheme")
+    $(".modal-content").addClass("defaultTheme")
+    $(".achievementButton > i").addClass("defaultTheme")
     $(".achievementButton").addClass("defaultTheme")
-    $(".upgradeIcon > i").css("background-color", "transparent")
-    $(".upgradeMultiplier").css("background-color", "transparent")
 
     debug()
     //debug2()
