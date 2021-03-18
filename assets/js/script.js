@@ -8,11 +8,18 @@ $(document).ready(function () {
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
     const MAX_LEVEL = 10
-    const LEVEL_CLICKS = [1, 15, 25, 20, 40, 25, 35, 33, 50, 66]
     const MAX_THEMES = 9
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
     const UPGRADE_MULTIPLIERS = [1, 2, 3, 5]
-
+    const fireLevels = [1, 10, 20, 50, 75, 150, 250, 500, 750, 1000]
+    const waterLevels = [2, 25, 50, 100, 150, 300, 420, 1000, 1500, 2000]
+    const windLevels = [4, 60, 100, 300, 600, 1000, 1500, 5000, 7500, 10000]
+    const earthLevels = [8, 120, 200, 500, 1500, 2500, 4000, 10000, 15000, 20000]
+    const electronLevels = [16, 240, 400, 1200, 2500, 5000, 8000, 20000, 30000, 40000]
+    const nucleusLevels = [32, 500, 1000, 2500, 5000, 10000, 15000, 40000, 60000, 80000]
+    const gravityLevels = [64, 1000, 2000, 5000, 10000, 20000, 30000, 80000, 120000, 200000]
+    const darkMatterLevels = [128, 2000, 4000, 10000, 20000, 40000, 60000, 150000, 250000, 500000]
+    const playerLevels = [1, 100, 400, 1000, 2500, 8000, 25000, 50000]
     // STYLES
     const BTN_PRIMARY = {
         "font-size": "10px",
@@ -20,7 +27,7 @@ $(document).ready(function () {
     }
 
     // CLICKER OBJECTS
-    function Clicker(id, color, unlockedAtLevel, upgradeLevel, iStart, theme, icon) {
+    function Clicker(id, color, unlockedAtLevel, clickLevels, iStart, theme, icon) {
         this.id = id
         this.color = color
         this.unlockedAtLevel = unlockedAtLevel
@@ -28,8 +35,8 @@ $(document).ready(function () {
         this.count_T = 0
         this.unlocked = false
         this.currentLevel = 0
-        this.upgradeLevel = upgradeLevel
-        this.nextLevel = this.upgradeLevel[this.currentLevel]
+        this.clickLevels = clickLevels
+        this.nextLevel = this.clickLevels[this.currentLevel]
         this.i = iStart
         this.theme = theme
         this.themeUnlocked = false
@@ -37,7 +44,7 @@ $(document).ready(function () {
         this.levelUp = () => {
             this.currentLevel++;
             this.count -= this.nextLevel
-            this.nextLevel = this.upgradeLevel[this.currentLevel]
+            this.nextLevel = this.clickLevels[this.currentLevel]
             $("." + this.id).find(".trackerLevel").text(this.currentLevel)
             if (this.currentLevel != MAX_LEVEL) {
                 $("." + this.id).find(".clickerCount").text(this.count)
@@ -81,14 +88,14 @@ $(document).ready(function () {
             //console.log(this.id + " theme unlocked!")
         }
     }
-    var fire = new Clicker("fire", "red", 1, [1, 10, 20, 50, 75, 150, 250, 500, 750, 1000], 1, "fireTheme", "fab fa-gripfire")
-    var water = new Clicker("water", "blue", 100, [2, 25, 50, 100, 150, 300, 420, 1000, 1500, 2000], 2, "waterTheme", "fas fa-tint")
-    var wind = new Clicker("wind", "lightgray", 400, [4, 60, 100, 300, 600, 1000, 1500, 5000, 7500, 10000], 4, "windTheme", "fas fa-wind")
-    var earth = new Clicker("earth", "brown", 1000, [8, 120, 200, 500, 1500, 2500, 4000, 10000, 15000, 20000], 8, "earthTheme", "fas fa-globe-americas")
-    var electron = new Clicker("electron", "yellow", 2500, [16, 240, 400, 1200, 2500, 5000, 8000, 20000, 30000, 40000], 16, "electronTheme", "fas fa-bolt")
-    var nucleus = new Clicker("nucleus", "green", 8000, [32, 500, 1000, 2500, 5000, 10000, 15000, 40000, 60000, 80000], 32, "nucleusTheme", "fas fa-atom")
-    var gravity = new Clicker("gravity", "black", 25000, [64, 1000, 2000, 5000, 10000, 20000, 30000, 80000, 120000, 200000], 64, "gravityTheme", "fas fa-meteor")
-    var darkMatter = new Clicker("darkMatter", "purple", 50000, [128, 2000, 4000, 10000, 20000, 40000, 60000, 150000, 250000, 500000], 128, "darkMatterTheme", "fas fa-cubes")
+    var fire = new Clicker("fire", "red", playerLevels[0], fireLevels, 1, "fireTheme", "fab fa-gripfire")
+    var water = new Clicker("water", "blue", playerLevels[1], waterLevels, 2, "waterTheme", "fas fa-tint")
+    var wind = new Clicker("wind", "lightgray", playerLevels[2], windLevels, 4, "windTheme", "fas fa-wind")
+    var earth = new Clicker("earth", "brown", playerLevels[3], earthLevels, 8, "earthTheme", "fas fa-globe-americas")
+    var electron = new Clicker("electron", "yellow", playerLevels[4], electronLevels, 16, "electronTheme", "fas fa-bolt")
+    var nucleus = new Clicker("nucleus", "green", playerLevels[5], nucleusLevels, 32, "nucleusTheme", "fas fa-atom")
+    var gravity = new Clicker("gravity", "black", playerLevels[6], gravityLevels, 64, "gravityTheme", "fas fa-meteor")
+    var darkMatter = new Clicker("darkMatter", "purple", playerLevels[7], darkMatterLevels, 128, "darkMatterTheme", "fas fa-cubes")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
 
     // ACHIEVEMENT OBJECTS
@@ -143,13 +150,13 @@ $(document).ready(function () {
         this.themesTried = [false]
         this.developerClicked = false
         this.themeCount = 0
-        this.currentTheme = ""
+        this.currentTheme = "defaultTheme"
         this.upgradeCount = 0
         this.maxCount = 0
         this.gameStarted = false
     }
     var player = new Player()
-    player.currentTheme = "defaultTheme"
+    //player.currentTheme = "defaultTheme"
 
     // FUNCTIONS
     debug = () => {
@@ -167,7 +174,7 @@ $(document).ready(function () {
     }
 
     debug2 = () => {
-        fire.upgradeLevel = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        fire.clickLevels = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
     }
 
     reset = (newPlayer) => {
@@ -175,19 +182,19 @@ $(document).ready(function () {
             console.log("current theme not default so change to default")
             changeToSelectedTheme("defaultTheme")
         }
-        //player = new Player()
+        player = new Player()
         $(".playerName").text(newPlayer)
         $(".totalClicks").text("")
         $(".totalScore").text("")
         $(".levelLevel").text("0")
-        fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
-        water = new Clicker("water", "blue", 2, [2, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 2, "waterTheme", "fas fa-tint")
-        wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
-        earth = new Clicker("earth", "brown", 100, [8, 75, 1000, 2000, 1, 1, 1, 1, 1, 1], 8, "earthTheme", "fas fa-globe-americas")
-        electron = new Clicker("electron", "yellow", 200, [16, 500, 1250, 2500, 1, 1, 1, 1, 1, 1], 16, "electronTheme", "fas fa-bolt")
-        nucleus = new Clicker("nucleus", "green", 500, [32, 750, 1500, 3000, 1, 1, 1, 1, 1, 1], 32, "nucleusTheme", "fas fa-atom")
-        gravity = new Clicker("gravity", "black", 1000, [64, 1000, 2000, 3500, 1, 1, 1, 1, 1, 1], 64, "gravityTheme", "fas fa-meteor")
-        darkMatter = new Clicker("darkMatter", "purple", 2000, [128, 1250, 2500, 5000, 1, 1, 1, 1, 1, 1], 128, "darkMatterTheme", "fas fa-cubes")
+        fire = new Clicker("fire", "red", playerLevels[0], fireLevels, 1, "fireTheme", "fab fa-gripfire")
+        water = new Clicker("water", "blue", playerLevels[1], waterLevels, 2, "waterTheme", "fas fa-tint")
+        wind = new Clicker("wind", "lightgray", playerLevels[2], windLevels, 4, "windTheme", "fas fa-wind")
+        earth = new Clicker("earth", "brown", playerLevels[3], earthLevels, 8, "earthTheme", "fas fa-globe-americas")
+        electron = new Clicker("electron", "yellow", playerLevels[4], electronLevels, 16, "electronTheme", "fas fa-bolt")
+        nucleus = new Clicker("nucleus", "green", playerLevels[5], nucleusLevels, 32, "nucleusTheme", "fas fa-atom")
+        gravity = new Clicker("gravity", "black", playerLevels[6], gravityLevels, 64, "gravityTheme", "fas fa-meteor")
+        darkMatter = new Clicker("darkMatter", "purple", playerLevels[7], darkMatter, 128, "darkMatterTheme", "fas fa-cubes")
         clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
         $(".tracker").addClass("d-none")
         $(".trackerLevel").text("1")
@@ -229,7 +236,7 @@ $(document).ready(function () {
             $(ach).find(".achievementName").text(achievements[i].qName)
             $(ach).find(".achievementText").text("???")
         }
-        debug2()
+        //debug2()
         //console.log(achievements)
     }
 
@@ -542,8 +549,7 @@ $(document).ready(function () {
                 messiah.unlocked = true
                 processAchievement(messiah)
             }
-        }
-        else {
+        } else {
             $("input").attr("placeholder", "Please enter your name!")
         }
     }
@@ -704,5 +710,5 @@ $(document).ready(function () {
     $(".upgradeMultiplier").css("background-color", "transparent")
 
     //debug()
-    debug2()
+    //debug2()
 })
