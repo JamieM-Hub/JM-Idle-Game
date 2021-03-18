@@ -180,7 +180,7 @@ button {
 }
 
 .fa-meteor {
-    color: rgb(152 33 33);
+    color: rgb(177 63 61);
 }
 
 .fa-cubes {
@@ -242,7 +242,7 @@ button {
 }
 
 .windTheme {
-    background-color: rgb(148 165 163 / 85%);
+    background-color: rgb(223 221 222 / 85%);
     color: #1f2223;
 }
 
@@ -262,8 +262,8 @@ button {
 }
 
 .gravityTheme {
-    background-color: rgb(234 230 251 / 85%);
-    color: rgb(52 38 48);
+    background-color: rgb(7 2 5 / 85%);
+    color: rgb(237 158 137);
 }
 
 .darkMatterTheme {
@@ -272,8 +272,8 @@ button {
 }
 
 .ultimaTheme {
-    background-color: rgb(169 24 56 / 85%);
-    color: rgb(197 225 255);
+    background-color: rgb(210 189 165 / 85%);
+    color: rgb(20 1 6);
 }
 
 /* START MENU */
