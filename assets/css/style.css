@@ -334,6 +334,7 @@ button {
     font-weight: 600;
     font-size: x-large;
     justify-content: center;
+    background-color: transparent;
 }
 
 .navbar-toggler {
@@ -440,11 +441,16 @@ button {
     visibility: hidden;
 }
 
+.upgradeIcon {
+    background: transparent;
+}
+
 .upgradeMultiplier {
     font-size: x-small;
     visibility: hidden;
     padding-right: 1.5vw;
     margin-top: -0.5vh;
+    background: transparent;
 }
 
 .clickerLevel {
@@ -541,6 +547,10 @@ button {
     width: 100%;
     height: 6vh;
     font-size: small;
+}
+
+.achievementButton > i {
+    background-color: transparent;
 }
 
 #developer {
