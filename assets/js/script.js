@@ -709,6 +709,6 @@ $(document).ready(function () {
     $(".upgradeIcon > i").css("background-color", "transparent")
     $(".upgradeMultiplier").css("background-color", "transparent")
 
-    //debug()
+    debug()
     //debug2()
 })
