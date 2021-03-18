@@ -135,15 +135,24 @@ Application tested on portrait and landscape orientation for all breakpoints and
 - Pixel 2
 - Pixel 2 XL
 - iPhone 5/SE
-- iPhone 6/7/8*
+- iPhone 6/7/8
 - iPhone 6/7/8 Plus
 - iPhone X
 - iPad
 - iPad Pro
 ### User Stories
-sdfsdfsdfsd
-
-
+- As a busy User looking for a quick distraction,
+    - I want something I can easily jump into
+    - I want something that will keep me entertained for a short period of time
+    - I want something simple that doesn't require complex thought
+- As a User looking for a game with progression and reward,
+    - I want clearly defined objectives
+    - I want to be rewarded for clearing goals with something I can use
+    - I want to feel a sense of improvement as I continue playing
+- As a User who is a fan of clicker-style games,
+    - I want an aesthetically pleasing experience
+    - I want a robust product of high quality
+    - I want to experience something that stands out within a very saturated market
 
 ## Player Testing
 *Elements* was human tested separately with three individuals who were asked to answer the following questions:

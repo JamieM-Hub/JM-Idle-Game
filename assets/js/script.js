@@ -708,6 +708,6 @@ $(document).ready(function () {
     $(".achievementButton > i").addClass("defaultTheme")
     $(".achievementButton").addClass("defaultTheme")
 
-    debug()
+    //debug()
     //debug2()
 })
