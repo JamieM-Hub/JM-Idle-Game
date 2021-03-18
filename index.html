@@ -22,8 +22,8 @@
 <body>
 
     <!-- start menu-->
-    <div class="container startMenu defaultTheme">
-        <div class="row gameTitle headerText defaultTheme">
+    <div class="container startMenu">
+        <div class="row gameTitle headerText">
             ELEMENTS
         </div>
         <div class="row elementIcons">
@@ -48,13 +48,13 @@
             <input class="col-12" type="text" id="inputId" name="playerName" maxlength="8" placeholder="">
         </div>
         <div class="row submitName">
-            <button class="col-4 btn nameButton defaultTheme" type="button" onclick="startGame()">That's me!</button>
+            <button class="col-4 btn nameButton" type="button" onclick="startGame()">That's me!</button>
         </div>
     </div>
 
     <!-- menus -->
     <div class="container collapse navbar-collapse header-height" id="toggleMenu">
-        <button type="row button" id="newGameButton" class="menuButton defaultTheme" data-toggle="modal"
+        <button type="row button" id="newGameButton" class="menuButton " data-toggle="modal"
             data-target="#newGame">
             <div class="row">
                 <div class="col-2"><i class="fas fa-play"></i></div>
@@ -62,7 +62,7 @@
                 <div class="col-2"><i class="fas fa-play"></i></div>
             </div>
         </button>
-        <button type="row button" id="achievementsButton" class="menuButton defaultTheme" data-toggle="modal"
+        <button type="row button" id="achievementsButton" class="menuButton " data-toggle="modal"
             data-target="#achievements">
             <div class="row">
                 <div class="col-2"><i class="fas fa-trophy"></i></div>
@@ -70,7 +70,7 @@
                 <div class="col-2"><i class="fas fa-trophy"></i></div>
             </div>
         </button>
-        <button type="row button" id="developerButton" class="menuButton defaultTheme" data-toggle="modal"
+        <button type="row button" id="developerButton" class="menuButton " data-toggle="modal"
             data-target="#developer">
             <div class="row">
                 <div class="col-2"><i class="fas fa-layer-group"></i></div>
@@ -82,16 +82,16 @@
 
     <div class="container collapse navbar-collapse header-height" id="themesMenu">
         <div class="row">
-            <button id="defaultTheme" class="col-6 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="ultimaTheme" class="col-6 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="fireTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="waterTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="windTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="earthTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="electronTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="nucleusTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="gravityTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
-            <button id="darkMatterTheme" class="col-3 themeButton defaultTheme"><i class="fas fa-question"></i></button>
+            <button id="defaultTheme" class="col-6 themeButton "><i class="fas fa-question"></i></button>
+            <button id="ultimaTheme" class="col-6 themeButton "><i class="fas fa-question"></i></button>
+            <button id="fireTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
+            <button id="waterTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
+            <button id="windTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
+            <button id="earthTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
+            <button id="electronTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
+            <button id="nucleusTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
+            <button id="gravityTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
+            <button id="darkMatterTheme" class="col-3 themeButton "><i class="fas fa-question"></i></button>
         </div>
     </div>
 
@@ -100,15 +100,15 @@
 
         <!-- header -->
         <div class="row header header-height">
-            <div class="col-1 navbar-toggler headerText defaultTheme" id="themesMenuButton" type="button"
+            <div class="col-1 navbar-toggler headerText" id="themesMenuButton" type="button"
                 data-toggle="collapse" data-target="#themesMenu" aria-controls="themesMenu" aria-expanded="false"
                 aria-label="Themes menu">
                 <i class="headerText fas fa-palette"></i>
             </div>
-            <div class="col-10 gameTitle headerText defaultTheme">
+            <div class="col-10 gameTitle headerText">
                 {click.Element}
             </div>
-            <div class="col-1 navbar-toggler headerText defaultTheme" id="toggleMenuButton" type="button"
+            <div class="col-1 navbar-toggler headerText" id="toggleMenuButton" type="button"
                 data-toggle="collapse" data-target="#toggleMenu" aria-controls="toggleMenu" aria-expanded="false"
                 aria-label="Toggle menu">
                 <i class="headerText far fa-hand-pointer" id="themeIcon"></i>
@@ -116,7 +116,7 @@
         </div>
 
         <!-- totals -->
-        <div id="totals" class="row justify-content-center my-border defaultTheme">
+        <div id="totals" class="row justify-content-center my-border">
             <div class="col-4">
                 <div class="row justify-content-center">
                     <div class="col-3"><i class="far fa-hand-pointer"></i></div>
@@ -140,44 +140,44 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-3">
-                        <button id="fire" class="clicker fire defaultTheme">
+                        <button id="fire" class="clicker fire ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fab fa-gripfire"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="water" class="clicker water defaultTheme">
+                        <button id="water" class="clicker water ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fas fa-tint"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel"></div>
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="wind" class="clicker wind defaultTheme">
+                        <button id="wind" class="clicker wind ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fas fa-wind"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="earth" class="clicker earth defaultTheme">
+                        <button id="earth" class="clicker earth ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fas fa-globe-americas"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCountDisplay d-none"></div>
@@ -188,44 +188,44 @@
             <div class="col-12">
                 <div class="row">
                     <div class="col-3 d-none">
-                        <button id="electron" class="clicker electron defaultTheme">
+                        <button id="electron" class="clicker electron ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fas fa-bolt"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="nucleus" class="clicker nucleus defaultTheme">
+                        <button id="nucleus" class="clicker nucleus ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fas fa-atom"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="gravity" class="clicker gravity defaultTheme">
+                        <button id="gravity" class="clicker gravity ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fas fa-meteor"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
                     <div class="col-3 d-none">
-                        <button id="darkMatter" class="clicker darkMatter defaultTheme">
+                        <button id="darkMatter" class="clicker darkMatter ">
                             <div class="row">
-                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up defaultTheme"></i></div>
+                                <div class="col-3 upgradeIcon"><i class="fas fa-angle-double-up "></i></div>
                                 <div class="col-6 clickerIcon"><i class="fas fa-cubes"></i></div>
-                                <div class="col-3 upgradeMultiplier defaultTheme"><i></i>x1</div>
+                                <div class="col-3 upgradeMultiplier "><i></i>x1</div>
                             </div>
                             <div class="clickerLevel d-none"></div>
                             <div class="clickerCountDisplay d-none"></div>
@@ -236,7 +236,7 @@
         </div>
 
         <!-- trackers -->
-        <div class="row my-border defaultTheme d-none" id="trackers">
+        <div class="row my-border  d-none" id="trackers">
 
             <div class="col-12 fire tracker d-none">
                 <div class="row">
@@ -572,7 +572,7 @@
     <div class="modal fade" id="newGame" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content defaultTheme">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title">Start New Game</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -584,7 +584,7 @@
                         <input class="col-12" type="text" id="inputId2" name="playerName">
                     </div>
                     <div class="row submitName">
-                        <button class="col-4 btn nameButton defaultTheme" type="button" onclick="newGame();">That's
+                        <button class="col-4 btn nameButton " type="button" onclick="newGame();">That's
                             me!</button>
                     </div>
                 </div>
@@ -595,7 +595,7 @@
     <div class="modal fade" id="achievements" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content defaultTheme">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title">Achievements</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -756,7 +756,7 @@
     <div class="modal fade" id="developer" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content defaultTheme">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title developerName">Developer</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
