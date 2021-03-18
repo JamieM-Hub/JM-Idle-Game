@@ -7,32 +7,52 @@ Click [here](http://https://jamiem-hub.github.io/JM-Idle-Game/) to check it out!
 
 # UX
 
-*Elements* is a very primitive clicker game with no automation, prestige system or player abilities.
+*Elements* is a primitive clicker game with no automation, prestige system or player abilities.
 In the design process, it was significant that the game mechanics to keep players engaged are minimal. For this reason, major developmental focus was placed on the game's aesthetic and general immersion.
 
-The aesthetic was designed to be bold and colourful in every corner, and to get more bold and colourful as the player interacts with the game and approaches the win condition.
+The aesthetic was designed to be bold and colourful in every corner, with unlockable themes rewarding continued gameplay.
 
 ## User Stories
+Clicker games are very popular on the mobile market, and the following are examples of typical mobile game consumers:
+- As a busy User looking for a quick distraction
+    - I want something I can easily jump into
+    - I want something that will keep me entertained for a short period of time
+    - I want something simple that doesn't require complex thought
+- As a User looking for a game with progression and reward
+    - I want clearly defined objectives
+    - I want to be rewarded for clearing goals with something I can use
+    - I want to feel a sense of improvement as I continue playing
+- As a User who is a fan of clicker-style games
+    - I want an aesthetically pleasing experience
+    - I want a robust product of high quality
+    - I want to experience something that stands out within a very saturated market
 
-- As a player looking for , I want to
-- As a player
-- As a player
-
+Although *Elements* is fully responsive for all breakpoints, the game was designed to be played on a smartphone or tablet.
 # Features
-- Upgrades
-    - each Element can be upgraded three times, adding multipliers
-- Theme change
-    - 10 selectable styling schemes unique to each of the 8 elements, plus the starter theme and a bonus theme
-- Achievements
-    - appears in real time when unlocked with a unique unlock message in the Achievements menu
+### Player Name
+- Users enter their name before playing.
+- The User's name is displayed on screen alongside their score and number of clicks.
+### Levelling Up
+- Each Element has a level that can be increased by clicking the Element enough times.
+- Reaching certain levels unlocks bonuses.
+### Upgrades
+- Each Element can be upgraded up to three times, adding a count multiplier each time.
+- Upgrade multipliers are displayed within the clicker buttons.
+### Theme Change
+- 10 styling schemes unique to each of the 8 Elements (plus the default theme and a bonus theme) are selectable.
+- Themes are unlocked as rewards for completing an Element.
+### Achievements
+- Unlockable achievements that appear on screen when unlocked
+- Each includes a unique unlock message viewable in the Achievements menu.
 
 ## If I Had Time
-Given unlimited time, the following features would be in the final product:
+Given unlimited time, the following features would be included in the final product:
 - Unique sound effects and background music for each theme
 - A progress bar alongside or instead of numerical counters
-- the option of automation
-- refactor header menus for landscape view
-- more animations
+- An unlockable automation upgrade
+- The option to retain unlocked Themes when starting a New Game
+- Additional animations and interactivity to make the game pop
+- JSON serialization to prevent page reload resetting the game
 
 # Technologies Used
 ## Libraries
@@ -52,9 +72,79 @@ Given unlimited time, the following features would be in the final product:
 
 # Testing
 ## Functional Testing
-Functional Testing
+### Input fields
+There is only one User input in *Elements*, which is name entry before the game begins. When the User starts a New Game, they are prompted for their name again before restarting the game.
+
+The following values were tested on both inputs and were found to be satisfactory:
+- Null (nothing was typed in)
+    - Input text was deleted and input placeholder asked User to enter their name.
+- More than 8 characters
+    - Character entry is disabled after 8 characters.
+    - When character entry above 8 characters is permitted, input text was deleted and placeholder advises User to use up to characters.
+- Between 1 and 8 characters
+    - Entry accepted and game screen loads.
+### Menu toggling
+The icons in the top left and top right corners toggle one of two menus - the main menu and the Theme menu. Each menu occupies the same space in front of the game title and needs to be closed before opening the other menu if that icon is clicked.
+
+- When neither menu was active:
+    - The Theme button activated the Themes menu
+    - The main menu button activated the main menu
+- When the Themes menu was active:
+    - The Theme button deactivated the Themes menu
+    - The main menu button deactivated the Themes menu and activated the main menu
+- When the main menu was active:
+    - The Theme button deactivated the main menu and activated the Themes menu
+    - The main menu button deactivated the main menu
+### Themes
+Each Theme button was tested when in a locked and unlocked state.
+- When locked, Theme buttons do nothing when clicked
+- When unlocked, Theme buttons change all relevant elements to the selected Theme when clicked
+- Each theme's palette and background image is relevant to the theme
+- Each background image displays correctly in both orientations at all reolutions
+### Game menu buttons
+- Each button activates its own modal when clicked
+### Clicker buttons
+Each Element's clicker button displays the Element's level, current click count, clicks to next level, and upgrade multiplier if unlocked. The total clicks for each Element are displayed underneath on the tracker table.
+
+To ensure the script is performing mathematical operations correctly, I did the following:
+- Checked count and total count incremented every time I clicked the button
+- Checked count and total count increment matches increment displayed on tracker
+- Checked count on clicker was not affected by level up function
+- Checked count and total count's increment increased when upgrade unlocked
+- Tested clicking button after Element completed - disabled
+### Achievement buttons
+- Tested each achievement button, all of which show the achievements modal
+- Achievement buttons are not clickable if not unlocked
+## Script Testing
+### Debug Mode
+I designed a Debug Mode to allow streamlined testing of things like unlocking achievements or levelling up, which require time to perform. Debug Mode was also useful to test responsiveness when all game board elements are displayed, and refine Themes.
+
+Debug Mode includes the following operations:
+- Unlock and display all Elements' clicker buttons
+- Unlock and display all Achievements on game board and in menu
+- Change to any selected Theme
+
+A secondary Debug Mode to reduce the number of clicks needed to level up on one Element to 1 was used to quickly test the Theme unlock function, which would otherwise require hundreds of clicks to unlock one Theme.
+### Console Logging
+The primary method used to test and track data flow in Javascript was the console.log function.
 ## UX Testing
-UX Testing
+### Breakpoints
+Application tested on portrait and landscape orientation for all breakpoints and for the following device templates on Developer Tools:
+- Moto G4
+- Galaxy S5
+- Pixel 2
+- Pixel 2 XL
+- iPhone 5/SE
+- iPhone 6/7/8*
+- iPhone 6/7/8 Plus
+- iPhone X
+- iPad
+- iPad Pro
+### User Stories
+sdfsdfsdfsd
+
+
+
 ## Player Testing
 *Elements* was human tested separately with three individuals who were asked to answer the following questions:
 
