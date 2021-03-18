@@ -538,7 +538,7 @@ $(document).ready(function () {
     startGame = () => {
         playerName = document.getElementById("inputId").value
         /* only start game if player has entered name and name is 8 characters or less */
-        if (playerName.length > 0) {
+        if ((playerName.length > 0) && (playerName.length < 9)) {
             player.name = document.getElementById("inputId").value
             $(".startMenu").addClass("d-none")
             $(".gameBoard").removeClass("d-none")
@@ -548,7 +548,10 @@ $(document).ready(function () {
                 messiah.unlocked = true
                 processAchievement(messiah)
             }
-        } else {
+        } else if (playerName.length >= 9) {
+            $("input").text("").attr("placeholder", "Max 8 characters!")
+        }
+        else {
             $("input").attr("placeholder", "Please enter your name!")
         }
     }
