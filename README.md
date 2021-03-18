@@ -31,6 +31,7 @@ Given unlimited time, the following features would be in the final product:
 - Unique sound effects and background music for each theme
 - A progress bar alongside or instead of numerical counters
 - the option of automation
+- refactor header menus for landscape view
 
 # Technologies Used
 ## Libraries
@@ -67,6 +68,7 @@ Player C
 > buuhhhhhh good game buuhhdeh
 
 ## Known Bugs
+- iPhone X
 # Deployment
 ## Deploying to GitHub
 
