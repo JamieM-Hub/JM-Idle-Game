@@ -300,17 +300,19 @@ button {
 }
 
 .enterName {
-    padding: 3vh 20%;
+    padding: 3vh 18vw;
     font-size: inherit;
 }
 
 .submitName {
     justify-content: center;
+    margin-bottom: 2.5vh;
 }
 
 .nameButton {
     font-size: inherit;
 }
+
 
 /* HEADER */
 
