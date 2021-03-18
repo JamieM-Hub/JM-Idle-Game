@@ -32,6 +32,7 @@ Given unlimited time, the following features would be in the final product:
 - A progress bar alongside or instead of numerical counters
 - the option of automation
 - refactor header menus for landscape view
+- more animations
 
 # Technologies Used
 ## Libraries

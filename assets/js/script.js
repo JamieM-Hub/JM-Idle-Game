@@ -78,8 +78,7 @@ $(document).ready(function () {
             if (!this.themeUnlocked) this.themeUnlocked = true
             $("#" + this.theme).removeClass("defaultTheme").addClass(this.theme)
             $("#" + this.theme + " > i").removeClass("fas fa-question").addClass(this.icon)
-            console.log(this.id + " theme unlocked!")
-            // animateThemesButton(this.color)
+            //console.log(this.id + " theme unlocked!")
         }
     }
     var fire = new Clicker("fire", "red", 1, [1, 10, 20, 50, 75, 150, 250, 500, 750, 1000], 1, "fireTheme", "fab fa-gripfire")
@@ -91,27 +90,6 @@ $(document).ready(function () {
     var gravity = new Clicker("gravity", "black", 25000, [64, 1000, 2000, 5000, 10000, 20000, 30000, 80000, 120000, 200000], 64, "gravityTheme", "fas fa-meteor")
     var darkMatter = new Clicker("darkMatter", "purple", 50000, [128, 2000, 4000, 10000, 20000, 40000, 60000, 150000, 250000, 500000], 128, "darkMatterTheme", "fas fa-cubes")
     let clickers = [fire, water, wind, earth, electron, nucleus, gravity, darkMatter]
-    // for (i = 0; i < NUM_ELEMENTS; i++) {
-    //     console.log(clickers[i].upgradeLevel)
-    //     for (j = 0; j < MAX_LEVEL; j++) {
-    //         clickers[i].upgradeLevel[j] = clickers[i].i * LEVEL_CLICKS[j]
-    //         if (j > 2 && j < 5) {
-    //             clickers[i].upgradeLevel[j] *= (clickers[i].i * 2)
-    //             console.log(clickers[i].upgradeLevel[j], "upgrade")
-    //         }
-    //         if (j >= 5 && j < 7) {
-    //             clickers[i].upgradeLevel[j] *= (clickers[i].i * 2.5)
-    //             console.log(clickers[i].upgradeLevel[j], "upgrade")
-    //         }
-    //         if (j >= 7) {
-    //             clickers[i].upgradeLevel[j] *= (clickers[i].i * 3)
-    //             console.log(clickers[i].upgradeLevel[j], "upgrade")
-    //         }
-    //         console.log(clickers[i].upgradeLevel[j])
-    //     }
-    //     clickers[i].nextLevel = clickers[i].upgradeLevel[clickers[i].currentLevel]
-    //     console.log(clickers[i].upgradeLevel)
-    // }
 
     // ACHIEVEMENT OBJECTS
     function Achievement(name, id, text, icon) {
@@ -196,12 +174,11 @@ $(document).ready(function () {
             console.log("current theme not default so change to default")
             changeToSelectedTheme("defaultTheme")
         }
-        player = new Player()
+        //player = new Player()
         $(".playerName").text(newPlayer)
         $(".totalClicks").text("")
         $(".totalScore").text("")
         $(".levelLevel").text("0")
-        console.log(player)
         fire = new Clicker("fire", "red", 1, [1, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 1, "fireTheme", "fab fa-gripfire")
         water = new Clicker("water", "blue", 2, [2, 10, 15, 25, 50, 100, 200, 500, 1000, 2000], 2, "waterTheme", "fas fa-tint")
         wind = new Clicker("wind", "lightgray", 50, [4, 50, 80, 120, 1, 1, 1, 1, 1, 1], 4, "windTheme", "fas fa-wind")
@@ -223,7 +200,7 @@ $(document).ready(function () {
         $(".clickerCountDisplay").addClass("d-none")
         $(".upgradeMultiplier").text("")
 
-        console.log(clickers)
+        //console.log(clickers)
 
         for (i = 0; i < MAX_THEMES; i++) player.themesTried[i] = false
         for (i = 0; i < NUM_ELEMENTS; i++) {
@@ -251,8 +228,8 @@ $(document).ready(function () {
             $(ach).find(".achievementName").text("???")
             $(ach).find(".achievementText").text("???")
         }
-        //debug2()
-        console.log(achievements)
+        debug2()
+        //console.log(achievements)
     }
 
     // INCREMENTS
@@ -291,20 +268,6 @@ $(document).ready(function () {
     changeIncrement = (id, i) => {
         $(".row > ." + id).prev().text("+" + i)
     }
-
-    // roundtoDecimalPlace = (number, places) => {
-    //     if (places >= 1) {
-    //         var whole = number
-    //         var int = Math.floor(whole)
-    //         whole = whole - int /* leaves a decimal between 0-1 */
-    //         whole = Math.round((whole) * (10 ^ (places))) / (10 ^ (places))
-    //         console.log(whole, int)
-    //         number = int + whole
-    //         console.log(number)
-    //     }
-    //     return number
-    // }
-
 
     // toFixed() taken from https://stackoverflow.com/questions/4187146/truncate-number-to-two-decimal-places-without-rounding
     abbreviateNumber = (number) => {
@@ -369,20 +332,13 @@ $(document).ready(function () {
         }
     }
 
-    // checkRank = (player.score) => {
-    //     if (player.score >= unlockLevel[player.rank]) {
-    //         player.rank++
-    //         $(".rankRank").text("Rank " + player.rank)
-    //     }
-    // }
-
     processAchievement = (achievement) => {
         $("." + achievement.id).parent().removeClass("d-none")
         var ach = "#" + achievement.id
         $(ach).find(".achievementImage").html("<i class=\"" + achievement.icon + "\"></i>")
         $(ach).find(".achievementName").text(achievement.name)
         $(ach).find(".achievementText").text(achievement.text)
-        console.log("Achievement unlocked! " + achievement.name + ": " + achievement.text)
+        //console.log("Achievement unlocked! " + achievement.name + ": " + achievement.text)
     }
 
     checkAchievement = () => {
@@ -483,7 +439,7 @@ $(document).ready(function () {
             processAchievement(completeAll)
             $("#ultimaTheme > i").removeClass("fas fa-question").addClass("fas fa-crown")
             $("#ultimaTheme").removeClass("defaultTheme").addClass("ultimaTheme")
-            console.log("ULTIMA theme unlocked!")
+            //console.log("ULTIMA theme unlocked!")
         }
         // Change Theme
         if (!changeTheme.unlocked && (player.themeChanged == true)) {
@@ -563,11 +519,9 @@ $(document).ready(function () {
     $(".navbar-toggler").click(function () {
 
         if ((this.id) == "themesMenuButton") {
-            console.log("click themesMenuButton")
             $("#toggleMenu.show").removeClass("show")
         }
         if ((this.id) == "toggleMenuButton") {
-            console.log("click toggleMenuButton")
             $("#themesMenu.show").removeClass("show")
         }
     })
@@ -611,7 +565,6 @@ $(document).ready(function () {
     // CLICKERS
     $(".clicker").click(function () {
         var clickedClicker = detectClicker(this, clickers)
-        // console.log(clickedClicker.currentLevel)
 
         if (clickedClicker.currentLevel < MAX_LEVEL) {
             processClick(clickedClicker)
@@ -666,7 +619,7 @@ $(document).ready(function () {
         }
 
         addRemoveClass("#themeIcon", oldIcon, newIcon)
-        console.log("theme icon changed from " + oldIcon + " to " + newIcon)
+        //console.log("theme icon changed from " + oldIcon + " to " + newIcon)
     }
 
     changeToSelectedTheme = (selectedTheme) => {
@@ -749,6 +702,6 @@ $(document).ready(function () {
     $(".upgradeIcon > i").css("background-color", "transparent")
     $(".upgradeMultiplier").css("background-color", "transparent")
 
-    debug()
-    //debug2()
+    //debug()
+    debug2()
 })
