@@ -1,5 +1,5 @@
 # **ELEMENTS**
-*Elements* is a simple yet alluring mobile clicker game that is best described as interactive art with a finite play time... and achievements!
+*Elements* is a simple yet alluring mobile clicker game that is best described as interactive art with a finite play experience... and achievements!
 
 The project was developed by [Jamie McKenzie](https://github.com/JamieM-Hub) as part of the [Full Stack Software Development](https://codeinstitute.net) diploma at Code Institute.
 
@@ -8,7 +8,7 @@ Click [here](http://https://jamiem-hub.github.io/JM-Idle-Game/) to check it out!
 # UX
 
 *Elements* is a very primitive clicker game with no automation, prestige system or player abilities.
-In the design process, it was significant that there are minimal game mechanics to keep players engaged. For this reason, major developmental focus was placed on the game's aesthetic and general immersion.
+In the design process, it was significant that the game mechanics to keep players engaged are minimal. For this reason, major developmental focus was placed on the game's aesthetic and general immersion.
 
 The aesthetic was designed to be bold and colourful in every corner, and to get more bold and colourful as the player interacts with the game and approaches the win condition.
 
@@ -22,9 +22,9 @@ The aesthetic was designed to be bold and colourful in every corner, and to get 
 - Upgrades
     - each Element can be upgraded three times, adding multipliers
 - Theme change
-    - 10 unlockable styling schemes, unique to each element
+    - 10 selectable styling schemes unique to each of the 8 elements, plus the starter theme and a bonus theme
 - Achievements
-    - appears in real time when unlocked, each with a unique unlock message
+    - appears in real time when unlocked with a unique unlock message in the Achievements menu
 
 ## If I Had Time
 Given unlimited time, the following features would be in the final product:
@@ -52,12 +52,18 @@ Given unlimited time, the following features would be in the final product:
 
 # Testing
 ## Functional Testing
-hgfs
+Functional Testing
 ## UX Testing
-dfsfs
+UX Testing
 ## Player Testing
-fgsf
-*Elements* was human tested separately with three individuals. This player feedback has been included:
+*Elements* was human tested separately with three individuals who were asked to answer the following questions:
+
+1. What contributed to a positive experience?
+2. What contributed to a negative experience?
+3. Did you encounter anything strange or unusual?
+4. What additional features would improve the experience?
+5. On a scale of 1-10, how would you rate *Elements*?
+6. Any additional comments?
 
 Player A
 > buuhhhhhh good game buuhhdeh
@@ -113,8 +119,8 @@ If you'd like to run *Elements* locally, clone the repo from the menu above and 
 - stackOverflow
 
 ## Digital Copyright
-- All background images obtained license free from [Unsplash](https://unsplash.com)
-- All element and other button icons obtained license free from [Font Awesome](https://font-awesome.com)
+- All background images obtained license free from [Unsplash](https://unsplash.com) and [Pexels](https://pexels.com)
+- All icons obtained license free from [Font Awesome](https://font-awesome.com)
 
 ## Acknowledgements
 - This project was inspired by mobile idle/clicker games
