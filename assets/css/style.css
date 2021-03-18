@@ -398,7 +398,7 @@ button {
 #totals {
     padding: 0.6vh 0;
     font-size: x-small;
-    margin: 1.5vh 8vw 0 8vw;
+    margin: 1.5vh 0 0 0;
 }
 
 #totals>div {
