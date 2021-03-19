@@ -1,5 +1,3 @@
-<img src="./screenshots/logo.png" alt="screenshot" width = "550"/>
-
 <img src="./screenshots/am_i_responsive.png" alt="screenshot" width = "550"/>
 
 # ELEMENTS
@@ -159,6 +157,10 @@ To ensure the script is performing mathematical operations correctly, I did the 
 - 24 `<button>` elements with illegal `<div>` tag children
     - unable to change without breaking display
     - tags left unchanged as the error does not affect performance
+#### *index.html ran through [https://www.webaccessibility.com/](https://www.webaccessibility.com/)
+- 1 error related to possible lack of screen reader compatibility
+    - validator suggested adding a placeholder but doing this threw a different error
+    - I was unable to solve this however as this is an almost entirely visual game it would not be suitable for the visually impaired
 #### *style.css ran through [https://jigsaw.w3.org/css-validator](https://jigsaw.w3.org/css-validator)*
 - 4 invalid attribute values
     - all removed, no affect on performance
