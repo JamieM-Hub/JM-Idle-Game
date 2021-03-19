@@ -1,4 +1,7 @@
 # **ELEMENTS**
+
+<img src="./screenshots/am_i_responsive.png" alt="screenshot" height="300"/></div>
+
 *Elements* is a simple yet alluring mobile clicker game that is best described as interactive art with a finite play experience... and achievements!
 
 The project was developed by [Jamie McKenzie](https://github.com/JamieM-Hub) as part of the [Full Stack Software Development](https://codeinstitute.net) diploma at Code Institute.
@@ -242,7 +245,7 @@ A permanent fix would have taken too much time to implement as this would requir
 
 
 ## Player Testing
-*Elements* was human tested with one individual who was asked to play and complete *Elements*, then answer the following questions:
+*Elements* was human tested with a few individuals who were asked to play and complete *Elements*, then answer the following questions:
 
 1. What contributed to a positive experience?
 2. What contributed to a negative experience?
@@ -251,7 +254,9 @@ A permanent fix would have taken too much time to implement as this would requir
 5. On a scale of 1-10, how would you rate *Elements*?
 6. Any additional comments?
 
-### Player A
+Most respondents gave generally positive feedback but did not go into much detail. Therefore I've only included one set of answers from an individual who provided useful suggestions. For legal reasons, I will call him Josh.
+
+### Josh's experience
 #### *What contributed to a positive experience?*
 - progressive nature
 - surprise bonuses at random new levels
@@ -274,9 +279,13 @@ A permanent fix would have taken too much time to implement as this would requir
 #### *Any additional comments*
 - No
 ### Follow up
-- 
-# Deployment
-## Deploying to GitHub
+Many of Josh's suggestions I had already listed in the *If I Had Time* section of this document, such as sound effects and progress bars.
+
+I was able to implement one of Josh's suggestions - coloured Achievevement buttons. The reason I decided to change this so late in development is because it was originally this way (I removed the colour when refining the design) and I'd considered re-implementing the colour a few times.
+
+I think this was a good design choice and I'm glad the suggestion was made.
+
+## Deployment
 
 You can deploy this project to GitHub by doing the following:
 
@@ -323,4 +332,4 @@ If you'd like to run *Elements* locally, clone the repo from the menu above and 
 ## Acknowledgements
 - This project was inspired by mobile idle/clicker games
 - Thank you to my mentor Aaron for your continued help and advice
-- Thank you to my friends who were kind enough to play test *Elements* and provide feedback
+- Thank you to Josh and those who were kind enough to play test *Elements* and provide feedback
