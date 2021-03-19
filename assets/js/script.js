@@ -44,6 +44,7 @@ $(document).ready(function () {
             this.count -= this.nextLevel
             this.nextLevel = this.clickLevels[this.currentLevel]
             $("." + this.id).find(".trackerLevel").text(this.currentLevel)
+            $("." + this.id).find(".trackerCount").text(this.count)
 
             // update display and system dependant on level
             if (this.currentLevel != MAX_LEVEL) {
