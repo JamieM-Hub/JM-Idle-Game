@@ -70,6 +70,7 @@ $(document).ready(function () {
                 this.unlockTheme(this.theme)
                 $("#" + this.id + " > .clickerLevel").text("Level MAX")
                 $("." + this.id + " > .clickerCountDisplay").text("COMPLETE!")
+                $("." + this.id).find(".trackerCountDisplay").text("COMPLETE!")
                 $("." + this.id).find(".upgradeMultiplier").html("<i class=\"fas fa-crown\"></i>")
                 $("." + this.id).find(".upgradeMultiplier > i").addClass(player.currentTheme).addClass("no-shadow")
                 $("." + this.id).find(".upgradeMultiplier > i").css("background-color", "transparent")

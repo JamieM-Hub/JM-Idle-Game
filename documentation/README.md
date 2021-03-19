@@ -192,6 +192,8 @@ Whilst testing the UX I noticed that it was impossible to unlock one of the achi
 
 A permanent fix would have taken too much time to implement as this would require changing the entire maths system to accommodate odd numbers. Instead I changed the achievement to "almost" getting a score of 666, which will unlock when the User scores 665 or 667.
 
+On the very final test I noticed that the tracker count would not reduce as it should when leveling up, which was fixed in subsequent commits.
+
 ### User Stories
 - As a busy User looking for a quick distraction,
     - I want something I can easily jump into
