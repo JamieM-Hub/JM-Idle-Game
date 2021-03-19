@@ -14,16 +14,13 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
-
-    <title>Idle Game</title>
+    <title>ELEMENTS</title>
 </head>
 
 <body>
     <!-- start menu-->
     <div class="container startMenu">
-        <div class="row gameTitle headerText">
-            ELEMENTS
-        </div>
+        <div class="row gameTitle headerText"></div>
         <div class="row elementIcons">
             <i class="fab fa-gripfire"></i>
             <i class="fas fa-tint"></i>
@@ -53,7 +50,7 @@
         </div>
     </div>
 
-    <!-- menus -->
+    <!-- main menu -->
     <div class="container collapse navbar-collapse header-height" id="toggleMenu">
         <button type="button" id="newGameButton" class="menuButton " data-toggle="modal" data-target="#newGame">
             <span class="row">
@@ -79,6 +76,7 @@
         </button>
     </div>
 
+    <!-- themes menu -->
     <div class="container collapse navbar-collapse header-height" id="themesMenu">
         <div class="row">
             <button id="defaultTheme" class="col-6 themeButton "><i class="fas fa-question"></i></button>
@@ -113,7 +111,7 @@
         </div>
 
         <!-- totals -->
-        <div id="totals" class="row justify-content-center my-border">
+        <div id="totals" class="row justify-content-center ">
             <div class="col-4">
                 <div class="row justify-content-center">
                     <div class="col-3"><i class="far fa-hand-pointer"></i></div>
@@ -132,10 +130,12 @@
 
         </div>
 
-        <!-- clickers -->
-        <div class="row my-border" id="clickers">
+        <!-- element clickers -->
+        <div class="row " id="clickers">
             <div class="col-12">
                 <div class="row">
+
+                    <!-- fire -->
                     <div class="col-3">
                         <button id="fire" class="clicker fire ">
                             <div class="row">
@@ -147,6 +147,8 @@
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
+
+                    <!-- water -->
                     <div class="col-3 d-none">
                         <button id="water" class="clicker water ">
                             <div class="row">
@@ -158,6 +160,8 @@
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
+
+                    <!-- wind -->
                     <div class="col-3 d-none">
                         <button id="wind" class="clicker wind ">
                             <div class="row">
@@ -169,6 +173,8 @@
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
+
+                    <!-- earth -->
                     <div class="col-3 d-none">
                         <button id="earth" class="clicker earth ">
                             <div class="row">
@@ -184,6 +190,8 @@
             </div>
             <div class="col-12">
                 <div class="row">
+
+                    <!-- electron -->
                     <div class="col-3 d-none">
                         <button id="electron" class="clicker electron ">
                             <div class="row">
@@ -195,6 +203,8 @@
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
+
+                    <!-- nucleus -->
                     <div class="col-3 d-none">
                         <button id="nucleus" class="clicker nucleus ">
                             <div class="row">
@@ -206,6 +216,8 @@
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
+
+                    <!-- gravity -->
                     <div class="col-3 d-none">
                         <button id="gravity" class="clicker gravity ">
                             <div class="row">
@@ -217,6 +229,8 @@
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
+
+                    <!-- darkMatter -->
                     <div class="col-3 d-none">
                         <button id="darkMatter" class="clicker darkMatter ">
                             <div class="row">
@@ -228,13 +242,15 @@
                             <div class="clickerCountDisplay d-none"></div>
                         </button>
                     </div>
+
                 </div>
             </div>
         </div>
 
         <!-- trackers -->
-        <div class="row my-border  d-none" id="trackers">
+        <div class="row  d-none" id="trackers">
 
+            <!-- fire -->
             <div class="col-12 fire tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -258,12 +274,12 @@
                             <div class="col-7 trackerIncrement">+1</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fab fa-gripfire"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
 
+            <!-- water -->
             <div class="col-12 water tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -287,11 +303,12 @@
                             <div class="col-7 trackerIncrement">+2</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fas fa-tint"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- wind -->
             <div class="col-12 wind tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -315,11 +332,12 @@
                             <div class="col-7 trackerIncrement">+4</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fas fa-wind"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- earth -->
             <div class="col-12 earth tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -343,11 +361,12 @@
                             <div class="col-7 trackerIncrement">+8</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fas fa-globe-americas"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- electron -->
             <div class="col-12 electron tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -371,11 +390,12 @@
                             <div class="col-7 trackerIncrement">+16</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fas fa-bolt"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- nucleus -->
             <div class="col-12 nucleus tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -399,11 +419,12 @@
                             <div class="col-7 trackerIncrement">+32</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fas fa-atom"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- gravity -->
             <div class="col-12 gravity tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -427,11 +448,12 @@
                             <div class="col-7 trackerIncrement">+64</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fas fa-meteor"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
             </div>
+
+            <!-- dark matter -->
             <div class="col-12 darkMatter tracker d-none">
                 <div class="row">
                     <div class="col-1 trackerLevelDisplay">
@@ -455,7 +477,6 @@
                             <div class="col-7 trackerIncrement">+1</div>
                             <div class="col-1"></div>
                             <div class="col-4 trackerIcon"><i class="fas fa-cubes"></i></div>
-                            <!-- <div class="col-3">/s</div> -->
                         </div>
                     </div>
                 </div>
@@ -463,7 +484,7 @@
         </div>
 
         <!-- achievements -->
-        <div class="row achievements my-border">
+        <div class="row achievements">
             <div class="col-2 col-sm-1 col-lg-2 col-xl-1 d-none">
                 <div title="Unlock Fire" class="unlockFire"><button class="achievementButton"><i
                             class="fab fa-gripfire"></i></button></div>
@@ -778,13 +799,11 @@
             </div>
         </div>
     </div>
+
     <script src="assets/js/jquery-3.5.1.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js">
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js">
-    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
     <script src="assets/js/script.js"></script>
-</body>
 
+</body>
 </html>

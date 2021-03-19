@@ -80,11 +80,6 @@
     margin: 0;
 }
 
-.nameButton:focus {
-    box-shadow: inherit;
-    color: inherit;
-}
-
 body {
     text-align: center;
     height: 100vh;
@@ -99,8 +94,9 @@ input {
     text-align: center;
 }
 
-.achievements div div {
-    color: inherit;
+button {
+    padding: 0;
+    margin: 0;
 }
 
 hr {
@@ -117,11 +113,6 @@ h5 {
     justify-content: center;
     font-size: xx-large;
     background-color: transparent;
-}
-
-button {
-    padding: 0;
-    margin: 0;
 }
 
 .modal-dialog {
@@ -273,7 +264,6 @@ button {
     font-size: x-small;
 }
 
-
 .elementIcons {
     justify-content: center;
 }
@@ -302,6 +292,10 @@ button {
     font-size: inherit;
 }
 
+.nameButton:focus {
+    box-shadow: inherit;
+    color: inherit;
+}
 
 /* HEADER */
 
@@ -330,7 +324,6 @@ button {
 
 .navbar-toggler {
     background-color: rgba(0, 0, 0, 0);
-    /* font-size: xx-large; */
 }
 
 .navbar-collapse {
@@ -342,11 +335,24 @@ button {
     font-family: 'RocknRoll One', sans-serif;
 }
 
+/* MAIN MENU */
+
+#developer {
+    text-align: left;
+    font-size: small;
+}
+
+.newGame {
+    padding: 2vh;
+}
+
 .menuButton {
     width: 100%;
     padding: 0.5vh 0;
     font-size: small;
 }
+
+/* THEMES MENU */
 
 #themesMenu {
     font-size: large;
@@ -365,7 +371,7 @@ button {
     margin: -1.5vh;
 }
 
-/* GAMEBOARD */
+/* GAME BOARD */
 
 .gameBoard {
     margin: 0;
@@ -427,6 +433,15 @@ button {
     font-size: x-large;
 }
 
+.clickerLevel {
+    font-size: x-small;
+}
+
+.clickerCountDisplay {
+    font-size: x-small;
+    text-align: center;
+}
+
 .upgradeIcon {
     font-size: x-small;
     visibility: hidden;
@@ -444,17 +459,8 @@ button {
     background: transparent;
 }
 
-.clickerLevel {
-    font-size: x-small;
-}
-
-.clickerCountDisplay {
-    font-size: x-small;
-    text-align: center;
-}
-
-
 /* TRACKERS */
+
 #trackers {
     padding: 0.75vh 0;
 }
@@ -503,16 +509,15 @@ button {
 }
 
 /* ACHIEVEMENTS */
+
 .achievements {
     margin: 1.5vh 0 0 0;
-    border: 0.5vh solid black;
     justify-content: center;
 }
 
 #achievementsModal {
     padding: 0;
 }
-
 
 .achievement {
     font-size: x-small;
@@ -540,30 +545,12 @@ button {
     font-size: small;
 }
 
+.achievements div div {
+    color: inherit;
+}
+
 .achievementButton > i {
     background-color: transparent;
-}
-
-#developer {
-    text-align: left;
-    font-size: small;
-}
-
-.newGame {
-    padding: 2vh;
-}
-
-/* MISC */
-.opacity-50 {
-    opacity: 0.5;
-}
-
-.my-border {
-    border: none;
-}
-
-.no-shadow {
-    text-shadow: none;
 }
 
 /* MEDIA QUERIES */
@@ -574,7 +561,7 @@ button {
     }
 }
 
-/* Extra extra small devices (old phones, 350px and down) */
+/* Extra extra small devices (portrait old phones, 350px and down) */
 @media (max-width: 350px) {
     .startMenu {
         font-size: x-small;
@@ -636,10 +623,9 @@ button {
     .achievementText {
         font-size: 1.3vh;
     }
-
 }
 
-/* Extra small devices (old phones, 350px and up) */
+/* Extra small devices (portrait old phones, 350px and up) */
 @media (min-width: 350px) {
     .startMenu {
         font-size: small;
@@ -656,10 +642,9 @@ button {
     .navbar-toggler {
         font-size: xx-large;
     }
-
 }
 
-/* correct bootstrap bug */
+/* fix bug */
 @media (min-width: 576px) {
 
     .container,
@@ -673,7 +658,7 @@ button {
     }
 }
 
-/* Small devices (landscape phones, 576px and up) */
+/* Small devices (landscape old phones, 550px and up) */
 @media (min-width: 550px) and (orientation: landscape) {
     body {
         padding: 0 10vw;
@@ -751,9 +736,8 @@ button {
     .achievements {
         display: none;
     }
-
 }
-
+/* medium devices (portrait tablets, 720px and up) */
 @media (min-width: 720px) {
     body {
         background-position: top;
@@ -868,9 +852,8 @@ button {
     #developer {
         font-size: medium;
     }
-
 }
-
+/* medium devices (landscape modern phones/portrait tablets, 720px and up) */
 @media (min-width: 720px) and (orientation: landscape) {
 
     .clickerLevel,
@@ -941,7 +924,7 @@ button {
         display: none;
     }
 }
-
+/* large devices (portrait tablets/small desktop windows, 992px and up) */
 @media (min-width: 992px) {
     body {
         padding: 0 8vw;
@@ -1008,14 +991,6 @@ button {
         font-size: 55px;
     }
 
-    /* .gameTitle {
-        font-size: 6vh;
-    }
-
-    .smallTitle {
-        font-size: inherit;
-    } */
-
     #totals {
         margin-top: 1.5vh;
     }
@@ -1041,7 +1016,7 @@ button {
         font-size: x-large;
     }
 }
-
+/* large devices (landscape tablets/small desktop windows, 992px and up) */
 @media (min-width: 992px) and (orientation: landscape) {
     .navbar-collapse {
         width: 44vw;
@@ -1088,6 +1063,7 @@ button {
     }
 }
 
+/* extra large devices (large tablets/desktop windows, 1200px and up) */
 @media (min-width: 1200px) {
     body {
         padding: 0 15vw;
@@ -1157,9 +1133,3 @@ button {
         margin: 5vh 20vw;
     }
 }
-
-/* @media (orientation: landscape) {
-    .modal-dialog {
-        margin: 5vh 15vw;
-    }
-} */
