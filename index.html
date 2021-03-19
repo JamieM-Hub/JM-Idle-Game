@@ -579,10 +579,11 @@
                 </div>
                 <div class="modal-body">Are you sure? All progress will be lost! To start a new game, type in your name:
                     <div class="row enterName">
-                        <input class="col-12" type="text" id="inputId2" name="playerName">
+                        <input class="col-12" maxlength="8" type="text" id="inputId2" name="playerName">
                     </div>
                     <div class="row submitName">
-                        <button class="col-4 btn nameButton " type="button" onclick="newGame();">Let's go!</button>
+                        <!-- https://www.w3docs.com/snippets/javascript/how-to-get-the-value-of-text-input-field-using-javascript.html -->
+                        <button class="col-4 btn nameButton" type="button" maxlength="8" onclick="newGame();">Let's go!</button>
                     </div>
                 </div>
             </div>

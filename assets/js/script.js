@@ -467,38 +467,7 @@ $(document).ready(function () {
             clickDeveloper.unlocked = true
             processAchievement(clickDeveloper)
         }
-        // if (!devil.unlocked && ) {
-        //     devil.unlocked = true
-        //     processAchievement(devil)
-        // }
-        // if (!messiah.unlocked && ()) {
-        //     messiah.unlocked = true
-        //     processAchievement(messiah)
-        // }
     }
-
-    animateButton = (btn, id) => {
-        // $(btn).animate({
-        //     width: '+=10%',
-        //     height: '-=10%'
-        // })
-        //     $(btn).animate({
-        //         width: '-=20%',
-        //         height: '+=20%'
-        //     })
-        //     $(btn).animate({
-        //         width: '+=10%',
-        //         height: '-=10%'
-        //     })
-
-    }
-
-    // animateThemesButton = (color) => {
-    //     var button = $("#themesButton")
-    //     button.css("background-color", color)
-    // button.animate({height: '120%', width: '120%'}, "fast");
-    // button.animate({height: '100%', width: '100%'}, 1000); 
-    // }
 
     detectClicker = (btn, clickers) => {
         var clickedClicker
@@ -539,7 +508,7 @@ $(document).ready(function () {
         playerName = document.getElementById("inputId").value
         /* only start game if player has entered name and name is 8 characters or less */
         if ((playerName.length > 0) && (playerName.length < 9)) {
-            player.name = document.getElementById("inputId").value
+            player.name = playerName
             $(".startMenu").addClass("d-none")
             $(".gameBoard").removeClass("d-none")
             $(".playerName").text(player.name)
@@ -549,28 +518,32 @@ $(document).ready(function () {
                 processAchievement(messiah)
             }
         } else if (playerName.length >= 9) {
-            $("input").text("").attr("placeholder", "Max 8 characters!")
-        }
-        else {
-            $("input").attr("placeholder", "Please enter your name!")
+            $("#inputId").text("").attr("placeholder", "Max 8 characters!")
+        } else {
+            $("#inputId").attr("placeholder", "Please enter your name!")
         }
     }
 
     newGame = () => {
-        if (document.getElementById("inputId2").value) {
-            var newPlayer = document.getElementById("inputId2").value
-            reset(newPlayer)
+        playerName = document.getElementById("inputId2").value
+        if ((playerName.length > 0) && (playerName.length < 9)) {
+            console.log("0 < chars > 9")
+            reset(playerName)
             // https://stackoverflow.com/questions/16493280/close-bootstrap-modal
             $('#newGame').modal('toggle')
             $("#toggleMenu.show").removeClass("show")
-
-        }
-        if ((player.name == "Jesus") || (player.name == "jesus")) {
-            messiah.unlocked = true
-            processAchievement(messiah)
+            if ((playerName == "Jesus") || (playerName == "jesus")) {
+                messiah.unlocked = true
+                processAchievement(messiah)
+            }
+        } else if (playerName.length >= 9) {
+            console.log(">8 chars")
+            $("#inputId2").text("").attr("placeholder", "Max 8 characters!")
+        } else {
+            console.log("0 chars")
+            $("#inputId2").attr("placeholder", "Please enter your name!")
         }
     }
-
     // CLICKERS
     $(".clicker").click(function () {
         var clickedClicker = detectClicker(this, clickers)
@@ -667,7 +640,6 @@ $(document).ready(function () {
         addRemoveClass(".fa-play", player.currentTheme, selectedTheme)
 
         /* update system */
-        //console.log(player.currentTheme, " changed to ", selectedTheme)
         player.currentTheme = selectedTheme
         if (!player.themeChanged) player.themeChanged = true
         checkAchievement()
@@ -694,7 +666,6 @@ $(document).ready(function () {
     $(".playerName").text(player.name)
 
     // ADD THEMES
-    //$(".startMenu").addClass("defaultTheme")
     $(".gameTitle").addClass("defaultTheme")
     $(".nameButton").addClass("defaultTheme")
     $(".menuButton").addClass("defaultTheme")
