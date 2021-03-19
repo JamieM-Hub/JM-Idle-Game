@@ -104,6 +104,10 @@ hr {
     width: 100%;
 }
 
+a {
+    background-color: transparent;
+}
+
 h5 {
     font-size: small;
     text-align: center !important;
@@ -118,9 +122,10 @@ h5 {
 .modal-dialog {
     max-width: none;
 }
+
 .modal-body {
     font-size: x-small;
-    text-align: left;
+    text-align: center;
 }
 
 .modal-header {
@@ -183,7 +188,7 @@ h5 {
 }
 
 .fa-layer-group {
-    color: #a195b3  !important;
+    color: #a195b3 !important;
 }
 
 .fa-play {
@@ -191,7 +196,7 @@ h5 {
 }
 
 .fa-question-circle {
-    color:#b4ae70 !important
+    color: #b4ae70 !important
 }
 
 .fa-trophy {
@@ -338,12 +343,16 @@ h5 {
 /* MAIN MENU */
 
 #developer {
-    text-align: left;
+    text-align: center;
     font-size: small;
 }
 
 .newGame {
     padding: 2vh;
+}
+
+.newGameText {
+    margin: 0;
 }
 
 .menuButton {
@@ -549,7 +558,7 @@ h5 {
     color: inherit;
 }
 
-.achievementButton > i {
+.achievementButton>i {
     background-color: transparent;
 }
 
@@ -737,6 +746,7 @@ h5 {
         display: none;
     }
 }
+
 /* medium devices (portrait tablets, 720px and up) */
 @media (min-width: 720px) {
     body {
@@ -853,6 +863,7 @@ h5 {
         font-size: medium;
     }
 }
+
 /* medium devices (landscape modern phones/portrait tablets, 720px and up) */
 @media (min-width: 720px) and (orientation: landscape) {
 
@@ -924,6 +935,7 @@ h5 {
         display: none;
     }
 }
+
 /* large devices (portrait tablets/small desktop windows, 992px and up) */
 @media (min-width: 992px) {
     body {
@@ -1006,16 +1018,20 @@ h5 {
     .achievementName {
         font-size: medium;
     }
+
     .achievementImage {
         font-size: x-large;
     }
+
     .modal-body {
         font-size: large;
     }
+
     h5 {
         font-size: x-large;
     }
 }
+
 /* large devices (landscape tablets/small desktop windows, 992px and up) */
 @media (min-width: 992px) and (orientation: landscape) {
     .navbar-collapse {
@@ -1129,6 +1145,7 @@ h5 {
     .achievementButton {
         font-size: x-large;
     }
+
     .modal-dialog {
         margin: 5vh 20vw;
     }

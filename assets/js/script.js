@@ -459,9 +459,11 @@ $(document).ready(function () {
             reset(playerName)
             $('#newGame').modal('toggle')
             $("#toggleMenu.show").removeClass("show")
-            if ((playerName == "Jesus") || (playerName == "jesus")) { messiah.unlocked = true; processAchievement(messiah) }
-        } 
-        else if (playerName.length >= 9) $("#inputId2").text("").attr("placeholder", "Max 8 characters!")
+            if ((playerName == "Jesus") || (playerName == "jesus")) {
+                messiah.unlocked = true;
+                processAchievement(messiah)
+            }
+        } else if (playerName.length >= 9) $("#inputId2").text("").attr("placeholder", "Max 8 characters!")
         else $("#inputId2").attr("placeholder", "Please enter your name!")
     }
 
@@ -480,7 +482,9 @@ $(document).ready(function () {
     })
 
     // show achievement modal when achievement button clicked
-    $(".achievementButton").click(function () { $("#achievements").modal('toggle') })
+    $(".achievementButton").click(function () {
+        $("#achievements").modal('toggle')
+    })
 
     // show developer modal when achievement button clicked and unlock achievement
     $("#developerButton").click(function () {
@@ -526,6 +530,8 @@ $(document).ready(function () {
         addRemoveClass(".navbar-toggler > span > i", player.currentTheme, selectedTheme)
         $(".navbar-toggler > span > i").css("background-color", "transparent")
         changeThemeIcon(player.currentTheme, selectedTheme)
+        addRemoveClass("a", player.currentTheme, selectedTheme)
+        $("a").css("background-color", "transparent")
         addRemoveClass(".modal-dialog", player.currentTheme, selectedTheme)
         addRemoveClass(".gameTitle", player.currentTheme, selectedTheme)
         $(".gameTitle").css("background-color", "transparent")
@@ -549,11 +555,9 @@ $(document).ready(function () {
         if (selectedTheme == "defaultTheme") {
             if (player.themesTried[0] == false)
                 player.themesTried[0] = true
-        } 
-        else if (selectedTheme == "ultimaTheme") {
+        } else if (selectedTheme == "ultimaTheme") {
             if (player.themesTried[MAX_THEMES - 1] == false) player.themesTried[MAX_THEMES - 1] = true
-        } 
-        else {
+        } else {
             for (i = 0; i < NUM_ELEMENTS; i++) {
                 if (clickers[i].theme == selectedTheme)
                     selected = i + 1
@@ -575,8 +579,8 @@ $(document).ready(function () {
         else {
             for (i = 0; i < NUM_ELEMENTS; i++) {
                 if ((clickers[i].theme == this.id) && (clickers[i].themeUnlocked)) changeToSelectedTheme(this.id)
-                }
             }
+        }
         checkAchievement()
     })
 
