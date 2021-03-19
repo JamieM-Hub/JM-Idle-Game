@@ -1,6 +1,8 @@
-# **ELEMENTS**
+<img src="./screenshots/logo.png" alt="screenshot" width = "550"/>
 
-<img src="./screenshots/am_i_responsive.png" alt="screenshot" height="300"/>
+<img src="./screenshots/am_i_responsive.png" alt="screenshot" width = "550"/>
+
+# ELEMENTS
 
 *Elements* is a simple yet alluring mobile clicker game that is best described as interactive art with a finite play experience... and achievements!
 
