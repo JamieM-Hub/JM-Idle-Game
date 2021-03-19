@@ -128,7 +128,7 @@ $(document).ready(function () {
     var changeTheme = new Achievement("Change Theme", "changeTheme", "So pretty", "fas fa-paint-brush", "?????? ?????")
     var tryAllThemes = new Achievement("Try All Themes", "tryAllThemes", "That's it, no more fun. Go to bed.", "fas fa-palette", "??? ??? ??????")
     var clickDeveloper = new Achievement("Check Out Developer", "clickDeveloper", "I'm glad somebody cares", "fas fa-layer-group", "????? ?????????")
-    var devil = new Achievement("Secret 1: Devil's Game", "devil", "You had a score of 666. Find Jesus.", "fas fa-question-circle", "?????? ?: ?????? ????")
+    var devil = new Achievement("Secret 1: Devil's Game", "devil", "You almost scored 666. Find Jesus.", "fas fa-question-circle", "?????? ?: ?????? ????")
     var messiah = new Achievement("Secret 2: The Messiah", "messiah", "Jesus! Someone's looking for you.", "fas fa-question-circle", "?????? ?: ??? ???????")
     let achievements = [
         unlockFire, clicks_50, clicks_100, clicks_250, clicks_500, clicks_1000, firstUpgrade,
@@ -258,7 +258,8 @@ $(document).ready(function () {
 
     incrementScore = (score, i) => {
         score += i
-        if (score == 666) {
+        // Scoring 666 not possible due to even numbers - may be fixed in future patch
+        if ((score >= 665) && (score <= 667)) {
             devil.unlocked = true
             processAchievement(devil)
         }
