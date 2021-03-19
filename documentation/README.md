@@ -1,6 +1,6 @@
 # **ELEMENTS**
 
-<img src="./screenshots/am_i_responsive.png" alt="screenshot" height="300"/></div>
+<img src="./screenshots/am_i_responsive.png" alt="screenshot" height="300"/>
 
 *Elements* is a simple yet alluring mobile clicker game that is best described as interactive art with a finite play experience... and achievements!
 
@@ -11,21 +11,23 @@ Click [here](http://https://jamiem-hub.github.io/JM-Idle-Game/) to check it out!
 # UX
 
 *Elements* is a primitive clicker game with no automation, prestige system or player abilities.
-In the design process, it was significant that the game mechanics to keep players engaged are minimal. For this reason, major developmental focus was placed on the game's aesthetic and general immersion.
 
-The aesthetic was designed to be bold and colourful in every corner, with unlockable themes rewarding continued gameplay.
+In the design process of a clicker game, it was significant that the game mechanics available to keep Users engaged are minimal. For this reason, major developmental focus was placed on the game's aesthetic and general immersion. The aesthetic was designed to be bold and colourful in every corner, with unlockable themes rewarding continued gameplay.
 
-Simplicity was also a key factor in the design process, and there is no need for more than one web page as everything the User needs is accessible from index.html. This includes modals and toggler divs containing menus and content.
-
-Because the shape of the *Elements* game board is fairly square, I decided it would be best to replicate the same layout on both landscape and portrait orientations for consistency. This may however reduce the amount of content I can display on the landscape orientation.
+In addition to aesthetic, I used subtle humour as an additional tool to maintain User engagement. This is featured as text alongside unlocked achievements.
 
 ## Wireframes
 
-For the reason mentioned above, I wanted a single design that works on portrait for all screen sizes and a slightly adapted version that works on landscape for all screen sizes to allow as much content to fit as possible.
-- [Portrait orientation](https://pidoco.com/rabbit/invitation/rMYN5I2a5XRwHeOM4QLGJE24XfveXIImUhPQpmag)
-- [Landscape orientation](https://pidoco.com/rabbit/result/view/328890/page336393291/sketchedArial)
+Simplicity was also a key factor in the design process. Everything the User needs is accessible from index.html, including modals and toggler divs containing menus and content.
 
-Whilst I did keep the design mostly the same, due to space issues I moved the menu to cover the game title when activated.
+Because the shape of the *Elements* game board is fairly square, I decided it would be best to replicate the same layout on both landscape and portrait orientations for consistency, accepting a possible limitation on the amount of content I can display on the landscape orientation.
+
+I wanted a single design that works on portrait for all screen sizes and a slightly adapted version that works on landscape for all screen sizes to allow as much content to fit as possible.
+
+Whilst I did keep the design mostly the same, due to spatial issues I moved the menu to cover the game title when activated.
+
+<img src="./screenshots\wireframe_landscape.png" alt="screenshot" height="300"/>
+<img src="./screenshots\wireframe_portrait.png" alt="screenshot" height="300"/>
 
 ## User Stories
 Clicker games are very popular on the mobile market, which is highly saturated.
@@ -46,8 +48,7 @@ The following are some examples of typical mobile game consumers:
 - As a User who is a fan of clicker-style games
     - I want an aesthetically pleasing experience
     - I want a robust product of high quality
-    - I want to experience something that stands out within a very saturated market
-
+    - I want to experience something that stands out within a saturated market
 
 # Features
 ### Player Name
@@ -76,37 +77,42 @@ Given unlimited time, the following features would be included in the final prod
 - JSON serialization to prevent page reload resetting the game
 
 # Technologies Used
+## Languages
+### HTML *(49.7%)*
+
+A large number of small HTML elements like buttons and bootstrap grids have resulted in a larger than expected HTML file.
+
+### JavaScript / jQuery  *(38.2%)*
+    
+jQuery was the operational focus of this project alongside the Bootstrap grid, and many styling operations are done in jQuery instead of CSS.
+
+### CSS *(12.1%)*
+
+As above, much styling was done in jQuery however all media queries were coded in CSS.
+
 ## Libraries
-- Bootstrap CDN
-- jQuery CDN
+- Bootstrap
+- jQuery
 - Font Awesome
 - Google Fonts
-## Languages
-- HTML *49.7%*
-    - A large number of small HTML elements like buttons and bootstrap grid divs have resulted in a larger than expected HTML file.
-
-- JavaScript / jQuery *38.2%*
-    - jQuery was the operational focus of this project alongside the Bootstrap grid, and many styling operations are done in jQuery instead of CSS.
-
--  CSS *12.1%*
-    - As above, much styling was done in jQuery however all media queries have been coded in CSS.
 
 # Testing
 ## Functional Testing
 ### Input fields
 There is only one User input in *Elements*, which is name entry before the game begins. When the User starts a New Game, they are prompted for their name again before restarting the game.
 
-The following values were tested on both inputs and were found to be satisfactory:
+The following values were tested on both inputs:
 - Null (nothing was typed in)
-    - Input text was deleted and input placeholder asked User to enter their name.
+    - Input text was deleted and input placeholder asked User to enter their name
 - More than 8 characters
-    - Character entry is disabled after 8 characters.
+    - Character entry is disabled after 8 characters
 - Between 1 and 8 characters
-    - Entry accepted and game screen loads.
-- Problems encountered
-    - Function missing from new game button, code since added
-    - Maximum length working correctly in browser, but using the same browser on a real smartphone allows limitless character entry.
-    - To fix this I created a function to catch the error, delete the text input and pass a message to the user via the placeholder.
+    - Entry accepted and game screen loads
+- Bugs
+    - Maximum length working correctly in browser, but using the same browser on a real smartphone allows limitless character entry
+        - Function created to catch the error, delete the text input and pass a message to the user via the placeholder
+        - Input validation missing from new game function
+        - Adding code fixed bug
 
 ### Menu toggling
 The icons in the top left and top right corners toggle one of two menus - the main menu and the Theme menu. Each menu occupies the same space in front of the game title and needs to be closed before opening the other menu if that icon is clicked.
@@ -142,11 +148,22 @@ To ensure the script is performing mathematical operations correctly, I did the 
 - Achievement buttons are not clickable if not unlocked
 ## Script Testing
 ### Checking Tools
-- index.html ran through X
-- style.css ran through X
-- script.js ran through X
+#### *index.html ran through [https://validator.w3.org/](https://validator.w3.org/)*
+- Theme and main menu buttons aria-labelledby attributes illegal and do not have a role attribute
+    - removed attributes without affecting performance
+    - added role attributes
+- Achievement buttons ilegally wrapped in `<a>` tags
+    - changed to `<div>` tags
+- 24 `<button>` elements with illegal `<div>` tag children
+    - unable to change without breaking display
+    - tags left unchanged as the error does not affect performance
+#### *style.css ran through [https://jigsaw.w3.org/css-validator](https://jigsaw.w3.org/css-validator)*
+- 4 invalid attribute values
+    - all removed, no affect on performance
+#### *script.js ran through [https://jshint.com/](https://jshint.com/)*
+- Lines missing semicolons (warning only)
+    - I decided not to use semicolons in script.js as the code is already quite busy
 
-All found to be satisfactory
 ### Debug Mode
 I designed a Debug Mode to allow streamlined testing of things like unlocking achievements or levelling up, which require time to perform. Debug Mode was also useful to test responsiveness when all game board elements are displayed, and refine Themes.
 
@@ -158,7 +175,7 @@ Debug Mode includes the following operations:
 A secondary Debug Mode to reduce the number of clicks needed to level up on one Element to 1 was used to quickly test the Theme unlock function, which would otherwise require hundreds of clicks to unlock one Theme.
 ## UX Testing
 ### Breakpoints
-Application tested on portrait and landscape orientation for all breakpoints and for the following device templates on Developer Tools:
+After adding media queries, *Elements* was tested on portrait and landscape orientation  and found satisfactory for all breakpoints, and for the following device templates on Developer Tools:
 - Moto G4
 - Galaxy S5
 - Pixel 2
@@ -180,35 +197,35 @@ A permanent fix would have taken too much time to implement as this would requir
     - I want something I can easily jump into
         - When the game started I was welcomed to the game and prompted to enter my name to begin. Upon doing this the main game was loaded and I could begin clicking immediately.
 
-        <img src="./screenshots/userStory_1/story_1a-1.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_1/story_1a-2.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_1/story_1a-3.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1a-1.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1a-2.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1a-3.png" alt="screenshot" height="300"/>
 
 
     - I want something that will keep me entertained for a short period of time
         - I clicked the Fire Element to see how far it would go up. It capped at 10 and I was awarded a theme. I repeated this with all other Elements and was awarded the final theme for doing so. The whole process took about 8 minutes of continuous clicking.
 
-        <img src="./screenshots/userStory_1/story_1b-1.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_1/story_1b-2.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_1/story_1b-3.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1b-1.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1b-2.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1b-3.png" alt="screenshot" height="300"/>
 
     - I want something simple that doesn't require complex thought
-        - I leveled up, and unlocked upgrades and themes the only action I performed was clicking buttons, changing themes,and checking the achievement menu when unlocked. I also looked at the developer tab and tried starting a new game once I had completed the game. After this there was nothing else to do.
+        - I leveled up and unlocked upgrades and themes, and the only action I performed was clicking buttons, changing themes, and checking the achievement menu when unlocked. I also looked at the developer tab and tried starting a new game once I had completed the game. After this there was nothing else to do.
 
-        <img src="./screenshots/userStory_1/story_1c-1.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_1/story_1c-2.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_1/story_1c-3.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1c-1.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1c-2.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_1/story_1c-3.png" alt="screenshot" height="300"/>
 
 - As a User looking for a game with progression and reward,
     - I want clearly defined objectives
         - I entered my name and started the game. I was given one button to click. On clicking, a table appeared displaying information about the button. On the button was displayed "Level 1" and underneath "UNLOCK!". I continued clicking and noticed the number go up. When the target was reached, the level increased and "LEVEL UP!" was displayed. On reaching level 3 I unlocked a multiplier which was displayed on the button and the increment on the table increased. At some point another button appeared which reacted just like the first one and could be leveled and completed. This process repeated until the game was complete.
 
-        <img src="./screenshots/userStory_2/story_2a-1.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_2/story_2a-2.png" alt="screenshot" height="300"/>
-        <img src="./screenshots/userStory_2/story_2a-3.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_2/story_2a-1.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_2/story_2a-2.png" alt="screenshot" height="300"/>
+            <img src="./screenshots/userStory_2/story_2a-3.png" alt="screenshot" height="300"/>
 
     - I want to be rewarded for clearing goals with something I can use
-        - I entered my name and started clicking on the Fire Element. When I got to level 3, I unlocked an upgrade which was immediately activated and the Element increment increased accordingly. The same thing happened at level 5 and 7. On reaching level 10, I received a theme for the Element I completed, which activated a button to access the themes menu. I clicked the Fire button and the theme changed immediately. On completing all elements I was rewarded with the final theme which I could seleect immediately.
+        - I entered my name and started clicking on the Fire Element. When I got to level 3, I unlocked an upgrade which was immediately activated and the Element increment increased accordingly. The same thing happened at level 5 and 7. On reaching level 10, I received a theme for the Element I completed, which activated a button to access the themes menu. I clicked the Fire button and the theme changed immediately. On completing all elements I was rewarded with the final theme which I could select immediately.
 
         <img src="./screenshots/userStory_2/story_2b-1.png" alt="screenshot" height="300"/>
         <img src="./screenshots/userStory_2/story_2b-2.png" alt="screenshot" height="300"/>
@@ -230,14 +247,14 @@ A permanent fix would have taken too much time to implement as this would requir
         <img src="./screenshots/userStory_3/story_3a-3.png" alt="screenshot" height="300"/>
 
     - I want a robust product of high quality
-        - When the game began I clicked the "That's Me!" button and a message was displayed in the text box asking me to enter my name. I tried to enter more than 8 characters but I could not enter more than 8. I entered my name and started the game. Each button worked and as I played the numbers displayed on the table and on the button were consistent, including the multipliers. The menu button brought up 3 buttons which each activated a different modal. I clicked Fire until level 10 which completed the Element, unlocked a theme and disabled the button. The themes menu button brought up 10 buttons. The unlocked themes changed the theme when clicked, and the others were disabled. As I unlocked themes the button changed colour and now changed theme. Upon completing the game I tried starting a new game which prompted me to enter my name to continue. I tested the input as the first and the result was the same.
+        - When the game began I clicked the "That's Me!" button and a message was displayed in the text box asking me to enter my name. I tried to enter more than 8 characters but I could not enter more than 8. I entered my name and started the game. Each button worked and as I played, the numbers displayed on the table and on the button were consistent, including the multipliers. The menu button brought up 3 buttons which each activated a different modal. I clicked Fire until level 10 which completed the Element, unlocked a theme and disabled the button. The themes menu button brought up 10 buttons. The unlocked themes changed the theme when clicked, and the others were disabled. As I unlocked themes the button changed colour and now changed theme when clicked. Upon completing the game I tried starting a new game which prompted me to enter my name to continue. I tested the input as the first and the result was the same.
 
         <img src="./screenshots/userStory_3/story_3b-1.png" alt="screenshot" height="300"/>
         <img src="./screenshots/userStory_3/story_3b-2.png" alt="screenshot" height="300"/>
         <img src="./screenshots/userStory_3/story_3b-3.png" alt="screenshot" height="300"/>
 
     - I want to experience something that stands out within a very saturated market
-        - When I started the game the theme was clear and the design was minimal. I entered my name and an image was loaded with a button. When I clicked the button a table appeared with a levelling system. Levelling unlocked upgrade multiplier upgrades and when the element was completed, it stopped being clickable. Themes based on the elements were unlocked and could be changed from a menu. An achievement appeared whilst I was clicking. On the achievement menu this was unlocked because I had a score of 666.
+        - When I started the game the theme was clear and the design was minimal. I entered my name and an image was loaded with a button. When I clicked the button a table appeared with a leveling system. Leveling unlocked upgrade multiplier upgrades and when the element was completed, it stopped being clickable. Themes based on the elements were unlocked and could be changed from a menu. An achievement appeared whilst I was clicking. On the achievement menu this was unlocked because I almost had score of 666.
 
         <img src="./screenshots/userStory_3/story_3c-1.png" alt="screenshot" height="300"/>
         <img src="./screenshots/userStory_3/story_3c-2.png" alt="screenshot" height="300"/>
@@ -254,7 +271,7 @@ A permanent fix would have taken too much time to implement as this would requir
 5. On a scale of 1-10, how would you rate *Elements*?
 6. Any additional comments?
 
-Most respondents gave generally positive feedback but did not go into much detail. Therefore I've only included one set of answers from an individual who provided useful suggestions. For legal reasons, I will call him Josh.
+Most respondents gave generally positive feedback but did not go into much detail. Therefore I've only included one set of answers from a User who provided useful suggestions. For legal reasons, his real name has not been used.
 
 ### Josh's experience
 #### *What contributed to a positive experience?*
@@ -278,14 +295,13 @@ Most respondents gave generally positive feedback but did not go into much detai
 - 7/10
 #### *Any additional comments*
 - No
+
 ### Follow up
-Many of Josh's suggestions I had already listed in the *If I Had Time* section of this document, such as sound effects and progress bars.
+Many of Josh's suggestions I had already considered in the *If I Had Time* section of this document, such as sound effects and progress bars.
 
-I was able to implement one of Josh's suggestions - coloured Achievevement buttons. The reason I decided to change this so late in development is because it was originally this way (I removed the colour when refining the design) and I'd considered re-implementing the colour a few times.
+I was able to implement one of Josh's suggestions - coloured Achievevement buttons. The reason I decided to change this so late in development is because it was originally this way (I removed the colour when refining the design) and I'd considered re-implementing the colour a few times. I think this was a good design choice and I'm glad the suggestion was made.
 
-I think this was a good design choice and I'm glad the suggestion was made.
-
-## Deployment
+# Deployment
 
 You can deploy this project to GitHub by doing the following:
 
@@ -326,10 +342,19 @@ If you'd like to run *Elements* locally, clone the repo from the menu above and 
 - MSN Web Docs
 
 ## Digital Copyright
-- All background images obtained license free from [Unsplash](https://unsplash.com) and [Pexels](https://pexels.com)
-- All icons obtained license free from [Font Awesome](https://font-awesome.com)
+- All background images obtained free from [Unsplash](https://unsplash.com) and [Pexels](https://pexels.com)
+- All icons obtained free from [Font Awesome](https://font-awesome.com)
 
 ## Acknowledgements
 - This project was inspired by mobile idle/clicker games
 - Thank you to my mentor Aaron for your continued help and advice
 - Thank you to Josh and those who were kind enough to play test *Elements* and provide feedback
+
+
+# Message From Developer
+
+*Elements* is the first project I have ever published that can be considered a video game.
+
+My software development journey has always had games design as it's destination, and this is a huge milestone for my career.
+
+Thank you for reading this message and I hope you enjoy *Elements*!
