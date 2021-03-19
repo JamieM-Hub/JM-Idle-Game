@@ -7,7 +7,7 @@ $(document).ready(function () {
     const NUM_ELEMENTS = 8
     const NUM_ACHIEVEMENTS = 24
     const MAX_LEVEL = 10
-    const MAX_THEMES = 9
+    const MAX_THEMES = 10
     const MAX_UPGRADES = (NUM_ELEMENTS * 3) /* elements x upgrades */
     const UPGRADE_MULTIPLIERS = [1, 2, 3, 5]
     const fireLevels = [1, 10, 20, 50, 75, 150, 250, 500, 750, 1000]
@@ -19,11 +19,6 @@ $(document).ready(function () {
     const gravityLevels = [64, 1000, 2000, 5000, 10000, 20000, 30000, 80000, 120000, 200000]
     const darkMatterLevels = [128, 2000, 4000, 10000, 20000, 40000, 60000, 150000, 250000, 500000]
     const playerLevels = [1, 100, 400, 1000, 2500, 8000, 25000, 50000]
-    // STYLES
-    const BTN_PRIMARY = {
-        "font-size": "10px",
-        "border": "none"
-    }
 
     // CLICKER OBJECTS
     function Clicker(id, color, unlockedAtLevel, clickLevels, iStart, theme, icon) {
@@ -84,7 +79,6 @@ $(document).ready(function () {
             if (!this.themeUnlocked) this.themeUnlocked = true
             $("#" + this.theme).removeClass("defaultTheme").addClass(this.theme)
             $("#" + this.theme + " > i").removeClass("fas fa-question").addClass(this.icon)
-            //console.log(this.id + " theme unlocked!")
         }
     }
     var fire = new Clicker("fire", "red", playerLevels[0], fireLevels, 1, "fireTheme", "fab fa-gripfire")
@@ -146,16 +140,18 @@ $(document).ready(function () {
         this.newGame = false
         this.firstUpgradeUnlocked = false
         this.themeChanged = false
-        this.themesTried = [false]
+        this.themesTried = []
         this.developerClicked = false
-        this.themeCount = 0
         this.currentTheme = "defaultTheme"
         this.upgradeCount = 0
         this.maxCount = 0
         this.gameStarted = false
     }
     var player = new Player()
-    //player.currentTheme = "defaultTheme"
+    player.themesTried[0] = true
+    for (i = 1; i < MAX_THEMES; i++) {
+        player.themesTried[i] = false
+    }
 
     // FUNCTIONS
     debug = () => {
@@ -167,13 +163,18 @@ $(document).ready(function () {
         for (i = 0; i < NUM_ACHIEVEMENTS; i++) {
             processAchievement(achievements[i])
         }
-        player.maxCount = 8
+        //player.maxCount = 8
         checkAchievement()
-        //changeToSelectedTheme("waterTheme")
     }
 
     debug2 = () => {
-        fire.clickLevels = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        for (i = 0; i < NUM_ELEMENTS; i++) {
+            clickers[i].clickLevels = [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }
+        for (i = 0; i < NUM_ELEMENTS; i++) {
+            clickers[i].unlocked = true
+            $(".clicker." + clickers[i].id).parent().removeClass("d-none")
+        }
     }
 
     reset = (newPlayer) => {
@@ -462,6 +463,7 @@ $(document).ready(function () {
         if (!tryAllThemes.unlocked && (_themesTried == MAX_THEMES)) {
             tryAllThemes.unlocked = true
             processAchievement(tryAllThemes)
+            console.log("tried all themes")
         }
         // Check Out Developer
         if (!clickDeveloper.unlocked && (player.developerClicked == true)) {
@@ -603,17 +605,22 @@ $(document).ready(function () {
     changeToSelectedTheme = (selectedTheme) => {
         var selected
         var imgSource = "url(\"../" + PROJECT_NAME + "/assets/img/" + selectedTheme + ".jpg\")"
+
         /* check & update themesTried */
         if (selectedTheme == "defaultTheme") {
-            if (player.themesTried[0] == false) player.themesTried[0] = true
+            if (player.themesTried[0] == false)
+                player.themesTried[0] = true
         } else if (selectedTheme == "ultimaTheme") {
-            if (player.themesTried[NUM_ELEMENTS + 1] == false) player.themesTried[NUM_ELEMENTS + 1] = true
+            if (player.themesTried[MAX_THEMES - 1] == false) player.themesTried[MAX_THEMES - 1] = true
         } else {
             for (i = 0; i < NUM_ELEMENTS; i++) {
-                if (clickers[i].theme == selectedTheme) selected = i
+                if (clickers[i].theme == selectedTheme)
+                    selected = i + 1
             }
-            if (player.themesTried[selected] == false) player.themesTried[selected] = true
+            if (player.themesTried[selected] == false)
+                player.themesTried[selected] = true
         }
+        console.log(player.themesTried)
         /* update display */
         $("body").css("background-image", imgSource)
         $(".modal-dialog").css("background-image", imgSource)
@@ -642,16 +649,18 @@ $(document).ready(function () {
 
         /* update system */
         player.currentTheme = selectedTheme
-        if (!player.themeChanged) player.themeChanged = true
+        if (!player.themeChanged && !(selectedTheme == "defaultTheme")) player.themeChanged = true
         checkAchievement()
     }
 
     $(".themeButton").click(function () {
         if ((this.id == "defaultTheme") && (player.maxCount > 0)) {
             changeToSelectedTheme(this.id)
-        } else if ((this.id == "ultimaTheme") && (completeAll.unlocked == true)) {
+        } 
+        else if ((this.id == "ultimaTheme") && (completeAll.unlocked == true)) {
             changeToSelectedTheme(this.id)
-        } else {
+        } 
+        else {
             for (i = 0; i < NUM_ELEMENTS; i++) {
                 if ((clickers[i].theme == this.id) && (clickers[i].themeUnlocked)) {
                     changeToSelectedTheme(this.id)
@@ -681,5 +690,5 @@ $(document).ready(function () {
     $(".achievementButton").addClass("defaultTheme")
 
     //debug()
-    //debug2()
+    debug2()
 })
