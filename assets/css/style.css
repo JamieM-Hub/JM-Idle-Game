@@ -145,77 +145,72 @@ button {
 /* FONT AWESOME */
 
 .fa-hand-pointer {
-    color: whitesmoke;
+    color: whitesmoke !important;
 }
 
 .fa-angle-double-up {
-    color: grey;
+    color: rgb(150, 150, 150) !important;
 }
 
 .fa-gripfire {
-    color: #d25b15;
+    color: #d25b15 !important;
     font-size: larger;
 }
 
 .fa-tint {
-    color: cornflowerblue;
+    color: cornflowerblue !important;
 }
 
 .fa-wind {
-    color: lightseagreen;
-
+    color: lightseagreen !important;
 }
 
 .fa-globe-americas {
-    color: #7d793f;
-
+    color: #7d793f !important;
 }
 
 .fa-bolt {
-    color: gold;
+    color: gold !important;
 }
 
 .fa-atom {
-    color: #2fbd0b;
+    color: #2fbd0b !important;
 }
 
 .fa-meteor {
-    color: rgb(177 63 61);
+    color: rgb(177 63 61) !important;
 }
 
 .fa-cubes {
-    color: #ad3cad;
-
+    color: #ad3cad !important;
 }
 
 .fa-crown {
-    color: #f5b603;
-
+    color: #f5b603 !important;
 }
 
 .fa-palette {
-    color: whitesmoke;
-
+    color: whitesmoke !important;
 }
 
 .fa-paint-brush {
-    color: #5bb735;
+    color: #5bb735 !important;
 }
 
 .fa-layer-group {
-    color: teal;
+    color: teal  !important;
 }
 
 .fa-play {
-    color: #212529;
+    color: #212529 !important;
 }
 
 .fa-question-circle {
-    color: black;
+    color: black !important;
 }
 
 .fa-trophy {
-    color: darkorange;
+    color: darkorange !important;
 }
 
 .fab,
