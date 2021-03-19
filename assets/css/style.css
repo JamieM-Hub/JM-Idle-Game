@@ -1,5 +1,3 @@
-/* || \ */
-
 /* fix bootstrap default padding and margin */
 .col,
 .col-1,
@@ -89,23 +87,19 @@
 
 body {
     text-align: center;
-    padding: none;
-    margin: none;
     height: 100vh;
-    /* background-image: url("../img/defaultTheme.jpg"); */
     background-color: whitesmoke;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     font-family: 'RocknRoll One', sans-serif;
-    text-shadow: black;
 }
 
 input {
     text-align: center;
 }
 
-a {
+.achievements div div {
     color: inherit;
 }
 
@@ -762,7 +756,6 @@ button {
 
 @media (min-width: 720px) {
     body {
-        margin: 0 7.5w;
         background-position: top;
     }
 
